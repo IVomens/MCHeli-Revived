@@ -1,7 +1,8 @@
-# mcheli-revived-api 1.0.0
+# mcheli-revived-api 1.1.0
 # The public signatures of the API. Written by ./gradlew :api:updateApiDump; see docs/API.md.
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.content.ContentLookup content()
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.event.EventBus events()
+com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions vehicleExtensions()
 com.ivomens.mcheli.api.McheliApi method public abstract java.lang.String apiVersion()
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.Vehicle> vehicles(net.minecraft.world.level.Level)
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.Vehicle> vehiclesIn(net.minecraft.world.level.Level, net.minecraft.world.phys.AABB)
@@ -131,3 +132,65 @@ com.ivomens.mcheli.api.vehicle.VehicleKind method public static com.ivomens.mche
 com.ivomens.mcheli.api.vehicle.VehicleKind type public final enum
 com.ivomens.mcheli.api.vehicle.VehicleSeat method public abstract com.ivomens.mcheli.api.vehicle.Vehicle getParent()
 com.ivomens.mcheli.api.vehicle.VehicleSeat type public interface
+com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract boolean isClientSide()
+com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract com.ivomens.mcheli.api.vehicle.extension.VehicleControls controls()
+com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract net.minecraft.resources.ResourceLocation id()
+com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract net.minecraft.world.level.Level level()
+com.ivomens.mcheli.api.vehicle.extension.BehaviourContext type public interface
+com.ivomens.mcheli.api.vehicle.extension.BehaviourFactory method public abstract com.ivomens.mcheli.api.vehicle.extension.VehicleBehaviour create(S, com.ivomens.mcheli.api.vehicle.extension.BehaviourContext)
+com.ivomens.mcheli.api.vehicle.extension.BehaviourFactory type public interface<S extends java.lang.Object> 
+com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming field public static final com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming AFTER_MOVEMENT
+com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming field public static final com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming BEFORE_MOVEMENT
+com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming method public static com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming valueOf(java.lang.String)
+com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming method public static com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming[] values()
+com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming type public final enum
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract boolean horizontalCollision()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract boolean inWater()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract boolean isClientSide()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract boolean isDestroyed()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract boolean onGround()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract com.ivomens.mcheli.api.vehicle.extension.VehicleControls controls()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract double gravity()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract double heightAboveGround(int)
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract double waterDepth()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract float pitch()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract float roll()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract float yaw()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract net.minecraft.world.level.Level level()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract net.minecraft.world.phys.Vec3 position()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract net.minecraft.world.phys.Vec3 velocity()
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract void setVelocity(net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.vehicle.extension.MovementContext method public abstract void setYaw(float)
+com.ivomens.mcheli.api.vehicle.extension.MovementContext type public interface
+com.ivomens.mcheli.api.vehicle.extension.MovementModel method default public void afterMove(com.ivomens.mcheli.api.vehicle.extension.MovementContext)
+com.ivomens.mcheli.api.vehicle.extension.MovementModel method default public void predict(com.ivomens.mcheli.api.vehicle.extension.MovementContext)
+com.ivomens.mcheli.api.vehicle.extension.MovementModel method public abstract void step(com.ivomens.mcheli.api.vehicle.extension.MovementContext)
+com.ivomens.mcheli.api.vehicle.extension.MovementModel type public interface
+com.ivomens.mcheli.api.vehicle.extension.MovementModelFactory method public abstract com.ivomens.mcheli.api.vehicle.extension.MovementModel create(S)
+com.ivomens.mcheli.api.vehicle.extension.MovementModelFactory type public interface<S extends java.lang.Object> 
+com.ivomens.mcheli.api.vehicle.extension.SettingsDecoder method public abstract S decode(net.minecraft.nbt.CompoundTag)
+com.ivomens.mcheli.api.vehicle.extension.SettingsDecoder type public interface<S extends java.lang.Object> 
+com.ivomens.mcheli.api.vehicle.extension.VehicleBehaviour method default public void added(com.ivomens.mcheli.api.vehicle.extension.BehaviourContext)
+com.ivomens.mcheli.api.vehicle.extension.VehicleBehaviour method default public void clientTick(com.ivomens.mcheli.api.vehicle.extension.BehaviourContext)
+com.ivomens.mcheli.api.vehicle.extension.VehicleBehaviour method default public void destroyed(com.ivomens.mcheli.api.vehicle.extension.BehaviourContext)
+com.ivomens.mcheli.api.vehicle.extension.VehicleBehaviour method default public void removed(com.ivomens.mcheli.api.vehicle.extension.BehaviourContext)
+com.ivomens.mcheli.api.vehicle.extension.VehicleBehaviour method default public void serverTick(com.ivomens.mcheli.api.vehicle.extension.BehaviourContext)
+com.ivomens.mcheli.api.vehicle.extension.VehicleBehaviour type public interface
+com.ivomens.mcheli.api.vehicle.extension.VehicleControls method public abstract boolean back()
+com.ivomens.mcheli.api.vehicle.extension.VehicleControls method public abstract boolean forward()
+com.ivomens.mcheli.api.vehicle.extension.VehicleControls method public abstract boolean left()
+com.ivomens.mcheli.api.vehicle.extension.VehicleControls method public abstract boolean right()
+com.ivomens.mcheli.api.vehicle.extension.VehicleControls method public abstract double throttle()
+com.ivomens.mcheli.api.vehicle.extension.VehicleControls type public interface
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionProvider method public abstract void register(com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionRegistrar)
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionProvider type public interface
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionRegistrar method public abstract <S extends java.lang.Object> void behaviour(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.vehicle.extension.BehaviourTiming, com.ivomens.mcheli.api.vehicle.extension.SettingsDecoder<S>, com.ivomens.mcheli.api.vehicle.extension.BehaviourFactory<S>)
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionRegistrar method public abstract <S extends java.lang.Object> void movementModel(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.vehicle.extension.SettingsDecoder<S>, com.ivomens.mcheli.api.vehicle.extension.MovementModelFactory<S>)
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionRegistrar type public interface
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions method public abstract java.util.List<net.minecraft.resources.ResourceLocation> behavioursOf(com.ivomens.mcheli.api.vehicle.Vehicle)
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions method public abstract java.util.Optional<net.minecraft.resources.ResourceLocation> movementModelOf(com.ivomens.mcheli.api.vehicle.Vehicle)
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions method public abstract java.util.Set<net.minecraft.resources.ResourceLocation> behaviourTypes()
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions method public abstract java.util.Set<net.minecraft.resources.ResourceLocation> movementModels()
+com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions type public interface
