@@ -11,10 +11,12 @@ import com.ivomens.mcheli.vehicle.component.OwnershipComponent;
 import com.ivomens.mcheli.vehicle.component.RestComponent;
 import com.ivomens.mcheli.vehicle.component.SeatsComponent;
 import com.ivomens.mcheli.vehicle.definition.VehicleDefinition;
+import com.ivomens.mcheli.vehicledata.VehicleDataStore;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
@@ -65,6 +67,9 @@ public abstract class VehicleEntity extends InventoryEntity {
     protected static final EntityDataAccessor<String> OWNER_NAME = define(EntityDataSerializers.STRING);
     protected static final EntityDataAccessor<Integer> LOCK_STATE = define(EntityDataSerializers.INT);
 
+    /** The values addons keep on the vehicle; empty, and costing nothing, until one stores something. */
+    private final VehicleDataStore addonData = new VehicleDataStore(this);
+
     protected VehicleEntity(EntityType<? extends VehicleEntity> type, Level level) {
         super(type, level);
     }
@@ -100,6 +105,18 @@ public abstract class VehicleEntity extends InventoryEntity {
     public abstract SeatsComponent seats();
 
     public abstract CrewExitComponent crewExit();
+
+    /** The values addons keep on the vehicle (the API's {@code Vehicle.data()}). */
+    public VehicleDataStore data() {
+        return this.addonData;
+    }
+
+    /** A player who starts seeing the vehicle gets the addons' synced values; nothing when there are none. */
+    @Override
+    public void startSeenByPlayer(@NotNull ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        this.addonData.sendAll(player);
+    }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {

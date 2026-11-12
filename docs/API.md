@@ -104,8 +104,8 @@ API. To change the API:
 4. Commit `api.txt` with the change, and say in `CHANGELOG.md` what changed in the API.
 
 The architecture tests also check that the API stays clean: classes in `com.ivomens.mcheli.api` use only
-Java, the `javax.annotation` nullness annotations, non-client Minecraft and each other, and all of them come
-from the `:api` module.
+Java, the `javax.annotation` nullness annotations, non-client Minecraft (with vanilla's
+`com.mojang.serialization` codecs) and each other, and all of them come from the `:api` module.
 
 ## Threads and sides
 
@@ -134,6 +134,8 @@ The entry point. `McheliApi.get()` returns the running implementation (found wit
 | `events()` | The event bus (`EventBus`). |
 | `targets()` | Other mods' entities as radar and lock-on targets, and entities never targeted (`TargetRegistry`). Since 1.1. |
 | `wingmen()` | The AI wingmen: list, read and order them (`Wingmen`). Since 1.1. |
+| `vehicleActions()` | Since 1.1: spawning vehicles and changing them (`VehicleActions`), server only. |
+| `vehicleData()` | Since 1.1: the keys of addon data on vehicles (`VehicleDataKeys`). |
 
 ```java
 McheliApi api = McheliApi.get();
@@ -148,7 +150,7 @@ for (Vehicle vehicle : api.vehiclesIn(level, new AABB(pos).inflate(64))) {
 
 | Type | Contract |
 |---|---|
-| `Vehicle` | A vehicle entity, read-only: `entity()`, `kind()`, `isUAV()`, `isDestroyed()`, `roll()`, `throttle()`, `seats()`, `signature()`. Every MCHeli vehicle entity implements it. |
+| `Vehicle` | A vehicle entity, read-only: `entity()`, `kind()`, `isUAV()`, `isDestroyed()`, `roll()`, `throttle()`, `seats()`, `signature()`, `data()` (addon data, since 1.1). Every MCHeli vehicle entity implements it. |
 | `VehicleKind` | `HELICOPTER`, `PLANE`, `SHIP`, `TANK`, `VEHICLE`; `directory()` is the kind's content folder. |
 | `Crew` | Who sits where: seat 0 is the pilot, 1 and up the passenger seats. `count()`, `riderOf(seat)`, `seatIdOf(entity)`, `passengers()`, `isAboard(entity)`. |
 | `Targetable` | What a seeker sees: `stealth()`, `isFlareUsing()`, `announcedChaffTime()`, `isBreakingRadarLocks()`, `isIronCurtainRunning()`. |
@@ -161,6 +163,110 @@ if (entity instanceof Vehicle vehicle) {
     boolean hidden = vehicle.signature().stealth() > 0.5F || vehicle.signature().isFlareUsing();
 }
 ```
+
+### Vehicle actions (package `com.ivomens.mcheli.api.vehicle.action`, since API 1.1)
+
+`Vehicle` stays a read-only view. To change vehicles, `McheliApi.get().vehicleActions()` hands out a
+`VehicleSpawner` for new ones and a `VehicleControl` for existing ones. Both are server only, on the server
+thread; `control(vehicle)` throws for a client-side vehicle.
+
+| Type | Contract |
+|---|---|
+| `VehicleActions` | `spawner(level, kind, typeId, position)` (or with a `VehicleInfo`), `control(vehicle)`. |
+| `VehicleSpawner` | A builder: `rotation(yaw, pitch)`, `owner(player)`, `rider(seatId, entity)`, `respectLimits(bool)` (off by default), `requireFreeSpace(bool)` (on by default), then `spawn()`. |
+| `SpawnResult` | `status()` (`SpawnStatus`), `vehicle()`, `message()` (the limit's text for `LIMIT_REACHED`), `riders()` (an `ActionResult` per requested seat). |
+| `SpawnStatus` | `SPAWNED`, `UNKNOWN_TYPE`, `CHUNK_NOT_LOADED`, `OBSTRUCTED`, `LIMIT_REACHED`, `INVALID_SEAT`, `REFUSED`. |
+| `VehicleControl` | Health: `health()`, `maxHealth()`, `repair()`, `repair(amount)`, `damage(source, amount)`, `destroy(attacker)`. Fuel: `fuel()`, `fuelCapacity()`, `refuel()`, `setFuel(amount)`. Weapons (slots from 0): `weaponCount()`, `weapon(slot)`, `ammo(slot)`, `maxAmmo(slot)`, `rearm()`, `rearm(slot)`, `setAmmo(slot, amount)`. Crew (seat 0 is the pilot): `board(entity, seat)`, `eject(seat)`, `ejectAll()`, `dismount(entity)`. Owner and lock: `owner()`, `ownerName()`, `setOwner(player)`, `setOwner(uuid, name)`, `clearOwner()`, `isLocked()`, `setLocked(bool)`, `mayBoard(player, seat)`, `mayChangeLock(player)`. Addon data: `data()`. |
+| `ActionResult` | `SUCCESS`, `NO_CHANGE`, or why not: `VEHICLE_REMOVED`, `VEHICLE_DESTROYED`, `INVALID_SEAT`, `SEAT_EMPTY`, `SEAT_OCCUPIED`, `SEAT_BLOCKED`, `NOT_ABOARD`, `NO_SUCH_WEAPON`, `NO_FUEL_TANK`, `NO_OWNER`, `LOCKING_DISABLED`, `REFUSED`. `isSuccess()` is true for the first two. |
+
+```java
+VehicleActions actions = McheliApi.get().vehicleActions();
+SpawnResult result = actions.spawner(level, VehicleKind.HELICOPTER, "ah-64", pos)
+        .rotation(player.getYRot(), 0.0F)
+        .owner(player)
+        .rider(0, player)
+        .respectLimits(true)
+        .spawn();
+if (!result.isSpawned()) {
+    player.sendSystemMessage(result.message().orElse(Component.literal("Cannot spawn: " + result.status())));
+    return;
+}
+VehicleControl control = actions.control(result.vehicle().get());
+control.refuel();
+control.rearm();
+if (control.damage(level.damageSources().explosion(null, null), 20.0F) == ActionResult.REFUSED) {
+    LOGGER.info("the armor absorbed it");
+}
+```
+
+How the actions relate to the game's own rules:
+
+* **Spawning** places the vehicle as a player placing its item would, with the same starting fuel and
+  ammunition (usually none; call `refuel()` and `rearm()`), and `VehicleSpawned` fires. Rules meant for players are not applied: creative-only types,
+  target drones and `PlaceableOnSpongeOnly` are not checked. The server's vehicle limits
+  (`MaxVehiclesPerPlayer` for the owner, per chunk, per level, per kind, with `OpsBypassLimits` for an
+  operator owner) apply only with `respectLimits(true)`, because addons usually spawn vehicles for reasons
+  of their own. A spawn never loads a chunk.
+* **Damage** calls the vehicle's own damage handling, the same as any hit: armor, hit parts, the external
+  damage config, friendly fire and invulnerability apply, the damage events fire, and the vehicle is
+  destroyed when its hit points run out. A player attacker's punch can pick the vehicle up, as their own
+  would. **Destroy** turns the vehicle into a wreck as running out of hit points does (`VehicleDestroyed`
+  fires, it explodes); a wreck cannot be repaired, refuelled, rearmed or boarded. To remove a vehicle
+  without a wreck, discard its entity.
+* **Repair, fuel and ammunition** set the values directly and sync them as the game does (fuel to every
+  client, ammunition counts to the crew). The infinite fuel and ammunition settings do not matter here; they
+  only decide whether the vehicle uses any up. An empty tank is filled with the default fuel.
+* **Crew** actions put riders where a player would sit or get off: `board` seats a player pilot as if they
+  had clicked the vehicle, and ejected riders land at the seat's exit, without a parachute. The vehicle
+  type's seat exclusion groups still apply (`SEAT_BLOCKED`).
+* **Owner and lock** wrap the same ownership the admin tools use. Locking needs an owner and respects
+  `VehicleLocking` (`LOCKING_DISABLED` while it is off); who a lock keeps out still follows `LockAllowsTeam`,
+  `LockPassengerSeats` and the operator level. Unlike `/mcheli lock`, `setLocked` never makes anyone the
+  owner. No action checks a player's rights or the lock, since the addon decides who may do what: check
+  `mayBoard` or `mayChangeLock` when acting for a player.
+
+### Addon data on vehicles (package `com.ivomens.mcheli.api.vehicle.data`, since API 1.1)
+
+An addon keeps typed values of its own on vehicles. It declares each key once, with a vanilla `Codec` for
+saving and, if clients should see the value, a `StreamCodec` for syncing:
+
+```java
+public static final VehicleDataKey<Integer> SORTIES = VehicleDataKey.of(
+        ResourceLocation.fromNamespaceAndPath("mymod", "sorties"), Codec.INT, ByteBufCodecs.VAR_INT, 0);
+public static final VehicleDataKey<String> LAST_PILOT = VehicleDataKey.of(
+        ResourceLocation.fromNamespaceAndPath("mymod", "last_pilot"), Codec.STRING, "");   // server only
+
+int sorties = vehicle.data().get(SORTIES);                                  // either side; 0 when unset
+McheliApi.get().vehicleActions().control(vehicle).data().update(SORTIES, n -> n + 1);   // server
+```
+
+| Type | Contract |
+|---|---|
+| `VehicleDataKey` | `of(id, codec, syncCodec or null, default)`; `id()`, `codec()`, `syncCodec()`, `isSynced()`, `defaultValue()`. Ids are unique; declaring one twice throws. |
+| `VehicleDataKeys` | `McheliApi.get().vehicleData()`: `declare(...)` (what `of` calls), `key(id)`, `keys()`. |
+| `VehicleData` | `Vehicle.data()`, read-only: `get(key)` (the default when unset), `has(key)`. On a client only synced keys have values. |
+| `MutableVehicleData` | `VehicleControl.data()`, server only: `set(key, value)`, `update(key, function)`, `remove(key)`. |
+
+* **Declare keys while your mod is constructed**, on both sides (a static field is enough), so they exist
+  before vehicles load and before a client receives values.
+* **Saving.** All values are saved in one compound, `McheliAddonData`, of the vehicle's NBT, each under its
+  key's id. A vehicle without values writes no compound at all, so saves without addon data are unchanged.
+  Values whose key nobody declares (an addon that was removed, or is not loaded yet) are kept and saved
+  again as they were; a value that fails to decode is kept the same way and logged. Addon data does not
+  travel with the vehicle's item when it is picked up.
+* **Syncing.** A change to a synced key reaches the players that track the vehicle at the end of the server
+  tick, all of the tick's changes to one vehicle in one message, and a player who starts tracking it gets
+  every synced value. Values of unsynced keys never leave the server, and nothing is sent while no addon
+  declared a synced key. A synced value may take at most 16 KiB encoded; a larger one is logged and not
+  sent. A client without the addon skips its values.
+* **Values should be immutable** (numbers, strings, records, immutable lists): only `set`, `update` and
+  `remove` mark a value as changed.
+* **`Codec` in the API.** The keys take vanilla's `com.mojang.serialization.Codec`, the serialization
+  library every Minecraft save format is written with and which ships with the game, so the API allows
+  `com.mojang.serialization` next to `net.minecraft`.
+
+The sync message is new in network protocol 14: clients and servers must both run a MCHeli with API 1.1
+or later.
 
 ### Content (package `com.ivomens.mcheli.api.content`)
 
@@ -517,7 +623,9 @@ part of this build (`./gradlew :example-addon:build`, run by CI):
   (`halfDamageFromMod`, through `VehicleDamaged`);
 * `ExampleTargets` makes armor stands tagged `mcheli_example_drone` radar and lock-on targets (a small jet;
   tagged `mcheli_example_chaff` too, it hides behind chaff) and counts the locks and missiles they hear of;
-* `ExampleWingmen` sends every wingman of a player's formation after one target.
+* `ExampleWingmen` sends every wingman of a player's formation after one target;
+* `ExampleSorties` keeps a sortie count (synced) and the last pilot's name (server only) on every vehicle with
+  addon data keys, counting each time a player takes the pilot's seat (`SeatBoarded`).
 
 ### Running it
 
@@ -547,6 +655,11 @@ the class path, so NeoForge loads them as two separate mods, as from a mods fold
 * `radarmissilelocksthedrone` and `wingmanattacksthedrone` (`ExampleTargetGameTests`): a radar missile's seeker
   locks a tagged armor stand, the drone hears of the lock and of a missile turned on it, and its chaff hides it;
   a player flying a helicopter takes another as wingman and sends it after the drone.
+* `addonchangesavehicle` (`ExampleVehicleActionTests`): the addon spawns a helicopter with a pilot through a
+  `VehicleSpawner`, then damages, repairs, refuels and rearms it, empties its gun, ejects the pilot, and locks it and
+  clears its owner through a `VehicleControl`.
+* `sortiesaresavedandsynced`: the pilot's boarding counts a sortie, the count and the pilot's name survive a
+  save and load, and the sync messages give a client copy the count but not the name.
 
 The test mod reaches MCHeli's internals to spawn, board and fire the helicopter; the addon itself uses only
 the API. CI runs this after the main game tests. MCHeli's own game tests check the API from inside the mod
@@ -559,7 +672,9 @@ checks that the test pack's `api_test_hover` hovers and flies as that model says
 before and after the move and hear of its removal, and that unknown ids and rejected settings are warnings.
 `ApiEventGameTests` checks the API 1.1 damage and activity events (one `VehicleDamaged` per hit through a seat, takeoff and landing without
 counting hops, water, the missile warning's seeker, ejection, rearming, refuelling) and
-`ApiPermissionGameTests` refuses and then allows each permission event.
+`ApiPermissionGameTests` refuses and then allows each permission event. `ApiActionGameTests` runs every vehicle action
+and the ways a spawn is refused; `ApiDataGameTests` covers addon data: saving, values of unknown keys kept,
+batched syncing of synced keys only, and an old save that stays as it was.
 
 ### Fabric addons
 

@@ -1,5 +1,6 @@
 package com.ivomens.mcheli.api.vehicle;
 
+import com.ivomens.mcheli.api.vehicle.data.VehicleData;
 import net.minecraft.world.entity.Entity;
 
 /**
@@ -44,4 +45,9 @@ public interface Vehicle {
 
     /** How seekers see the vehicle: stealth and the countermeasures that are running. */
     Targetable signature();
+
+    /**
+     * The values addons keep on the vehicle, read-only. On a client, only the synced ones. Since API 1.1.
+     */
+    VehicleData data();
 }

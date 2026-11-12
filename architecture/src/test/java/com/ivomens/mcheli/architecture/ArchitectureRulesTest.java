@@ -68,9 +68,12 @@ class ArchitectureRulesTest {
 
     /**
      * What the API may use: Java, the nullness annotations, the Minecraft types addons share with it
-     * (entities, levels, vectors, hit results) and itself. Never the rest of the mod, a loader or a library.
+     * (entities, levels, vectors, hit results), vanilla's serialization codecs ({@code Codec}, which every
+     * Minecraft save format is written with and which ships with the game) and itself. Never the rest of the
+     * mod, a loader or another library.
      */
-    private static final String[] API_DEPENDENCIES = {"java..", "javax.annotation..", "net.minecraft..", API};
+    private static final String[] API_DEPENDENCIES = {"java..", "javax.annotation..", "net.minecraft..",
+            "com.mojang.serialization..", API};
 
     /** The game, Mojang's libraries and the mod loaders. */
     private static final String[] GAME_AND_LOADER_PACKAGES = {

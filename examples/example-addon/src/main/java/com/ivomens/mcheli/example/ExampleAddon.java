@@ -16,7 +16,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * An addon built against the MCHeli: Revived API alone. It ships a content pack ({@link ExamplePacks}),
  * counts every shot fired on the server, and stops shots fired by players inside the server's spawn
  * protection when the server config says so ({@link ExampleConfig}). It also turns tagged armor stands into
- * radar targets ({@link ExampleTargets}) and orders wingmen through the API ({@link ExampleWingmen}).
+ * radar targets ({@link ExampleTargets}), orders wingmen through the API ({@link ExampleWingmen}) and keeps a
+ * sortie count on every vehicle with the API's vehicle data ({@link ExampleSorties}).
  */
 @Mod(ExampleAddon.MOD_ID)
 public final class ExampleAddon {
@@ -36,6 +37,7 @@ public final class ExampleAddon {
         api.events().register(WeaponFired.class, ExampleAddon::onWeaponFired);
         ExampleAirspace.register(api.events());
         ExampleTargets.register(api.targets());
+        ExampleSorties.register(api);
     }
 
     /** The shots fired since the game started that were not cancelled. */

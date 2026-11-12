@@ -13,6 +13,7 @@ import com.ivomens.mcheli.livery.net.LiveryMessages;
 import com.ivomens.mcheli.multiplay.net.MultiplayMessages;
 import com.ivomens.mcheli.networking.EntitySpawnDataMessage;
 import com.ivomens.mcheli.networking.MessageRegistry;
+import com.ivomens.mcheli.vehicledata.VehicleDataMessage;
 import com.ivomens.mcheli.wingman.net.WingmanMessages;
 import com.ivomens.mcheli.world.uavstation.net.UavMessages;
 
@@ -46,6 +47,7 @@ public final class McheliMessages {
         BenchmarkCommand.registerMessages(registry);
         InspectorCommand.registerMessages(registry);
         registry.clientbound(EntitySpawnDataMessage.TYPE);
+        registry.clientbound(VehicleDataMessage.TYPE);
         return registry;
     }
 }

@@ -12,6 +12,8 @@ import com.ivomens.mcheli.networking.EntitySpawnDataMessage;
 import com.ivomens.mcheli.networking.MessageRegistry;
 import com.ivomens.mcheli.networking.client.EntitySpawnDataHandler;
 import com.ivomens.mcheli.radar.client.RadarClientMessages;
+import com.ivomens.mcheli.vehicledata.VehicleDataMessage;
+import com.ivomens.mcheli.vehicledata.client.VehicleDataHandler;
 import com.ivomens.mcheli.wingman.client.WingmanClientMessages;
 import net.minecraft.client.Minecraft;
 
@@ -36,5 +38,6 @@ public final class McheliClientMessages {
         registry.onClient(OpenInspectorMessage.TYPE,
                 message -> session.inspector().open(Minecraft.getInstance(), message.entityId()));
         registry.onClient(EntitySpawnDataMessage.TYPE, new EntitySpawnDataHandler());
+        registry.onClient(VehicleDataMessage.TYPE, new VehicleDataHandler());
     }
 }

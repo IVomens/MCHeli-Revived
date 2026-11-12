@@ -1,22 +1,24 @@
 package com.ivomens.mcheli.gametest;
 
+import com.ivomens.mcheli.gametest.admin.AdminCommandGameTests;
+import com.ivomens.mcheli.gametest.admin.LimitGameTests;
+import com.ivomens.mcheli.gametest.admin.OwnershipGameTests;
+import com.ivomens.mcheli.gametest.api.ApiActionGameTests;
+import com.ivomens.mcheli.gametest.api.ApiDataGameTests;
 import com.ivomens.mcheli.gametest.api.ApiEventGameTests;
 import com.ivomens.mcheli.gametest.api.ApiGameTests;
 import com.ivomens.mcheli.gametest.api.ApiPermissionGameTests;
 import com.ivomens.mcheli.gametest.api.ExtensionGameTests;
 import com.ivomens.mcheli.gametest.api.TargetApiGameTests;
 import com.ivomens.mcheli.gametest.api.WingmanApiGameTests;
-import com.ivomens.mcheli.gametest.admin.AdminCommandGameTests;
-import com.ivomens.mcheli.gametest.admin.LimitGameTests;
-import com.ivomens.mcheli.gametest.admin.OwnershipGameTests;
 import com.ivomens.mcheli.gametest.bench.ServerBenchmark;
 import com.ivomens.mcheli.gametest.controls.JoystickControlGameTests;
 import com.ivomens.mcheli.gametest.definitions.DefinitionGoldenTests;
 import com.ivomens.mcheli.gametest.fixtures.SaveFixtureTests;
 import com.ivomens.mcheli.gametest.golden.GoldenTrajectoryTests;
+import com.ivomens.mcheli.gametest.network.ExplosionEffectGameTests;
 import com.ivomens.mcheli.gametest.network.MissileWarningGameTests;
 import com.ivomens.mcheli.gametest.network.NetworkSyncGameTests;
-import com.ivomens.mcheli.gametest.network.ExplosionEffectGameTests;
 import com.ivomens.mcheli.gametest.network.ProjectileSyncGameTests;
 import com.ivomens.mcheli.gametest.network.RadarContactKindGameTests;
 import com.ivomens.mcheli.gametest.weapons.FrozenProjectileTests;
@@ -66,6 +68,8 @@ public final class McheliGameTests {
         tests.addAll(ApiPermissionGameTests.permissions());
         tests.addAll(TargetApiGameTests.targets());
         tests.addAll(WingmanApiGameTests.wingmen());
+        tests.addAll(ApiActionGameTests.actions());
+        tests.addAll(ApiDataGameTests.data());
         tests.addAll(DispenserGameTests.dispensers());
         tests.addAll(OwnershipGameTests.ownership());
         tests.addAll(LimitGameTests.limits());

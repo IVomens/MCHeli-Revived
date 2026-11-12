@@ -46,6 +46,18 @@ public final class PilotBoarding implements VehicleComponent {
 
     /** The player takes the pilot's seat (the server seats them; the client predicts it). */
     void board(Player player, VehicleSpec info) {
+        seat(player, info, true);
+    }
+
+    /**
+     * Server: seats the player as pilot for an addon, as boarding does, but without the boarding cooldown of a
+     * player who just got off, and leaving the mobs around where they are.
+     */
+    public void seatPilot(Player player, VehicleSpec info) {
+        seat(player, info, false);
+    }
+
+    private void seat(Player player, VehicleSpec info, boolean byPlayer) {
         AircraftEntity ac = this.vehicle;
         this.parts.closeCanopy();
         this.handover.forgetPilot();
@@ -53,8 +65,10 @@ public final class PilotBoarding implements VehicleComponent {
         if (ac.level().isClientSide) {
             this.preferences.send(0);
         } else {
-            player.startRiding(ac);
-            this.crewExit.mountNearbyMobs();
+            player.startRiding(ac, !byPlayer);
+            if (byPlayer) {
+                this.crewExit.mountNearbyMobs();
+            }
         }
         this.cameras.setCameraId(0);
         this.weapons.clearPilotSelection();

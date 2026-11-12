@@ -1,4 +1,4 @@
-# {"schema":2,"messages":99,"what":"encoded size of a sample of each message, and the largest length each string, list and array field accepts","commit":"b050e1c"}
+# {"schema":2,"messages":100,"what":"encoded size of a sample of each message, and the largest length each string, list and array field accepts","commit":"f922b40"}
 aircraft/attitude_report (serverbound, AttitudeReportMessage)
   bytes: 16
 aircraft/client_settings (serverbound, ClientSettingsMessage)
@@ -202,6 +202,10 @@ uav/drop (serverbound, UavDropMessage)
   bytes: 18
 uav/spawn_offset (serverbound, UavSpawnOffsetMessage)
   bytes: 3
+vehicledata/values (clientbound, VehicleDataMessage)
+  bytes: 45
+  entries: at most 32 elements
+  entries[].value: at most 16384 bytes
 wingman/abort_all_missions (serverbound, AbortAllMissionsMessage)
   bytes: 0
 wingman/abort_mission (serverbound, AbortMissionMessage)

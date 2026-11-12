@@ -305,6 +305,7 @@ final class AircraftComponents {
         this.carrier.save(tag);
         this.uavLink.save(tag);
         this.ownership.save(tag);
+        this.vehicle.data().save(tag);
     }
 
     /**
@@ -339,6 +340,7 @@ final class AircraftComponents {
         this.carrier.load(tag);
         this.uavLink.load(tag);
         this.ownership.load(tag);
+        this.vehicle.data().load(tag);
     }
 
     StatusWord status() {

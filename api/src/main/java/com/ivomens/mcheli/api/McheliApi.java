@@ -4,6 +4,8 @@ import com.ivomens.mcheli.api.content.ContentLookup;
 import com.ivomens.mcheli.api.event.EventBus;
 import com.ivomens.mcheli.api.target.TargetRegistry;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
+import com.ivomens.mcheli.api.vehicle.action.VehicleActions;
+import com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys;
 import com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions;
 import com.ivomens.mcheli.api.wingman.Wingmen;
 import net.minecraft.world.entity.Entity;
@@ -86,4 +88,16 @@ public interface McheliApi {
      * on the server thread. Since API 1.1.
      */
     Wingmen wingmen();
+
+    /**
+     * Where addons place new vehicles and change existing ones: health, fuel, ammunition, crew, owner and lock.
+     * Server only. Since API 1.1.
+     */
+    VehicleActions vehicleActions();
+
+    /**
+     * The keys of the values addons keep on vehicles, and where they declare new ones. Either side. Since
+     * API 1.1.
+     */
+    VehicleDataKeys vehicleData();
 }

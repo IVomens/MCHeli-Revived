@@ -20,6 +20,7 @@ import com.ivomens.mcheli.radar.RadarContactSync;
 import com.ivomens.mcheli.vehicle.sensor.ThreatBoard;
 import com.ivomens.mcheli.vehicle.uav.IUavStation;
 import com.ivomens.mcheli.vehicle.uav.UAVTracker;
+import com.ivomens.mcheli.vehicledata.VehicleDataSync;
 import com.ivomens.mcheli.world.uavstation.UavPairingDeviceItem;
 import com.ivomens.mcheli.util.ModLogger;
 import com.ivomens.mcheli.wingman.McHeliWingman;
@@ -85,6 +86,7 @@ public final class CommonEventHooks {
         McHeliWingman.onServerStopped(server);
         RadarContactSync.of(server).close();
         ExplosionEffectSender.of(server).clear();
+        VehicleDataSync.of(server).clear();
     }
 
     /** End of a server tick. */
@@ -94,6 +96,7 @@ public final class CommonEventHooks {
         RadarContactSync.of(server).onServerTick(server);
         ThreatBoard.of(server).serverTick();
         ExplosionEffectSender.of(server).flush();
+        VehicleDataSync.of(server).flush();
     }
 
     /** Start of a level tick, on both sides. */
