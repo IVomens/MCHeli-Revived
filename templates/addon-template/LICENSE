@@ -1,0 +1,15 @@
+Choose a license for your addon and replace this whole file with its text.
+
+Without a license, other people have no permission to copy, change or share your code.
+
+Common choices for Minecraft mods:
+
+  * MIT or Apache-2.0: anyone may use, change and redistribute the code, also in closed projects.
+  * LGPL-3.0-only (what MCHeli: Revived uses) or MPL-2.0: changed copies of your files stay open.
+  * All Rights Reserved: you keep every right; others may only download and play.
+
+https://choosealicense.com explains the differences. After choosing, set mod_license in gradle.properties
+to the license's SPDX id (for example MIT); it goes into neoforge.mods.toml and fabric.mod.json.
+
+Your content pack may refer to MCHeli's bundled sounds and models by name, as the sample weapon does.
+Copying MCHeli's own files into your jar is different: check MCHeli's license first.

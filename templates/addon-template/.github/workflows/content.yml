@@ -1,0 +1,25 @@
+name: Content
+
+# Checks the content pack's YAML files against the JSON Schemas MCHeli: Revived publishes, and marks every
+# problem on its file and key in the pull request. See MCHeli's docs/ADDON_AUTHORING.md.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pin a release tag instead of main (here and in schemas) to check against the MCHeli version you target.
+      - uses: IVomens/MCHeli-Revived/.github/actions/validate-content@main
+        with:
+          path: common/src/main/resources/mcheli_pack
+          # schemas: https://raw.githubusercontent.com/IVomens/MCHeli-Revived/v2.0.0/schemas/

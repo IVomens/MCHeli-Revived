@@ -1,0 +1,99 @@
+// The Fabric mod: the Fabric entry points plus common's sources and resources, compiled together. Loom sets up
+// Minecraft with Mojang names layered with Parchment, as MCHeli itself does, so common's code compiles
+// unchanged; the released jar (build/libs/<mod_id>-fabric-<version>.jar) is remapped to intermediary names.
+plugins {
+    id 'fabric-loom'
+}
+
+repositories {
+    maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
+        content { includeGroup 'org.parchmentmc.data' }
+    }
+}
+
+configurations {
+    commonJava {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    commonResources {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+}
+
+loom {
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+
+    runs {
+        client {
+            client()
+            runDir = 'run'
+        }
+        server {
+            server()
+            runDir = 'run'
+            programArgs '--nogui'
+        }
+        // ./gradlew :fabric:runGameTestServer runs the game tests of every mod (here only the addon's) and stops
+        gameTestServer {
+            server()
+            configName = 'Fabric game tests'
+            runDir = 'build/gametest'
+            property 'fabric-api.gametest'
+            property 'fabric-api.gametest.report-file', "${layout.buildDirectory.get().asFile}/gametest/report.xml"
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft_version}:${parchment_mappings_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+
+    // lets the IDE see common's code; the classes themselves come from compiling its sources here
+    compileOnly project(':common')
+    commonJava project(path: ':common', configuration: 'commonJava')
+    commonResources project(path: ':common', configuration: 'commonResources')
+
+    compileOnly "com.ivomens.mcheli:mcheli-revived-api:${mcheli_api_version}"
+    // MCHeli itself, for the development runs only; Loom remaps it to the names the runs use. SnakeYAML is
+    // inside MCHeli's jar, but Fabric Loader does not open the nested jars of a mod on a development class path.
+    modLocalRuntime "com.ivomens.mcheli:mcheli-revived:${mcheli_version}:fabric"
+    runtimeOnly "org.yaml:snakeyaml:${snakeyaml_version}"
+}
+
+tasks.named('compileJava', JavaCompile) {
+    dependsOn configurations.commonJava
+    source configurations.commonJava
+}
+
+tasks.named('processResources', ProcessResources) {
+    dependsOn configurations.commonResources
+    from configurations.commonResources
+
+    var replaceProperties = [
+            mod_id                     : mod_id,
+            mod_name                   : mod_name,
+            mod_version                : mod_version,
+            mod_license                : mod_license,
+            mod_authors                : mod_authors,
+            mod_description            : mod_description,
+            minecraft_version          : minecraft_version,
+            mcheli_fabric_version_range: mcheli_fabric_version_range,
+    ]
+    inputs.properties replaceProperties
+    filesMatching('fabric.mod.json') {
+        expand replaceProperties
+    }
+}

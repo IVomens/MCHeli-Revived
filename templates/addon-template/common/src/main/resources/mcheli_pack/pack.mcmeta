@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "pack_format": 34,
+    "description": "Example Addon content"
+  },
+  "addon": {
+    "domain": "exampleaddon",
+    "version": "1.0.0",
+    "loader_version": "2",
+    "authors": ["Your name"],
+    "description": "The content pack shipped inside the Example Addon jar"
+  }
+}

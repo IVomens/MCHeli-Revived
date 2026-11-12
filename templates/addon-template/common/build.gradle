@@ -1,0 +1,37 @@
+// The addon's shared code and resources: Java against vanilla Minecraft (Mojang names, from NeoForm) and the
+// MCHeli API, with no loader. The neoforge and fabric modules compile these sources into their own jars, so
+// this module's own jar is never shipped; building it on its own proves the code needs no loader.
+plugins {
+    id 'net.neoforged.moddev'
+}
+
+neoForge {
+    neoFormVersion = neo_form_version
+
+    parchment {
+        mappingsVersion = parchment_mappings_version
+        minecraftVersion = parchment_minecraft_version
+    }
+}
+
+dependencies {
+    // The API, at compile time only: at run time its classes come from the MCHeli mod jar.
+    compileOnly "com.ivomens.mcheli:mcheli-revived-api:${mcheli_api_version}"
+}
+
+// The source and resource folders, handed to the loader modules.
+configurations {
+    commonJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    commonResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    commonJava sourceSets.main.java.sourceDirectories.singleFile
+    commonResources sourceSets.main.resources.sourceDirectories.singleFile
+}

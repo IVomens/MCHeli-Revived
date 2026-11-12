@@ -3,13 +3,15 @@
 #   * sets mod_version in gradle.properties,
 #   * turns the "## [Unreleased]" section of CHANGELOG.md into "## [<version>] - <today>" and starts
 #     a new, empty Unreleased section above it,
-#   * updates the compare links at the bottom of the changelog.
+#   * updates the compare links at the bottom of the changelog,
+#   * points the addon template (templates/addon-template/gradle.properties) at this release: the mod
+#     version, the API version from gradle.properties and the accepted MCHeli version range.
 # It does not commit, tag or push; it prints the commands for that at the end. Review the diff first.
 #
 #   tools/release/prepare-release.sh 2.1.0
 #   tools/release/prepare-release.sh 2.1.0-beta.1
 #
-# CHANGELOG and PROPERTIES can point it at other files (used to test the script on copies).
+# CHANGELOG, PROPERTIES and TEMPLATE_PROPERTIES can point it at other files (used to test the script on copies).
 
 set -euo pipefail
 
@@ -22,6 +24,7 @@ version=${1#v}
 root=$(cd "$(dirname "$0")/../.." && pwd)
 changelog=${CHANGELOG:-$root/CHANGELOG.md}
 properties=${PROPERTIES:-$root/gradle.properties}
+template_properties=${TEMPLATE_PROPERTIES:-$root/templates/addon-template/gradle.properties}
 default_repo=https://github.com/IVomens/MCHeli-Revived
 today=$(date -u +%Y-%m-%d)
 
@@ -88,6 +91,18 @@ cat "$tmp" > "$changelog"
 old_version=$(grep '^mod_version=' "$properties" | head -n 1 | cut -d= -f2 | tr -d '\r')
 sed "s/^mod_version=.*/mod_version=$version/" "$properties" > "$tmp"
 cat "$tmp" > "$properties"
+
+# The addon template builds against the newest release, from the public Maven repository.
+api_version=$(grep '^api_version=' "$properties" | head -n 1 | cut -d= -f2 | tr -d '\r')
+if [ -f "$template_properties" ]; then
+  sed -e "s/^mcheli_version=.*/mcheli_version=$version/" \
+      -e "s/^mcheli_api_version=.*/mcheli_api_version=$api_version/" \
+      -e "s/^mcheli_version_range=.*/mcheli_version_range=[$version,)/" \
+      -e "s/^mcheli_fabric_version_range=.*/mcheli_fabric_version_range=>=$version/" \
+      "$template_properties" > "$tmp"
+  cat "$tmp" > "$template_properties"
+  echo "Addon template: MCHeli $version, API $api_version."
+fi
 
 if [ "$old_version" = "$version" ]; then
   echo "mod_version is already $version."

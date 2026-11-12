@@ -1,0 +1,144 @@
+// An addon for MCHeli: Revived on NeoForge and Fabric (Minecraft 1.21.1, Java 21). See README.md.
+plugins {
+    id 'net.neoforged.moddev' version '2.0.148' apply false
+    // Loom 1.13 is the newest release that runs on Gradle 8.14.
+    id 'fabric-loom' version '1.13.6' apply false
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group = rootProject.mod_group
+    version = rootProject.mod_version
+    base {
+        archivesName = "${rootProject.mod_id}-${project.name}"
+    }
+
+    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+    repositories {
+        // MCHeli: Revived (group com.ivomens.mcheli; nothing else is looked up in these):
+        //   mcheli-revived-api: the API jar addons compile against, from MCHeli's public Maven repository;
+        //   mcheli-revived: the mod jars (classifier neoforge or fabric) for the development runs, straight from
+        //   the assets of MCHeli's GitHub releases.
+        // With mcheli_repo=local both come from mavenLocal instead (see gradle.properties).
+        if (rootProject.mcheli_repo == 'local') {
+            mavenLocal {
+                content { includeGroup 'com.ivomens.mcheli' }
+            }
+        } else {
+            maven {
+                name = 'MCHeli'
+                // -Pmcheli_maven_url=file:///some/folder/ points the build at a copy of the repository instead
+                url = rootProject.findProperty('mcheli_maven_url') ?: 'https://ivomens.github.io/MCHeli-Revived/maven/'
+                content { includeModule 'com.ivomens.mcheli', 'mcheli-revived-api' }
+            }
+            ivy {
+                name = 'MCHeli releases'
+                url = rootProject.findProperty('mcheli_releases_url') ?: 'https://github.com/IVomens/MCHeli-Revived/releases/download/'
+                patternLayout { artifact 'v[revision]/[module]-[revision](-[classifier]).[ext]' }
+                metadataSources { artifact() }
+                content { includeModule 'com.ivomens.mcheli', 'mcheli-revived' }
+            }
+        }
+        mavenCentral {
+            content {
+                // NeoForged's tools come from their own repository, which ModDevGradle adds.
+                excludeGroupByRegex 'net\\.neoforged(\\..*)?'
+            }
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release = 21
+    }
+}
+
+// ---- ./gradlew renameTemplate -PmodId=myaddon -Ppackage=com.yourname.myaddon [-PmodName="My Addon"]
+// Replaces the template's placeholders (mod id "exampleaddon", package "com.example.exampleaddon", name
+// "Example Addon") in the sources, resources, metadata, gradle.properties and settings.gradle, and moves the
+// source folders and files named after them. Run it once, on a fresh copy, then commit the result.
+tasks.register('renameTemplate') {
+    group = 'template'
+    description = 'Replaces the template mod id, package and name: -PmodId=... -Ppackage=... [-PmodName=...]'
+    def root = rootDir
+    def modId = providers.gradleProperty('modId').orElse('')
+    def pkg = providers.gradleProperty('package').orElse('')
+    def modName = providers.gradleProperty('modName')
+    doLast {
+        TemplateRename.run(root, modId.get(), pkg.get(), modName.getOrNull())
+    }
+}
+
+class TemplateRename {
+    static final String OLD_ID = 'exampleaddon'
+    static final String OLD_PACKAGE = 'com.example.exampleaddon'
+    static final String OLD_NAME = 'Example Addon'
+    static final List<String> TEXT_SUFFIXES = ['.java', '.json', '.toml', '.mcmeta', '.yml', '.yaml', '.properties',
+                                               '.gradle', '.ContentPackProvider']
+
+    static void run(File root, String modId, String pkg, String modName) {
+        if (!(modId ==~ /[a-z][a-z0-9_]{1,63}/)) {
+            throw new GradleException("-PmodId must be 2 to 64 characters of a-z, 0-9 and _, starting with a letter (got '${modId}').")
+        }
+        if (!(pkg ==~ /[a-z_][a-z0-9_]*(\.[a-z_][a-z0-9_]*)+/)) {
+            throw new GradleException("-Ppackage must be a lower-case Java package with at least two parts, such as com.yourname.${modId} (got '${pkg}').")
+        }
+        String name = modName ?: modId.split('_').collect { it.capitalize() }.join(' ')
+        if (!new File(root, 'common/src/main/java/' + OLD_PACKAGE.replace('.', '/')).isDirectory()) {
+            throw new GradleException('The template was renamed already: common/src/main/java/com/example/exampleaddon is gone.')
+        }
+
+        // the contents first, then the paths
+        List<File> files = []
+        ['common', 'neoforge', 'fabric', '.github'].each { dir ->
+            File d = new File(root, dir)
+            if (d.isDirectory()) {
+                d.eachFileRecurse(groovy.io.FileType.FILES) { f -> files << f }
+            }
+        }
+        files << new File(root, 'gradle.properties') << new File(root, 'settings.gradle')
+        files.findAll { f -> !f.path.contains("${File.separator}build${File.separator}") && TEXT_SUFFIXES.any { f.name.endsWith(it) } }
+                .each { f ->
+                    String text = f.getText('UTF-8')
+                    String changed = text.replace(OLD_PACKAGE, pkg).replace(OLD_ID, modId).replace(OLD_NAME, name)
+                    if (changed != text) {
+                        f.setText(changed, 'UTF-8')
+                    }
+                }
+
+        ['common', 'neoforge', 'fabric'].each { module ->
+            File javaRoot = new File(root, "${module}/src/main/java")
+            File from = new File(javaRoot, OLD_PACKAGE.replace('.', '/'))
+            if (from.isDirectory()) {
+                File to = new File(javaRoot, pkg.replace('.', '/'))
+                File tmp = new File(javaRoot, '.rename-tmp')
+                java.nio.file.Files.move(from.toPath(), tmp.toPath())
+                deleteEmptyParents(from.parentFile, javaRoot)
+                to.parentFile.mkdirs()
+                java.nio.file.Files.move(tmp.toPath(), to.toPath())
+            }
+        }
+        // data/exampleaddon, exampleaddon_cannon.yml, ...: deepest first, so a moved folder's children are done
+        List<File> named = []
+        ['common', 'neoforge', 'fabric'].each { module ->
+            File d = new File(root, module + '/src')
+            if (d.isDirectory()) {
+                d.eachFileRecurse { f -> if (f.name.contains(OLD_ID)) named << f }
+            }
+        }
+        named.sort { -it.path.length() }.each { f ->
+            java.nio.file.Files.move(f.toPath(), new File(f.parentFile, f.name.replace(OLD_ID, modId)).toPath())
+        }
+        println "Renamed the template: mod id ${modId}, package ${pkg}, name '${name}'. Review README.md and LICENSE next."
+    }
+
+    private static void deleteEmptyParents(File dir, File stop) {
+        File d = dir
+        while (d != null && d != stop && d.isDirectory() && d.list().length == 0) {
+            d.delete()
+            d = d.parentFile
+        }
+    }
+}

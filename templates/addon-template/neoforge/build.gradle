@@ -1,0 +1,87 @@
+// The NeoForge mod: the NeoForge entry point plus common's sources and resources, compiled together into one
+// jar (build/libs/<mod_id>-neoforge-<version>.jar).
+plugins {
+    id 'net.neoforged.moddev'
+}
+
+configurations {
+    commonJava {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    commonResources {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+}
+
+neoForge {
+    version = neo_version
+
+    parchment {
+        mappingsVersion = parchment_mappings_version
+        minecraftVersion = parchment_minecraft_version
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+            programArgument '--nogui'
+        }
+        // ./gradlew :neoforge:runGameTestServer runs the addon's game tests and stops
+        gameTestServer {
+            type = 'gameTestServer'
+        }
+        configureEach {
+            gameDirectory = project.file('run')
+            systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+}
+
+dependencies {
+    // lets the IDE see common's code; the classes themselves come from compiling its sources here
+    compileOnly project(':common')
+    commonJava project(path: ':common', configuration: 'commonJava')
+    commonResources project(path: ':common', configuration: 'commonResources')
+
+    compileOnly "com.ivomens.mcheli:mcheli-revived-api:${mcheli_api_version}"
+    // MCHeli itself, for the development runs only: NeoForge loads it as a mod of its own, as from a mods folder.
+    runtimeOnly "com.ivomens.mcheli:mcheli-revived:${mcheli_version}:neoforge"
+}
+
+tasks.named('compileJava', JavaCompile) {
+    dependsOn configurations.commonJava
+    source configurations.commonJava
+}
+
+tasks.named('processResources', ProcessResources) {
+    dependsOn configurations.commonResources
+    from configurations.commonResources
+
+    var replaceProperties = [
+            mod_id              : mod_id,
+            mod_name            : mod_name,
+            mod_version         : mod_version,
+            mod_license         : mod_license,
+            mod_authors         : mod_authors,
+            mod_description     : mod_description,
+            neo_version_range   : neo_version_range,
+            minecraft_version   : minecraft_version,
+            mcheli_version_range: mcheli_version_range,
+    ]
+    inputs.properties replaceProperties
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand replaceProperties
+    }
+}
