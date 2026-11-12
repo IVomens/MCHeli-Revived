@@ -10,6 +10,7 @@ import com.ivomens.mcheli.combat.weapon.WeaponGroup;
 import com.ivomens.mcheli.aircraft.net.AmmoCounts;
 import com.ivomens.mcheli.combat.weapon.net.ReloadAcceptedMessage;
 import com.ivomens.mcheli.content.registry.ContentBindings;
+import com.ivomens.mcheli.event.ActivityEvents;
 import com.ivomens.mcheli.networking.Network;
 import com.ivomens.mcheli.registry.McheliCriteria;
 import com.ivomens.mcheli.util.EntityIds;
@@ -140,7 +141,9 @@ public final class AmmoSupplyComponent implements VehicleComponent {
             for (ContentBindings.RoundStack round : ContentBindings.rounds(weapon.spec().id())) {
                 takeFromInventory(player, round);
             }
+            int before = weapon.reserveAmmo() + weapon.ammo();
             weapon.resupply();
+            ActivityEvents.rearmed(ac, weapon.spec().name(), weapon.reserveAmmo() + weapon.ammo() - before, player);
         }
     }
 
@@ -240,12 +243,12 @@ public final class AmmoSupplyComponent implements VehicleComponent {
                 this.body.hullBox().inflate(range, range, range));
         for (AircraftEntity other : nearby) {
             if (!EntityIds.same(ac, other) && VehicleMotion.isParkedForSupply(other)) {
-                restock(other);
+                restock(other, ac);
             }
         }
     }
 
-    private static void restock(AircraftEntity other) {
+    private static void restock(AircraftEntity other, AircraftEntity supplier) {
         WeaponComponent armory = VehiclePeers.armory(other);
         for (int weaponId = 0; weaponId < armory.count(); weaponId++) {
             WeaponGroup weapon = armory.get(weaponId);
@@ -259,6 +262,8 @@ public final class AmmoSupplyComponent implements VehicleComponent {
                     weapon.reloadMagazine();
                 }
                 AmmoCounts.send(other, armory.playerUsing(weaponId), weaponId);
+                ActivityEvents.rearmed(other, weapon.spec().name(), weapon.reserveAmmo() + weapon.ammo() - total,
+                        supplier);
             }
         }
     }

@@ -33,6 +33,7 @@ public final class ExampleAddon {
         McheliApi api = McheliApi.get();
         LOGGER.info("MCHeli API {} found", api.apiVersion());
         api.events().register(WeaponFired.class, ExampleAddon::onWeaponFired);
+        ExampleAirspace.register(api.events());
     }
 
     /** The shots fired since the game started that were not cancelled. */

@@ -1,5 +1,6 @@
 package com.ivomens.mcheli.aircraft;
 
+import com.ivomens.mcheli.event.VehicleContactWatch;
 import com.ivomens.mcheli.extension.ExtensionRegistry;
 import com.ivomens.mcheli.platform.LocalClient;
 import com.ivomens.mcheli.vehicle.component.RestComponent;
@@ -70,7 +71,7 @@ final class VehicleTickPipeline {
                 .then(TickPhase.FOLLOW_HULL, followHull(vehicle))
                 .then(TickPhase.FOLLOW_HULL, behaviours("addons: behaviours after movement",
                         components.behavioursAfter()))
-                .then(TickPhase.BOOKKEEPING, bookkeeping(vehicle));
+                .then(TickPhase.BOOKKEEPING, bookkeeping(vehicle, new VehicleContactWatch(vehicle)));
         this.plan.check(false);
         this.steps = this.plan.steps();
         this.schedule = this.plan.schedule();
@@ -206,8 +207,8 @@ final class VehicleTickPipeline {
                 TickStep.both("crew: rack in reach", v.racks()::tickRideRackStatus)};
     }
 
-    /** What the next tick compares against. */
-    private static TickStep[] bookkeeping(AircraftEntity v) {
+    /** What the next tick compares against, and the API's takeoff, landing and water events. */
+    private static TickStep[] bookkeeping(AircraftEntity v, VehicleContactWatch contacts) {
         return new TickStep[]{
                 TickStep.both("bookkeeping: riders and position history", () -> {
                     v.carrier().rememberCarrier();
@@ -215,6 +216,7 @@ final class VehicleTickPipeline {
                     v.history().record();
                 }),
                 TickStep.server("ownership: publish the lock rules in force", v.ownership()::publish),
+                TickStep.server("api: takeoff, landing and water events", contacts::tick),
                 TickStep.both("attitude: end the step", () -> v.attitudeControl().endTick())};
     }
 

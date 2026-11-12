@@ -13,6 +13,13 @@ McHeli CE.
 
 ### API 1.1
 
+- The API is published to a public Maven repository on GitHub Pages,
+  `https://ivomens.github.io/MCHeli-Revived/maven/`, with sources, javadoc and checksums; no credentials
+  needed. Addon development runs can take the mod jars from the GitHub release assets
+  ([docs/API.md](docs/API.md#getting-the-jar)).
+- An addon template, `templates/addon-template`: a NeoForge and Fabric project built against the API, with
+  a sample content pack, event listener, game test and CI workflows, and a rename task
+  ([docs/ADDON_TEMPLATE.md](docs/ADDON_TEMPLATE.md)).
 - Vehicle behaviours from addons: a mod registers a behaviour type by id through a
   `VehicleExtensionProvider` (found with `ServiceLoader`), and a vehicle file opts in with
   `Behaviours: { mymod:winch: { ... } }`. Behaviours get server and client ticks before or after the
@@ -26,6 +33,15 @@ McHeli CE.
 - Unknown behaviour or movement ids, and settings a mod rejects, are warnings in the content report;
   the vehicle loads without them. The JSON schemas accept `Behaviours` (and `Movement` for vehicles)
   with any settings map.
+- `VehicleDamaged`: every hit a vehicle takes, once per hit (seats and hit boxes included), before armor;
+  cancellable, with a changeable amount and the MCHeli weapon of the hit. `VehicleDamageTaken` after the hit
+  points went down.
+- Permission events, cancellable and fired on the server before the action: `VehicleBoardAttempt`,
+  `VehiclePlaceAttempt`, `VehicleDismantleAttempt`, `VehicleScreenOpenAttempt` (with `VehicleScreen`) and
+  `VehicleLockAttempt`. A refused boarding or placement leaves nothing on the player's client.
+- `VehicleTookOff` and `VehicleLanded` (with hysteresis, so bounces do not count), `VehicleEnteredWater` and
+  `VehicleLeftWater`, `MissileWarned` (with `SeekerType`), `CrewEjected`, `VehicleRearmed` and
+  `VehicleRefueled`.
 
 ### Added
 
@@ -214,15 +230,5 @@ McHeli CE.
   by how far the slot lies ahead, so one that has overshot slows down, and the catch-up boost now
   carries a follower to the edge of its slot. With a stopped leader, a helicopter hovers at the slot's
   height instead of sinking at 0.35 throttle. McHeli CE flew formation the same way.
-
-### API 1.1
-
-- The API is published to a public Maven repository on GitHub Pages,
-  `https://ivomens.github.io/MCHeli-Revived/maven/`, with sources, javadoc and checksums; no credentials
-  needed. Addon development runs can take the mod jars from the GitHub release assets
-  ([docs/API.md](docs/API.md#getting-the-jar)).
-- An addon template, `templates/addon-template`: a NeoForge and Fabric project built against the API, with
-  a sample content pack, event listener, game test and CI workflows, and a rename task
-  ([docs/ADDON_TEMPLATE.md](docs/ADDON_TEMPLATE.md)).
 
 [Unreleased]: https://github.com/IVomens/MCHeli-Revived/commits/main

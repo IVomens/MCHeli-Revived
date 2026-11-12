@@ -331,6 +331,73 @@ inside. Document your settings for pack authors yourself (the keys, their types,
 example addon's javadoc does), and reject bad values in your decoder with a clear message: it shows in the
 content report with the file and line.
 
+### Damage, permission and vehicle activity events (API 1.1)
+
+All of these fire on the server thread. Every one of them costs nothing while nobody listens: the event is
+not built, and the per-tick checks behind takeoff, landing and water are one listener lookup each.
+
+**Damage.** `VehicleDamaged` fires once per hit a vehicle takes, whatever dealt it (MCHeli weapons,
+explosions, crashes, fire, vanilla sources, other mods' guns), before armor. Hits on a passenger seat or an
+extra hit box reach the vehicle and fire it once, not once per part. It names the `source()`, `attacker()`,
+`directEntity()` and, for MCHeli rounds, beams and their explosions, the `weaponId()`. It is `Cancellable`,
+and `setAmount(float)` changes the damage before armor. `VehicleDamageTaken` follows once the hit was taken
+off the hit points (`damage()` after armor, `hp()` left), before `VehicleDestroyed`. It is a separate event
+rather than result fields on `VehicleDamaged` because an event object is only valid while its listeners run:
+the damage after armor is known only once they have all returned.
+
+**Permissions.** These ask before a player does something to a vehicle. They fire after MCHeli's own checks
+(the owner's lock, the server's limits), carry the `ServerPlayer` and the `Vehicle`, and are allowed unless a
+listener cancels them. A refusal is silent, so tell the player why. MCHeli undoes what the player's client
+already predicted: a refused pilot gets the server's view rotation back, a refused placement the server's
+inventory.
+
+| Event | Asked before | Notes |
+|---|---|---|
+| `VehicleBoardAttempt` | a player takes a seat: clicking the vehicle or a seat, or the seat keys | `seatId()`; mobs, commands and loading are not asked |
+| `VehiclePlaceAttempt` | a player places a vehicle from its item, on a block or minecart or from a UAV station | `vehicle()` is not in the level yet; `item()` |
+| `VehicleDismantleAttempt` | a player breaks a vehicle down into its item by hitting it | after the hit's `VehicleDamaged`; refused, the hit is an ordinary one |
+| `VehicleScreenOpenAttempt` | the pilot's panel or the cargo opens | `screen()`: `VehicleScreen.PANEL` or `CARGO` |
+| `VehicleLockAttempt` | the owner's sneak-click or `/mcheli lock`/`unlock` changes the lock | `locking()`, `claimsOwnership()` |
+| `WeaponFired` (API 1.0) | a weapon fires a shot | its `shooter()` can be any entity, not only a player |
+
+**What vehicles do.**
+
+| Event | When |
+|---|---|
+| `VehicleTookOff` | a helicopter or plane has been off the ground for 20 ticks in a row, so a hop or bounce is no takeoff |
+| `VehicleLanded` | it has been back on the ground or water for 10 ticks in a row; `onWater()` |
+| `VehicleEnteredWater`, `VehicleLeftWater` | any vehicle has been in or out of water for 10 ticks in a row |
+| `MissileWarned` | the crew's missile warning sounds (about once a second while missiles home on the vehicle); `seeker()` is a `SeekerType` (`HEAT`, `RADAR`, `DUAL`, `OTHER`), `missiles()` the missiles |
+| `CrewEjected` | the pilot or copilot left by ejection seat; `rider()`, `seatId()` |
+| `VehicleRearmed` | a weapon's ammunition was restocked by its pilot's round items or a supply vehicle; `weaponId()`, `rounds()`, `supplier()` |
+| `VehicleRefueled` | fuel went into the tank from the fuel slot, a pipe or cable, or a tanker; `amount()`, `supplier()` |
+
+Ground and water contact are only followed while someone listens: the first state seen after a listener
+registers counts as where the vehicle already was. Parked vehicles that nothing wakes, wrecks and vehicles
+riding another entity are not followed.
+
+```java
+EventBus events = McheliApi.get().events();
+events.register(VehicleBoardAttempt.class, attempt -> {
+    if (attempt.seatId() == 0 && inNoFlyZone(attempt.player())) {
+        attempt.setCancelled(true);
+        attempt.player().displayClientMessage(Component.literal("No flying here"), true);
+    }
+});
+events.register(VehicleDamaged.class, damaged -> {
+    if (damaged.source().typeHolder().unwrapKey()
+            .filter(type -> type.location().getNamespace().equals("othergunmod")).isPresent()) {
+        damaged.setAmount(damaged.amount() * 0.5F);
+    }
+});
+events.register(VehicleLanded.class, landed -> logLanding(landed.vehicle(), landed.onWater()));
+events.register(MissileWarned.class, warned -> {
+    if (warned.seeker() == SeekerType.HEAT) {
+        hintFlares(warned.vehicle());
+    }
+});
+```
+
 ## The example addon
 
 [`examples/example-addon`](../examples/example-addon) is a NeoForge mod built against the API alone, and
@@ -340,12 +407,16 @@ part of this build (`./gradlew :example-addon:build`, run by CI):
   reuses the bundled 2A42's sound and effects;
 * `ExampleAddon` counts every shot through `WeaponFired` and logs the total every 100 shots;
 * it cancels shots fired by players inside the server's spawn protection, unless its server config
-  (`ExampleConfig`, `blockFireInSpawnProtection`) turns that off.
+  (`ExampleConfig`, `blockFireInSpawnProtection`) turns that off;
 * `ExampleExtensions` registers a movement model, `mcheli_example:hovercraft` (`HovercraftModel`: an air
   cushion, thrust along the heading, turning with the side keys, a glide with little drag, the same drag
   predicted on clients), and a behaviour, `mcheli_example:beacon` (`BeaconBehaviour`: a column of particles on
   clients every few ticks, counted on the server), both decoding their settings with a `Codec` and `NbtOps`.
-  The pack's `example_hovercraft` vehicle uses both.
+  The pack's `example_hovercraft` vehicle uses both;
+* `ExampleAirspace` makes the spawn area a no-fly zone (`noFlyZoneAtSpawn`): players inside spawn protection
+  may not take a helicopter's or plane's pilot seat or place one (`VehicleBoardAttempt`,
+  `VehiclePlaceAttempt`), and it halves the damage vehicles take from one other mod's damage types
+  (`halfDamageFromMod`, through `VehicleDamaged`).
 
 ### Running it
 
@@ -369,6 +440,9 @@ the class path, so NeoForge loads them as two separate mods, as from a mods fold
 * `hovercraftfliesandbeaconpulses`: the hovercraft rises to its cushion height, flies exactly the distance
   the model's thrust and drag give while the forward key is held, and the beacon pulses on the server; the
   API names the model and behaviour the vehicle uses.
+* `noflyzonekeepspilotsout` and `halvesdamagefromtheconfiguredmod` (batch `mcheli_example_airspace`):
+  a player inside the protected area cannot board the helicopter as pilot until the protection goes, and with
+  `halfDamageFromMod` set to `minecraft` a later listener sees vanilla damage halved.
 
 The test mod reaches MCHeli's internals to spawn, board and fire the helicopter; the addon itself uses only
 the API. CI runs this after the main game tests. MCHeli's own game tests check the API from inside the mod
@@ -379,6 +453,10 @@ allowed) and `VehicleRemoved` fire, on NeoForge and on Fabric.
 `TestVehicleExtensions` registers a movement model and two behaviours the same way, and `ExtensionGameTests`
 checks that the test pack's `api_test_hover` hovers and flies as that model says, that its behaviours tick
 before and after the move and hear of its removal, and that unknown ids and rejected settings are warnings.
+`ApiEventGameTests` checks the API 1.1
+damage and activity events (one `VehicleDamaged` per hit through a seat, takeoff and landing without
+counting hops, water, the missile warning's seeker, ejection, rearming, refuelling) and
+`ApiPermissionGameTests` refuses and then allows each permission event.
 
 ### Fabric addons
 

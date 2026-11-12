@@ -8,6 +8,7 @@ import com.ivomens.mcheli.entityview.Riders;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
 import com.ivomens.mcheli.config.AdminAccess;
 import com.ivomens.mcheli.config.McheliConfig;
+import com.ivomens.mcheli.event.PermissionEvents;
 import com.ivomens.mcheli.vehicle.component.OwnershipComponent;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -49,17 +50,22 @@ final class LockCommand {
             throw failure("lock.no_vehicle");
         }
         OwnershipComponent ownership = vehicle.ownership();
-        if (!ownership.hasOwner()) {
+        boolean claims = !ownership.hasOwner();
+        if (claims) {
             if (!lock) {
                 throw failure("lock.not_locked");
             }
             if (vehicle.getRiddenByEntity() != player && !AdminAccess.isAdmin(player)) {
                 throw failure("lock.no_owner");
             }
-            ownership.setOwner(player);
-        }
-        if (!ownership.mayChangeLock(player)) {
+        } else if (!ownership.mayChangeLock(player)) {
             throw failure("lock.not_owner", ownership.ownerName());
+        }
+        if (!PermissionEvents.mayChangeLock(vehicle, player, lock, claims)) {
+            throw failure("lock.denied");
+        }
+        if (claims) {
+            ownership.setOwner(player);
         }
         ownership.setLocked(lock);
         source.sendSuccess(() -> OwnershipComponent.lockChanged(lock).copy().append(" ")

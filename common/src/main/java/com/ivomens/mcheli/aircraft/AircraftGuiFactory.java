@@ -1,5 +1,7 @@
 package com.ivomens.mcheli.aircraft;
 
+import com.ivomens.mcheli.api.event.VehicleScreen;
+import com.ivomens.mcheli.event.PermissionEvents;
 import com.ivomens.mcheli.platform.Services;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -39,9 +41,13 @@ public class AircraftGuiFactory {
         }
     }
 
+    /** Opens the menu, unless the API's listeners refuse it. */
     private void open(Player player, AircraftGuiData data) {
         if (!(player instanceof ServerPlayer sp)) return;
         AircraftEntity ac = data.guiHolder();
+        if (!PermissionEvents.mayOpen(ac, sp, data.containerOnly() ? VehicleScreen.CARGO : VehicleScreen.PANEL)) {
+            return;
+        }
         Component title = Component.translatable(ac.identity().translationKey());
         Services.MENUS.openMenu(sp, new SimpleMenuProvider((id, inv, p) -> new AircraftPanelMenu(id, inv, ac, data.containerOnly()), title),
                 buf -> {
