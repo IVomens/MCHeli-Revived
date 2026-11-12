@@ -1,0 +1,25 @@
+# A light ground vehicle that hovers: the example addon's movement model moves it instead of the ground
+# vehicle physics, and its beacon behaviour pulses on top. Everything else (seat, camera, HUD, weapons) is
+# the VEHICLE kind's own.
+DisplayName: Example hovercraft
+Category: ZZZ
+MaxHP: 120
+Camera:
+  ThirdPersonDist: 8.0
+  Pos:
+  - Pos: [0.0, 2.0, 0.0]
+Seats:
+- Position: [0.0, 1.0, 0.0]
+  Hud: vehicle
+BoundingBoxes:
+- Type: DEFAULT
+  Position: [0.0, 0.5, 0.0]
+  Size: [2.5, 1.0, 3.5]
+VehicleFeatures:
+  CanMove: true
+  CanRotate: true
+Movement:
+  Model: mcheli_example:hovercraft
+  Settings: { HoverHeight: 1.0, Thrust: 0.02, TurnRate: 4.0, Drag: 0.96 }
+Behaviours:
+  mcheli_example:beacon: { Interval: 10, Height: 3.0 }
