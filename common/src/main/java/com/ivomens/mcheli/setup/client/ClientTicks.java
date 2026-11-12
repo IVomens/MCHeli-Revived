@@ -3,6 +3,7 @@ package com.ivomens.mcheli.setup.client;
 import com.ivomens.mcheli.aircraft.AircraftEntity;
 import com.ivomens.mcheli.aircraft.RiddenVehicle;
 import com.ivomens.mcheli.aircraft.client.SeatClientTickHandler;
+import com.ivomens.mcheli.apiservice.client.ClientApiService;
 import com.ivomens.mcheli.client.input.ClientTickHandler;
 import com.ivomens.mcheli.client.input.InputKey;
 import com.ivomens.mcheli.combat.weapon.GPSPosition;
@@ -73,8 +74,8 @@ final class ClientTicks {
         this.mouse = new VehicleMouseControl(minecraft, controls.camera(),
                 ridden -> ridden instanceof GltdEntity || ridden instanceof IUavStation, controls.pilot());
         this.overlays = new Overlays(minecraft, session.launcher(), session.rangeFinder(),
-                new ConfiguredHudStyle(this.mouse.stick()), session.screenProjection(), session.teamMarkers(),
-                this.keys::showsTeamList);
+                new ConfiguredHudStyle(this.mouse.stick(), ClientApiService.widgets()), session.screenProjection(),
+                session.teamMarkers(), this.keys::showsTeamList);
 
         this.keys.updateKeybind(bindings);
     }

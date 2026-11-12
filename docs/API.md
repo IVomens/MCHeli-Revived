@@ -678,6 +678,77 @@ How it behaves:
 * A custom *fire mode* (how a trigger pull turns into projectiles) is not part of the API: pick the `Type` whose
   firing fits, and shape the flight with a guidance law and effects.
 
+### HUD widgets (package `com.ivomens.mcheli.api.client`, since API 1.1)
+
+The client half of the API lives in `com.ivomens.mcheli.api.client`. It names no Minecraft client class
+either, but it is only useful on a physical client: call it from your client set-up code
+(`FMLClientSetupEvent` on NeoForge, the client entrypoint on Fabric), never from code a dedicated server runs.
+`McheliClientApi.get()` finds it the same way `McheliApi.get()` does.
+
+A HUD widget is a small panel drawn in the in-vehicle HUD, after MCHeli's own seat HUD, in the modern HUD and
+in the legacy scripted one. Widgets follow the HUD's own rules: they are not drawn with the GUI hidden (F1), in
+third person unless `DisplayHUDThirdPerson` is on, or in a wreck, and they scale with `HudScale`. With no widget
+registered the HUD draws and costs exactly what it did before.
+
+| Type | Contract |
+|---|---|
+| `McheliClientApi` | `get()`, `hudWidgets()`. Implemented by MCHeli. |
+| `HudWidgets` | `register(id, widget)` adds a widget and returns a `Subscription` that removes it. Ids are unique (`IllegalArgumentException` otherwise) and use the addon's mod id as namespace. Any thread. |
+| `HudWidget` | Implemented by the addon: `anchor()`, `width()`, `height()` (HUD units, read every frame), `order()` (read at registration, default 0), `isShown(context)` (default true) and `render(context)`. Called on the render thread. New methods only ever come with a default. |
+| `HudAnchor` | The slot a widget goes in: `TOP_LEFT`, `TOP_RIGHT`, `LEFT`, `RIGHT`, `BOTTOM_LEFT`, `BOTTOM_RIGHT`, `BOTTOM`. May gain constants. |
+| `HudWidgetContext` | What `isShown` and `render` see, valid only during the call. The frame: `vehicle()`, `kind()`, `viewer()`, `seat()` (0 the pilot, -1 for a UAV operator), `partialTick()`, `screenWidth()`, `screenHeight()`. The settings: `modernHud()`, `hudScale()`, `color()`, `cautionColor()`, `warningColor()`, `opacity()`, `withAlpha(argb, alpha)`. The box: `width()`, `height()`. The pens, in the modern HUD's style: `text`, `textRight`, `textCentered`, `textWidth` (monospaced font), `label`, `labelWidth` (caption font), `line`, `box`, `fill`, `bar` (a gauge filled by a fraction) and `readout` (a caption over a boxed value, `READOUT_HEIGHT` = 28 high). `LINE_HEIGHT` = 12. |
+
+**Units and layout.** Widgets work in HUD units: the modern HUD lays itself out on a virtual screen 640 units
+wide and 360 high, scaled to the window height times `HudScale`, and widgets use the same units in both
+styles. A widget draws inside its own box, (0, 0) at its top left corner; nothing clips it. MCHeli places the
+boxes: each anchor is a free area of the HUD, and the widgets of one anchor are stacked in it from the edge or
+corner inwards, by `order()` and then id, 4 units apart. A widget that `isShown` hides takes no room. A widget
+wider than its slot, or one that no longer fits next to those stacked before it, is not drawn in that frame,
+so widgets never overlap each other or MCHeli's readouts. Plan for the smallest slot your anchor has:
+
+| Anchor | Modern HUD, flight (helicopters and planes) | Modern HUD, gunner sight (ground vehicles, gunner view) | Legacy HUD |
+|---|---|---|---|
+| `TOP_LEFT` (down, left-aligned) | 175 x 48 at (20, 4), above the position line | 136 x 72 at (20, 100), below speed, hull and fuel | 180 x 100 at (8, 8) |
+| `TOP_RIGHT` (down, right-aligned) | 175 x 48 at (445, 4), above the vehicle name | 160 x 120 at (460, 48), below name and heading | 180 x 100 at (452, 8) |
+| `LEFT` (down, left-aligned) | 90 x 160 at (76, 100), between speed tape and pitch ladder | 136 x 120 at (20, 176) | 180 x 120 at (8, 112) |
+| `RIGHT` (down, right-aligned) | 88 x 130 at (474, 100), between pitch ladder and altitude tape | 136 x 58 at (484, 172) | 180 x 120 at (452, 112) |
+| `BOTTOM_LEFT` (up, left-aligned) | 145 x 34 at (20, 266), above the system bars | 136 x 56 at (20, 300) | 180 x 116 at (8, 236) |
+| `BOTTOM_RIGHT` (up, right-aligned) | 88 x 44 at (474, 234), above the weapon card | 150 x 44 at (470, 234), above the weapon card | 180 x 116 at (452, 236) |
+| `BOTTOM` (up, centred) | 290 x 52 at (175, 304), below the pitch ladder | 290 x 22 at (175, 334) | 256 x 52 at (192, 300) |
+
+The modern slots are the space its readouts leave when the aircraft flies level; the pitch ladder turns with the
+bank angle and can sweep over `LEFT` and `RIGHT`. A legacy HUD draws wherever its script files say, so there
+the slots hug the screen edges and only keep widgets apart from each other. The TV missile view uses the legacy
+slots, since it always draws the scripted TV HUD.
+
+**Errors.** A widget whose method throws is logged once and not drawn again until it is registered anew; the
+other widgets and the HUD still draw.
+
+```java
+public final class ThrottleWidget implements HudWidget {
+    @Override public HudAnchor anchor() { return HudAnchor.BOTTOM_LEFT; }
+    @Override public int width() { return 90; }
+    @Override public int height() { return HudWidgetContext.READOUT_HEIGHT; }
+
+    @Override
+    public boolean isShown(HudWidgetContext hud) {
+        return hud.kind() == VehicleKind.HELICOPTER && hud.seat() == 0;   // the pilot of a helicopter only
+    }
+
+    @Override
+    public void render(HudWidgetContext hud) {
+        double throttle = hud.vehicle().throttle();
+        hud.readout(0, 0, 90, "THROTTLE", Math.round(throttle * 100) + "%",
+                throttle > 0.95 ? hud.cautionColor() : hud.color());
+    }
+}
+
+// client set-up
+McheliClientApi.get().hudWidgets().register(ResourceLocation.fromNamespaceAndPath("mymod", "throttle"),
+        new ThrottleWidget());
+```
+
+
 ## The example addon
 
 [`examples/example-addon`](../examples/example-addon) is a NeoForge mod built against the API alone, and
@@ -706,7 +777,10 @@ part of this build (`./gradlew :example-addon:build`, run by CI):
   missile along its gunner's line of sight, and `EmpEffect`, a warhead that stops the engines of the vehicles
   around its burst for a few seconds instead of exploding, both reading their settings with a `Codec`; the pack's
   `example_beam_rider` and `example_emp_rocket` use them, and `ExampleVisuals` (client only) adds sparks to the
-  EMP rocket's flight.
+  EMP rocket's flight;
+* on the client, `ExampleAddonClient` (a `@Mod` class for `Dist.CLIENT`) registers `ExampleClockWidget` at
+  client set-up: the pilot sees the world's time of day as a readout with a gauge in the top right corner of
+  the vehicle HUD.
 
 ### Running it
 
@@ -745,6 +819,9 @@ the class path, so NeoForge loads them as two separate mods, as from a mods fold
   (`ExampleWeaponGameTests`): the pack's weapons picked up the addon's behaviours, the beam rider launched off
   its gunner's line of sight closes onto it, and the EMP rocket's burst stalls a helicopter's engine for four
   seconds and breaks nothing.
+* `clockreadsthetimeofday` and `clockwidgetdrawsforthepilot`: the clock widget, registered through the client
+  API, is drawn by MCHeli's widget layer for the pilot of a helicopter and not for a player in no seat, and is
+  gone once unsubscribed. A game test server has no screen, so the layer draws on a canvas that records text.
 
 The test mod reaches MCHeli's internals to spawn, board and fire the helicopter; the addon itself uses only
 the API. CI runs this after the main game tests. MCHeli's own game tests check the API from inside the mod
@@ -763,7 +840,10 @@ batched syncing of synced keys only, and an old save that stays as it was. `Test
 behaviours the same way, and `WeaponBehaviourGameTests` checks the turn-rate and seeker-cone limits of a guidance
 law, the order and settings of effects at each point of a projectile's life, the replaced explosion, the engine
 stall, and the fall-back for unknown ids; `ProjectileSyncGameTests` checks that clients' copies of an
-addon-guided rocket follow the server's.
+addon-guided rocket follow the server's. `HudWidgetGameTests` registers HUD widgets
+through `McheliClientApi` and draws them for the pilot of a helicopter, and the unit test `HudWidgetTraceTest`
+records every draw call of a set of sample widgets in each HUD layout against a golden file
+(`hud/widget/sample.trace`).
 
 ### Fabric addons
 

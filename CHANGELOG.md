@@ -78,6 +78,13 @@ McHeli CE.
   `ProjectileVisual`.
 - `WeaponInfo.guidance()` and `WeaponInfo.projectileEffects()`.
 
+- HUD widgets: addons draw small panels in the in-vehicle HUD through the new client API,
+  `McheliClientApi.get().hudWidgets().register(id, widget)` (package `com.ivomens.mcheli.api.client`).
+  A widget picks an anchor (`HudAnchor`), may show only for some vehicle kinds or seats, and draws with
+  pens in the modern HUD's style (text, lines, boxes, gauges, readouts) through `HudWidgetContext`. Widgets
+  are laid out in slots the modern HUD leaves free, work in the legacy HUD too, and follow F1, third person
+  and `HudScale`.
+
 ### Added
 
 - NeoForge 1.21.1 and Fabric 1.21.1 jars built from one codebase, with the same content and

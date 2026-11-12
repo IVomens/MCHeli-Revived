@@ -1,0 +1,1147 @@
+# {"schema":1,"widgets":"sample","canvas":"640x360 at gui scale 2","commit":"f922b40"}
+-- layout FLIGHT scale 1.0
+push
+reset transform
+push
+translate 320.0, 180.0, 0.0
+scale 1.0, 1.0
+translate -320.0, -180.0, 0.0
+push
+translate 20.0, 4.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 36.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 4.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 36.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 76.0, 100.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 76.0, 132.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 532.0, 100.0, 0.0
+MONO text #FF7FFFD4 (0.0, 0.0) "BEFORE"
+pop
+push
+translate 502.0, 114.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 522.0, 146.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 20.0, 272.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 502.0, 250.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 522.0, 234.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 290.0, 328.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 300.0, 312.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+flush
+pop
+pop
+log: ERROR HUD widget test:widget_q failed; it is not drawn again until it is registered anew
+log:     caused by java.lang.IllegalStateException: broken on purpose
+-- layout FLIGHT scale 1.5
+push
+reset transform
+push
+translate 320.0, 180.0, 0.0
+scale 1.5, 1.5
+translate -320.0, -180.0, 0.0
+push
+translate 20.0, 4.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 36.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 4.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 36.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 76.0, 100.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 76.0, 132.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 502.0, 100.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 522.0, 132.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 20.0, 272.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 502.0, 250.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 522.0, 234.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 290.0, 328.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 300.0, 312.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+flush
+pop
+pop
+-- layout SIGHT scale 1.0
+push
+reset transform
+push
+translate 320.0, 180.0, 0.0
+scale 1.0, 1.0
+translate -320.0, -180.0, 0.0
+push
+translate 20.0, 100.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 132.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 48.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 80.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 20.0, 176.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 208.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 172.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 204.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 20.0, 328.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 312.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 250.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 234.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 300.0, 344.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+flush
+pop
+pop
+-- layout SIGHT scale 1.5
+push
+reset transform
+push
+translate 320.0, 180.0, 0.0
+scale 1.5, 1.5
+translate -320.0, -180.0, 0.0
+push
+translate 20.0, 100.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 132.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 48.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 80.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 20.0, 176.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 208.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 172.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 204.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 20.0, 328.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 20.0, 312.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 560.0, 250.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 580.0, 234.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 300.0, 344.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-10.0, 2.0) "0/0.5/true"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+flush
+pop
+pop
+-- layout LEGACY scale 1.0
+push
+reset transform
+push
+translate 320.0, 180.0, 0.0
+scale 1.0, 1.0
+translate -320.0, -180.0, 0.0
+push
+translate 8.0, 8.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 8.0, 40.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 572.0, 8.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 592.0, 40.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 8.0, 112.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 8.0, 144.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 572.0, 112.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 592.0, 144.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 8.0, 324.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 8.0, 308.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 572.0, 324.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 592.0, 308.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 290.0, 324.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 300.0, 308.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+flush
+pop
+pop
+-- layout LEGACY scale 1.5
+push
+reset transform
+push
+translate 320.0, 180.0, 0.0
+scale 1.5, 1.5
+translate -320.0, -180.0, 0.0
+push
+translate 8.0, 8.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 8.0, 40.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 572.0, 8.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "TOP_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 592.0, 40.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 8.0, 112.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 8.0, 144.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 572.0, 112.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 592.0, 144.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 8.0, 324.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_LEFT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 8.0, 308.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 572.0, 324.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM_RIGHT"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 592.0, 308.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+push
+translate 290.0, 324.0, 0.0
+LABEL text #CC7FFFD4 (0.0, 0.0) "BOTTOM"
+fill #66041410 (0.0, 12.0) size (60.0, 16.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (60.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 12.0) (60.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (60.0, 28.0) (0.0, 28.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 28.0) (0.0, 12.0)
+MONO text #FF7FFFD4 (21.0, 15.0) "75%"
+pop
+push
+translate 300.0, 308.0, 0.0
+LABEL text #7F7FFFD4 (0.0, 0.0) "2ND"
+MONO text #FFFFB547 (16.0, 0.0) "30.0"
+MONO text #FFFF6B5B (-13.0, 2.0) "0/0.5/false"
+stroke #FF7FFFD4 width 0.75 (0.0, 9.0) (40.0, 9.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 9.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 9.0)
+fill #D87FFFD4 (1.0, 10.0) size (15.2, 1.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 0.0) (40.0, 0.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 0.0) (40.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (40.0, 12.0) (0.0, 12.0)
+stroke #FF7FFFD4 width 0.75 (0.0, 12.0) (0.0, 0.0)
+fill #3F7FFFD4 (1.0, 1.0) size (2.0, 2.0)
+pop
+flush
+pop
+pop
