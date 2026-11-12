@@ -1,4 +1,4 @@
-# mcheli-revived-api 1.0.0
+# mcheli-revived-api 1.1.0
 # The public signatures of the API. Written by ./gradlew :api:updateApiDump; see docs/API.md.
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.content.ContentLookup content()
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.event.EventBus events()
@@ -43,6 +43,11 @@ com.ivomens.mcheli.api.event.CountermeasureType field public static final com.iv
 com.ivomens.mcheli.api.event.CountermeasureType method public static com.ivomens.mcheli.api.event.CountermeasureType valueOf(java.lang.String)
 com.ivomens.mcheli.api.event.CountermeasureType method public static com.ivomens.mcheli.api.event.CountermeasureType[] values()
 com.ivomens.mcheli.api.event.CountermeasureType type public final enum
+com.ivomens.mcheli.api.event.CrewEjected implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.CrewEjected method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.CrewEjected method public abstract int seatId()
+com.ivomens.mcheli.api.event.CrewEjected method public abstract net.minecraft.world.entity.Entity rider()
+com.ivomens.mcheli.api.event.CrewEjected type public interface
 com.ivomens.mcheli.api.event.EventBus method public abstract <E extends com.ivomens.mcheli.api.event.McheliEvent> com.ivomens.mcheli.api.event.Subscription register(java.lang.Class<E>, java.util.function.Consumer<? super E>)
 com.ivomens.mcheli.api.event.EventBus type public interface
 com.ivomens.mcheli.api.event.LockOnCompleted implements com.ivomens.mcheli.api.event.McheliEvent
@@ -56,6 +61,11 @@ com.ivomens.mcheli.api.event.LockOnStarted method public abstract net.minecraft.
 com.ivomens.mcheli.api.event.LockOnStarted method public abstract net.minecraft.world.entity.Entity user()
 com.ivomens.mcheli.api.event.LockOnStarted type public interface
 com.ivomens.mcheli.api.event.McheliEvent type public interface
+com.ivomens.mcheli.api.event.MissileWarned implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.MissileWarned method public abstract com.ivomens.mcheli.api.event.SeekerType seeker()
+com.ivomens.mcheli.api.event.MissileWarned method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.MissileWarned method public abstract java.util.List<net.minecraft.world.entity.Entity> missiles()
+com.ivomens.mcheli.api.event.MissileWarned type public interface
 com.ivomens.mcheli.api.event.ProjectileImpact implements com.ivomens.mcheli.api.event.McheliEvent
 com.ivomens.mcheli.api.event.ProjectileImpact method public abstract java.lang.String weaponId()
 com.ivomens.mcheli.api.event.ProjectileImpact method public abstract net.minecraft.world.entity.Entity projectile()
@@ -72,19 +82,104 @@ com.ivomens.mcheli.api.event.SeatLeft method public abstract com.ivomens.mcheli.
 com.ivomens.mcheli.api.event.SeatLeft method public abstract int seatId()
 com.ivomens.mcheli.api.event.SeatLeft method public abstract net.minecraft.world.entity.Entity rider()
 com.ivomens.mcheli.api.event.SeatLeft type public interface
+com.ivomens.mcheli.api.event.SeekerType field public static final com.ivomens.mcheli.api.event.SeekerType DUAL
+com.ivomens.mcheli.api.event.SeekerType field public static final com.ivomens.mcheli.api.event.SeekerType HEAT
+com.ivomens.mcheli.api.event.SeekerType field public static final com.ivomens.mcheli.api.event.SeekerType OTHER
+com.ivomens.mcheli.api.event.SeekerType field public static final com.ivomens.mcheli.api.event.SeekerType RADAR
+com.ivomens.mcheli.api.event.SeekerType method public static com.ivomens.mcheli.api.event.SeekerType valueOf(java.lang.String)
+com.ivomens.mcheli.api.event.SeekerType method public static com.ivomens.mcheli.api.event.SeekerType[] values()
+com.ivomens.mcheli.api.event.SeekerType type public final enum
 com.ivomens.mcheli.api.event.Subscription method public abstract void unsubscribe()
 com.ivomens.mcheli.api.event.Subscription type public interface
+com.ivomens.mcheli.api.event.VehicleBoardAttempt implements com.ivomens.mcheli.api.event.Cancellable
+com.ivomens.mcheli.api.event.VehicleBoardAttempt implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleBoardAttempt method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleBoardAttempt method public abstract int seatId()
+com.ivomens.mcheli.api.event.VehicleBoardAttempt method public abstract net.minecraft.server.level.ServerPlayer player()
+com.ivomens.mcheli.api.event.VehicleBoardAttempt type public interface
+com.ivomens.mcheli.api.event.VehicleDamageTaken implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleDamageTaken method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleDamageTaken method public abstract float damage()
+com.ivomens.mcheli.api.event.VehicleDamageTaken method public abstract int hp()
+com.ivomens.mcheli.api.event.VehicleDamageTaken method public abstract int maxHp()
+com.ivomens.mcheli.api.event.VehicleDamageTaken method public abstract java.lang.String weaponId()
+com.ivomens.mcheli.api.event.VehicleDamageTaken method public abstract net.minecraft.world.damagesource.DamageSource source()
+com.ivomens.mcheli.api.event.VehicleDamageTaken method public abstract net.minecraft.world.entity.Entity attacker()
+com.ivomens.mcheli.api.event.VehicleDamageTaken type public interface
+com.ivomens.mcheli.api.event.VehicleDamaged implements com.ivomens.mcheli.api.event.Cancellable
+com.ivomens.mcheli.api.event.VehicleDamaged implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleDamaged method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleDamaged method public abstract float amount()
+com.ivomens.mcheli.api.event.VehicleDamaged method public abstract java.lang.String weaponId()
+com.ivomens.mcheli.api.event.VehicleDamaged method public abstract net.minecraft.world.damagesource.DamageSource source()
+com.ivomens.mcheli.api.event.VehicleDamaged method public abstract net.minecraft.world.entity.Entity attacker()
+com.ivomens.mcheli.api.event.VehicleDamaged method public abstract net.minecraft.world.entity.Entity directEntity()
+com.ivomens.mcheli.api.event.VehicleDamaged method public abstract void setAmount(float)
+com.ivomens.mcheli.api.event.VehicleDamaged type public interface
 com.ivomens.mcheli.api.event.VehicleDestroyed implements com.ivomens.mcheli.api.event.McheliEvent
 com.ivomens.mcheli.api.event.VehicleDestroyed method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
 com.ivomens.mcheli.api.event.VehicleDestroyed method public abstract net.minecraft.world.entity.Entity attacker()
 com.ivomens.mcheli.api.event.VehicleDestroyed type public interface
+com.ivomens.mcheli.api.event.VehicleDismantleAttempt implements com.ivomens.mcheli.api.event.Cancellable
+com.ivomens.mcheli.api.event.VehicleDismantleAttempt implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleDismantleAttempt method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleDismantleAttempt method public abstract net.minecraft.server.level.ServerPlayer player()
+com.ivomens.mcheli.api.event.VehicleDismantleAttempt type public interface
+com.ivomens.mcheli.api.event.VehicleEnteredWater implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleEnteredWater method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleEnteredWater type public interface
+com.ivomens.mcheli.api.event.VehicleLanded implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleLanded method public abstract boolean onWater()
+com.ivomens.mcheli.api.event.VehicleLanded method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleLanded type public interface
+com.ivomens.mcheli.api.event.VehicleLeftWater implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleLeftWater method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleLeftWater type public interface
+com.ivomens.mcheli.api.event.VehicleLockAttempt implements com.ivomens.mcheli.api.event.Cancellable
+com.ivomens.mcheli.api.event.VehicleLockAttempt implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleLockAttempt method public abstract boolean claimsOwnership()
+com.ivomens.mcheli.api.event.VehicleLockAttempt method public abstract boolean locking()
+com.ivomens.mcheli.api.event.VehicleLockAttempt method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleLockAttempt method public abstract net.minecraft.server.level.ServerPlayer player()
+com.ivomens.mcheli.api.event.VehicleLockAttempt type public interface
+com.ivomens.mcheli.api.event.VehiclePlaceAttempt implements com.ivomens.mcheli.api.event.Cancellable
+com.ivomens.mcheli.api.event.VehiclePlaceAttempt implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehiclePlaceAttempt method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehiclePlaceAttempt method public abstract net.minecraft.server.level.ServerPlayer player()
+com.ivomens.mcheli.api.event.VehiclePlaceAttempt method public abstract net.minecraft.world.item.ItemStack item()
+com.ivomens.mcheli.api.event.VehiclePlaceAttempt type public interface
+com.ivomens.mcheli.api.event.VehicleRearmed implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleRearmed method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleRearmed method public abstract int rounds()
+com.ivomens.mcheli.api.event.VehicleRearmed method public abstract java.lang.String weaponId()
+com.ivomens.mcheli.api.event.VehicleRearmed method public abstract net.minecraft.world.entity.Entity supplier()
+com.ivomens.mcheli.api.event.VehicleRearmed type public interface
+com.ivomens.mcheli.api.event.VehicleRefueled implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleRefueled method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleRefueled method public abstract int amount()
+com.ivomens.mcheli.api.event.VehicleRefueled method public abstract net.minecraft.world.entity.Entity supplier()
+com.ivomens.mcheli.api.event.VehicleRefueled type public interface
 com.ivomens.mcheli.api.event.VehicleRemoved implements com.ivomens.mcheli.api.event.McheliEvent
 com.ivomens.mcheli.api.event.VehicleRemoved method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
 com.ivomens.mcheli.api.event.VehicleRemoved method public abstract net.minecraft.world.entity.Entity$RemovalReason reason()
 com.ivomens.mcheli.api.event.VehicleRemoved type public interface
+com.ivomens.mcheli.api.event.VehicleScreen field public static final com.ivomens.mcheli.api.event.VehicleScreen CARGO
+com.ivomens.mcheli.api.event.VehicleScreen field public static final com.ivomens.mcheli.api.event.VehicleScreen PANEL
+com.ivomens.mcheli.api.event.VehicleScreen method public static com.ivomens.mcheli.api.event.VehicleScreen valueOf(java.lang.String)
+com.ivomens.mcheli.api.event.VehicleScreen method public static com.ivomens.mcheli.api.event.VehicleScreen[] values()
+com.ivomens.mcheli.api.event.VehicleScreen type public final enum
+com.ivomens.mcheli.api.event.VehicleScreenOpenAttempt implements com.ivomens.mcheli.api.event.Cancellable
+com.ivomens.mcheli.api.event.VehicleScreenOpenAttempt implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleScreenOpenAttempt method public abstract com.ivomens.mcheli.api.event.VehicleScreen screen()
+com.ivomens.mcheli.api.event.VehicleScreenOpenAttempt method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleScreenOpenAttempt method public abstract net.minecraft.server.level.ServerPlayer player()
+com.ivomens.mcheli.api.event.VehicleScreenOpenAttempt type public interface
 com.ivomens.mcheli.api.event.VehicleSpawned implements com.ivomens.mcheli.api.event.McheliEvent
 com.ivomens.mcheli.api.event.VehicleSpawned method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
 com.ivomens.mcheli.api.event.VehicleSpawned type public interface
+com.ivomens.mcheli.api.event.VehicleTookOff implements com.ivomens.mcheli.api.event.McheliEvent
+com.ivomens.mcheli.api.event.VehicleTookOff method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.event.VehicleTookOff type public interface
 com.ivomens.mcheli.api.event.WeaponFired implements com.ivomens.mcheli.api.event.Cancellable
 com.ivomens.mcheli.api.event.WeaponFired implements com.ivomens.mcheli.api.event.McheliEvent
 com.ivomens.mcheli.api.event.WeaponFired method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()

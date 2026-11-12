@@ -26,7 +26,7 @@ import java.util.Optional;
 public final class ApiService implements McheliApi {
 
     /** The API version this build implements; ApiVersionTest keeps it equal to api_version in gradle.properties. */
-    public static final String API_VERSION = "1.0.0";
+    public static final String API_VERSION = "1.1.0";
 
     private final ApiEventBus events = new ApiEventBus();
     private final ContentLookup content = new LoadedContentLookup();

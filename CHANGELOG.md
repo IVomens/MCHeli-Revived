@@ -11,6 +11,18 @@ The first release of MCHeli: Revived, a port of McHeli CE (Minecraft 1.12.2) to 
 Existing content packs (YAML, TXT, HUD scripts, `.obj` and `.mqo` models) load as they did on
 McHeli CE.
 
+### API 1.1
+
+- `VehicleDamaged`: every hit a vehicle takes, once per hit (seats and hit boxes included), before armor;
+  cancellable, with a changeable amount and the MCHeli weapon of the hit. `VehicleDamageTaken` after the hit
+  points went down.
+- Permission events, cancellable and fired on the server before the action: `VehicleBoardAttempt`,
+  `VehiclePlaceAttempt`, `VehicleDismantleAttempt`, `VehicleScreenOpenAttempt` (with `VehicleScreen`) and
+  `VehicleLockAttempt`. A refused boarding or placement leaves nothing on the player's client.
+- `VehicleTookOff` and `VehicleLanded` (with hysteresis, so bounces do not count), `VehicleEnteredWater` and
+  `VehicleLeftWater`, `MissileWarned` (with `SeekerType`), `CrewEjected`, `VehicleRearmed` and
+  `VehicleRefueled`.
+
 ### Added
 
 - NeoForge 1.21.1 and Fabric 1.21.1 jars built from one codebase, with the same content and
