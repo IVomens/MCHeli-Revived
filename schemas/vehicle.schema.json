@@ -1683,6 +1683,76 @@
       },
       "additionalProperties": false
     },
+    "Behaviours": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {}
+      },
+      "default": {},
+      "description": "Behaviours other mods add to the vehicle, by the id the mod registered (namespace:path), each with the settings that mod reads; write {} for none. An id no installed mod registers is reported and ignored. Behaviour ids (namespace:path) to their settings maps; the mod that adds a behaviour documents its settings."
+    },
+    "behaviours": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {}
+      },
+      "default": {},
+      "description": "Another spelling of 'Behaviours'."
+    },
+    "Movement": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Model": {
+              "type": "string",
+              "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+            },
+            "Settings": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          },
+          "required": [
+            "Model"
+          ],
+          "additionalProperties": false
+        }
+      ],
+      "description": "The movement model of another mod that moves the vehicle instead of its kind's own physics: its id (namespace:path), or a map of the Model id and the Settings that mod reads. Only ground vehicles (vehicles/) take one. An id no installed mod registers is reported, and the vehicle moves as its kind does. A movement model id (namespace:path), or Model and the Settings of the mod that adds it."
+    },
+    "movement": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Model": {
+              "type": "string",
+              "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+            },
+            "Settings": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          },
+          "required": [
+            "Model"
+          ],
+          "additionalProperties": false
+        }
+      ],
+      "description": "Another spelling of 'Movement'."
+    },
     "NameOnAdvancedAARadar": {
       "deprecated": true,
       "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."

@@ -11,6 +11,22 @@ The first release of MCHeli: Revived, a port of McHeli CE (Minecraft 1.12.2) to 
 Existing content packs (YAML, TXT, HUD scripts, `.obj` and `.mqo` models) load as they did on
 McHeli CE.
 
+### API 1.1
+
+- Vehicle behaviours from addons: a mod registers a behaviour type by id through a
+  `VehicleExtensionProvider` (found with `ServiceLoader`), and a vehicle file opts in with
+  `Behaviours: { mymod:winch: { ... } }`. Behaviours get server and client ticks before or after the
+  vehicle moves (`BehaviourTiming`), and hear when they are added, when the vehicle is wrecked and when
+  it is removed. Settings arrive as a `CompoundTag` for the mod's own decoder (a `Codec` with `NbtOps`
+  works).
+- Movement models from addons: a mod registers a `MovementModel`, and a ground vehicle file (`vehicles/`)
+  picks it with `Movement: mymod:hovercraft`; the model sets velocity and heading, MCHeli moves the
+  vehicle with its own collision, sync and client prediction. Built-in vehicles move as before.
+- `McheliApi.vehicleExtensions()`: the registered ids, and which ones a vehicle uses.
+- Unknown behaviour or movement ids, and settings a mod rejects, are warnings in the content report;
+  the vehicle loads without them. The JSON schemas accept `Behaviours` (and `Movement` for vehicles)
+  with any settings map.
+
 ### Added
 
 - NeoForge 1.21.1 and Fabric 1.21.1 jars built from one codebase, with the same content and

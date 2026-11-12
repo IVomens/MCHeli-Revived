@@ -250,6 +250,87 @@ events.register(LockOnCompleted.class, locked -> {
 counting.unsubscribe();
 ```
 
+### Vehicle extensions (package `com.ivomens.mcheli.api.vehicle.extension`, since API 1.1)
+
+An addon can change how vehicles behave in two ways, both chosen by the vehicle's file: **behaviours**
+that ride along on vehicles of any kind (a winch, a beacon, a siren), and a **movement model** that replaces
+a ground vehicle's physics (a hovercraft). MCHeli's own components and models stay internal; an addon sees
+a vehicle only through the context objects below. The YAML side is in
+[ADDON_AUTHORING.md](ADDON_AUTHORING.md#8-behaviours-and-movement-models-from-mods).
+
+| Type | Who implements | Contract |
+|---|---|---|
+| `VehicleExtensionProvider` | addon | Found with `ServiceLoader` (`META-INF/services/com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionProvider`) before any vehicle file is read; `register(registrar)` registers everything. |
+| `VehicleExtensionRegistrar` | MCHeli | `behaviour(id, timing, decoder, factory)` and `movementModel(id, decoder, factory)`; an id is a `ResourceLocation` in your namespace. A duplicate id throws. |
+| `SettingsDecoder<S>` | addon | `decode(CompoundTag)`: the file's settings map as NBT (maps, lists, int/long, double, string, byte for flags). Throw to reject; the message goes to the content report and the vehicle loads without it. Decode with a `Codec` through `NbtOps` if you like. |
+| `BehaviourFactory<S>`, `MovementModelFactory<S>` | addon | Make the behaviour or model of one vehicle from the decoded settings; called again after a content reload replaced the file. |
+| `VehicleBehaviour` | addon | Default hooks: `added`, `serverTick`, `clientTick`, `destroyed` (first tick it sees the wreck), `removed` (left the level for any reason, or replaced by a reload). |
+| `BehaviourTiming` | enum | `BEFORE_MOVEMENT` (end of the systems phase, before the controls and physics) or `AFTER_MOVEMENT` (end of the follow-the-hull phase: hit boxes, parts and seats are in place). The ticks are steps of the vehicle's tick pipeline, checked like MCHeli's own components. |
+| `BehaviourContext` | MCHeli | `id()`, `vehicle()` (the API `Vehicle`: entity, crew, state), `level()`, `isClientSide()`, `controls()`. |
+| `MovementModel` | addon | `step(context)` on the server sets velocity and yaw; MCHeli then moves the vehicle with vanilla collision and calls `afterMove(context)`; `predict(context)` runs on clients between server updates. |
+| `MovementContext` | MCHeli | Reads the state (`position`, `velocity`, `yaw`, `pitch`, `roll`, `onGround`, `inWater`, `waterDepth`, `horizontalCollision`, `isDestroyed`), the file's `gravity()`, `heightAboveGround(maxDepth)` and the `controls()`; writes `setVelocity`, `setYaw`. |
+| `VehicleControls` | MCHeli | The pilot's `forward`, `back`, `left`, `right` keys and the engine `throttle`. |
+| `VehicleExtensions` | MCHeli | `McheliApi.vehicleExtensions()`: `behaviourTypes()`, `movementModels()`, and per vehicle `behavioursOf(vehicle)`, `movementModelOf(vehicle)`. |
+
+```java
+public final class MyExtensions implements VehicleExtensionProvider {
+    @Override
+    public void register(VehicleExtensionRegistrar registrar) {
+        registrar.behaviour(ResourceLocation.fromNamespaceAndPath("mymod", "beacon"), BehaviourTiming.AFTER_MOVEMENT,
+                tag -> tag.contains("Interval") ? tag.getInt("Interval") : 10,
+                (interval, context) -> new VehicleBehaviour() {
+                    @Override
+                    public void clientTick(BehaviourContext c) {
+                        Entity hull = c.vehicle().entity();
+                        if (hull.tickCount % interval == 0) {
+                            c.level().addParticle(ParticleTypes.END_ROD, hull.getX(), hull.getY() + 3, hull.getZ(), 0, 0.05, 0);
+                        }
+                    }
+                });
+        registrar.movementModel(ResourceLocation.fromNamespaceAndPath("mymod", "hovercraft"),
+                tag -> tag.getDouble("Thrust"), thrust -> context -> {
+                    double yaw = Math.toRadians(context.yaw());
+                    double push = context.controls().forward() ? thrust : 0.0;
+                    double lift = context.heightAboveGround(4) < 1.0 ? 0.05 : context.gravity();
+                    Vec3 v = context.velocity();
+                    context.setVelocity(new Vec3((v.x - Math.sin(yaw) * push) * 0.95, lift, (v.z + Math.cos(yaw) * push) * 0.95));
+                });
+    }
+}
+```
+
+**When things run.** The providers are asked once, the first time MCHeli reads a vehicle file or makes a
+vehicle, on whichever thread that is (normally while MCHeli constructs). Settings are decoded on the
+content-loading thread at every load (start-up, `/mcheli reload`, `/mcheli validate`), on both sides; one
+settings object is shared by all vehicles of the type, so keep it immutable. Behaviours and models are made
+per vehicle, on the level's thread, the first time the vehicle ticks with its type. A vehicle at rest (parked
+on the ground, nobody aboard, engine off) skips its tick and with it its behaviours; a hovering vehicle never
+rests. Nothing a behaviour or model holds is saved or synced: keep state on the server and send clients what
+they need yourself. A hook that throws is logged; the behaviour is dropped from that vehicle, and a failing
+movement model leaves the vehicle to its kind's own movement until the file is loaded again.
+
+**Movement models in detail.** In API 1.1 only the `VEHICLE` kind (`vehicles/`) takes a `Movement`; other
+kinds report the key as unknown. The model replaces the kind's key-driven push and steering and its physics
+step; the kind's throttle, engine sound, attitude handling (pitch and roll), weapons, seats, HUD, camera and
+networking stay. Each server tick the model's `step` sets the velocity (blocks per tick) and yaw; MCHeli moves
+the vehicle by that velocity through the same collider the built-in models use (walls, step-up, landing), then
+`afterMove` sees what collision left and may damp it. Clients treat the vehicle as they treat every vehicle:
+position updates from the server are blended in over a few ticks, and between them the client dead-reckons
+(moves by the last velocity) and calls `predict`, where the model can apply the drag it applies on the server.
+The pilot's own client predicts the same way, so a model needs no client code of its own. Use no randomness or
+wall clock in a model if its vehicles should behave the same every time.
+
+**Cost.** With no provider installed, nothing changes: the vehicles' tick has no extra steps and the ground
+vehicle's physics calls its built-in model directly. With a provider installed, a vehicle whose file names
+none pays two list checks per tick for behaviours and, on ground vehicles, one identity check for the movement
+model; vehicles of the built-in kinds still run their built-in models directly.
+
+**Settings of your own in the schema.** The JSON schemas accept `Behaviours` as a map of ids to any settings
+map, and `Movement` as an id or `{ Model, Settings }` with any settings map; MCHeli does not check what is
+inside. Document your settings for pack authors yourself (the keys, their types, defaults and ranges, as the
+example addon's javadoc does), and reject bad values in your decoder with a clear message: it shows in the
+content report with the file and line.
+
 ## The example addon
 
 [`examples/example-addon`](../examples/example-addon) is a NeoForge mod built against the API alone, and
@@ -260,6 +341,11 @@ part of this build (`./gradlew :example-addon:build`, run by CI):
 * `ExampleAddon` counts every shot through `WeaponFired` and logs the total every 100 shots;
 * it cancels shots fired by players inside the server's spawn protection, unless its server config
   (`ExampleConfig`, `blockFireInSpawnProtection`) turns that off.
+* `ExampleExtensions` registers a movement model, `mcheli_example:hovercraft` (`HovercraftModel`: an air
+  cushion, thrust along the heading, turning with the side keys, a glide with little drag, the same drag
+  predicted on clients), and a behaviour, `mcheli_example:beacon` (`BeaconBehaviour`: a column of particles on
+  clients every few ticks, counted on the server), both decoding their settings with a `Codec` and `NbtOps`.
+  The pack's `example_hovercraft` vehicle uses both.
 
 ### Running it
 
@@ -280,6 +366,9 @@ the class path, so NeoForge loads them as two separate mods, as from a mods fold
   counted; with the option off they go through and count again. A game test server has no spawn protection
   of its own (only a dedicated server does), so a test mixin in `mcheli_example_test` protects the test's
   area.
+* `hovercraftfliesandbeaconpulses`: the hovercraft rises to its cushion height, flies exactly the distance
+  the model's thrust and drag give while the forward key is held, and the beacon pulses on the server; the
+  API names the model and behaviour the vehicle uses.
 
 The test mod reaches MCHeli's internals to spawn, board and fire the helicopter; the addon itself uses only
 the API. CI runs this after the main game tests. MCHeli's own game tests check the API from inside the mod
@@ -287,6 +376,9 @@ as well (`common/src/gametest/.../api`): `TestContentPacks` registers a pack thr
 `META-INF/services` mechanism, and `ApiGameTests` checks that it loads with its pack id, that the lookups
 find a spawned helicopter, and that `VehicleSpawned`, `SeatBoarded`, `WeaponFired` (cancelled, then
 allowed) and `VehicleRemoved` fire, on NeoForge and on Fabric.
+`TestVehicleExtensions` registers a movement model and two behaviours the same way, and `ExtensionGameTests`
+checks that the test pack's `api_test_hover` hovers and flies as that model says, that its behaviours tick
+before and after the move and hear of its removal, and that unknown ids and rejected settings are warnings.
 
 ### Fabric addons
 

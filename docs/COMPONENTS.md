@@ -25,16 +25,19 @@ The components `AircraftComponents` builds, which every vehicle kind has.
 
 | Component | Ticks in | Ticks after | Fan-in | Fan-out | Depends on |
 |---|---|---|---|---|---|
+| `AddonBehaviours` | - | - | 2 | 2 | ControlKeysComponent, LifecycleComponent |
 | `AircraftInventory` | - | - | 4 | 0 | - |
 | `AircraftPhysics` | - | - | 1 | 4 | BodyComponent, ControlKeysComponent, DamageComponent, EngineComponent |
 | `AmmoSupplyComponent` | SYSTEMS | - | 0 | 4 | BodyComponent, LifecycleComponent, StatusWord, WeaponComponent |
 | `AppearanceComponent` | - | - | 1 | 0 | - |
+| `BehavioursAfterMovement` | FOLLOW_HULL | - | 0 | 1 | AddonBehaviours |
+| `BehavioursBeforeMovement` | SYSTEMS | - | 0 | 1 | AddonBehaviours |
 | `BoardingComponent` | - | - | 0 | 7 | AircraftInventory, AppearanceComponent, OwnershipComponent, PartsComponent, PilotBoarding, RestState, SeatsComponent |
 | `BodyComponent` | - | - | 13 | 2 | PartBoxesComponent, RollComponent |
 | `CameraComponent` | - | - | 5 | 3 | FlightModesComponent, SeatsComponent |
 | `CarrierComponent` | LIFECYCLE | - | 0 | 3 | BodyComponent, EngineComponent, RollComponent |
 | `CollisionExclusions` | SYSTEMS | - | 0 | 2 | SeatsComponent, TowComponent |
-| `ControlKeysComponent` | - | - | 4 | 1 | StatusWord |
+| `ControlKeysComponent` | - | - | 5 | 1 | StatusWord |
 | `CountermeasureComponent` | SYSTEMS | - | 1 | 3 | BodyComponent, SeatsComponent, StatusWord |
 | `CrewAimComponent` | - | - | 3 | 1 | TowComponent |
 | `CrewExitComponent` | FOLLOW_HULL | PartsComponent | 5 | 6 | BodyComponent, LifecycleComponent, PartsComponent, PositionHistory, RepellingRopes, SeatsComponent |
@@ -47,7 +50,7 @@ The components `AircraftComponents` builds, which every vehicle kind has.
 | `HullDamageComponent` | FOLLOW_HULL | DamageComponent | 0 | 2 | DamageComponent, LifecycleComponent |
 | `HullLighting` | - | - | 0 | 1 | SearchLightComponent |
 | `IdentityComponent` | - | - | 1 | 0 | - |
-| `LifecycleComponent` | - | - | 10 | 5 | AircraftInventory, EngineSoundComponent, SeatsComponent, StatusWord, TowComponent |
+| `LifecycleComponent` | - | - | 11 | 5 | AircraftInventory, EngineSoundComponent, SeatsComponent, StatusWord, TowComponent |
 | `MotionSyncComponent` | - | - | 0 | 3 | BodyComponent, RestState, RollComponent |
 | `OwnershipComponent` | - | - | 2 | 0 | - |
 | `PartBoxesComponent` | FOLLOW_HULL | - | 2 | 0 | - |
@@ -78,6 +81,8 @@ The components `AircraftComponents` builds, which every vehicle kind has.
 
 ```mermaid
 flowchart LR
+    AddonBehaviours --> ControlKeysComponent
+    AddonBehaviours --> LifecycleComponent
     AircraftInventory
     AircraftPhysics --> BodyComponent
     AircraftPhysics --> ControlKeysComponent
@@ -88,6 +93,8 @@ flowchart LR
     AmmoSupplyComponent --> StatusWord
     AmmoSupplyComponent --> WeaponComponent
     AppearanceComponent
+    BehavioursAfterMovement --> AddonBehaviours
+    BehavioursBeforeMovement --> AddonBehaviours
     BoardingComponent --> AircraftInventory
     BoardingComponent --> AppearanceComponent
     BoardingComponent --> OwnershipComponent

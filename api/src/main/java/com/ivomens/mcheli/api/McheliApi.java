@@ -3,6 +3,7 @@ package com.ivomens.mcheli.api;
 import com.ivomens.mcheli.api.content.ContentLookup;
 import com.ivomens.mcheli.api.event.EventBus;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
+import com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -64,4 +65,11 @@ public interface McheliApi {
 
     /** Where addons listen to what happens to vehicles and weapons. */
     EventBus events();
+
+    /**
+     * The behaviour types and movement models mods registered through
+     * {@link com.ivomens.mcheli.api.vehicle.extension.VehicleExtensionProvider}, and which a vehicle uses. Since
+     * API 1.1.
+     */
+    VehicleExtensions vehicleExtensions();
 }

@@ -15,6 +15,7 @@ import com.ivomens.mcheli.aircraft.VehicleSpec;
 import com.ivomens.mcheli.aircraft.VehicleTypeSteps;
 import com.ivomens.mcheli.aircraft.VehicleTypes;
 import com.ivomens.mcheli.api.vehicle.VehicleKind;
+import com.ivomens.mcheli.extension.ExtensionRegistry;
 import com.ivomens.mcheli.platform.LocalClient;
 import com.ivomens.mcheli.util.ModLogger;
 import com.ivomens.mcheli.vehicle.component.FlightModeRules;
@@ -39,6 +40,9 @@ public class GroundVehicleEntity extends AircraftEntity {
     private static final double IDLE_SPOOL_DOWN = 0.00125;
 
     private final PlacedPositionHold placedHold = new PlacedPositionHold(this, () -> settings().carriage());
+    /** Null unless some mod registers a movement model; then the vehicle's file may pick one. */
+    @Nullable
+    private final AddonMovement addonMovement;
     private VehicleSpec groundVehicleSpec;
     /** Front wheel angle in -1..1 of full lock. */
     private float steerAngle;
@@ -53,7 +57,8 @@ public class GroundVehicleEntity extends AircraftEntity {
         this.cameras().useLinearZoom();
         this.weapons().aimInWorldSpace();
         this.motionSync().smoothAs(MotionSyncComponent.Smoothing.GROUND);
-        this.motionSync().predictWith(this::predictMovement);
+        this.addonMovement = ExtensionRegistry.get().hasMovementModels() ? new AddonMovement(this) : null;
+        this.motionSync().predictWith(this.addonMovement != null ? this::predictWithAddons : this::predictMovement);
         this.motionSync().blendOverExtraTicks(() -> 5);
         this.motionSync().driverSeesOwnVehicleSooner();
         this.modes().setRules(new FlightModeRules() {
@@ -133,7 +138,8 @@ public class GroundVehicleEntity extends AircraftEntity {
                 TickStep.both("crew: a new driver looks ahead and picks a weapon", this::greetNewDriver),
                 VehicleTypeSteps.weapons(this),
                 VehicleTypeSteps.seats(this),
-                TickStep.sided("throttle and drive", this::driveOnServer, this::followThrottleOnClient),
+                TickStep.sided("throttle and drive", this.addonMovement != null ? this::driveWithAddons
+                        : this::driveOnServer, this::followThrottleOnClient),
                 VehicleTypeSteps.rememberLastPosition(this),
                 TickStep.both("water: the nose sinks", () -> {
                     if (isInWater()) {
@@ -141,7 +147,8 @@ public class GroundVehicleEntity extends AircraftEntity {
                     }
                 }),
                 VehicleTypeSteps.cameraViewers(this),
-                TickStep.sided("physics: ground vehicle", this::stepPhysics, motionSync()::tick),
+                TickStep.sided("physics: ground vehicle", this.addonMovement != null ? this::stepWithAddons
+                        : this::stepPhysics, motionSync()::tick),
                 VehicleTypeSteps.followCamera(this),
                 VehicleTypeSteps.dropRemovedPilot(this));
     }
@@ -157,9 +164,18 @@ public class GroundVehicleEntity extends AircraftEntity {
 
     /** Server: the keys drive the vehicle, and the throttle goes out to clients. */
     private void driveOnServer() {
+        driveOnServer(true);
+    }
+
+    /** Server: a movement model of another mod reads the keys itself; the throttle still goes out. */
+    private void driveWithAddons() {
+        driveOnServer(!this.addonMovement.isActive());
+    }
+
+    private void driveOnServer(boolean keysDrive) {
         ThrottleLever lever = idleWithoutDriver();
         Entity rider = getRiddenByEntity();
-        if (rider != null && !rider.isRemoved()
+        if (keysDrive && rider != null && !rider.isRemoved()
                 && (this.groundVehicleSpec.file().kindFeatures().canMove()
                 || this.groundVehicleSpec.file().kindFeatures().canRotate())) {
             drive();
@@ -213,6 +229,22 @@ public class GroundVehicleEntity extends AircraftEntity {
         if (isInWater()) {
             Vec3 inWater = getDeltaMovement();
             setDeltaMovement(inWater.x * 0.99, inWater.y, inWater.z * 0.99);
+        }
+    }
+
+    private void predictWithAddons() {
+        if (this.addonMovement.isActive()) {
+            this.addonMovement.predict();
+        } else {
+            predictMovement();
+        }
+    }
+
+    private void stepWithAddons() {
+        if (this.addonMovement.isActive()) {
+            this.addonMovement.step();
+        } else {
+            stepPhysics();
         }
     }
 

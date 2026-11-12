@@ -1,6 +1,9 @@
 package com.ivomens.mcheli.aircraft;
 
+import com.ivomens.mcheli.vehicle.component.AddonBehaviours;
 import com.ivomens.mcheli.vehicle.component.AmmoSupplyComponent;
+import com.ivomens.mcheli.vehicle.component.BehavioursAfterMovement;
+import com.ivomens.mcheli.vehicle.component.BehavioursBeforeMovement;
 import com.ivomens.mcheli.vehicle.component.AppearanceComponent;
 import com.ivomens.mcheli.vehicle.component.BoardingComponent;
 import com.ivomens.mcheli.vehicle.component.BodyComponent;
@@ -139,6 +142,9 @@ final class AircraftComponents {
     private CarrierComponent carrier;
     private MotionSyncComponent motionSync;
     private CollisionExclusions collisionExclusions;
+    // what other mods add
+    private BehavioursBeforeMovement behavioursBefore;
+    private BehavioursAfterMovement behavioursAfter;
 
     AircraftComponents(AircraftEntity vehicle, AircraftCamera camera,
             VehicleClientHooks.EngineSoundPlayer soundPlayer, Supplier<VehicleSettingsSnapshot> settings) {
@@ -269,6 +275,9 @@ final class AircraftComponents {
                 () -> this.settings.get().carriage());
         this.motionSync = new MotionSyncComponent(v, this.restState, this.roll, this.body);
         this.collisionExclusions = new CollisionExclusions(v, this.seats, this.tow);
+        AddonBehaviours addonBehaviours = new AddonBehaviours(v, this.lifecycle, this.keys);
+        this.behavioursBefore = new BehavioursBeforeMovement(addonBehaviours);
+        this.behavioursAfter = new BehavioursAfterMovement(addonBehaviours);
     }
 
     /**
@@ -522,5 +531,13 @@ final class AircraftComponents {
 
     CollisionExclusions collisionExclusions() {
         return this.collisionExclusions;
+    }
+
+    BehavioursBeforeMovement behavioursBefore() {
+        return this.behavioursBefore;
+    }
+
+    BehavioursAfterMovement behavioursAfter() {
+        return this.behavioursAfter;
     }
 }
