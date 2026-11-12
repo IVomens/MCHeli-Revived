@@ -7,6 +7,7 @@ import com.ivomens.mcheli.core.content.schema.Codecs;
 import com.ivomens.mcheli.core.content.schema.Field;
 import com.ivomens.mcheli.core.content.schema.KeyAlias;
 import com.ivomens.mcheli.core.content.schema.LocalizedName;
+import com.ivomens.mcheli.core.content.schema.Member;
 import com.ivomens.mcheli.core.content.schema.Schema;
 import com.ivomens.mcheli.core.content.schema.Section;
 import com.ivomens.mcheli.core.content.schema.Values;
@@ -14,6 +15,7 @@ import com.ivomens.mcheli.content.schema.Vectors;
 import com.ivomens.mcheli.api.vehicle.VehicleKind;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -162,7 +164,8 @@ public final class VehicleSchema {
     }
 
     private static Section<VehicleFile, VehicleFile> root(VehicleKind kind, KindFields fields) {
-        return Section.root(DISPLAY_NAME, AUTHOR, ITEM_ID, CATEGORY, RECIPE, CAN_RIDE, ROTOR_SPEED, TURRET_POSITION,
+        List<Member<VehicleFile>> members = new ArrayList<>(List.<Member<VehicleFile>>of(DISPLAY_NAME, AUTHOR,
+                        ITEM_ID, CATEGORY, RECIPE, CAN_RIDE, ROTOR_SPEED, TURRET_POSITION,
                         UNMOUNT_POSITION, CREATIVE_ONLY, REGENERATION, INVULNERABLE, FuelSchema.MAX_FUEL,
                         FuelSchema.FUEL_TYPES, MAX_HP, STEALTH, FuelSchema.CONSUMPTION, FuelSchema.SUPPLY_RANGE,
                         FuelSchema.SUPPLY, FuelSchema.ELECTRIC_SECTION, AMMO_SUPPLY_RANGE, REPAIR, NAME_MODERN_AA,
@@ -175,7 +178,11 @@ public final class VehicleSchema {
                         CrewSchema.SEATS, CrewSchema.GUNNER_HUD, CrewSchema.RACKS, CrewSchema.EXCLUSIVE_SEATS,
                         CrewSchema.RIDE_RACKS, HitBoxSchema.HIT_BOXES, HitBoxSchema.wheels(fields),
                         ViewSchemas.UAV_SECTION, FeaturesSchema.SECTION, KindFeaturesSchema.section(kind),
-                        ComponentsSchema.section(kind))
+                        ComponentsSchema.section(kind), AddonSchema.BEHAVIOURS));
+        if (kind == VehicleKind.VEHICLE) {
+            members.add(AddonSchema.MOVEMENT);
+        }
+        return Section.root(members)
                 .unsupported("NameOnAdvancedAARadar", "HUDType", "HudType", "WeaponGroupType");
     }
 
@@ -191,7 +198,8 @@ public final class VehicleSchema {
                 ViewSchemas.sound(v, fields), PhysicsSchema.build(v, fields), ViewSchemas.render(v),
                 ViewSchemas.armor(v), v.get(CrewSchema.WEAPONS), CrewSchema.build(v), v.get(HitBoxSchema.HIT_BOXES),
                 HitBoxSchema.wheels(v, fields), ViewSchemas.uav(v), FeaturesSchema.build(v),
-                KindFeaturesSchema.build(v), ComponentsSchema.build(v));
+                KindFeaturesSchema.build(v), ComponentsSchema.build(v),
+                AddonSchema.build(v, kind == VehicleKind.VEHICLE));
     }
 
     private static Field<VehicleFile, String> radarName(String key, Function<RadarNames, String> getter,

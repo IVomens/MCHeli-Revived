@@ -7,6 +7,7 @@ import com.ivomens.mcheli.content.def.vehicle.CrewEntries.Splash;
 import com.ivomens.mcheli.content.def.vehicle.CrewEntries.WheelHitBox;
 import com.ivomens.mcheli.core.content.schema.ContentDefinition;
 import com.ivomens.mcheli.core.content.schema.LocalizedName;
+import com.ivomens.mcheli.extension.VehicleAddons;
 import com.ivomens.mcheli.api.vehicle.VehicleKind;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
@@ -27,6 +28,7 @@ import java.util.Map;
  *
  * @param kind           which kind of vehicle the file is, from its folder
  * @param rotorSpeed     degrees per tick, or null for the kind's own speed
+ * @param addons         the behaviours and movement model of other mods the file names ({@link AddonSchema})
  */
 public record VehicleFile(String name, VehicleKind kind, LocalizedName displayName, String author, int itemId,
                           String category, Recipe recipe, boolean canRide, @Nullable Float rotorSpeed,
@@ -36,7 +38,8 @@ public record VehicleFile(String name, VehicleKind kind, LocalizedName displayNa
                           int explosionSizeByCrash, float throttleDownFactor, CameraSettings camera,
                           Sound sound, Physics physics, Render render, Armor armor, List<Mount> weapons,
                           Crew crew, List<HitBox> boundingBoxes, Wheels wheels, Uav uav,
-                          AircraftFeatures features, KindFeatures kindFeatures, Components components)
+                          AircraftFeatures features, KindFeatures kindFeatures, Components components,
+                          VehicleAddons addons)
         implements ContentDefinition {
 
     public VehicleFile {
@@ -52,7 +55,7 @@ public record VehicleFile(String name, VehicleKind kind, LocalizedName displayNa
                 this.ammoSupplyRange, this.repairOtherVehicles, this.radarNames, this.explosionSizeByCrash,
                 this.throttleDownFactor, this.camera, this.sound, this.physics, this.render, this.armor, mounts,
                 this.crew, this.boundingBoxes, this.wheels, this.uav, this.features, this.kindFeatures,
-                this.components);
+                this.components, this.addons);
     }
 
     /** The same file with other equipment. */
@@ -63,7 +66,7 @@ public record VehicleFile(String name, VehicleKind kind, LocalizedName displayNa
                 this.ammoSupplyRange, this.repairOtherVehicles, this.radarNames, this.explosionSizeByCrash,
                 this.throttleDownFactor, this.camera, this.sound, this.physics, this.render, this.armor,
                 this.weapons, this.crew, this.boundingBoxes, this.wheels, this.uav, changed, this.kindFeatures,
-                this.components);
+                this.components, this.addons);
     }
 
     /** YAML {@code Recepie}: how the vehicle's item is crafted. */
