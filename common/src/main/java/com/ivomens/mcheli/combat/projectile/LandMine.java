@@ -144,6 +144,11 @@ final class LandMine implements RoleBehaviour {
     private void detonate(WeaponSpec info) {
         ProjectileEntity p = this.bomb;
         Warhead warhead = p.warhead();
+        if (p.addon != null && p.addon.cancelsExplosion(p.position())) {
+            warhead.playHitSound(p, p.position());
+            p.discard();
+            return;
+        }
         if (p.isInWater() && warhead.explosionPowerInWater() > 0) {
             warhead.explode(p, p.position(), warhead.explosionPowerInWater(), warhead.explosionPowerInWater(), true);
         } else if (warhead.explosionPower() > 0) {

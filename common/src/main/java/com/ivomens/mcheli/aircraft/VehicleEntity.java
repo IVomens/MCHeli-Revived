@@ -5,6 +5,7 @@ import com.ivomens.mcheli.vehicle.component.BodyComponent;
 import com.ivomens.mcheli.vehicle.component.CollisionExclusions;
 import com.ivomens.mcheli.vehicle.component.CrewExitComponent;
 import com.ivomens.mcheli.vehicle.component.DamageComponent;
+import com.ivomens.mcheli.vehicle.component.EngineComponent;
 import com.ivomens.mcheli.vehicle.component.HullDamageComponent;
 import com.ivomens.mcheli.vehicle.component.MotionSyncComponent;
 import com.ivomens.mcheli.vehicle.component.OwnershipComponent;
@@ -100,6 +101,13 @@ public abstract class VehicleEntity extends InventoryEntity {
     public abstract SeatsComponent seats();
 
     public abstract CrewExitComponent crewExit();
+
+    public abstract EngineComponent engine();
+
+    /** Server: stops the engine for a while, as an electromagnetic pulse does; see {@link EngineComponent#stall}. */
+    public void stallEngine(int ticks) {
+        this.engine().stall(ticks);
+    }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {

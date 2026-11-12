@@ -1,4 +1,4 @@
-# mcheli-revived-api 1.0.0
+# mcheli-revived-api 1.1.0
 # The public signatures of the API. Written by ./gradlew :api:updateApiDump; see docs/API.md.
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.content.ContentLookup content()
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.event.EventBus events()
@@ -8,6 +8,25 @@ com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivome
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.Optional<com.ivomens.mcheli.api.vehicle.Vehicle> vehicleOf(net.minecraft.world.entity.Entity)
 com.ivomens.mcheli.api.McheliApi method public static com.ivomens.mcheli.api.McheliApi get()
 com.ivomens.mcheli.api.McheliApi type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual method default public void onImpact(com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext, net.minecraft.world.phys.HitResult)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual method default public void onRemoved(com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual method default public void onTick(com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual$Factory method public abstract com.ivomens.mcheli.api.client.weapon.ProjectileVisual create(net.minecraft.nbt.CompoundTag)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual$Factory type public static interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract com.ivomens.mcheli.api.content.WeaponInfo weapon()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract int ticksFlown()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.nbt.CompoundTag data()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.entity.Entity entity()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.entity.Entity target()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.level.Level level()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.phys.Vec3 position()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.phys.Vec3 velocity()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualProvider method public abstract void registerVisuals(com.ivomens.mcheli.api.client.weapon.ProjectileVisualRegistrar)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualProvider type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualRegistrar method public abstract void visual(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.client.weapon.ProjectileVisual$Factory)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualRegistrar type public interface
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.List<com.ivomens.mcheli.api.content.VehicleInfo> vehicles()
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.List<com.ivomens.mcheli.api.content.WeaponInfo> weapons()
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.Optional<com.ivomens.mcheli.api.content.VehicleInfo> vehicle(com.ivomens.mcheli.api.vehicle.VehicleKind, java.lang.String)
@@ -27,6 +46,8 @@ com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.Strin
 com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.String id()
 com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.String packId()
 com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.String type()
+com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.util.List<net.minecraft.resources.ResourceLocation> projectileEffects()
+com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.util.Optional<net.minecraft.resources.ResourceLocation> guidance()
 com.ivomens.mcheli.api.content.WeaponInfo type public interface
 com.ivomens.mcheli.api.event.Cancellable method public abstract boolean isCancelled()
 com.ivomens.mcheli.api.event.Cancellable method public abstract void setCancelled(boolean)
@@ -131,3 +152,75 @@ com.ivomens.mcheli.api.vehicle.VehicleKind method public static com.ivomens.mche
 com.ivomens.mcheli.api.vehicle.VehicleKind type public final enum
 com.ivomens.mcheli.api.vehicle.VehicleSeat method public abstract com.ivomens.mcheli.api.vehicle.Vehicle getParent()
 com.ivomens.mcheli.api.vehicle.VehicleSeat type public interface
+com.ivomens.mcheli.api.weapon.DetonationContext implements com.ivomens.mcheli.api.weapon.ProjectileEffectContext
+com.ivomens.mcheli.api.weapon.DetonationContext method public abstract boolean isExplosionCancelled()
+com.ivomens.mcheli.api.weapon.DetonationContext method public abstract net.minecraft.world.phys.Vec3 at()
+com.ivomens.mcheli.api.weapon.DetonationContext method public abstract void cancelExplosion()
+com.ivomens.mcheli.api.weapon.DetonationContext type public interface
+com.ivomens.mcheli.api.weapon.GuidanceContext implements com.ivomens.mcheli.api.weapon.ProjectileView
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract boolean isInSeekerCone(net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract boolean isTargetDecoyed()
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract double turnRate()
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract float seekerConeDegrees()
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract void setTarget(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.weapon.GuidanceContext type public interface
+com.ivomens.mcheli.api.weapon.GuidanceLaw method default public com.ivomens.mcheli.api.weapon.SteeringCommand decoyed(com.ivomens.mcheli.api.weapon.GuidanceContext)
+com.ivomens.mcheli.api.weapon.GuidanceLaw method public abstract com.ivomens.mcheli.api.weapon.SteeringCommand steer(com.ivomens.mcheli.api.weapon.GuidanceContext)
+com.ivomens.mcheli.api.weapon.GuidanceLaw type public interface
+com.ivomens.mcheli.api.weapon.GuidanceLaw$Factory method public abstract com.ivomens.mcheli.api.weapon.GuidanceLaw create(net.minecraft.nbt.CompoundTag)
+com.ivomens.mcheli.api.weapon.GuidanceLaw$Factory type public static interface
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onBlockHit(com.ivomens.mcheli.api.weapon.ProjectileEffectContext, net.minecraft.world.phys.BlockHitResult)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onDetonate(com.ivomens.mcheli.api.weapon.DetonationContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onEntityHit(com.ivomens.mcheli.api.weapon.ProjectileEffectContext, net.minecraft.world.phys.EntityHitResult)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onExpire(com.ivomens.mcheli.api.weapon.ProjectileEffectContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onSpawn(com.ivomens.mcheli.api.weapon.ProjectileEffectContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onTick(com.ivomens.mcheli.api.weapon.ProjectileEffectContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect type public interface
+com.ivomens.mcheli.api.weapon.ProjectileEffect$Factory method public abstract com.ivomens.mcheli.api.weapon.ProjectileEffect create(net.minecraft.nbt.CompoundTag)
+com.ivomens.mcheli.api.weapon.ProjectileEffect$Factory type public static interface
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext implements com.ivomens.mcheli.api.weapon.ProjectileView
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext method public abstract net.minecraft.world.entity.Entity spawnProjectile(java.lang.String, net.minecraft.world.phys.Vec3, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext method public abstract void explode(net.minecraft.world.phys.Vec3, float)
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext method public abstract void stallEngine(com.ivomens.mcheli.api.vehicle.Vehicle, int)
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext type public interface
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract boolean isSubmunition()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract com.ivomens.mcheli.api.content.WeaponInfo weapon()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract double speed()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract int ticksFlown()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.nbt.CompoundTag data()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.server.level.ServerLevel level()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity entity()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity launcher()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity shooter()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity target()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.phys.Vec3 position()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.phys.Vec3 targetPoint()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.phys.Vec3 velocity()
+com.ivomens.mcheli.api.weapon.ProjectileView type public interface
+com.ivomens.mcheli.api.weapon.SteeringCommand constructor public (com.ivomens.mcheli.api.weapon.SteeringCommand$Kind, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.SteeringCommand method public com.ivomens.mcheli.api.weapon.SteeringCommand$Kind kind()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public final boolean equals(java.lang.Object)
+com.ivomens.mcheli.api.weapon.SteeringCommand method public final int hashCode()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public final java.lang.String toString()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public net.minecraft.world.phys.Vec3 point()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand detonate()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand dropTarget()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand keepCourse()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand selfDestruct()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand steerTowards(net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand track(net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.SteeringCommand type public final record
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind DETONATE
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind DROP_TARGET
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind KEEP_COURSE
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind SELF_DESTRUCT
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind STEER
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind TRACK
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind method public static com.ivomens.mcheli.api.weapon.SteeringCommand$Kind valueOf(java.lang.String)
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind method public static com.ivomens.mcheli.api.weapon.SteeringCommand$Kind[] values()
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind type public static final enum
+com.ivomens.mcheli.api.weapon.WeaponBehaviourProvider method public abstract void registerBehaviours(com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar)
+com.ivomens.mcheli.api.weapon.WeaponBehaviourProvider type public interface
+com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar method public abstract void guidance(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.weapon.GuidanceLaw$Factory)
+com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar method public abstract void projectileEffect(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.weapon.ProjectileEffect$Factory)
+com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar type public interface

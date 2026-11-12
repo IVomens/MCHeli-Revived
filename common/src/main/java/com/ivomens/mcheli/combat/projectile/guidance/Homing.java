@@ -71,7 +71,7 @@ final class Homing {
         missile.setYRot(Pursuit.headingYaw(steered.x, steered.z));
     }
 
-    private static boolean losesTarget(ProjectileEntity missile, WeaponSpec info, Entity target, Vec3 motion,
+    static boolean losesTarget(ProjectileEntity missile, WeaponSpec info, Entity target, Vec3 motion,
                                        Vec3 targetMotion, Vector3f toTarget, boolean landedTargetIsLost) {
         Vector3f missileDir = new Vector3f((float) motion.x, (float) motion.y, (float) motion.z);
         if (Seeker.outsideFieldOfView(missileDir, toTarget, info.missile().maxDegreeOfMissile())

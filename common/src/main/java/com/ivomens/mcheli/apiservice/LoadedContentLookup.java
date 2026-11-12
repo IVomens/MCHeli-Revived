@@ -8,9 +8,11 @@ import com.ivomens.mcheli.api.content.VehicleInfo;
 import com.ivomens.mcheli.api.content.WeaponInfo;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
 import com.ivomens.mcheli.api.vehicle.VehicleKind;
+import com.ivomens.mcheli.combat.projectile.behaviour.WeaponBehaviourSet;
 import com.ivomens.mcheli.combat.weapon.WeaponSpec;
 import com.ivomens.mcheli.combat.weapon.Weapons;
 import com.ivomens.mcheli.content.registry.ContentEntry;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -64,7 +66,10 @@ final class LoadedContentLookup implements ContentLookup {
 
     private static WeaponInfo weaponInfo(WeaponSpec spec) {
         String pack = Weapons.registry().entry(spec.name()).map(LoadedContentLookup::packOf).orElse("");
-        return new LoadedWeapon(spec.name(), spec.definition().displayName(), spec.definition().type(), pack);
+        WeaponBehaviourSet behaviours = spec.behaviours();
+        return new LoadedWeapon(spec.name(), spec.definition().displayName(), spec.definition().type(), pack,
+                Optional.ofNullable(behaviours != null ? behaviours.guidanceId() : null),
+                behaviours != null ? behaviours.effectIds() : List.of());
     }
 
     private static String packOf(ContentEntry<?> entry) {
@@ -75,6 +80,8 @@ final class LoadedContentLookup implements ContentLookup {
             implements VehicleInfo {
     }
 
-    private record LoadedWeapon(String id, String displayName, String type, String packId) implements WeaponInfo {
+    private record LoadedWeapon(String id, String displayName, String type, String packId,
+                                Optional<ResourceLocation> guidance, List<ResourceLocation> projectileEffects)
+            implements WeaponInfo {
     }
 }

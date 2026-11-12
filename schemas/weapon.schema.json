@@ -1590,6 +1590,54 @@
       "additionalProperties": {},
       "description": "Hammer's Nuclear Tech explosion settings, used only with that mod installed."
     },
+    "Guidance": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+:[A-Za-z0-9_./-]+$"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ],
+      "description": "An addon mod's guidance law that steers the projectiles instead of the type's own guidance. A behaviour id of an addon mod, such as mymod:beam_rider, or a map of Id and the behaviour's own settings."
+    },
+    "ProjectileEffects": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_.-]+:[A-Za-z0-9_./-]+$"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          ],
+          "description": "A behaviour id of an addon mod, such as mymod:beam_rider, or a map of Id and the behaviour's own settings."
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_.-]+:[A-Za-z0-9_./-]+$"
+              },
+              {
+                "type": "object",
+                "additionalProperties": {}
+              }
+            ],
+            "description": "A behaviour id of an addon mod, such as mymod:beam_rider, or a map of Id and the behaviour's own settings."
+          }
+        }
+      ],
+      "default": [],
+      "description": "Addon mods' effects each projectile runs, in order."
+    },
     "SwitchCooldown": {
       "deprecated": true,
       "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."

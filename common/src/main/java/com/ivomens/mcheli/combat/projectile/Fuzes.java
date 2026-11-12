@@ -1,11 +1,13 @@
 package com.ivomens.mcheli.combat.projectile;
 
 import com.ivomens.mcheli.api.vehicle.Vehicle;
+import com.ivomens.mcheli.combat.damage.ModDamageSources;
 import com.ivomens.mcheli.combat.guidance.TargetFilter;
 import com.ivomens.mcheli.combat.weapon.WeaponSpec;
 import com.ivomens.mcheli.util.Terrain;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -224,5 +226,14 @@ public final class Fuzes {
         // the projection lies on the unit direction, so its distance from here equals "along"
         if (along > stepLength + 0.1) return -1.0;
         return Math.min(1.0, along / stepLength);
+    }
+
+    /**
+     * Whether a hit sets the projectile off: one by a thrown item (a snowball, a grenade...) on the server, unless
+     * it is a marker rocket.
+     */
+    static boolean setsOff(ProjectileEntity p, DamageSource source, float amount) {
+        return p.kind().role() != ProjectileKind.Role.MARKER && !p.isInvulnerableTo(source)
+                && !p.level().isClientSide && amount > 0.0F && ModDamageSources.isThrown(source);
     }
 }

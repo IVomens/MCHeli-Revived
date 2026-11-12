@@ -208,7 +208,8 @@ final class AircraftComponents {
         this.fuel = new FuelComponent(v, this.status, serverOwned(VehicleEntity.FUEL),
                 serverOwned(VehicleEntity.FUEL_FF), this.throttleSync, this.lifecycle, this.seats, this.body,
                 this.cargo);
-        this.engine = new EngineComponent(v, this.throttleSync, this.restState, this.damage, this.fuel);
+        this.engine = new EngineComponent(v, this.throttleSync, this.restState, this.damage, this.fuel,
+                this.status);
         this.physics = new AircraftPhysics(v, this.engine, this.keys, this.body, this.damage,
                 () -> this.settings.get().sim());
         this.runningGear = new RunningGearComponent(v, this.engine, this.keys, this.physics);

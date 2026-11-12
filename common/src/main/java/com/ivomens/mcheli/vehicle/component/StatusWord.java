@@ -25,6 +25,8 @@ public final class StatusWord implements VehicleComponent {
     public static final int GUNNER = 12;
     public static final int RADAR = 13;
     public static final int ECM_JAMMER = 15;
+    /** The engine is stalled for a while ({@link EngineComponent#stall}). */
+    public static final int ENGINE_STALLED = 16;
 
     private final SynchedEntityData data;
     private final EntityDataAccessor<Integer> key;
@@ -71,7 +73,7 @@ public final class StatusWord implements VehicleComponent {
     public void describe(StateSink state) {
         String[] names = {"flare", "free look", "reloading", "infinite ammo", "infinite fuel", "repelling",
                 "search light", "move left", "move right", "throttle up", "throttle down", "brake", "gunner",
-                "radar", "", "ecm jammer"};
+                "radar", "", "ecm jammer", "engine stalled"};
         StringBuilder set = new StringBuilder();
         for (int bit = 0; bit < names.length; bit++) {
             if (get(bit) && !names[bit].isEmpty()) {

@@ -1,6 +1,8 @@
 package com.ivomens.mcheli.setup.client;
 
 import com.ivomens.mcheli.client.model.ItemRenderContext;
+import com.ivomens.mcheli.combat.projectile.behaviour.ProjectileVisualHooks;
+import com.ivomens.mcheli.combat.projectile.client.AddonVisuals;
 import com.ivomens.mcheli.config.KeySettings;
 import com.ivomens.mcheli.config.McheliConfig;
 import com.ivomens.mcheli.livery.client.LiveryKeys;
@@ -66,8 +68,9 @@ public final class McheliClient {
         SESSION.inspector().setOverlay(shown);
     }
 
-    /** Adds the client handlers of the clientbound messages. */
+    /** Adds the client handlers of the clientbound messages and the client side of addon weapon behaviours. */
     public static void init() {
+        ProjectileVisualHooks.install(new AddonVisuals());
         MessageRegistry messages = McheliMessages.registry();
         McheliClientMessages.register(messages);
         List<MessageType<?>> unhandled = messages.clientboundWithoutHandler();

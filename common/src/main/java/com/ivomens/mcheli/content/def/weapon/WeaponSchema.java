@@ -115,6 +115,12 @@ public final class WeaponSchema {
             Field.of("DamageFactor", DamageFactors.CODEC, Map.of(), WeaponDefinition::damageFactors);
     static final Field<WeaponDefinition, NtmPayload> NTM =
             Field.of("NTM", NtmPayload.CODEC, (NtmPayload) null, WeaponDefinition::ntm);
+    /** An addon mod's guidance law that steers the projectiles instead of the type's own guidance. */
+    static final Field<WeaponDefinition, BehaviourRef> GUIDANCE =
+            Field.of("Guidance", BehaviourRef.CODEC, (BehaviourRef) null, WeaponDefinition::guidance);
+    /** Addon mods' effects each projectile runs, in order. */
+    static final Field<WeaponDefinition, List<BehaviourRef>> PROJECTILE_EFFECTS =
+            Field.of("ProjectileEffects", BehaviourRef.LIST_CODEC, List.of(), WeaponDefinition::projectileEffects);
 
     public static final Schema<WeaponDefinition> SCHEMA = Schema.builder(
                     Section.root(DISPLAY_NAME, TYPE, GROUP, BASE_DAMAGE, BallisticsSchema.SECTION, SoundSchema.SECTION,
@@ -123,7 +129,7 @@ public final class WeaponSchema {
                                     RIDABLE_ONLY, ACCURACY, SELF_DESTRUCT, CAN_LOAD_CHUNKS, RenderSchema.SECTION,
                                     SubmunitionSchema.SECTION, EffectsSchema.SECTION, WeaponTypeSchema.DISPENSE_ITEM,
                                     LENGTH, RADIUS, MARK_TIME, DAMAGE_FACTOR, WeaponTypeSchema.BUCKSHOT,
-                                    WeaponTypeSchema.MINE, NTM)
+                                    WeaponTypeSchema.MINE, NTM, GUIDANCE, PROJECTILE_EFFECTS)
                             .unsupported("SwitchCooldown", "CrossType", "Damage"),
                     WeaponSchema::build)
             .txtRule("type", WeaponTxtRules::type)
@@ -166,7 +172,7 @@ public final class WeaponSchema {
                 v.get(SELF_DESTRUCT), v.get(CAN_LOAD_CHUNKS), RenderSchema.build(v), SubmunitionSchema.build(v),
                 EffectsSchema.build(v), WeaponTypeSchema.dispenseItem(v), v.get(LENGTH), v.get(RADIUS),
                 v.get(MARK_TIME), v.get(DAMAGE_FACTOR), WeaponTypeSchema.buckshot(v), WeaponTypeSchema.mine(v),
-                v.get(NTM));
+                v.get(NTM), v.get(GUIDANCE), v.get(PROJECTILE_EFFECTS));
     }
 
     private static int targetFlags(String text) {
