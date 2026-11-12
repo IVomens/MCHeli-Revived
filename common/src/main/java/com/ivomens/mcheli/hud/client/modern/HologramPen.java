@@ -9,7 +9,7 @@ import net.minecraft.util.Mth;
  * the HUD fonts. Coordinates are in a virtual 640 x 360 canvas scaled to the window height, so layouts are
  * written once and look the same at every GUI scale.
  */
-final class HologramPen {
+public final class HologramPen {
 
     static final float WIDTH = 640;
     static final float HEIGHT = 360;
@@ -19,7 +19,7 @@ final class HologramPen {
 
     private final HudCanvas canvas;
 
-    HologramPen(HudCanvas canvas) {
+    public HologramPen(HudCanvas canvas) {
         this.canvas = canvas;
     }
 
@@ -28,7 +28,7 @@ final class HologramPen {
     }
 
     /** Scales the canvas so that {@link #WIDTH} x {@link #HEIGHT} fills the screen height. */
-    void begin(float userScale) {
+    public void begin(float userScale) {
         float screenHeight = this.canvas.height();
         float screenWidth = this.canvas.width();
         float scale = screenHeight / HEIGHT * userScale;
@@ -38,14 +38,14 @@ final class HologramPen {
         this.canvas.translate(-WIDTH / 2F, -HEIGHT / 2F);
     }
 
-    void end() {
+    public void end() {
         this.canvas.flush();
         this.canvas.popPose();
     }
 
     // Shapes
 
-    void line(float x1, float y1, float x2, float y2, int color) {
+    public void line(float x1, float y1, float x2, float y2, int color) {
         this.canvas.strokeLine(x1, y1, x2, y2, STROKE_WIDTH, color);
     }
 
@@ -62,14 +62,14 @@ final class HologramPen {
         }
     }
 
-    void rect(float x, float y, float w, float h, int color) {
+    public void rect(float x, float y, float w, float h, int color) {
         line(x, y, x + w, y, color);
         line(x + w, y, x + w, y + h, color);
         line(x + w, y + h, x, y + h, color);
         line(x, y + h, x, y, color);
     }
 
-    void fill(float x, float y, float w, float h, int color) {
+    public void fill(float x, float y, float w, float h, int color) {
         this.canvas.fill(x, y, w, h, color);
     }
 
@@ -88,13 +88,13 @@ final class HologramPen {
     }
 
     /** Outlined box with a faint backing, used behind every changing number. */
-    void readout(float x, float y, float w, float h, String text, int color) {
+    public void readout(float x, float y, float w, float h, String text, int color) {
         fill(x, y, w, h, BACKING);
         rect(x, y, w, h, color);
         monoCentered(text, x + w / 2, y + (h - 10) / 2, color);
     }
 
-    void bar(float x, float y, float w, float h, float fraction, int color) {
+    public void bar(float x, float y, float w, float h, float fraction, int color) {
         rect(x, y, w, h, color);
         float f = Mth.clamp(fraction, 0, 1);
         if (f > 0) fill(x + 1, y + 1, (w - 2) * f, h - 2, withAlpha(color, 0.85F));
@@ -102,19 +102,19 @@ final class HologramPen {
 
     // Text
 
-    void mono(String text, float x, float y, int color) {
+    public void mono(String text, float x, float y, int color) {
         this.canvas.styledText(text, x, y, color, HudCanvas.Typeface.MONO);
     }
 
-    void monoRight(String text, float right, float y, int color) {
+    public void monoRight(String text, float right, float y, int color) {
         mono(text, right - this.canvas.styledTextWidth(text, HudCanvas.Typeface.MONO), y, color);
     }
 
-    void monoCentered(String text, float cx, float y, int color) {
+    public void monoCentered(String text, float cx, float y, int color) {
         mono(text, cx - this.canvas.styledTextWidth(text, HudCanvas.Typeface.MONO) / 2F, y, color);
     }
 
-    void label(String text, float x, float y, int color) {
+    public void label(String text, float x, float y, int color) {
         this.canvas.styledText(text, x, y, color, HudCanvas.Typeface.LABEL);
     }
 
@@ -122,7 +122,7 @@ final class HologramPen {
         label(text, cx - labelWidth(text) / 2F, y, color);
     }
 
-    float labelWidth(String text) {
+    public float labelWidth(String text) {
         return this.canvas.styledTextWidth(text, HudCanvas.Typeface.LABEL);
     }
 
@@ -136,7 +136,7 @@ final class HologramPen {
 
     // Colour
 
-    static int withAlpha(int argb, float alpha) {
+    public static int withAlpha(int argb, float alpha) {
         return FastColor.ARGB32.color((int) (alpha * 255), argb);
     }
 }

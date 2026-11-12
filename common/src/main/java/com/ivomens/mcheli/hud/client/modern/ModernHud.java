@@ -26,8 +26,10 @@ import java.util.Locale;
  */
 public final class ModernHud {
 
-    private static final int CAUTION = 0xFFFFB547;
-    private static final int WARNING = 0xFFFF6B5B;
+    /** The colour of cautions: low fuel, reloading. */
+    public static final int CAUTION = 0xFFFFB547;
+    /** The colour of warnings: incoming missile, failed engine, low hull. */
+    public static final int WARNING = 0xFFFF6B5B;
     private static final float PIXELS_PER_DEGREE = 6F;
     private static final float TICKS_PER_SECOND = 20F;
     private static final float LOW_FUEL = 0.15F;
@@ -46,8 +48,7 @@ public final class ModernHud {
         c.begin(style.scale());
         try {
             int color = style.color();
-            boolean flying = aircraft instanceof HelicopterEntity || aircraft instanceof PlaneEntity;
-            if (flying && !aircraft.modes().usesGunnerView(player)) {
+            if (drawsFlightLayout(aircraft, player)) {
                 drawFlight(c, partialTicks, player, aircraft, color, style.scale());
             } else {
                 drawGunnerSight(c, player, aircraft, color);
@@ -57,6 +58,15 @@ public final class ModernHud {
         } finally {
             c.end();
         }
+    }
+
+    /**
+     * Whether the viewer sees the flight layout (tapes, pitch ladder, system bars) rather than the gunner sight:
+     * in a helicopter or plane, unless he looks through the gunner view.
+     */
+    public static boolean drawsFlightLayout(AircraftEntity aircraft, Player player) {
+        boolean flying = aircraft instanceof HelicopterEntity || aircraft instanceof PlaneEntity;
+        return flying && !aircraft.modes().usesGunnerView(player);
     }
 
     // Aircraft layout
