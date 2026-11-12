@@ -1,4 +1,4 @@
-# mcheli-revived-api 1.0.0
+# mcheli-revived-api 1.1.0
 # The public signatures of the API. Written by ./gradlew :api:updateApiDump; see docs/API.md.
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.content.ContentLookup content()
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.event.EventBus events()
@@ -8,6 +8,58 @@ com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivome
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.Optional<com.ivomens.mcheli.api.vehicle.Vehicle> vehicleOf(net.minecraft.world.entity.Entity)
 com.ivomens.mcheli.api.McheliApi method public static com.ivomens.mcheli.api.McheliApi get()
 com.ivomens.mcheli.api.McheliApi type public interface
+com.ivomens.mcheli.api.client.HudAnchor field public static final com.ivomens.mcheli.api.client.HudAnchor BOTTOM
+com.ivomens.mcheli.api.client.HudAnchor field public static final com.ivomens.mcheli.api.client.HudAnchor BOTTOM_LEFT
+com.ivomens.mcheli.api.client.HudAnchor field public static final com.ivomens.mcheli.api.client.HudAnchor BOTTOM_RIGHT
+com.ivomens.mcheli.api.client.HudAnchor field public static final com.ivomens.mcheli.api.client.HudAnchor LEFT
+com.ivomens.mcheli.api.client.HudAnchor field public static final com.ivomens.mcheli.api.client.HudAnchor RIGHT
+com.ivomens.mcheli.api.client.HudAnchor field public static final com.ivomens.mcheli.api.client.HudAnchor TOP_LEFT
+com.ivomens.mcheli.api.client.HudAnchor field public static final com.ivomens.mcheli.api.client.HudAnchor TOP_RIGHT
+com.ivomens.mcheli.api.client.HudAnchor method public static com.ivomens.mcheli.api.client.HudAnchor valueOf(java.lang.String)
+com.ivomens.mcheli.api.client.HudAnchor method public static com.ivomens.mcheli.api.client.HudAnchor[] values()
+com.ivomens.mcheli.api.client.HudAnchor type public final enum
+com.ivomens.mcheli.api.client.HudWidget method default public boolean isShown(com.ivomens.mcheli.api.client.HudWidgetContext)
+com.ivomens.mcheli.api.client.HudWidget method default public int order()
+com.ivomens.mcheli.api.client.HudWidget method public abstract com.ivomens.mcheli.api.client.HudAnchor anchor()
+com.ivomens.mcheli.api.client.HudWidget method public abstract int height()
+com.ivomens.mcheli.api.client.HudWidget method public abstract int width()
+com.ivomens.mcheli.api.client.HudWidget method public abstract void render(com.ivomens.mcheli.api.client.HudWidgetContext)
+com.ivomens.mcheli.api.client.HudWidget type public interface
+com.ivomens.mcheli.api.client.HudWidgetContext field public static final int LINE_HEIGHT
+com.ivomens.mcheli.api.client.HudWidgetContext field public static final int READOUT_HEIGHT
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract boolean modernHud()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract com.ivomens.mcheli.api.vehicle.VehicleKind kind()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract float hudScale()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract float labelWidth(java.lang.String)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract float opacity()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract float partialTick()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract float textWidth(java.lang.String)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int cautionColor()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int color()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int height()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int screenHeight()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int screenWidth()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int seat()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int warningColor()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int width()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract int withAlpha(int, float)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract net.minecraft.world.entity.player.Player viewer()
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void bar(float, float, float, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void box(float, float, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void fill(float, float, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void label(java.lang.String, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void line(float, float, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void readout(float, float, float, java.lang.String, java.lang.String, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void text(java.lang.String, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void textCentered(java.lang.String, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext method public abstract void textRight(java.lang.String, float, float, int)
+com.ivomens.mcheli.api.client.HudWidgetContext type public interface
+com.ivomens.mcheli.api.client.HudWidgets method public abstract com.ivomens.mcheli.api.event.Subscription register(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.client.HudWidget)
+com.ivomens.mcheli.api.client.HudWidgets type public interface
+com.ivomens.mcheli.api.client.McheliClientApi method public abstract com.ivomens.mcheli.api.client.HudWidgets hudWidgets()
+com.ivomens.mcheli.api.client.McheliClientApi method public static com.ivomens.mcheli.api.client.McheliClientApi get()
+com.ivomens.mcheli.api.client.McheliClientApi type public interface
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.List<com.ivomens.mcheli.api.content.VehicleInfo> vehicles()
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.List<com.ivomens.mcheli.api.content.WeaponInfo> weapons()
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.Optional<com.ivomens.mcheli.api.content.VehicleInfo> vehicle(com.ivomens.mcheli.api.vehicle.VehicleKind, java.lang.String)
