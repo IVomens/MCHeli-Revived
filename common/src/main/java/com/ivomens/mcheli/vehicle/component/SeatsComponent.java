@@ -9,6 +9,7 @@ import com.ivomens.mcheli.aircraft.net.SeatListRequestMessage;
 import com.ivomens.mcheli.entityview.AiGunner;
 import com.ivomens.mcheli.api.vehicle.Crew;
 import com.ivomens.mcheli.entity.McheliEntity;
+import com.ivomens.mcheli.event.PermissionEvents;
 import com.ivomens.mcheli.networking.Network;
 import com.ivomens.mcheli.util.EntityIds;
 import com.ivomens.mcheli.util.math.Rotations;
@@ -470,7 +471,7 @@ public final class SeatsComponent implements VehicleComponent, Crew {
             if (EntityIds.same(seat.getRiddenByEntity(), entity)) {
                 found = true;
             } else if (found && seat.getRiddenByEntity() == null) {
-                entity.startRiding(seat);
+                switchTo(entity, seat, i + 1);
                 return;
             }
         }
@@ -479,7 +480,7 @@ public final class SeatsComponent implements VehicleComponent, Crew {
             SeatEntity seat = this.seats[i];
             if (seat != null && seat.getRiddenByEntity() == null) {
                 if (!(info(i + 1) instanceof SeatRackInfo)) {
-                    entity.startRiding(seat);
+                    switchTo(entity, seat, i + 1);
                 }
                 return;
             }
@@ -499,7 +500,7 @@ public final class SeatsComponent implements VehicleComponent, Crew {
             if (EntityIds.same(seat.getRiddenByEntity(), entity)) {
                 found = true;
             } else if (found && seat.getRiddenByEntity() == null) {
-                entity.startRiding(seat);
+                switchTo(entity, seat, i + 1);
                 return;
             }
         }
@@ -507,9 +508,16 @@ public final class SeatsComponent implements VehicleComponent, Crew {
         for (int i = this.seats.length - 1; i >= 0; i--) {
             SeatEntity seat = this.seats[i];
             if (!(info(i + 1) instanceof SeatRackInfo) && seat != null && seat.getRiddenByEntity() == null) {
-                entity.startRiding(seat);
+                switchTo(entity, seat, i + 1);
                 return;
             }
+        }
+    }
+
+    /** Moves a crew member to another seat, unless the API's listeners refuse a player that seat. */
+    private void switchTo(Entity entity, SeatEntity seat, int seatId) {
+        if (!(entity instanceof Player player) || PermissionEvents.mayBoard(this.vehicle, player, seatId)) {
+            entity.startRiding(seat);
         }
     }
 }

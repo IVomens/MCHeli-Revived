@@ -6,9 +6,14 @@ import com.ivomens.mcheli.aircraft.AircraftGuiFactory;
 import com.ivomens.mcheli.aircraft.SeatEntity;
 import com.ivomens.mcheli.aircraft.VehicleSpec;
 import com.ivomens.mcheli.aircraft.VehicleTool;
+import com.ivomens.mcheli.event.PermissionEvents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+
+import java.util.EnumSet;
 
 /**
  * A player's click on the vehicle: board it (the pilot's seat through {@link PilotBoarding}, or the
@@ -76,6 +81,14 @@ public final class BoardingComponent implements VehicleComponent {
             }
             return true;
         }
+        return boardAsPilot(player, info);
+    }
+
+    /**
+     * The pilot's seat, as far as the owner's lock and the API's listeners allow. The client predicts the
+     * boarding, so the server undoes what a refused prediction may have changed.
+     */
+    private boolean boardAsPilot(Player player, VehicleSpec info) {
         if (player.getVehicle() instanceof SeatEntity || !this.seats.canTake(0)) {
             return false;
         }
@@ -90,8 +103,24 @@ public final class BoardingComponent implements VehicleComponent {
         if (this.parts.modeSwitchCooldown() > 0) {
             return false;
         }
+        if (!this.vehicle.level().isClientSide && !PermissionEvents.mayBoard(this.vehicle, player, 0)) {
+            restoreView(player);
+            return true;
+        }
         this.pilotBoarding.board(player, info);
         return true;
+    }
+
+    /**
+     * Sends the player's client the view rotation the server has: a predicted pilot boarding may have turned
+     * it to where the last driver looked. The position stays as it is: it is sent relative, as no change.
+     */
+    private static void restoreView(Player player) {
+        if (player instanceof ServerPlayer serverPlayer) {
+            serverPlayer.connection.teleport(serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(),
+                    serverPlayer.getYRot(), serverPlayer.getXRot(),
+                    EnumSet.of(RelativeMovement.X, RelativeMovement.Y, RelativeMovement.Z));
+        }
     }
 
     /**
@@ -133,7 +162,8 @@ public final class BoardingComponent implements VehicleComponent {
         for (SeatEntity seat : seats.all()) {
             if (seat != null && seat.getRiddenByEntity() == null && !seats.isAboard(player) && seats.canTake(seatId)
                     && this.ownership.mayBoard(player, seatId)) {
-                if (!this.vehicle.level().isClientSide) {
+                // a seat the API's listeners refuse still ends the search, as the click was for it
+                if (!this.vehicle.level().isClientSide && PermissionEvents.mayBoard(this.vehicle, player, seatId)) {
                     player.startRiding(seat);
                 }
                 return true;
@@ -143,10 +173,13 @@ public final class BoardingComponent implements VehicleComponent {
         return false;
     }
 
-    /** Whether the player may sit in the seat; the server tells a player who may not why. */
+    /**
+     * Whether the player may sit in the seat; the server tells a player the lock refuses why, and asks the
+     * API's listeners, who tell the player themselves.
+     */
     public boolean admits(Player player, int seatId) {
         if (this.ownership.mayBoard(player, seatId)) {
-            return true;
+            return this.vehicle.level().isClientSide || PermissionEvents.mayBoard(this.vehicle, player, seatId);
         }
         refuse(player);
         return false;
@@ -162,8 +195,9 @@ public final class BoardingComponent implements VehicleComponent {
 
     /** The owner's sneak-click with an empty hand locks or unlocks the vehicle. */
     private void toggleLock(Player player) {
-        if (!this.vehicle.level().isClientSide) {
-            boolean locked = this.ownership.setLocked(!this.ownership.isLocked());
+        boolean lock = !this.ownership.isLocked();
+        if (!this.vehicle.level().isClientSide && PermissionEvents.mayChangeLock(this.vehicle, player, lock, false)) {
+            boolean locked = this.ownership.setLocked(lock);
             player.displayClientMessage(OwnershipComponent.lockChanged(locked), true);
         }
     }

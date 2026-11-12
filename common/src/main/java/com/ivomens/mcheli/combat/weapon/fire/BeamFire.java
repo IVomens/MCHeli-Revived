@@ -88,7 +88,7 @@ public final class BeamFire implements FireMode {
     private void damage(Shot shot, Entity hit, Vec3 start, Vec3 hitVec) {
         HurtTime.scale(hit);
         WeaponSpec info = shot.mount().spec();
-        DamageSource source = ModDamageSources.bullet(shot.level(), shot.platform(), shot.user());
+        DamageSource source = ModDamageSources.beam(shot.level(), shot.platform(), shot.user(), shot.mount().name());
         float damage = DamageScaling.vsEntity(hit, source, shot.mount().stats().power())
                 * info.getDamageFactor(hit);
         float dist = (float) start.distanceTo(hitVec);

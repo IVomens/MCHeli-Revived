@@ -3,6 +3,7 @@ package com.ivomens.mcheli.aircraft;
 import com.ivomens.mcheli.combat.weapon.WeaponGroup;
 import com.ivomens.mcheli.config.McheliConfig;
 import com.ivomens.mcheli.content.def.vehicle.VehicleFile;
+import com.ivomens.mcheli.event.PermissionEvents;
 import com.ivomens.mcheli.platform.LocalClient;
 import com.ivomens.mcheli.platform.Services;
 import com.ivomens.mcheli.registry.McheliCriteria;
@@ -283,7 +284,7 @@ public abstract class AircraftItem extends McheliItem {
             }
             return null;
         }
-        if (level instanceof ServerLevel serverLevel && !mayPlace(serverLevel, player, aircraft)) {
+        if (level instanceof ServerLevel serverLevel && !mayPlace(serverLevel, player, aircraft, itemStack)) {
             return null;
         }
         if (!level.isClientSide) {
@@ -301,15 +302,18 @@ public abstract class AircraftItem extends McheliItem {
     }
 
     /**
-     * Whether the server's vehicle limits let the player place one more. If not, the player is told which
-     * limit stops them, and gets their inventory back as the server has it (their client already used the item).
+     * Whether the server's vehicle limits and the API's listeners let the player place one more. If not, the
+     * player gets their inventory back as the server has it (their client already used the item), and is told
+     * which limit stops them; listeners tell the player themselves.
      */
-    private static boolean mayPlace(ServerLevel level, Player player, AircraftEntity aircraft) {
+    private static boolean mayPlace(ServerLevel level, Player player, AircraftEntity aircraft, ItemStack stack) {
         Optional<Component> refusal = VehicleLimits.refusal(level, player, aircraft);
-        if (refusal.isEmpty()) {
+        if (refusal.isEmpty() && PermissionEvents.mayPlace(aircraft, player, stack)) {
             return true;
         }
-        player.displayClientMessage(refusal.get().copy().withStyle(ChatFormatting.RED), true);
+        if (refusal.isPresent()) {
+            player.displayClientMessage(refusal.get().copy().withStyle(ChatFormatting.RED), true);
+        }
         player.containerMenu.sendAllDataToRemote();
         return false;
     }

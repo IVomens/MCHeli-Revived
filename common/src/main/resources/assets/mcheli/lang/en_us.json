@@ -824,6 +824,7 @@
   "commands.mcheli.lock.not_locked": "This vehicle has no owner and is not locked.",
   "commands.mcheli.lock.no_owner": "This vehicle has no owner. Fly it to claim it, then lock it.",
   "commands.mcheli.lock.not_owner": "Only %s or an operator can change this lock.",
+  "commands.mcheli.lock.denied": "This vehicle's lock cannot be changed here.",
   "commands.mcheli.vehicles.list.header": "%s vehicles in loaded chunks:",
   "commands.mcheli.vehicles.list.more": "... and %s more",
   "commands.mcheli.vehicles.unknown_kind": "Unknown vehicle kind %s; use one of: %s",

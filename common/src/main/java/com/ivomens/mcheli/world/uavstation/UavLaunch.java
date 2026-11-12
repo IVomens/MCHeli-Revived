@@ -3,6 +3,7 @@ package com.ivomens.mcheli.world.uavstation;
 import com.ivomens.mcheli.aircraft.AircraftEntity;
 import com.ivomens.mcheli.aircraft.AircraftItem;
 import com.ivomens.mcheli.aircraft.VehicleSpec;
+import com.ivomens.mcheli.event.PermissionEvents;
 import com.ivomens.mcheli.helicopter.HelicopterItem;
 import com.ivomens.mcheli.plane.PlaneItem;
 import com.ivomens.mcheli.ship.ShipItem;
@@ -56,15 +57,18 @@ final class UavLaunch {
         }
     }
 
-    /** The server's vehicle limits; the operator is told which one stops the launch. */
-    private static boolean withinLimits(AircraftEntity ac, Entity user) {
+    /**
+     * The server's vehicle limits, then the API's listeners for a player's launch; the operator is told which
+     * limit stops the launch, and listeners tell them themselves.
+     */
+    private static boolean mayLaunch(AircraftEntity ac, Entity user, ItemStack stack) {
         Player player = user instanceof Player p ? p : null;
         Optional<Component> refusal = ac.level() instanceof ServerLevel level
                 ? VehicleLimits.refusal(level, player, ac) : Optional.empty();
         if (refusal.isPresent() && player != null) {
             player.displayClientMessage(refusal.get().copy().withStyle(ChatFormatting.RED), true);
         }
-        return refusal.isEmpty();
+        return refusal.isEmpty() && (player == null || PermissionEvents.mayPlace(ac, player, stack));
     }
 
     private static void place(UavStationEntity station, AircraftEntity ac, Entity user, ItemStack stack) {
@@ -72,7 +76,7 @@ final class UavLaunch {
         ac.setYRot(yaw);
         ac.yRotO = yaw;
 
-        if (station.level().noCollision(ac, ac.getBoundingBox().inflate(-0.1)) && withinLimits(ac, user)) {
+        if (station.level().noCollision(ac, ac.getBoundingBox().inflate(-0.1)) && mayLaunch(ac, user, stack)) {
             stack.shrink(1);
             if (ac.isTargetDrone()) {
                 ac.fuel().setAmount(ac.fuel().capacity());

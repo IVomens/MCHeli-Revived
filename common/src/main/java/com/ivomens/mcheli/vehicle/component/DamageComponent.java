@@ -6,9 +6,12 @@ import com.ivomens.mcheli.aircraft.PartBoundingBox;
 import com.ivomens.mcheli.aircraft.VehicleSpec;
 import com.ivomens.mcheli.aircraft.VehicleTypes;
 import com.ivomens.mcheli.combat.damage.DamageScaling;
+import com.ivomens.mcheli.combat.damage.ModDamageSources;
 import com.ivomens.mcheli.combat.explosion.ExplosionSpec;
 import com.ivomens.mcheli.combat.explosion.Explosions;
 import com.ivomens.mcheli.event.ApiEvents;
+import com.ivomens.mcheli.event.DamageEvents;
+import com.ivomens.mcheli.event.PermissionEvents;
 import com.ivomens.mcheli.sound.ModSounds;
 import com.ivomens.mcheli.vehicle.settings.DurabilityRules;
 import net.minecraft.nbt.CompoundTag;
@@ -110,7 +113,8 @@ public final class DamageComponent implements VehicleComponent {
 
     /**
      * Applies a hit. A client only predicts that the hit lands; the server works out the damage,
-     * the part it lands on, and what follows from it.
+     * the part it lands on, and what follows from it. Seats and hit boxes pass their hits on to here,
+     * so the API's damage events fire once per hit whatever part of the vehicle it struck.
      */
     public boolean hurt(DamageSource source, float amount) {
         if (this.countermeasures.ironCurtain().isRunning() || shouldIgnore(source)) {
@@ -119,22 +123,28 @@ public final class DamageComponent implements VehicleComponent {
         if (onlyPredictsHits()) {
             return true;
         }
+        float incoming = DamageEvents.vehicleDamaged(this.vehicle, source, amount, ModDamageSources::weaponIdOf);
+        if (Float.isNaN(incoming)) {
+            return false;
+        }
 
         PartBoundingBox part = HitPartLocator.locate(this.vehicle.getBoundingBox(), source);
-        String type = source.getMsgId();
         Entity attacker = source.getEntity();
-        float damage = applyArmor(source, amount, part != null ? part.damageFactor() : 1.0F);
+        float damage = applyArmor(source, incoming, part != null ? part.damageFactor() : 1.0F);
         if (attacker instanceof LivingEntity) {
             this.lastAttacker = attacker;
         }
 
         boolean playerBreaksIt = false;
         if (attacker instanceof Player player) {
-            playerBreaksIt = isPlayerBreakingIt(player, type, damage);
+            playerBreaksIt = isPlayerBreakingIt(player, source.getMsgId(), damage);
             if (playerBreaksIt && player.getAbilities().instabuild) {
-                this.lifecycle.destroy(true);
-                playDamageSound();
-                return true;
+                if (PermissionEvents.mayDismantle(this.vehicle, player)) {
+                    this.lifecycle.destroy(true);
+                    playDamageSound();
+                    return true;
+                }
+                playerBreaksIt = false;
             }
         }
         if (damage <= 0.0F) {
@@ -143,18 +153,25 @@ public final class DamageComponent implements VehicleComponent {
 
         this.partBoxes.reactiveArmor().onHit(this.vehicle.level(), part, damage, attacker);
         if (!this.vehicle.isDestroyed()) {
-            if (!playerBreaksIt) {
-                setDamageTaken(damageTaken() + (int) damage);
-            }
-            this.vehicle.hurtMarked = true;
-            if (playerBreaksIt) {
-                breakDownByPlayer((Player) attacker);
-            } else if (damageTaken() >= maxHp()) {
-                destroy(attacker, type);
-            }
+            damageHull(source, attacker, damage, playerBreaksIt);
         }
         playDamageSound();
         return true;
+    }
+
+    /** A hit on a vehicle that is not a wreck yet: a player breaks it down, or it loses hit points. */
+    private void damageHull(DamageSource source, @Nullable Entity attacker, float damage, boolean playerBreaksIt) {
+        if (playerBreaksIt && PermissionEvents.mayDismantle(this.vehicle, (Player) attacker)) {
+            this.vehicle.hurtMarked = true;
+            breakDownByPlayer((Player) attacker);
+            return;
+        }
+        setDamageTaken(damageTaken() + (int) damage);
+        this.vehicle.hurtMarked = true;
+        DamageEvents.vehicleDamageTaken(this.vehicle, source, ModDamageSources::weaponIdOf, damage, hp(), maxHp());
+        if (damageTaken() >= maxHp()) {
+            destroy(attacker, source.getMsgId());
+        }
     }
 
     /** A client's copy of the vehicle only predicts that a hit lands; the server owns the damage. */

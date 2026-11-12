@@ -1,5 +1,6 @@
 package com.ivomens.mcheli.combat.damage;
 
+import com.ivomens.mcheli.combat.projectile.ProjectileEntity;
 import com.ivomens.mcheli.util.Ids;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -37,6 +38,27 @@ public final class ModDamageSources {
     /** Damage dealt by a bullet, credited to its shooter. */
     public static DamageSource bullet(Level level, Entity bullet, @Nullable Entity shooter) {
         return level.damageSources().source(BULLET, bullet, shooter);
+    }
+
+    /** Bullet damage of a weapon's beam, dealt by the platform that fires it and credited to its user. */
+    public static DamageSource beam(Level level, Entity platform, @Nullable Entity user, String weaponId) {
+        Holder<DamageType> type = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(BULLET);
+        return new WeaponDamageSource(type, platform, user, weaponId);
+    }
+
+    /**
+     * The MCHeli weapon type behind a damage source: a beam's, or that of the projectile that hit or exploded;
+     * null for damage of anything else.
+     */
+    @Nullable
+    public static String weaponIdOf(DamageSource source) {
+        if (source instanceof WeaponDamageSource weapon) {
+            return weapon.weaponId();
+        }
+        if (source.getDirectEntity() instanceof ProjectileEntity projectile && !projectile.weaponName().isEmpty()) {
+            return projectile.weaponName();
+        }
+        return null;
     }
 
     /** Explosion damage, credited to whoever placed or fired the explosive. */
