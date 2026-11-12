@@ -338,9 +338,7 @@ public final class ProjectileEntity extends McheliEntity {
 
     @Override
     public void tick() {
-        if (this.lifetime.endsBeforeTick()) {
-            return;
-        }
+        if (this.lifetime.endsBeforeTick()) return;
         if (this.addon != null) this.addon.beforeTick();
         if (!this.role.tickInstead()) {
             this.fly();
