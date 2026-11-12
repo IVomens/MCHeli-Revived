@@ -6,6 +6,8 @@ name: Release
 # and game tests on both loaders), and creates the GitHub release with that changelog section as the
 # notes and both jars attached. Versions with a suffix (2.1.0-beta.1) become pre-releases.
 #
+# It then adds the API to the public Maven repository on the maven branch (GitHub Pages).
+#
 # The second job uploads the jars to Modrinth and CurseForge. Each site is skipped until its token
 # secret (MODRINTH_TOKEN, CURSEFORGE_TOKEN) and its project id variable (MODRINTH_ID, CURSEFORGE_ID)
 # are set in the repository settings. If an upload fails, "Re-run failed jobs" repeats only that job.
@@ -104,7 +106,9 @@ jobs:
           mkdir -p dist
           cp "neoforge/build/libs/mcheli-revived-$VERSION-neoforge.jar" dist/
           cp "fabric/build/libs/mcheli-revived-$VERSION-fabric.jar" dist/
-          # the API for addon authors, with its own version (docs/API.md); GitHub release only
+          # the API for addon authors, with its own version (docs/API.md); on the GitHub release and in the
+          # Maven repository (next step but one), not on Modrinth or CurseForge. Addon builds download the two
+          # mod jars from this release by their file names, so these names must not change.
           API_VERSION=$(grep '^api_version=' gradle.properties | cut -d= -f2 | tr -d '\r')
           cp "api/build/libs/mcheli-revived-api-$API_VERSION.jar" dist/
           cp "api/build/libs/mcheli-revived-api-$API_VERSION-sources.jar" dist/
@@ -162,6 +166,46 @@ jobs:
               --notes-file notes.md \
               "${flags[@]}"
           fi
+
+      # The public Maven repository for addon developers (docs/RELEASING.md "The Maven repository"): the API
+      # jar with its sources, javadoc, POM and checksums, added to the maven branch, which GitHub Pages serves
+      # at https://ivomens.github.io/MCHeli-Revived/maven/. What is on the branch already stays; a version that
+      # is there already (an api_version unchanged since the last release) is not written again. A push that
+      # loses a race with another release starts over from the new branch. The mod jars are not put there
+      # (80 MB each); addon builds take them from this release's assets.
+      - name: Publish to the Maven repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          for attempt in 1 2 3; do
+            rm -rf maven-branch
+            if git ls-remote --exit-code --heads "$remote" maven >/dev/null; then
+              git clone --quiet --depth 1 --single-branch --branch maven "$remote" maven-branch
+            else
+              git init --quiet --initial-branch=maven maven-branch
+              git -C maven-branch remote add origin "$remote"
+            fi
+            ./gradlew publishMavenRepo -PmavenRepoDir=maven-branch/maven
+            touch maven-branch/.nojekyll
+            [ -f maven-branch/index.html ] || cp tools/release/maven-index.html maven-branch/index.html
+            git -C maven-branch add -A
+            if git -C maven-branch diff --cached --quiet; then
+              echo "The Maven repository has every version of this release already."
+              exit 0
+            fi
+            git -C maven-branch -c user.name='github-actions[bot]' \
+                -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+                commit --quiet -m "Publish MCHeli: Revived $VERSION"
+            if git -C maven-branch push --quiet origin maven; then
+              git -C maven-branch log -1 --stat --format=%s
+              exit 0
+            fi
+            echo "The push was rejected (another release published meanwhile); trying again."
+          done
+          echo "::error::Could not push to the maven branch."
+          exit 1
 
   publish:
     needs: release

@@ -3,7 +3,8 @@ name: Nightly build
 # Builds the mod every night from the default branch, runs the unit and architecture tests of every
 # module and the dedicated-server game tests on both loaders, and publishes the NeoForge and Fabric
 # jars as the "nightly" pre-release. Nights without new commits are skipped. Can also be started by
-# hand from the Actions tab.
+# hand from the Actions tab. Nightlies never go to the Maven repository (only release.yml publishes there,
+# and the publish tasks refuse a nightly version), so addons only ever build against released versions.
 
 on:
   schedule:

@@ -1,8 +1,9 @@
 // The public API other mods build against: interfaces, records and enums only, no implementation. It has
 // its own version (api_version in gradle.properties, semantic versioning, independent of mod_version) and
-// is published as mcheli-revived-api (docs/API.md). Like :common it compiles against vanilla Minecraft
-// from NeoForm with Mojang names and no loader, so an addon on any loader can use it. The loader modules
-// compile its sources into the mod jar, which is what implements it at run time.
+// is published as com.ivomens.mcheli:mcheli-revived-api to the public Maven repository (docs/API.md). Like
+// :common it compiles against vanilla Minecraft from NeoForm with Mojang names and no loader, so an addon on
+// any loader can use it. The loader modules compile its sources into the mod jar, which is what implements it
+// at run time.
 //
 // api.txt is the committed list of its public signatures. ApiSignaturesTest fails the build while it is out
 // of date; ./gradlew :api:updateApiDump rewrites it, and refuses when a signature was removed or changed
@@ -51,6 +52,10 @@ tasks.named('javadoc', Javadoc) {
     (options as StandardJavadocDocletOptions).addStringOption('Xdoclint:all,-missing', '-quiet')
 }
 
+/** Where the public Maven repository is written: build/maven-repo at the root, or -PmavenRepoDir=<folder>. */
+File mavenRepoDir = rootProject.file(providers.gradleProperty('mavenRepoDir')
+        .orElse(rootProject.layout.buildDirectory.dir('maven-repo').get().asFile.path).get())
+
 var apiDump = file('api.txt')
 var mainClassesDirs = sourceSets.main.output.classesDirs
 test {
@@ -80,13 +85,60 @@ publishing {
             pom {
                 name = 'MCHeli: Revived API'
                 description = 'The public API of MCHeli: Revived for addon mods: vehicles, content and events.'
+                url = 'https://github.com/IVomens/MCHeli-Revived'
                 licenses {
                     license {
                         name = 'LGPL-3.0-only'
                         url = 'https://www.gnu.org/licenses/lgpl-3.0.txt'
                     }
                 }
+                developers {
+                    developer {
+                        id = 'IVomens'
+                        name = 'IVomens'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/IVomens/MCHeli-Revived'
+                    connection = 'scm:git:https://github.com/IVomens/MCHeli-Revived.git'
+                }
             }
         }
     }
+    repositories {
+        // The public Maven repository (docs/RELEASING.md, "The Maven repository"): a folder, build/maven-repo
+        // or -PmavenRepoDir=<folder>. The release workflow points it at its checkout of the maven branch, which
+        // GitHub Pages serves at https://ivomens.github.io/MCHeli-Revived/maven/, and commits what changed;
+        // ./gradlew :api:publishMavenRepo alone is the dry run.
+        maven {
+            name = 'mcheliPages'
+            url = mavenRepoDir.toURI()
+        }
+    }
+}
+
+// A version already in the repository is never written again: released files must not change under the
+// people who downloaded them, and an api_version unchanged since the last release stays as published then.
+// Nightly builds never go there.
+tasks.named('publishMavenPublicationToMcheliPagesRepository') {
+    var versionDir = new File(mavenRepoDir, "com/ivomens/mcheli/mcheli-revived-api/${project.api_version}")
+    var modVersion = project.mod_version
+    onlyIf('the version is not in the repository yet') {
+        if (versionDir.exists()) {
+            logger.lifecycle("mcheli-revived-api ${versionDir.name} is in the repository already; left as it is.")
+            return false
+        }
+        return true
+    }
+    doFirst {
+        if (modVersion.contains('nightly')) {
+            throw new GradleException("Nightly builds are not published to the Maven repository (${modVersion}).")
+        }
+    }
+}
+
+tasks.register('publishMavenRepo') {
+    group = 'publishing'
+    description = 'Publishes the API jar, sources, javadoc and POM to the Maven repository folder (build/maven-repo or -PmavenRepoDir).'
+    dependsOn 'publishMavenPublicationToMcheliPagesRepository'
 }

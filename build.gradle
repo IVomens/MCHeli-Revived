@@ -4,4 +4,29 @@
 plugins {
     alias(libs.plugins.moddev) apply false
     alias(libs.plugins.loom) apply false
+    id 'maven-publish'
+}
+
+// The two mod jars, as on the GitHub release, published to mavenLocal only (./gradlew publishToMavenLocal) as
+// com.ivomens.mcheli:mcheli-revived:<mod version> with the classifiers neoforge and fabric. Addon development
+// runs load MCHeli under these coordinates: from the GitHub release assets once released, from mavenLocal
+// before that (docs/ADDON_TEMPLATE.md). At about 80 MB each they are too big for the public Maven repository
+// on GitHub Pages, which carries the API (api/build.gradle).
+evaluationDependsOn(':neoforge')
+evaluationDependsOn(':fabric')
+publishing {
+    publications {
+        modJars(MavenPublication) {
+            groupId = project.mod_group_id
+            artifactId = 'mcheli-revived'
+            version = project.mod_version
+            // the released files, mcheli-revived-<version>-neoforge.jar and -fabric.jar
+            artifact project(':neoforge').tasks.named('jar')
+            artifact project(':fabric').tasks.named('remapJar')
+            pom {
+                name = 'MCHeli: Revived'
+                description = 'The MCHeli: Revived mod jars for NeoForge and Fabric 1.21.1, for addon development runs.'
+            }
+        }
+    }
 }

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCHeli: Revived Maven</title>
+  <style>
+    :root { --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --code: #f6f8fa; --link: #0969da; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --code: #161b22; --link: #4493f8; }
+    }
+    body { background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; margin: 0 auto;
+           max-width: 46rem; padding: 2rem 1rem; }
+    a { color: var(--link); }
+    p.muted { color: var(--muted); }
+    pre { background: var(--code); padding: 1rem; overflow-x: auto; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>MCHeli: Revived Maven repository</h1>
+  <p>The public API of <a href="https://github.com/IVomens/MCHeli-Revived">MCHeli: Revived</a> for addon mods,
+    with its sources and javadoc. No account or token is needed.</p>
+  <pre>repositories {
+    maven {
+        url = 'https://ivomens.github.io/MCHeli-Revived/maven/'
+        content { includeModule 'com.ivomens.mcheli', 'mcheli-revived-api' }
+    }
+}
+
+dependencies {
+    compileOnly 'com.ivomens.mcheli:mcheli-revived-api:&lt;api version&gt;'
+}</pre>
+  <p>The mod jars for development runs come from the
+    <a href="https://github.com/IVomens/MCHeli-Revived/releases">GitHub releases</a>; the addon template
+    shows how to declare them.</p>
+  <p>See <a href="https://github.com/IVomens/MCHeli-Revived/blob/main/docs/API.md">docs/API.md</a> and the
+    <a href="https://github.com/IVomens/MCHeli-Revived/blob/main/docs/ADDON_TEMPLATE.md">addon template</a>.</p>
+  <p class="muted">Published by the release workflow. Versions are never replaced once published.</p>
+</body>
+</html>
