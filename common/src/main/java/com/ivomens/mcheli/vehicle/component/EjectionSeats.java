@@ -4,6 +4,7 @@ import com.ivomens.mcheli.aircraft.AircraftEntity;
 import com.ivomens.mcheli.aircraft.AircraftInventory;
 import com.ivomens.mcheli.aircraft.SeatEntity;
 import com.ivomens.mcheli.aircraft.SeatInfo;
+import com.ivomens.mcheli.event.ActivityEvents;
 import com.ivomens.mcheli.sound.ModSounds;
 import com.ivomens.mcheli.util.EntityIds;
 import com.ivomens.mcheli.util.math.Rotations;
@@ -113,5 +114,8 @@ public final class EjectionSeats implements VehicleComponent {
             this.parts.openCanopyForEjection();
         }
         entity.playSound(ModSounds.getSound("eject_seat"), 5.0F, 1.0F);
+        if (!ac.level().isClientSide) {
+            ActivityEvents.crewEjected(ac, entity, seatId);
+        }
     }
 }

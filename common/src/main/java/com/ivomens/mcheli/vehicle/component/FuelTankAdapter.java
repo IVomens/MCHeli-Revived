@@ -58,7 +58,7 @@ public final class FuelTankAdapter implements FluidTank {
             if (contents <= 0) {
                 this.fuel.setFuelType(resource.fluid());
             }
-            this.fuel.setAmount(contents + accepted);
+            this.fuel.refuel(contents + accepted, null);
         }
         return accepted;
     }

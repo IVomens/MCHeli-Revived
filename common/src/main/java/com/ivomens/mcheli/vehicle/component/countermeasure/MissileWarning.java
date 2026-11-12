@@ -1,6 +1,8 @@
 package com.ivomens.mcheli.vehicle.component.countermeasure;
 
 import com.ivomens.mcheli.aircraft.AircraftEntity;
+import com.ivomens.mcheli.api.event.SeekerType;
+import com.ivomens.mcheli.event.ActivityEvents;
 import com.ivomens.mcheli.vehicle.component.CountermeasureComponent;
 import com.ivomens.mcheli.vehicle.component.SeatsComponent;
 import com.ivomens.mcheli.aircraft.VehicleSpec;
@@ -52,6 +54,8 @@ public final class MissileWarning {
     /** The seekers of the missiles homing on the vehicle at the last scan: bit 1 heat, bit 2 radar, bit 4 any. */
     private int lastLockScan;
     private int alerts;
+    /** Server: ticks until a UAV's next missile warning reaches the API's listeners. */
+    private int uavWarningCooldown;
 
     public MissileWarning(AircraftEntity aircraft, Level level, CountermeasureComponent countermeasures,
             SeatsComponent seats) {
@@ -95,10 +99,18 @@ public final class MissileWarning {
         boolean chaff = this.countermeasures.isChaffUsing();
         if (flares || chaff) {
             this.destroyDecoyedMissiles(flares, chaff);
-        } else if (!ac.isUAV() && !this.level.isClientSide) {
+        } else {
+            this.alert(ac, rider, tracked);
+        }
+    }
+
+    /** The missile alert, while missiles home on the vehicle or a seeker of another mod tracks it. */
+    private void alert(AircraftEntity ac, Entity rider, boolean tracked) {
+        if (!ac.isUAV() && !this.level.isClientSide) {
             if (this.alertCooldown == 0 && (tracked || this.isLockedByMissileCached())) {
                 this.alertCooldown = MISSILE_ALERT_TICKS;
                 ac.playSound(ModSounds.getSound("alert"), 1.0F, this.alertPitch());
+                this.warnListeners();
             }
         } else if (ac.isUAV() && this.level.isClientSide && this.alertCooldown == 0
                 && (tracked || this.isLockedByMissileCached())) {
@@ -107,7 +119,39 @@ public final class MissileWarning {
             if (LocalClient.get().isLocalPlayer(rider)) {
                 LocalClient.get().playUiSound(ModSounds.toLocation("alert"), 1.0F, this.alertPitch());
             }
+        } else if (ac.isUAV() && !this.level.isClientSide && ActivityEvents.listensToMissileWarnings()) {
+            // the server keeps its own pace for a UAV's alert, which only the operator's client plays
+            if (this.uavWarningCooldown > 0) {
+                this.uavWarningCooldown--;
+            } else if (tracked || this.isLockedByMissileCached()) {
+                this.uavWarningCooldown = MISSILE_ALERT_TICKS;
+                this.warnListeners();
+            }
         }
+    }
+
+    /** Tells the API's listeners the alert went off, with the missiles homing on the vehicle and their seekers. */
+    private void warnListeners() {
+        if (!ActivityEvents.listensToMissileWarnings()) {
+            return;
+        }
+        List<ProjectileEntity> missiles = this.getMissilesAround(SEARCH_RANGE);
+        boolean heat = false;
+        boolean radar = false;
+        for (ProjectileEntity missile : missiles) {
+            ThreatSeeker seeker = ThreatSeeker.of(missile.spec());
+            heat |= seeker.decoyedByFlares();
+            radar |= seeker.decoyedByChaff();
+        }
+        ActivityEvents.missileWarned(this.aircraft, seekerType(heat, radar), missiles);
+    }
+
+    /** The seekers of the incoming missiles as the API names them: heat, radar, both, or neither. */
+    static SeekerType seekerType(boolean heat, boolean radar) {
+        if (heat) {
+            return radar ? SeekerType.DUAL : SeekerType.HEAT;
+        }
+        return radar ? SeekerType.RADAR : SeekerType.OTHER;
     }
 
     /**

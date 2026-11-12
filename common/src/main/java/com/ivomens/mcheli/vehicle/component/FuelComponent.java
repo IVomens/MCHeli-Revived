@@ -5,6 +5,7 @@ import com.ivomens.mcheli.aircraft.AircraftInventory;
 import com.ivomens.mcheli.aircraft.VehiclePeers;
 import com.ivomens.mcheli.aircraft.SeatEntity;
 import com.ivomens.mcheli.aircraft.VehicleSpec;
+import com.ivomens.mcheli.event.ActivityEvents;
 import com.ivomens.mcheli.platform.FluidAmount;
 import com.ivomens.mcheli.util.EntityIds;
 import com.ivomens.mcheli.util.ModLogger;
@@ -73,6 +74,18 @@ public final class FuelComponent implements VehicleComponent {
     }
 
     /**
+     * Server: fills the tank up to {@code amount} from a refuelling source, and tells the API's listeners how
+     * much went in.
+     *
+     * @param supplier the tanker vehicle, or null for the fuel slot, pipes and cables
+     */
+    void refuel(int amount, @Nullable Entity supplier) {
+        int before = amount();
+        setAmount(amount);
+        ActivityEvents.refueled(this.vehicle, amount() - before, supplier);
+    }
+
+    /**
      * Whether there is fuel to burn: a vehicle without a tank, fuel left, or infinite fuel for the
      * pilot (with {@code checkOtherSeats}, for anyone aboard).
      */
@@ -102,7 +115,7 @@ public final class FuelComponent implements VehicleComponent {
         }
         int accepted = Math.min(energy, capacity() - amount());
         if (accepted > 0 && !simulate) {
-            setAmount(amount() + accepted);
+            refuel(amount() + accepted, null);
         }
         return Math.max(0, accepted);
     }
@@ -278,7 +291,7 @@ public final class FuelComponent implements VehicleComponent {
                 if (other.amount() <= 0) {
                     other.setFuelType(fluid);
                 }
-                other.setAmount(other.amount() + amount);
+                other.refuel(other.amount() + amount, ac);
                 if (!info.file().fuel().infiniteSupply()) {
                     setAmount(Math.max(0, amount() - amount));
                 }

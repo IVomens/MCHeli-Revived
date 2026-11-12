@@ -73,7 +73,7 @@ final class FuelRefill {
         if (putInOutputSlot(inventory, result.container())) {
             input.shrink(1);
             this.fuel.setFuelType(result.drained().fluid());
-            this.fuel.setAmount(currentFuel + result.drained().amount());
+            this.fuel.refuel(currentFuel + result.drained().amount(), null);
             triggerRefuelCriteria();
         }
     }
@@ -92,7 +92,7 @@ final class FuelRefill {
         int transferred = Math.min(maxFuel - currentFuel, fuelInItem);
         stack.setDamageValue(stack.getDamageValue() + transferred);
         this.fuel.setFuelType(fuelType);
-        this.fuel.setAmount(currentFuel + transferred);
+        this.fuel.refuel(currentFuel + transferred, null);
 
         if (stack.getDamageValue() >= stack.getMaxDamage()) {
             ItemStack empty = new ItemStack(stack.getItem());
@@ -132,7 +132,7 @@ final class FuelRefill {
         }
         int pulled = EnergyCompat.dischargeFromItem(battery, needed, false);
         if (pulled > 0) {
-            this.fuel.setAmount(this.fuel.amount() + pulled);
+            this.fuel.refuel(this.fuel.amount() + pulled, null);
             triggerRefuelCriteria();
         }
     }
