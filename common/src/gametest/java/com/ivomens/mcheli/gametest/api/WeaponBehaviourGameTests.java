@@ -231,6 +231,9 @@ public final class WeaponBehaviourGameTests {
                 direction, 0.0F, 0.0F, spec.ballistics().acceleration());
         rocket.setWeapon(weapon);
         rocket.warhead().set(spec.definition().baseDamage(), spec.explosion().power(), spec.explosionInWater(), 0);
+        // a projectile whose shooter is unknown is out of range at once; a stand at the muzzle fires it
+        ArmorStand shooter = stand(h, relative.add(0, 0, -1));
+        rocket.setShooter(shooter, shooter);
         if (target != null) {
             rocket.setTarget(target);
         }
