@@ -54,7 +54,7 @@ public final class ExampleTargetGameTests {
         ServerPlayer pilot = h.makeMockServerPlayerInLevel();
         Vec3 standing = h.absoluteVec(new Vec3(8, 2, 2));
         pilot.moveTo(standing.x, standing.y, standing.z, 0.0F, 0.0F);
-        ArmorStand drone = drone(level, h.absoluteVec(new Vec3(8, 22, 22)));
+        ArmorStand drone = drone(level, h.absoluteVec(new Vec3(8, 12, 14)));
         try {
             check(McheliApi.get().targets().signatureOf(drone).isPresent(), "the drone is no target");
             LockOnSeeker seeker = radarSeeker(level);
@@ -64,7 +64,8 @@ public final class ExampleTargetGameTests {
             for (int tick = 0; tick < seeker.lockTicks() + 5 && !seeker.isLockComplete(); tick++) {
                 seeker.track(pilot);
             }
-            check(seeker.isLockComplete() && seeker.target() == drone, "the seeker did not lock the drone");
+            check(seeker.isLockComplete() && seeker.target() == drone, "the seeker did not lock the drone: count "
+                    + seeker.lockCount() + " of " + seeker.lockTicks() + ", target " + seeker.target());
             check(ExampleTargets.locksHeard() == locks + 1, "the drone did not hear of the lock");
 
             long missiles = ExampleTargets.missilesHeard();
@@ -97,7 +98,7 @@ public final class ExampleTargetGameTests {
         AircraftEntity lead = helicopter(level, h.absoluteVec(new Vec3(4, 1.2, 8)));
         AircraftEntity wing = helicopter(level, h.absoluteVec(new Vec3(12, 1.2, 8)));
         ServerPlayer pilot = h.makeMockServerPlayerInLevel();
-        ArmorStand drone = drone(level, h.absoluteVec(new Vec3(8, 22, 22)));
+        ArmorStand drone = drone(level, h.absoluteVec(new Vec3(8, 12, 14)));
         UUID id = wing.getUUID();
         try {
             check(pilot.startRiding(lead, true), "the pilot could not board");

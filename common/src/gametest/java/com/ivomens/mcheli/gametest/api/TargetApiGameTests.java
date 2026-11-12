@@ -61,8 +61,8 @@ public final class TargetApiGameTests {
         ServerPlayer shooter = h.makeMockServerPlayerInLevel();
         Vec3 standing = h.absoluteVec(new Vec3(8, 2, 2));
         shooter.moveTo(standing.x, standing.y, standing.z, 0.0F, 0.0F);
-        Minecart cart = floating(new Minecart(EntityType.MINECART, level), h.absoluteVec(new Vec3(8, 22, 22)));
-        Pig pig = floating(new Pig(EntityType.PIG, level), h.absoluteVec(new Vec3(2, 22, 34)));
+        Minecart cart = floating(new Minecart(EntityType.MINECART, level), h.absoluteVec(new Vec3(8, 12, 14)));
+        Pig pig = floating(new Pig(EntityType.PIG, level), h.absoluteVec(new Vec3(8, 4, 0)));
         pig.setNoAi(true);
         pig.addTag(HIDDEN_TAG);
         LockOnSeeker radar = seeker(level, "aim120", false, true);
@@ -129,7 +129,9 @@ public final class TargetApiGameTests {
         for (int tick = 0; tick < radar.lockTicks() + 5 && !radar.isLockComplete(); tick++) {
             radar.track(shooter);
         }
-        check(radar.isLockComplete() && radar.target() == cart, "the radar seeker did not lock the minecart");
+        check(radar.isLockComplete() && radar.target() == cart, "the radar seeker did not lock the minecart: count "
+                + radar.lockCount() + " of " + radar.lockTicks() + ", target " + radar.target() + ", in level "
+                + (level.getEntity(cart.getId()) == cart));
         check(profile.locks.size() == 1, "the profile heard " + profile.locks.size() + " locks");
         check(profile.locks.getFirst().seeker() == SeekerType.RADAR && profile.locks.getFirst().user() == shooter,
                 "the lock reached the profile wrong");

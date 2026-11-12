@@ -38,7 +38,8 @@ import java.util.concurrent.Executors;
 /**
  * Sends each player the radar contacts around them. Every {@code RadarUpdateInterval} ticks the tracked entities
  * (players, lockable MCHeli entities and the targets addons registered) are snapshotted on the server thread;
- * the per-player range filtering and message building run on virtual threads. One per server ({@link #of}), closed when the server stops.
+ * the per-player range filtering and message building run on virtual threads. One per server ({@link #of}),
+ * closed when the server stops.
  * <p>
  * Only players aboard a vehicle get contacts: the radar is drawn by the vehicle's instruments, and nothing
  * else reads it. Each of them gets what changed since their last snapshot ({@link RadarReceiver}).
