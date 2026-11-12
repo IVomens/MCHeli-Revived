@@ -6,7 +6,8 @@ import net.minecraft.world.entity.Entity;
 
 /**
  * Air-to-air missile: it needs a target and self-destructs when it loses it, strays too far, or is
- * decoyed by flares (a heat seeker) or chaff (a radar missile); after its rigid launch phase it homes on
+ * decoyed by flares (a heat seeker) or chaff (a radar missile), also those an addon's target says it
+ * drops; after its rigid launch phase it homes on
  * the target until the proximity fuze sets it off.
  * <p>
  * <b>Squared proximity.</b> This fuze compares {@code ProximityFuseDist} with the <i>squared</i>
@@ -34,7 +35,7 @@ public final class AirToAirGuidance implements Guidance {
         if (missile.age() <= info.missile().lockOn().delay()) {
             return;
         }
-        if (Homing.targetDropsDecoys(missile, target)) {
+        if (Homing.targetDropsDecoys(missile, target) || Homing.decoyedByExternalTarget(missile, target)) {
             missile.discard();
             return;
         }

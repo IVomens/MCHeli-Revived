@@ -49,6 +49,10 @@ public final class AntiTankGuidance implements Guidance {
             return;
         }
         if (missile.age() <= info.missile().lockOn().delay()) return;
+        if (Homing.decoyedByExternalTarget(missile, target)) {
+            missile.discard();
+            return;
+        }
         if (missile.isTopAttack()) {
             topAttack(missile, info, target);
         } else if (info.explosion().proximityFuseDist() >= 0.1F

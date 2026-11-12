@@ -132,6 +132,8 @@ The entry point. `McheliApi.get()` returns the running implementation (found wit
 | `vehiclesIn(Level, AABB)` | The loaded vehicles whose bounding box intersects the area. |
 | `content()` | The loaded vehicle and weapon types (`ContentLookup`). |
 | `events()` | The event bus (`EventBus`). |
+| `targets()` | Other mods' entities as radar and lock-on targets, and entities never targeted (`TargetRegistry`). Since 1.1. |
+| `wingmen()` | The AI wingmen: list, read and order them (`Wingmen`). Since 1.1. |
 
 ```java
 McheliApi api = McheliApi.get();
@@ -398,6 +400,102 @@ events.register(MissileWarned.class, warned -> {
 });
 ```
 
+### Targets (package `com.ivomens.mcheli.api.target`, since API 1.1)
+
+Another mod's entities (its jets, tanks, drones) can be targets for MCHeli as if they were MCHeli vehicles: the
+radar display shows them, lock-on seekers, AI gunners and target designation lock them, guided missiles fly
+at them and are decoyed by their flares and chaff, and the mod hears of every lock and missile so it can warn
+its own crew. An addon registers a `TargetProfile` for an entity type (or a predicate); the profile answers,
+each time a seeker asks, with a `TargetSignature`.
+
+| Type | Contract |
+|---|---|
+| `TargetRegistry` | `register(EntityType, TargetProfile)`, `register(Predicate<Entity>, TargetProfile)`, `exclude(EntityType)`, `exclude(Predicate<Entity>)`, each returning a `Subscription`; `signatureOf(entity)`, `isExcluded(entity)`. Any thread; registrations hold on both sides until unsubscribed. |
+| `TargetProfile` | Implemented by the addon. `signature(entity)`: the signature now, or null for "no target right now" (both sides, often: return constants). Default methods `onLockedOn(TargetLock)` and `onMissileLaunched(IncomingMissile)`. |
+| `TargetSignature` | Immutable: `domain()` (`TargetDomain`), `shownAs()` (the `VehicleKind` the radar draws), `heat()` and `radarCrossSection()` (0 invisible to that sensor, 1 as visible as a vehicle), `isFlareUsing()`, `isChaffUsing()`. Start from `AIR` or `GROUND` and change it with the `with...` methods. |
+| `TargetDomain` | `AIR`, `GROUND`, or `BY_HEIGHT` (as MCHeli vehicles: on the ground near solid blocks, else in the air). Decides which seekers (air-to-air, anti-tank) may lock it. |
+| `SeekerType` | In `com.ivomens.mcheli.api.event`, shared with `MissileWarned`. `HEAT`, `RADAR`, `DUAL`, `OTHER`: what a lock or missile seeks with, so whether flares or chaff help. |
+| `TargetLock` | `target()`, `user()`, `vehicle()`, `seeker()`. |
+| `IncomingMissile` | `target()`, `missile()` (the missile entity, which may be watched until removed), `shooter()`, `weaponId()`, `seeker()`. |
+
+How the signature is used, the same rules MCHeli's own vehicles follow:
+
+* A heat seeker sees `heat()`, a radar seeker `radarCrossSection()`, a seeker that uses both the stronger,
+  any other seeker (optical, laser) all of it. 0 means that seeker never locks the entity; in between it is
+  treated as stealth: a narrower cone, a longer lock, a shorter reach. The radar display shows the entity
+  while `radarCrossSection()` is above 0, drawn as `shownAs()`; planes and helicopters low and slow are hidden
+  in ground clutter as MCHeli's are.
+* Flares hide the entity from heat seekers looking for a target and destroy heat-seeking missiles homing on it;
+  chaff does the same to radar seekers and radar missiles, and also breaks a radar lock that is held. The flags
+  spawn nothing: the addon draws its own decoys.
+* `onLockedOn` runs once per completed lock where the seeker runs: on the server for AI gunners and for a
+  pilot's beyond-visual-range radar lock, on the locking player's client for a player's own lock-on weapon.
+  `onMissileLaunched` runs on the server when a guided missile is fired at the entity or turned on it.
+* An exclusion beats every registration and hides an entity (any entity, vanilla or MCHeli's) from the radar
+  display, seekers, AI gunners and wingmen picking targets; a missile already homing on it keeps flying.
+  Registrations by type win over those by predicate; for the same type, the earliest still registered wins.
+  MCHeli's own vehicles, seats, projectiles and decoys never use a profile.
+* With nothing registered, seekers and radar skip all of this after one check; a registration by type costs a
+  map lookup per entity a seeker looks at, a predicate one call.
+
+```java
+public final class JetProfile implements TargetProfile {
+    private static final TargetSignature JET = TargetSignature.AIR.withRadarCrossSection(0.8F);
+    private static final TargetSignature JET_FLARES = JET.withFlares(true);
+
+    @Override
+    public TargetSignature signature(Entity entity) {
+        MyJet jet = (MyJet) entity;
+        return jet.isParked() ? null : jet.isDroppingFlares() ? JET_FLARES : JET;
+    }
+
+    @Override
+    public void onMissileLaunched(IncomingMissile missile) {
+        ((MyJet) missile.target()).warnPilot(missile.seeker());
+    }
+}
+
+// in the mod's constructor, so the server and every client agree
+McheliApi.get().targets().register(MyEntities.JET.get(), new JetProfile());
+McheliApi.get().targets().exclude(EntityType.ARMOR_STAND);
+```
+
+MCHeli's own radar warning receiver and missile alarm are drawn by MCHeli vehicles only; a registered entity's
+crew is warned by its mod, through the callbacks.
+
+### Wingmen (package `com.ivomens.mcheli.api.wingman`, since API 1.1)
+
+The AI wingmen the wingman panel and `/wingman` command manage, readable and orderable from code. Server side,
+on the server thread; the roster belongs to the running server and is not saved.
+
+| Type | Contract |
+|---|---|
+| `Wingmen` | `all(server)`, `orderableBy(player)`, `following(leader)`, `get(server, aircraftId)`; orders `follow(commander, aircraft)`, `release`, `attack(commander, aircraftId, target)`, `autoAttack`, `holdFire`, `setWeaponType`, `dispatch(commander, aircraftId, MissionRequest)`, `abort`, each returning a `WingmanOrderResult`. |
+| `WingmanState` | A snapshot: `aircraftId()`, `aircraft()`, `owner()`, `leader()`, `formationSlot()`, `attack()` (`WingmanAttack`), `attackTarget()`, `weaponType()`, `status()` (`FOLLOWING`, `IDLE` or the flight phase of a mission, such as `ON_STATION` or `RTB`), `missionKinds()`. |
+| `WingmanOrderResult` | `DONE`, `NOT_FOUND`, `NOT_A_WINGMAN`, `NOT_ALLOWED`, `NOT_IN_AIRCRAFT`, `FORMATION_FULL`, `INVALID`. Only `DONE` changed anything. |
+| `WingmanAttack` | `HOLD_FIRE`, `TARGET`, `AUTO`. |
+| `MissionRequest` | A mission order: `builder(MissionKind...)`, then `target(x, z)`, `baseId`, `weapon`, `orbitRadius`, `cruiseAltitude`, `strikePasses`, `timeLimitSeconds`, `build()`. Defaults are the planner's. |
+| `MissionKind` | `CAP`, `CAS`, `STRIKE`, `ESCORT`, `RECON`, `FERRY`. |
+
+Every order names the commanding player and goes through the same code and the same permission rules as the
+panel: owners, operators and whoever flies the wingman's leader may order it, and an aircraft that is nobody's
+wingman becomes the commander's (unless someone else is aboard or it is locked to its owner). Orders send no
+chat messages; the result says what happened. `follow` puts the aircraft in the next free slot behind the
+aircraft the commander flies. Formation spacing and size are server settings (`mcheli-wingman.cfg`,
+`/wingman dist`, `/wingman maxwings`), not per formation, and are not set through the API. There is no
+separate "hold position" or "return to base" order: a `CAP` order on a point keeps a wingman orbiting there,
+every mission order ends with the flight back to its base, a landing and parking, and a `FERRY` order to a
+point next to the base sends a wingman home.
+
+```java
+Wingmen wingmen = McheliApi.get().wingmen();
+for (WingmanState wingman : wingmen.following(player.getVehicle())) {
+    wingmen.attack(player, wingman.aircraftId(), target);
+}
+WingmanOrderResult result = wingmen.dispatch(player, jet.getUUID(),
+        MissionRequest.builder(MissionKind.CAP).target(1200, -300).baseId("north_field").build());
+```
+
 ## The example addon
 
 [`examples/example-addon`](../examples/example-addon) is a NeoForge mod built against the API alone, and
@@ -416,7 +514,10 @@ part of this build (`./gradlew :example-addon:build`, run by CI):
 * `ExampleAirspace` makes the spawn area a no-fly zone (`noFlyZoneAtSpawn`): players inside spawn protection
   may not take a helicopter's or plane's pilot seat or place one (`VehicleBoardAttempt`,
   `VehiclePlaceAttempt`), and it halves the damage vehicles take from one other mod's damage types
-  (`halfDamageFromMod`, through `VehicleDamaged`).
+  (`halfDamageFromMod`, through `VehicleDamaged`);
+* `ExampleTargets` makes armor stands tagged `mcheli_example_drone` radar and lock-on targets (a small jet;
+  tagged `mcheli_example_chaff` too, it hides behind chaff) and counts the locks and missiles they hear of;
+* `ExampleWingmen` sends every wingman of a player's formation after one target.
 
 ### Running it
 
@@ -443,6 +544,9 @@ the class path, so NeoForge loads them as two separate mods, as from a mods fold
 * `noflyzonekeepspilotsout` and `halvesdamagefromtheconfiguredmod` (batch `mcheli_example_airspace`):
   a player inside the protected area cannot board the helicopter as pilot until the protection goes, and with
   `halfDamageFromMod` set to `minecraft` a later listener sees vanilla damage halved.
+* `radarmissilelocksthedrone` and `wingmanattacksthedrone` (`ExampleTargetGameTests`): a radar missile's seeker
+  locks a tagged armor stand, the drone hears of the lock and of a missile turned on it, and its chaff hides it;
+  a player flying a helicopter takes another as wingman and sends it after the drone.
 
 The test mod reaches MCHeli's internals to spawn, board and fire the helicopter; the addon itself uses only
 the API. CI runs this after the main game tests. MCHeli's own game tests check the API from inside the mod
@@ -453,8 +557,7 @@ allowed) and `VehicleRemoved` fire, on NeoForge and on Fabric.
 `TestVehicleExtensions` registers a movement model and two behaviours the same way, and `ExtensionGameTests`
 checks that the test pack's `api_test_hover` hovers and flies as that model says, that its behaviours tick
 before and after the move and hear of its removal, and that unknown ids and rejected settings are warnings.
-`ApiEventGameTests` checks the API 1.1
-damage and activity events (one `VehicleDamaged` per hit through a seat, takeoff and landing without
+`ApiEventGameTests` checks the API 1.1 damage and activity events (one `VehicleDamaged` per hit through a seat, takeoff and landing without
 counting hops, water, the missile warning's seeker, ejection, rearming, refuelling) and
 `ApiPermissionGameTests` refuses and then allows each permission event.
 

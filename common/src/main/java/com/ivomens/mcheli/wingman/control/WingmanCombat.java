@@ -2,6 +2,7 @@ package com.ivomens.mcheli.wingman.control;
 
 import com.ivomens.mcheli.aircraft.AircraftEntity;
 import com.ivomens.mcheli.aircraft.FriendlyFire;
+import com.ivomens.mcheli.combat.guidance.ExternalTargets;
 import com.ivomens.mcheli.combat.weapon.FireRequest;
 import com.ivomens.mcheli.combat.weapon.WeaponGroup;
 import com.ivomens.mcheli.combat.weapon.WeaponSpec;
@@ -148,10 +149,15 @@ final class WingmanCombat {
     /**
      * Something worth shooting: never players, other wingmen or anything a player rides; among MCHeli's
      * own entities only real combatants (aircraft, tanks, vehicles, gunners), not bullets, seats or
-     * flares; and only what MCHeli's team rules allow this aircraft to attack.
+     * flares; nothing an addon excluded through the API; and only what MCHeli's team rules allow this aircraft
+     * to attack.
      */
     private boolean isEnemy(Entity wingman, Entity e) {
         if (e instanceof Player || this.entries.containsKey(e.getUUID())) {
+            return false;
+        }
+        ExternalTargets external = ExternalTargets.get();
+        if (external.isActive() && external.isExcluded(e)) {
             return false;
         }
         for (Entity passenger : e.getPassengers()) {

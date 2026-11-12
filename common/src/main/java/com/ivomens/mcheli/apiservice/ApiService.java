@@ -4,10 +4,13 @@ import com.ivomens.mcheli.aircraft.AircraftEntity;
 import com.ivomens.mcheli.api.McheliApi;
 import com.ivomens.mcheli.api.content.ContentLookup;
 import com.ivomens.mcheli.api.event.EventBus;
+import com.ivomens.mcheli.api.target.TargetRegistry;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
 import com.ivomens.mcheli.api.vehicle.VehicleHitBox;
 import com.ivomens.mcheli.api.vehicle.VehicleSeat;
 import com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions;
+import com.ivomens.mcheli.api.wingman.Wingmen;
+import com.ivomens.mcheli.combat.guidance.ExternalTargets;
 import com.ivomens.mcheli.entityview.Riders;
 import com.ivomens.mcheli.event.ApiEventBus;
 import com.ivomens.mcheli.vehicle.world.AircraftIndex;
@@ -22,7 +25,7 @@ import java.util.Optional;
 
 /**
  * MCHeli's implementation of the public API, found by {@code McheliApi.get()} through
- * {@code META-INF/services}. One instance for the whole game; it owns the event bus.
+ * {@code META-INF/services}. One instance for the whole game; it owns the event bus and the target registry.
  */
 public final class ApiService implements McheliApi {
 
@@ -32,6 +35,8 @@ public final class ApiService implements McheliApi {
     private final ApiEventBus events = new ApiEventBus();
     private final ContentLookup content = new LoadedContentLookup();
     private final VehicleExtensions vehicleExtensions = new LoadedVehicleExtensions();
+    private final ExternalTargets targets = new ExternalTargets();
+    private final Wingmen wingmen = new ApiWingmen();
 
     @Override
     public String apiVersion() {
@@ -78,5 +83,15 @@ public final class ApiService implements McheliApi {
     @Override
     public VehicleExtensions vehicleExtensions() {
         return this.vehicleExtensions;
+    }
+
+    @Override
+    public TargetRegistry targets() {
+        return this.targets;
+    }
+
+    @Override
+    public Wingmen wingmen() {
+        return this.wingmen;
     }
 }

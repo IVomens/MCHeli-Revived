@@ -132,18 +132,25 @@ public final class WingmanAccess {
      * another player sits in it, and not when it is locked to its owner (and their team).
      */
     private static boolean checkUnclaimed(ServerPlayer player, UUID aircraftId) {
+        Component refusal = claimRefusal(player, aircraftId);
+        if (refusal != null) {
+            deny(player, refusal);
+        }
+        return refusal == null;
+    }
+
+    /**
+     * Why the player may not claim an aircraft that is no wingman yet, or null if they may: someone else is
+     * aboard, or it is locked to its owner. Tells the player nothing.
+     */
+    public static @Nullable Component claimRefusal(ServerPlayer player, UUID aircraftId) {
         if (isOperator(player) || !(player.serverLevel().getEntity(aircraftId) instanceof AircraftEntity aircraft)) {
-            return true;
+            return null;
         }
         if (aircraft.ownership().isLocked() && !aircraft.ownership().mayBoard(player, 0)) {
-            deny(player, aircraft.ownership().refusal());
-            return false;
+            return aircraft.ownership().refusal();
         }
-        if (hasOtherPlayerAboard(aircraft, player)) {
-            deny(player, WingmanText.someoneAboard());
-            return false;
-        }
-        return true;
+        return hasOtherPlayerAboard(aircraft, player) ? WingmanText.someoneAboard() : null;
     }
 
     private static boolean hasOtherPlayerAboard(AircraftEntity aircraft, Player player) {

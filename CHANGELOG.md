@@ -7,6 +7,17 @@ counts as a major, minor or patch change.
 
 ## [Unreleased]
 
+### API 1.1
+
+- Targets (`McheliApi.targets()`, package `api.target`): other mods register a `TargetProfile` for an entity
+  type or predicate, and their entities show on MCHeli's radar, are locked by its seekers and AI gunners,
+  draw its guided missiles and decoy them with flares or chaff, as described by a `TargetSignature` (air or
+  ground, heat signature, radar cross-section, decoys). Profiles hear of locks and incoming missiles.
+  Addons can also exclude any entity from radar, seekers and AI targeting.
+- Wingmen (`McheliApi.wingmen()`, package `api.wingman`): list a player's wingmen, read their orders and
+  status, and order them as the wingman panel does: follow, release, attack a target, auto attack, hold fire,
+  weapon type, mission orders and abort.
+
 The first release of MCHeli: Revived, a port of McHeli CE (Minecraft 1.12.2) to Minecraft 1.21.1.
 Existing content packs (YAML, TXT, HUD scripts, `.obj` and `.mqo` models) load as they did on
 McHeli CE.
