@@ -68,8 +68,21 @@ public final class OwnershipComponent implements VehicleComponent {
 
     /** Server: the player placed the vehicle (or claimed one without an owner). */
     public void setOwner(Player player) {
-        this.owner.set(Optional.of(player.getUUID()));
-        this.ownerName.set(player.getGameProfile().getName());
+        setOwner(player.getUUID(), player.getGameProfile().getName());
+    }
+
+    /** Server: the player with this id and name owns the vehicle now; they need not be online. */
+    public void setOwner(UUID id, String name) {
+        this.owner.set(Optional.of(id));
+        this.ownerName.set(name);
+        publish();
+    }
+
+    /** Server: the vehicle has no owner any more, and so is not locked. */
+    public void clearOwner() {
+        this.owner.set(Optional.empty());
+        this.ownerName.set("");
+        this.locked = false;
         publish();
     }
 

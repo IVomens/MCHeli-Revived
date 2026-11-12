@@ -1,7 +1,9 @@
-# mcheli-revived-api 1.0.0
+# mcheli-revived-api 1.1.0
 # The public signatures of the API. Written by ./gradlew :api:updateApiDump; see docs/API.md.
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.content.ContentLookup content()
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.event.EventBus events()
+com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleActions vehicleActions()
+com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys vehicleData()
 com.ivomens.mcheli.api.McheliApi method public abstract java.lang.String apiVersion()
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.Vehicle> vehicles(net.minecraft.world.level.Level)
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.Vehicle> vehiclesIn(net.minecraft.world.level.Level, net.minecraft.world.phys.AABB)
@@ -114,6 +116,7 @@ com.ivomens.mcheli.api.vehicle.Vehicle method public abstract boolean isUAV()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.Crew seats()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.Targetable signature()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.VehicleKind kind()
+com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.data.VehicleData data()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract double throttle()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract float roll()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract net.minecraft.world.entity.Entity entity()
@@ -131,3 +134,102 @@ com.ivomens.mcheli.api.vehicle.VehicleKind method public static com.ivomens.mche
 com.ivomens.mcheli.api.vehicle.VehicleKind type public final enum
 com.ivomens.mcheli.api.vehicle.VehicleSeat method public abstract com.ivomens.mcheli.api.vehicle.Vehicle getParent()
 com.ivomens.mcheli.api.vehicle.VehicleSeat type public interface
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult INVALID_SEAT
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult LOCKING_DISABLED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NOT_ABOARD
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_CHANGE
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_FUEL_TANK
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_OWNER
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_SUCH_WEAPON
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult REFUSED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SEAT_BLOCKED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SEAT_EMPTY
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SEAT_OCCUPIED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SUCCESS
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult VEHICLE_DESTROYED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult VEHICLE_REMOVED
+com.ivomens.mcheli.api.vehicle.action.ActionResult method public boolean isSuccess()
+com.ivomens.mcheli.api.vehicle.action.ActionResult method public static com.ivomens.mcheli.api.vehicle.action.ActionResult valueOf(java.lang.String)
+com.ivomens.mcheli.api.vehicle.action.ActionResult method public static com.ivomens.mcheli.api.vehicle.action.ActionResult[] values()
+com.ivomens.mcheli.api.vehicle.action.ActionResult type public final enum
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method default public boolean isSpawned()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract com.ivomens.mcheli.api.vehicle.action.SpawnStatus status()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract java.util.Map<java.lang.Integer, com.ivomens.mcheli.api.vehicle.action.ActionResult> riders()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract java.util.Optional<com.ivomens.mcheli.api.vehicle.Vehicle> vehicle()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract java.util.Optional<net.minecraft.network.chat.Component> message()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult type public interface
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus CHUNK_NOT_LOADED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus INVALID_SEAT
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus LIMIT_REACHED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus OBSTRUCTED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus REFUSED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus SPAWNED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus UNKNOWN_TYPE
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus method public boolean isSpawned()
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus method public static com.ivomens.mcheli.api.vehicle.action.SpawnStatus valueOf(java.lang.String)
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus method public static com.ivomens.mcheli.api.vehicle.action.SpawnStatus[] values()
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus type public final enum
+com.ivomens.mcheli.api.vehicle.action.VehicleActions method default public com.ivomens.mcheli.api.vehicle.action.VehicleSpawner spawner(net.minecraft.server.level.ServerLevel, com.ivomens.mcheli.api.content.VehicleInfo, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.vehicle.action.VehicleActions method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleControl control(com.ivomens.mcheli.api.vehicle.Vehicle)
+com.ivomens.mcheli.api.vehicle.action.VehicleActions method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner spawner(net.minecraft.server.level.ServerLevel, com.ivomens.mcheli.api.vehicle.VehicleKind, java.lang.String, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.vehicle.action.VehicleActions type public interface
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract boolean isLocked()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract boolean mayBoard(net.minecraft.world.entity.player.Player, int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract boolean mayChangeLock(net.minecraft.world.entity.player.Player)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult board(net.minecraft.world.entity.Entity, int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult clearOwner()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult damage(net.minecraft.world.damagesource.DamageSource, float)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult destroy(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult dismount(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult eject(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult rearm()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult rearm(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult refuel()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult repair()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult repair(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setAmmo(int, int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setFuel(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setLocked(boolean)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setOwner(java.util.UUID, java.lang.String)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setOwner(net.minecraft.world.entity.player.Player)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.data.MutableVehicleData data()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int ammo(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int ejectAll()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int fuel()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int fuelCapacity()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int health()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int maxAmmo(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int maxHealth()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int weaponCount()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract java.util.Optional<com.ivomens.mcheli.api.content.WeaponInfo> weapon(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract java.util.Optional<java.lang.String> ownerName()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract java.util.Optional<java.util.UUID> owner()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl type public interface
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.SpawnResult spawn()
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner owner(net.minecraft.world.entity.player.Player)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner requireFreeSpace(boolean)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner respectLimits(boolean)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner rider(int, net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner rotation(float, float)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner type public interface
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData implements com.ivomens.mcheli.api.vehicle.data.VehicleData
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData method default public <T extends java.lang.Object> T update(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T>, java.util.function.UnaryOperator<T>)
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData method public abstract <T extends java.lang.Object> void set(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T>, T)
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData method public abstract void remove(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>)
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData type public interface
+com.ivomens.mcheli.api.vehicle.data.VehicleData method public abstract <T extends java.lang.Object> T get(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T>)
+com.ivomens.mcheli.api.vehicle.data.VehicleData method public abstract boolean has(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>)
+com.ivomens.mcheli.api.vehicle.data.VehicleData type public interface
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method default public boolean isSynced()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract T defaultValue()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract com.mojang.serialization.Codec<T> codec()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract java.util.Optional<net.minecraft.network.codec.StreamCodec<? super net.minecraft.network.RegistryFriendlyByteBuf, T>> syncCodec()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract net.minecraft.resources.ResourceLocation id()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public static <T extends java.lang.Object> com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T> of(net.minecraft.resources.ResourceLocation, com.mojang.serialization.Codec<T>, T)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public static <T extends java.lang.Object> com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T> of(net.minecraft.resources.ResourceLocation, com.mojang.serialization.Codec<T>, net.minecraft.network.codec.StreamCodec<? super net.minecraft.network.RegistryFriendlyByteBuf, T>, T)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey type public interface<T extends java.lang.Object> 
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys method public abstract <T extends java.lang.Object> com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T> declare(net.minecraft.resources.ResourceLocation, com.mojang.serialization.Codec<T>, net.minecraft.network.codec.StreamCodec<? super net.minecraft.network.RegistryFriendlyByteBuf, T>, T)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>> keys()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys method public abstract java.util.Optional<com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>> key(net.minecraft.resources.ResourceLocation)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys type public interface

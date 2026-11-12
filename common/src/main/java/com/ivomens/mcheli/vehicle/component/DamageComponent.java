@@ -243,6 +243,20 @@ public final class DamageComponent implements VehicleComponent {
         return false;
     }
 
+    /**
+     * Server: destroys the vehicle as if hits had used up its HP: it becomes a wreck, the destroyed event fires
+     * and it explodes. Nothing happens to a wreck.
+     */
+    public void destroyBy(@Nullable Entity attacker) {
+        if (onlyPredictsHits() || this.vehicle.isDestroyed()) {
+            return;
+        }
+        if (attacker instanceof LivingEntity) {
+            this.lastAttacker = attacker;
+        }
+        destroy(attacker, "generic");
+    }
+
     private void destroy(@Nullable Entity attacker, String type) {
         AircraftEntity ac = this.vehicle;
         setDamageTaken(maxHp());

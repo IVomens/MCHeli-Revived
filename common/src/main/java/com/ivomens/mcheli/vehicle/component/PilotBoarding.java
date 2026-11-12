@@ -45,7 +45,7 @@ public final class PilotBoarding implements VehicleComponent {
     }
 
     /** The player takes the pilot's seat (the server seats them; the client predicts it). */
-    void board(Player player, VehicleSpec info) {
+    public void board(Player player, VehicleSpec info) {
         AircraftEntity ac = this.vehicle;
         this.parts.closeCanopy();
         this.handover.forgetPilot();

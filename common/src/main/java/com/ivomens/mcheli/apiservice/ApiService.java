@@ -7,9 +7,12 @@ import com.ivomens.mcheli.api.event.EventBus;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
 import com.ivomens.mcheli.api.vehicle.VehicleHitBox;
 import com.ivomens.mcheli.api.vehicle.VehicleSeat;
+import com.ivomens.mcheli.api.vehicle.action.VehicleActions;
+import com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys;
 import com.ivomens.mcheli.entityview.Riders;
 import com.ivomens.mcheli.event.ApiEventBus;
 import com.ivomens.mcheli.vehicle.world.AircraftIndex;
+import com.ivomens.mcheli.vehicledata.DataKeyRegistry;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -21,15 +24,18 @@ import java.util.Optional;
 
 /**
  * MCHeli's implementation of the public API, found by {@code McheliApi.get()} through
- * {@code META-INF/services}. One instance for the whole game; it owns the event bus.
+ * {@code META-INF/services}. One instance for the whole game; it owns the event bus and the addons' vehicle data
+ * keys.
  */
 public final class ApiService implements McheliApi {
 
     /** The API version this build implements; ApiVersionTest keeps it equal to api_version in gradle.properties. */
-    public static final String API_VERSION = "1.0.0";
+    public static final String API_VERSION = "1.1.0";
 
     private final ApiEventBus events = new ApiEventBus();
     private final ContentLookup content = new LoadedContentLookup();
+    private final VehicleActions actions = new ApiVehicleActions();
+    private final DataKeyRegistry dataKeys = new DataKeyRegistry();
 
     @Override
     public String apiVersion() {
@@ -71,5 +77,15 @@ public final class ApiService implements McheliApi {
     @Override
     public EventBus events() {
         return this.events;
+    }
+
+    @Override
+    public VehicleActions vehicleActions() {
+        return this.actions;
+    }
+
+    @Override
+    public VehicleDataKeys vehicleData() {
+        return this.dataKeys;
     }
 }

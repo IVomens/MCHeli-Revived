@@ -16,7 +16,7 @@ import net.minecraft.world.phys.Vec3;
 public final class Network {
 
     /** Bumped whenever a message is added, removed or changes its encoding. */
-    public static final String PROTOCOL = "13";
+    public static final String PROTOCOL = "14";
 
     private Network() {
     }

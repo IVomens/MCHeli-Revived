@@ -3,6 +3,8 @@ package com.ivomens.mcheli.api;
 import com.ivomens.mcheli.api.content.ContentLookup;
 import com.ivomens.mcheli.api.event.EventBus;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
+import com.ivomens.mcheli.api.vehicle.action.VehicleActions;
+import com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -64,4 +66,16 @@ public interface McheliApi {
 
     /** Where addons listen to what happens to vehicles and weapons. */
     EventBus events();
+
+    /**
+     * Where addons place new vehicles and change existing ones: health, fuel, ammunition, crew, owner and lock.
+     * Server only. Since API 1.1.
+     */
+    VehicleActions vehicleActions();
+
+    /**
+     * The keys of the values addons keep on vehicles, and where they declare new ones. Either side. Since
+     * API 1.1.
+     */
+    VehicleDataKeys vehicleData();
 }
