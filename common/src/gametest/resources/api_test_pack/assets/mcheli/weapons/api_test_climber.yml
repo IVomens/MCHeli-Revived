@@ -1,0 +1,23 @@
+# A rocket an addon's guidance law (mcheli_gametest:climb, registered by TestWeaponBehaviours) turns to fly
+# straight up, slowly: TurningFactor 0.1 limits each tick's turn.
+DisplayName: API test climbing rocket
+Type: rocket
+BaseDamage: 1
+Guidance:
+  Id: mcheli_gametest:climb
+  Height: 40
+Ballistics:
+  Acceleration: 1.5
+  Gravity: 0.0
+Missile:
+  TurningFactor: 0.1
+  LockOn:
+    Delay: 0
+Sound:
+  Locations:
+    Fire: mcheli:gun_h3_snd
+Ammo:
+  ReloadTime: 40
+  MagSize: 4
+  MaxAmmo: 40
+FireCooldown: 10
