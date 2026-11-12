@@ -10,6 +10,7 @@ import com.ivomens.mcheli.gametest.api.ApiGameTests;
 import com.ivomens.mcheli.gametest.api.ApiPermissionGameTests;
 import com.ivomens.mcheli.gametest.api.ExtensionGameTests;
 import com.ivomens.mcheli.gametest.api.TargetApiGameTests;
+import com.ivomens.mcheli.gametest.api.WeaponBehaviourGameTests;
 import com.ivomens.mcheli.gametest.api.WingmanApiGameTests;
 import com.ivomens.mcheli.gametest.bench.ServerBenchmark;
 import com.ivomens.mcheli.gametest.controls.JoystickControlGameTests;
@@ -70,6 +71,7 @@ public final class McheliGameTests {
         tests.addAll(WingmanApiGameTests.wingmen());
         tests.addAll(ApiActionGameTests.actions());
         tests.addAll(ApiDataGameTests.data());
+        tests.addAll(WeaponBehaviourGameTests.behaviours());
         tests.addAll(DispenserGameTests.dispensers());
         tests.addAll(OwnershipGameTests.ownership());
         tests.addAll(LimitGameTests.limits());

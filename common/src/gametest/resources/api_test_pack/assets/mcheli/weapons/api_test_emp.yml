@@ -1,0 +1,22 @@
+# A rocket whose burst stalls the engines of the vehicles around it for 30 ticks instead of exploding
+# (mcheli_gametest:emp).
+DisplayName: API test EMP rocket
+Type: rocket
+BaseDamage: 0
+ProjectileEffects:
+- Id: mcheli_gametest:emp
+  Ticks: 30
+  Radius: 8
+Ballistics:
+  Acceleration: 1.0
+  Gravity: 0.0
+Explosion:
+  Power: 2
+Sound:
+  Locations:
+    Fire: mcheli:gun_h3_snd
+Ammo:
+  ReloadTime: 40
+  MagSize: 4
+  MaxAmmo: 40
+FireCooldown: 10

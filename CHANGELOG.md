@@ -68,6 +68,16 @@ McHeli CE.
 - Network protocol 14 (one new message, `vehicledata/values`): clients and servers must update
   together.
 
+- Weapon behaviours (`com.ivomens.mcheli.api.weapon`): addons register guidance laws and projectile effects
+  through a `WeaponBehaviourProvider`, and weapon files pick them with `Guidance` and `ProjectileEffects`
+  (settings as a `CompoundTag`). Laws obey the weapon's turn rate, seeker cone and decoys; effects hook spawn,
+  tick, entity and block hits, detonation (and can replace the explosion) and expiry, and can spawn
+  sub-munitions, explode and stall a vehicle's engine. Unknown ids are content warnings and fall back to the
+  built-in behaviour.
+- Client visuals for those behaviours (`com.ivomens.mcheli.api.client.weapon`): `ProjectileVisualProvider`,
+  `ProjectileVisual`.
+- `WeaponInfo.guidance()` and `WeaponInfo.projectileEffects()`.
+
 ### Added
 
 - NeoForge 1.21.1 and Fabric 1.21.1 jars built from one codebase, with the same content and

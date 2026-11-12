@@ -36,17 +36,27 @@ import java.util.List;
  * client flies it (forces, then the move of the tick's steps), stays where the server's projectile is
  * along the whole flight: for an observer that saw the shot fired and for one that started tracking the
  * projectile in mid-flight. Few position packets are sent for it.
+ * <p>
+ * A rocket an addon's guidance law steers ({@code api_test_climber} of the game tests' pack) is flown by the
+ * clients the same way, but the server tells them its position and motion each tick the law turned it.
  */
 public final class ProjectileSyncGameTests {
 
     private static final String BATCH = "mcheli_projectile_sync";
     /** The spawn packet rounds the motion to 1/8000 of a block a tick; this covers the drift between corrections. */
     private static final double TOLERANCE = 0.05;
+    /**
+     * A steered projectile is corrected every tick, and the height of a correction is smoothed over a few ticks
+     * ({@code ProjectileEntity#lerpTo}): a copy that joins in mid-flight is off by up to a block until then.
+     */
+    private static final double STEERED_TOLERANCE = 1.0;
     private static final int FLIGHT_TICKS = 60;
     /** The second observer joins this many ticks into the flight. */
     private static final int LATE_JOIN = 12;
     /** Fired steeply upwards, so the flight stays above the test's loaded chunks. */
     private static final float PITCH = -86.0F;
+    /** The steered rocket climbs out less steeply, so its guidance law has a turn to make. */
+    private static final float STEERED_PITCH = -30.0F;
 
     private ProjectileSyncGameTests() {
     }
@@ -55,7 +65,9 @@ public final class ProjectileSyncGameTests {
         return List.of(
                 test("gun_round_with_gravity_follows_server", ProjectileKind.BULLET, "152mm_howitzer"),
                 test("fast_gun_round_follows_server", ProjectileKind.BULLET, "gau-8"),
-                test("rocket_follows_server", ProjectileKind.ROCKET, "hydra70"));
+                test("rocket_follows_server", ProjectileKind.ROCKET, "hydra70"),
+                new TestFunction(BATCH + "_api_test_climber", "addon_guided_rocket_follows_server", "mcheli:empty",
+                        200, 0, true, h -> fly(h, ProjectileKind.ROCKET, "api_test_climber", true)));
     }
 
     /**
@@ -63,10 +75,11 @@ public final class ProjectileSyncGameTests {
      * chunks it kept loaded, which would stop a projectile of its neighbour in mid-flight.
      */
     private static TestFunction test(String name, ProjectileKind kind, String weapon) {
-        return new TestFunction(BATCH + "_" + weapon, name, "mcheli:empty", 200, 0, true, h -> fly(h, kind, weapon));
+        return new TestFunction(BATCH + "_" + weapon, name, "mcheli:empty", 200, 0, true,
+                h -> fly(h, kind, weapon, false));
     }
 
-    private static void fly(GameTestHelper h, ProjectileKind kind, String weapon) {
+    private static void fly(GameTestHelper h, ProjectileKind kind, String weapon, boolean steered) {
         ServerLevel level = h.getLevel();
         // above the barrier box the test runs in
         Vec3 muzzle = h.absoluteVec(new Vec3(4, 24, 4));
@@ -88,12 +101,12 @@ public final class ProjectileSyncGameTests {
                 observer.acknowledgeChunks();
             }
             if (tick[0] == 20) {
-                projectile[0] = fire(h, kind, weapon, muzzle, shooter);
-                copies.add(new Copy("the shooter's copy", projectile[0]));
+                projectile[0] = fire(h, kind, weapon, muzzle, shooter, steered ? STEERED_PITCH : PITCH);
+                copies.add(new Copy("the shooter's copy", projectile[0], steered));
             } else if (tick[0] == 20 + LATE_JOIN) {
                 MockPlayer late = join(level, "sync_late_" + weapon, muzzle.add(6, 0, 6));
                 observers.add(late);
-                copies.add(new Copy("the late observer's copy", projectile[0]));
+                copies.add(new Copy("the late observer's copy", projectile[0], steered));
             }
             for (int i = 0; i < copies.size(); i++) {
                 Copy copy = copies.get(i);
@@ -121,10 +134,10 @@ public final class ProjectileSyncGameTests {
     }
 
     private static ProjectileEntity fire(GameTestHelper h, ProjectileKind kind, String weapon, Vec3 muzzle,
-                                         MockPlayer shooter) {
+                                         MockPlayer shooter, float pitch) {
         WeaponSpec spec = Weapons.get(weapon).orElseThrow(() -> new IllegalStateException("no weapon " + weapon));
-        Vec3 direction = Vec3.directionFromRotation(PITCH, 10.0F);
-        ProjectileEntity projectile = ProjectileEntity.create(kind, h.getLevel(), muzzle, direction, 10.0F, PITCH,
+        Vec3 direction = Vec3.directionFromRotation(pitch, 10.0F);
+        ProjectileEntity projectile = ProjectileEntity.create(kind, h.getLevel(), muzzle, direction, 10.0F, pitch,
                 spec.ballistics().acceleration());
         projectile.setWeapon(weapon);
         projectile.setShooter(shooter.player(), shooter.player());
@@ -145,6 +158,8 @@ public final class ProjectileSyncGameTests {
         private final String name;
         private final ProjectileEntity server;
         private final WeaponSpec spec;
+        /** An addon's guidance steers it: the server sends it every tick it turns. */
+        private final boolean steered;
         @Nullable
         private Vec3 position;
         private Vec3 motion = Vec3.ZERO;
@@ -157,10 +172,11 @@ public final class ProjectileSyncGameTests {
         private double worst;
         private String worstAt = "";
 
-        Copy(String name, ProjectileEntity server) {
+        Copy(String name, ProjectileEntity server, boolean steered) {
             this.name = name;
             this.server = server;
             this.spec = server.spec();
+            this.steered = steered;
         }
 
         void accept(Object sent) {
@@ -247,11 +263,15 @@ public final class ProjectileSyncGameTests {
             ModLogger.get().info("[projectile sync] {}: spawned at tick {}{}, {} position packets in {} ticks, "
                     + "at most {} blocks off", this.name, this.spawnAge, this.caughtUp ? " (caught up a tick)" : "",
                     this.positionPackets, this.comparedTicks, this.worst);
-            if (this.worst > TOLERANCE) {
+            boolean joinedSteered = this.steered && this.name.contains("late");
+            if (this.worst > (joinedSteered ? STEERED_TOLERANCE : TOLERANCE)) {
                 failures.add(this.name + " was " + this.worst + " blocks off at " + this.worstAt);
             }
             int allowed = this.comparedTicks / ProjectileSync.CORRECTION_INTERVAL + 2;
-            if (this.positionPackets > allowed) {
+            if (this.steered && this.positionPackets < this.comparedTicks / 2) {
+                failures.add(this.name + " got only " + this.positionPackets + " position packets in "
+                        + this.comparedTicks + " ticks of steering");
+            } else if (!this.steered && this.positionPackets > allowed) {
                 failures.add(this.name + " got " + this.positionPackets + " position packets in " + this.comparedTicks
                         + " ticks, at most " + allowed + " expected");
             }

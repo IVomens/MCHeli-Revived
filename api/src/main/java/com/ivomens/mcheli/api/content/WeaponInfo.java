@@ -1,5 +1,10 @@
 package com.ivomens.mcheli.api.content;
 
+import net.minecraft.resources.ResourceLocation;
+
+import java.util.List;
+import java.util.Optional;
+
 /**
  * A loaded weapon type, as its content file defines it. A read-only snapshot: a content reload makes new
  * ones instead of changing this one.
@@ -23,4 +28,17 @@ public interface WeaponInfo {
 
     /** The domain of the content pack the file came from, as {@link VehicleInfo#packId()}. */
     String packId();
+
+    /**
+     * The addon guidance law the file picks with {@code Guidance}, when one is registered for that id
+     * ({@link com.ivomens.mcheli.api.weapon.GuidanceLaw}); empty when the weapon steers as its {@link #type()} does.
+     * Since API 1.1.
+     */
+    Optional<ResourceLocation> guidance();
+
+    /**
+     * The addon projectile effects the file lists under {@code ProjectileEffects} that are registered, in the order
+     * they run ({@link com.ivomens.mcheli.api.weapon.ProjectileEffect}); empty when there are none. Since API 1.1.
+     */
+    List<ResourceLocation> projectileEffects();
 }

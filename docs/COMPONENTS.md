@@ -43,7 +43,7 @@ The components `AircraftComponents` builds, which every vehicle kind has.
 | `CrewExitComponent` | FOLLOW_HULL | PartsComponent | 5 | 6 | BodyComponent, LifecycleComponent, PartsComponent, PositionHistory, RepellingRopes, SeatsComponent |
 | `DamageComponent` | SYSTEMS | - | 5 | 5 | CountermeasureComponent, LifecycleComponent, OwnershipComponent, PartBoxesComponent, SeatsComponent |
 | `EjectionSeats` | - | - | 1 | 6 | AircraftInventory, BodyComponent, CrewExitComponent, PartsComponent, PilotHandover, SeatsComponent |
-| `EngineComponent` | - | - | 9 | 4 | DamageComponent, FuelComponent, RestState, ThrottleSync |
+| `EngineComponent` | - | - | 9 | 5 | DamageComponent, FuelComponent, RestState, StatusWord, ThrottleSync |
 | `EngineSoundComponent` | - | - | 1 | 2 | - |
 | `FlightModesComponent` | - | - | 6 | 6 | EngineComponent, PartsComponent, SeatsComponent, StatusWord, WeaponComponent |
 | `FuelComponent` | SYSTEMS | - | 2 | 6 | AircraftInventory, BodyComponent, LifecycleComponent, SeatsComponent, StatusWord, ThrottleSync |
@@ -72,7 +72,7 @@ The components `AircraftComponents` builds, which every vehicle kind has.
 | `SeatChanges` | - | - | 0 | 6 | CameraComponent, CrewExitComponent, FlightModesComponent, PilotPreferences, SeatsComponent, WeaponComponent |
 | `SeatsComponent` | PHYSICS | - | 19 | 4 | BodyComponent, CrewAimComponent, IdentityComponent, StatusWord |
 | `StationShutdown` | - | - | 1 | 4 | CameraComponent, FlightModesComponent, SearchLightComponent, SeatsComponent |
-| `StatusWord` | - | - | 11 | 0 | - |
+| `StatusWord` | - | - | 12 | 0 | - |
 | `ThrottleSync` | - | - | 2 | 0 | - |
 | `TowComponent` | - | - | 5 | 0 | - |
 | `UavLinkComponent` | SYSTEMS | - | 1 | 2 | EngineComponent, FlightModesComponent |
@@ -136,6 +136,7 @@ flowchart LR
     EngineComponent --> DamageComponent
     EngineComponent --> FuelComponent
     EngineComponent --> RestState
+    EngineComponent --> StatusWord
     EngineComponent --> ThrottleSync
     EngineSoundComponent
     FlightModesComponent --> EngineComponent

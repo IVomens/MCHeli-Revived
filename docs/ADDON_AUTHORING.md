@@ -248,11 +248,45 @@ listed them, so which of two same-named files won could differ between computers
 | `Loading legacy .txt content ...: the TXT format is deprecated` | Convert the file with `/mcheli dumpyaml`. |
 | `... in pack 'b' replaces ... in pack 'a'` | Two addons define the same id; rename one, or remove one pack. |
 | `Addon '...' has no domain metadata, using fallback domain '...'` | Add `addon.domain` to `pack.mcmeta`. |
+| `Guidance 'x:y' is not registered by any installed mod; the weapon uses the guidance of its type` | Install the mod that adds it, or fix the id (section 7). |
+| `Projectile effect 'x:y' is not registered by any installed mod; it is left out` | The same for an effect. |
+| `Guidance 'x:y' rejected its settings (...)` | A setting next to the id is wrong; the message comes from the mod. |
 
-## 7. For mod developers
+## 7. Weapons with behaviours from other mods
 
-* A mod can ship a pack inside its jar, and listen to vehicle and weapon events, through the public API:
-  see [API.md](API.md).
+A mod built on MCHeli's API ([API.md](API.md#weapon-behaviours-api-11)) can add *weapon behaviours* that any
+pack's weapon files then use by id: a **guidance law** that steers the projectiles instead of the one the
+weapon's `Type` picks, and **projectile effects** that run at points of each projectile's life (spawn, each
+tick, hitting an entity or a block, the warhead going off, ending without going off). Everything else about the
+weapon (how it fires, its motor, drag, fuzes, damage) still comes from its `Type` and settings.
+
+```yaml
+DisplayName: Beam-riding missile
+Type: rocket                       # how it fires and flies; the guidance below replaces its steering
+Guidance:
+  Id: mcheli_example:beam_rider    # an id alone also works: Guidance: mcheli_example:beam_rider
+  Lead: 8                          # the behaviour's own settings, documented by the mod
+Missile:
+  TurningFactor: 0.25              # MCHeli's limits still apply to an addon's guidance
+ProjectileEffects:                 # run in this order
+- mcheli_example:emp
+- Id: othermod:incendiary
+  Radius: 3
+```
+
+* The ids are `modid:name`, as the mod's documentation gives them. Settings are any YAML keys next to `Id`.
+* A guidance law keeps to the weapon's own limits: `TurningFactor` (how fast it turns), `MaxDegreeOfMissile`
+  and `PDHDNMaxDegree` (the seeker cone and doppler gate, for a law that tracks a target), `Missile.LockOn.Delay`
+  (no steering during launch), `TickEndHoming`, and the decoys the weapon falls for (`Heat`, `Radar`).
+* A missing mod is not an error: the weapon loads with a warning in the content report and falls back to its
+  built-in behaviour (its type's guidance, or simply fewer effects). The same happens when a mod rejects the
+  settings.
+* Bundled weapons name no behaviours, so they fly exactly as before.
+
+## 8. For mod developers
+
+* A mod can ship a pack inside its jar, listen to vehicle and weapon events, and add weapon behaviours
+  (section 7) through the public API: see [API.md](API.md).
 
 * The schemas are generated, never edited: change a schema declaration in `content/def`, then run
   `./gradlew generateSchemas` and commit `schemas/`. The build fails while the files are out of date

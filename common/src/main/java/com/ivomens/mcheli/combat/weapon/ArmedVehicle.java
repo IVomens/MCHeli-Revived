@@ -17,4 +17,7 @@ public interface ArmedVehicle extends Vehicle {
 
     /** Destroys the vehicle, as a UAV's self-destruct charge does. */
     void destruct();
+
+    /** Server: stops the engine for {@code ticks}, as an electromagnetic pulse does; it then starts again. */
+    void stallEngine(int ticks);
 }

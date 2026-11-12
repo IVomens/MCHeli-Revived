@@ -14,6 +14,8 @@ open an issue rather than reaching into `com.ivomens.mcheli` outside `com.ivomen
 The API has its own version, independent of the mod's: `api_version` in `gradle.properties` (1.0.0 at
 the time of writing). It is on a public Maven repository, served by GitHub Pages; no account or token is
 needed:
+The API has its own version, independent of the mod's: `api_version` in `gradle.properties` (1.1.0 at
+the time of writing).
 
 ```groovy
 repositories {
@@ -86,9 +88,12 @@ The API follows [semantic versioning](https://semver.org/), checked by the build
 An addon compiled against `a.b.x` works with every running `a.c.y` where `c >= b`;
 `McheliApi.get().apiVersion()` says which one is running.
 
-The interfaces MCHeli implements (all but `ContentPackProvider`) may gain methods in a minor version, so do
-not implement them. The two enums may gain constants in a minor version, so a `switch` over them needs a
-`default` branch. `ContentPackProvider`, which addons implement, only changes in a major version.
+The interfaces MCHeli implements (all but the providers and the behaviours addons implement:
+`ContentPackProvider`, `WeaponBehaviourProvider`, `GuidanceLaw`, `ProjectileEffect`, `ProjectileVisualProvider`,
+`ProjectileVisual` and their `Factory` interfaces) may gain methods in a minor version, so do not implement them. The two enums may gain constants in a minor version, so a `switch` over them needs a
+`default` branch. `ContentPackProvider`, which addons implement, only changes in a major version; so do the
+other providers, while the behaviours addons implement (`GuidanceLaw`, `ProjectileEffect`, `ProjectileVisual`)
+only gain default methods in a minor version.
 
 ### The signature check
 
@@ -602,6 +607,77 @@ WingmanOrderResult result = wingmen.dispatch(player, jet.getUUID(),
         MissionRequest.builder(MissionKind.CAP).target(1200, -300).baseId("north_field").build());
 ```
 
+### Weapon behaviours (API 1.1)
+
+Since API 1.1 an addon can add **guidance laws** and **projectile effects** (package
+`com.ivomens.mcheli.api.weapon`) that weapon files pick by id, next to the `Type` that still decides how the
+weapon fires and flies ([ADDON_AUTHORING.md](ADDON_AUTHORING.md), section 7):
+
+```yaml
+Type: rocket
+Guidance: { Id: mymod:beam_rider, Lead: 8 }
+ProjectileEffects: [ mymod:emp, { Id: mymod:incendiary, Radius: 3 } ]
+```
+
+| Type | Contract |
+|---|---|
+| `WeaponBehaviourProvider` | Implemented by an addon, found with `ServiceLoader` (`META-INF/services/com.ivomens.mcheli.api.weapon.WeaponBehaviourProvider`) before content loads, like `ContentPackProvider`. |
+| `WeaponBehaviourRegistrar` | `guidance(id, factory)`, `projectileEffect(id, factory)`. A factory gets the settings next to the id as a `CompoundTag` (decode it with your own `Codec` and `NbtOps`) once per weapon file and content load, on both sides; one that throws is reported. |
+| `GuidanceLaw` | Addon-implemented. `steer(GuidanceContext)` returns one tick's `SteeringCommand`; `decoyed(GuidanceContext)` (default: self-destruct) answers flares or chaff the weapon falls for. |
+| `GuidanceContext` | The projectile (`ProjectileView`) plus the weapon's limits: `turnRate()`, `seekerConeDegrees()`, `isInSeekerCone(point)`, `isTargetDecoyed()`, and `setTarget(entity)`. |
+| `SteeringCommand` | `keepCourse()`, `steerTowards(point)` (turn-rate limited), `track(point)` (also loses the lock outside the seeker cone or doppler gate), `dropTarget()`, `detonate()`, `selfDestruct()`. |
+| `ProjectileEffect` | Addon-implemented, all hooks default to nothing: `onSpawn`, `onTick`, `onEntityHit`, `onBlockHit`, `onDetonate`, `onExpire`. |
+| `ProjectileEffectContext` | The projectile plus `spawnProjectile(weaponId, pos, velocity)` (a sub-munition of another MCHeli weapon), `explode(at, power)` (with the weapon's explosion rules) and `stallEngine(vehicle, ticks)`. |
+| `DetonationContext` | `at()`, `cancelExplosion()` (replace MCHeli's explosion with your own), `isExplosionCancelled()`. |
+| `ProjectileView` | `entity()`, `level()`, `weapon()`, `position()`, `velocity()`, `speed()`, `ticksFlown()`, `isSubmunition()`, `shooter()`, `launcher()`, `target()`, `targetPoint()`, and `data()`, a per-projectile `CompoundTag` for the behaviours' own state. |
+
+`WeaponInfo` gained `guidance()` and `projectileEffects()`: the registered behaviours a loaded weapon uses.
+
+```java
+public final class MyBehaviours implements WeaponBehaviourProvider {
+    public void registerBehaviours(WeaponBehaviourRegistrar behaviours) {
+        behaviours.guidance(ResourceLocation.fromNamespaceAndPath("mymod", "pure_pursuit"), settings -> missile ->
+                missile.target() == null ? SteeringCommand.keepCourse()
+                        : SteeringCommand.track(missile.target().position()));
+        behaviours.projectileEffect(ResourceLocation.fromNamespaceAndPath("mymod", "slow"), settings -> {
+            int ticks = settings.contains("Ticks") ? settings.getInt("Ticks") : 100;
+            return new ProjectileEffect() {
+                public void onEntityHit(ProjectileEffectContext projectile, EntityHitResult hit) {
+                    if (hit.getEntity() instanceof LivingEntity living) {
+                        living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, ticks));
+                    }
+                }
+            };
+        });
+    }
+}
+```
+
+How it behaves:
+
+* **Server side only.** Laws and effects run on the server thread, after the projectile's own work for that
+  point (a guidance law instead of the type's guidance, after the move; effects in file order). One law or effect
+  object serves every projectile of the weapon, so keep per-projectile state in `ProjectileView.data()`.
+* **The same limits as MCHeli's missiles.** No steering during `LockOn: Delay` or after `TickEndHoming`; the
+  turn is limited by `TurningFactor`; `track` breaks the lock outside `MaxDegreeOfMissile` or the doppler gate;
+  a target over 1850 blocks away ends the missile; a target hidden by decoys the weapon falls for goes to
+  `decoyed`. The weapon's fuzes keep working. `ThreatSeeker` still classifies the missile by its `Heat` and
+  `Radar` settings, and a locked projectile is found by missile warnings as before.
+* **Clients.** Clients see a steered projectile through MCHeli's normal entity sync: rounds and rockets, which
+  clients fly themselves, get a position and motion correction each tick their law turned them. Nothing in the
+  network protocol changed, and an addon needs no packets of its own. For client-side visuals register a
+  `ProjectileVisual` (package `com.ivomens.mcheli.api.client.weapon`) under the same id with a
+  `ProjectileVisualProvider` (`META-INF/services/com.ivomens.mcheli.api.client.weapon.ProjectileVisualProvider`):
+  `onTick`, `onImpact` and `onRemoved` run on each client's copy of the projectile. A dedicated server never
+  loads those classes.
+* **Failures.** An id nobody registered, or settings a factory rejects, is a warning in the content report, and
+  the weapon keeps its built-in behaviour. A law or effect that throws while a projectile flies is logged and
+  dropped for the rest of that projectile's life (a failed law hands steering back to the type's guidance).
+* **Cost.** Weapons that name no behaviour (all bundled ones) carry nothing extra: their projectiles tick exactly
+  as before.
+* A custom *fire mode* (how a trigger pull turns into projectiles) is not part of the API: pick the `Type` whose
+  firing fits, and shape the flight with a guidance law and effects.
+
 ## The example addon
 
 [`examples/example-addon`](../examples/example-addon) is a NeoForge mod built against the API alone, and
@@ -625,7 +701,12 @@ part of this build (`./gradlew :example-addon:build`, run by CI):
   tagged `mcheli_example_chaff` too, it hides behind chaff) and counts the locks and missiles they hear of;
 * `ExampleWingmen` sends every wingman of a player's formation after one target;
 * `ExampleSorties` keeps a sortie count (synced) and the last pilot's name (server only) on every vehicle with
-  addon data keys, counting each time a player takes the pilot's seat (`SeatBoarded`).
+  addon data keys, counting each time a player takes the pilot's seat (`SeatBoarded`);
+* `ExampleBehaviours` registers two weapon behaviours (API 1.1): `BeamRider`, a guidance law that flies a
+  missile along its gunner's line of sight, and `EmpEffect`, a warhead that stops the engines of the vehicles
+  around its burst for a few seconds instead of exploding, both reading their settings with a `Codec`; the pack's
+  `example_beam_rider` and `example_emp_rocket` use them, and `ExampleVisuals` (client only) adds sparks to the
+  EMP rocket's flight.
 
 ### Running it
 
@@ -660,6 +741,10 @@ the class path, so NeoForge loads them as two separate mods, as from a mods fold
   clears its owner through a `VehicleControl`.
 * `sortiesaresavedandsynced`: the pilot's boarding counts a sortie, the count and the pilot's name survive a
   save and load, and the sync messages give a client copy the count but not the name.
+* `exampleweaponsusetheaddonbehaviours`, `beamriderfliesalongthegunnerssight` and `emprocketstopsanengine`
+  (`ExampleWeaponGameTests`): the pack's weapons picked up the addon's behaviours, the beam rider launched off
+  its gunner's line of sight closes onto it, and the EMP rocket's burst stalls a helicopter's engine for four
+  seconds and breaks nothing.
 
 The test mod reaches MCHeli's internals to spawn, board and fire the helicopter; the addon itself uses only
 the API. CI runs this after the main game tests. MCHeli's own game tests check the API from inside the mod
@@ -674,14 +759,19 @@ before and after the move and hear of its removal, and that unknown ids and reje
 counting hops, water, the missile warning's seeker, ejection, rearming, refuelling) and
 `ApiPermissionGameTests` refuses and then allows each permission event. `ApiActionGameTests` runs every vehicle action
 and the ways a spawn is refused; `ApiDataGameTests` covers addon data: saving, values of unknown keys kept,
-batched syncing of synced keys only, and an old save that stays as it was.
+batched syncing of synced keys only, and an old save that stays as it was. `TestWeaponBehaviours` registers weapon
+behaviours the same way, and `WeaponBehaviourGameTests` checks the turn-rate and seeker-cone limits of a guidance
+law, the order and settings of effects at each point of a projectile's life, the replaced explosion, the engine
+stall, and the fall-back for unknown ids; `ProjectileSyncGameTests` checks that clients' copies of an
+addon-guided rocket follow the server's.
 
 ### Fabric addons
 
 A Fabric addon registers its packs the same way: the `ContentPackProvider` class listed in
 `META-INF/services/com.ivomens.mcheli.api.content.ContentPackProvider` in its jar, and `addPack` with its
 own mod id (the id in its `fabric.mod.json`). No entrypoint is needed. Fabric loads every mod's classes with
-one class loader, so MCHeli's `ServiceLoader` sees the service files of all mod jars; the folder is then
+one class loader, so MCHeli's `ServiceLoader` sees the service files of all mod jars (the weapon behaviour and
+projectile visual providers are found the same way); the folder is then
 looked up in the addon's mod container. Declare `"depends": { "mcheli": "*" }` in `fabric.mod.json`. On
 Fabric, MCHeli's game tests are a mod of their own (`mcheli_gametest`), so `ApiGameTests` proves the
 discovery across mods there too.

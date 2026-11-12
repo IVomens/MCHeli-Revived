@@ -1,7 +1,6 @@
 package com.ivomens.mcheli.combat.projectile;
 
 import com.ivomens.mcheli.api.vehicle.Vehicle;
-import com.ivomens.mcheli.combat.damage.ModDamageSources;
 import com.ivomens.mcheli.combat.weapon.WeaponSpec;
 import com.ivomens.mcheli.combat.weapon.Weapons;
 import com.ivomens.mcheli.config.McheliConfig;
@@ -79,6 +78,8 @@ public final class ProjectileEntity extends McheliEntity {
     @Nullable
     private Entity target;
     private final Warhead warhead = new Warhead();
+    /** The addon behaviours its weapon names, or null for a weapon that names none (every bundled one). */
+    @Nullable AddonProjectile addon;
     /** What clients were told about the flight; see {@link ProjectileSync}. */
     final ProjectileSync.State sync = new ProjectileSync.State();
     /** Speed along the flight direction; the motion is this long unless gravity or steering changed it. */
@@ -97,7 +98,7 @@ public final class ProjectileEntity extends McheliEntity {
     @Nullable
     private Vec3 targetPoint;
     /** Where the projectile was at the start of the tick before last: the tail of the smoke trail. */
-    private Vec3 trailTail = Vec3.ZERO;
+    Vec3 trailTail = Vec3.ZERO;
     private Vec3 lastTickStart = Vec3.ZERO;
 
     public ProjectileEntity(EntityType<ProjectileEntity> type, Level level) {
@@ -145,7 +146,6 @@ public final class ProjectileEntity extends McheliEntity {
         this.setPos(x, (y + this.getY() * 2.0) / 3.0, z);
     }
 
-
     public ProjectileKind kind() {
         return this.kind;
     }
@@ -169,6 +169,7 @@ public final class ProjectileEntity extends McheliEntity {
             this.bombletState = 0;
         }
         WeaponSpec info = this.weaponSpec;
+        this.addon = AddonProjectile.of(this, info);
         if (info.submunition().count() > 0) {
             this.cluster.releaseTimer = info.bombletSTime();
         }
@@ -209,7 +210,6 @@ public final class ProjectileEntity extends McheliEntity {
         return this.fuzes;
     }
 
-
     /** Marks this as a sub-munition of a cluster weapon: it never splits again. */
     void markBomblet() {
         this.bombletState = 1;
@@ -233,7 +233,6 @@ public final class ProjectileEntity extends McheliEntity {
             this.setRoleState(MarkerSmoke.FLYING);
         }
     }
-
 
     @Nullable
     public Entity target() {
@@ -289,7 +288,6 @@ public final class ProjectileEntity extends McheliEntity {
         this.topAttackClimb = climbing;
     }
 
-
     public double speed() {
         return this.speed;
     }
@@ -314,10 +312,6 @@ public final class ProjectileEntity extends McheliEntity {
         return this.age;
     }
 
-    Vec3 trailTail() {
-        return this.trailTail;
-    }
-
     public boolean isTrailHidden() {
         return this.trailHidden;
     }
@@ -332,7 +326,6 @@ public final class ProjectileEntity extends McheliEntity {
         return false;
     }
 
-
     byte roleState() {
         return this.entityData.get(ROLE_STATE);
     }
@@ -343,15 +336,16 @@ public final class ProjectileEntity extends McheliEntity {
         }
     }
 
-
     @Override
     public void tick() {
         if (this.lifetime.endsBeforeTick()) {
             return;
         }
+        if (this.addon != null) this.addon.beforeTick();
         if (!this.role.tickInstead()) {
             this.fly();
         }
+        if (this.addon != null) this.addon.afterTick();
         ProjectileSync.afterTick(this);
     }
 
@@ -419,7 +413,7 @@ public final class ProjectileEntity extends McheliEntity {
         if (this.level().isClientSide) {
             this.kind.trail().emit(this);
         }
-        this.kind.guidance().steer(this);
+        if (this.addon == null || !this.addon.steer()) this.kind.guidance().steer(this);
         if (!splitsFirst && submunition != Submunition.NONE && !this.isRemoved()) {
             Submunition.tickRelease(this);
         }
@@ -467,7 +461,6 @@ public final class ProjectileEntity extends McheliEntity {
         return false;
     }
 
-
     /** The projectile hits something (a block, an entity, or a point where a fuze set it off). */
     public void impact(HitResult hit) {
         if (!this.role.onImpact(hit)) {
@@ -496,13 +489,23 @@ public final class ProjectileEntity extends McheliEntity {
         this.age = this.tickCount = ticks;
     }
 
+    /** Addon behaviours hear of a projectile that ends without going off, or leaves a client. */
+    @Override
+    public void remove(@NotNull RemovalReason reason) {
+        if (this.addon != null) this.addon.removed();
+        super.remove(reason);
+    }
+
+    @Override
+    public void onClientRemoval() {
+        if (this.addon != null) this.addon.removed();
+        super.onClientRemoval();
+    }
+
     /** Thrown items (snowballs, grenades...) set the projectile off. */
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
-        if (this.kind.role() == ProjectileKind.Role.MARKER || this.isInvulnerableTo(source)
-                || this.level().isClientSide || amount <= 0.0F || !ModDamageSources.isThrown(source)) {
-            return false;
-        }
+        if (!Fuzes.setsOff(this, source, amount)) return false;
         this.markHurt();
         this.detonateHere();
         return true;
@@ -529,7 +532,6 @@ public final class ProjectileEntity extends McheliEntity {
         double range = this.getBoundingBox().getSize() * 4.0 * 64.0 * getViewScale();
         return distance < range * range;
     }
-
 
     /** Only laid mines are written to the world's saves; every other projectile ends where its chunk unloads. */
     @Override

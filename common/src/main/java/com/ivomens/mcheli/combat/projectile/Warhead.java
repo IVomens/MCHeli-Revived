@@ -96,6 +96,9 @@ public final class Warhead {
     }
 
     void impact(ProjectileEntity p, HitResult hit) {
+        if (p.addon != null) {
+            p.addon.hit(hit);
+        }
         Entity entityHit = hit instanceof EntityHitResult entityResult ? entityResult.getEntity() : null;
         if (p.level().isClientSide) {
             ProjectileImpacts.show(p, hit, entityHit);
@@ -140,6 +143,9 @@ public final class Warhead {
     private void explodeOnImpact(ProjectileEntity p, HitResult hit, boolean hitEntity, float power, float powerInWater,
                                  @Nullable WeaponSpec info) {
         Vec3 at = hit.getLocation();
+        if (p.addon != null && p.addon.cancelsExplosion(at)) {
+            return;
+        }
         float blockPower = info != null ? (float) info.explosionBlock() : power;
         if (powerInWater == 0.0F) {
             if (info != null && info.isFAE()) {
@@ -172,6 +178,9 @@ public final class Warhead {
 
     /** When the delay or time fuze runs out. */
     void detonateOnTimeout(ProjectileEntity p) {
+        if (p.addon != null && p.addon.cancelsExplosion(p.position())) {
+            return;
+        }
         if (p.isInWater()) {
             if (this.explosionPowerInWater > 0) {
                 this.explode(p, p.position(), this.explosionPowerInWater, this.explosionPowerInWater, true);
@@ -186,6 +195,10 @@ public final class Warhead {
 
     /** Airburst or proximity: the airburst explosion, or just its sound, plus the hit sound. */
     void detonateInAir(ProjectileEntity p, double x, double y, double z, WeaponSpec info) {
+        if (p.addon != null && p.addon.cancelsExplosion(new Vec3(x, y, z))) {
+            this.playHitSound(p, new Vec3(x, y, z));
+            return;
+        }
         if (info.explosion().power() > 0) {
             this.explode(p, new Vec3(x, y, z), info.explosionAirburst(), (float) info.explosionBlock(), false);
         } else if (this.explosionPower < 0) {

@@ -1,5 +1,7 @@
 package com.ivomens.mcheli.combat.weapon;
 
+import com.ivomens.mcheli.combat.projectile.behaviour.WeaponBehaviourSet;
+import com.ivomens.mcheli.combat.projectile.behaviour.WeaponBehaviours;
 import com.ivomens.mcheli.content.def.weapon.BuckshotPellet;
 import com.ivomens.mcheli.content.def.weapon.DecayCurve;
 import com.ivomens.mcheli.content.def.weapon.MineFuze;
@@ -37,11 +39,13 @@ import java.util.List;
  * @param bulletColor     the tracer colour
  * @param bulletColorInWater the tracer colour under water
  * @param cartridge       the spent casing a shot throws out on the client, or null for none
+ * @param behaviours      the addon guidance and projectile effects the file names, or null when it names none
  */
 public record WeaponSpec(WeaponDefinition definition, @Nullable DamageFactor damageFactor,
                          List<WeaponPotionEffect> potionEffects, List<IBulletDecay> bulletDecay,
                          @Nullable List<MuzzleFlash> muzzleFlashes, @Nullable List<MuzzleFlash> muzzleSmoke,
-                         Color4f bulletColor, Color4f bulletColorInWater, @Nullable Cartridge cartridge) {
+                         Color4f bulletColor, Color4f bulletColorInWater, @Nullable Cartridge cartridge,
+                         @Nullable WeaponBehaviourSet behaviours) {
 
     /** A self-destructing weapon fires once and never again. */
     private static final int SELF_DESTRUCT_COOLDOWN = 1_000_000;
@@ -66,7 +70,7 @@ public record WeaponSpec(WeaponDefinition definition, @Nullable DamageFactor dam
 
     /**
      * Builds the run-time objects of a weapon file that was just read; {@code vehicleTargets} are the vehicle
-     * classes the named damage targets stand for.
+     * classes the named damage targets stand for. Addon behaviours it names that no mod registers are reported.
      */
     public static WeaponSpec of(WeaponDefinition definition, Map<String, Class<? extends Entity>> vehicleTargets) {
         WeaponDefinition.Render render = definition.render();
@@ -74,7 +78,8 @@ public record WeaponSpec(WeaponDefinition definition, @Nullable DamageFactor dam
                 potionEffects(definition.effects().potionEffects()), bulletDecay(definition.effects().bulletDecay()),
                 muzzleFlashes(render.muzzleFlashes()), muzzleFlashes(render.muzzleSmoke()),
                 color4f(render.smoke().bulletColor()), color4f(render.smoke().bulletColorInWater()),
-                render.spentCasings() == null ? null : Cartridge.of(render.spentCasings()));
+                render.spentCasings() == null ? null : Cartridge.of(render.spentCasings()),
+                WeaponBehaviours.installed().resolve(definition));
     }
 
     public String name() {

@@ -20,6 +20,8 @@ import java.util.Map;
  * @param damageFactors damage multipliers by target: {@code Player}, {@code Helicopter}, {@code Plane},
  *                      {@code Ship}, {@code Tank}, {@code Vehicle}, or an entity class name, in file order
  * @param ntm           Hammer's Nuclear Tech payload, or null
+ * @param guidance      the addon guidance law that replaces the type's guidance, or null for the type's own
+ * @param projectileEffects the addon effects each projectile runs, in order
  */
 public record WeaponDefinition(
         String name,
@@ -52,10 +54,13 @@ public record WeaponDefinition(
         Map<String, Float> damageFactors,
         Buckshot buckshot,
         Mine mine,
-        NtmPayload ntm) implements ContentDefinition {
+        NtmPayload ntm,
+        BehaviourRef guidance,
+        List<BehaviourRef> projectileEffects) implements ContentDefinition {
 
     public WeaponDefinition {
         damageFactors = Collections.unmodifiableMap(new LinkedHashMap<>(damageFactors));
+        projectileEffects = List.copyOf(projectileEffects);
     }
 
     public record Ballistics(float acceleration, float accelerationInWater, float gravity, float gravityInWater,

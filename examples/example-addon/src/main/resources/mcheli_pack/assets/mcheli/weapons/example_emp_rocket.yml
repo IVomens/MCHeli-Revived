@@ -1,0 +1,28 @@
+# A rocket whose warhead is an electromagnetic pulse (the addon's effect mcheli_example:emp): where it bursts, the
+# engines of the vehicles within 6 blocks stop for 4 seconds, and nothing explodes.
+DisplayName: Example EMP rocket
+Type: rocket
+BaseDamage: 2
+ProjectileEffects:
+- Id: mcheli_example:emp
+  Seconds: 4
+  Radius: 6
+Ballistics:
+  Acceleration: 2.5
+  Gravity: 0.0
+Explosion:
+  Power: 1
+Sound:
+  Volume: 3.0
+  Locations:
+    Fire: mcheli:gun_h3_snd
+Ammo:
+  ReloadTime: 60
+  MagSize: 4
+  MaxAmmo: 16
+  ResupplyCount: 4
+  AmmoItems:
+  - Count: 1
+    Name: minecraft:redstone
+    Meta: 0
+FireCooldown: 10

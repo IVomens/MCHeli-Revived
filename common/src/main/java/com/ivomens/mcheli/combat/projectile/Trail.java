@@ -63,7 +63,7 @@ public enum Trail {
         if (!projectile.level().isClientSide || name == null || name.isEmpty() || count < 1 || count > MAX_PUFFS) {
             return;
         }
-        Vec3 tail = projectile.trailTail();
+        Vec3 tail = projectile.trailTail;
         double stepX = (projectile.getX() - projectile.xo) / count;
         double stepY = (projectile.getY() - projectile.yo) / count;
         double stepZ = (projectile.getZ() - projectile.zo) / count;

@@ -15,16 +15,20 @@ public final class EngineComponent implements VehicleComponent {
     private final RestState rest;
     private final DamageComponent damage;
     private final FuelComponent fuel;
+    private final StatusWord status;
     private double throttle;
     private double previousThrottle;
+    /** Server: the game time a stall ends. */
+    private long stalledUntil;
 
     public EngineComponent(AircraftEntity vehicle, ThrottleSync syncedThrottle, RestState rest, DamageComponent damage,
-            FuelComponent fuel) {
+            FuelComponent fuel, StatusWord status) {
         this.vehicle = vehicle;
         this.syncedThrottle = syncedThrottle;
         this.rest = rest;
         this.damage = damage;
         this.fuel = fuel;
+        this.status = status;
     }
 
     public double throttle() {
@@ -84,11 +88,36 @@ public final class EngineComponent implements VehicleComponent {
     }
 
     /**
+     * Server: stops the engine for {@code ticks}, as an electromagnetic pulse from an addon's weapon does. It
+     * cannot run until then, so it spools down as without fuel; a second stall keeps the later end. Clients
+     * see it through the status word.
+     */
+    public void stall(int ticks) {
+        if (this.vehicle.level().isClientSide) {
+            return;
+        }
+        this.stalledUntil = Math.max(this.stalledUntil, this.vehicle.level().getGameTime() + ticks);
+        this.status.set(StatusWord.ENGINE_STALLED, true);
+    }
+
+    /** Whether a stall keeps the engine from running; on the server a stall that ran out ends here. */
+    public boolean isStalled() {
+        if (!this.status.get(StatusWord.ENGINE_STALLED)) {
+            return false;
+        }
+        if (!this.vehicle.level().isClientSide && this.vehicle.level().getGameTime() >= this.stalledUntil) {
+            this.status.set(StatusWord.ENGINE_STALLED, false);
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Whether the engine can run: fuel to burn (with {@code checkOtherSeats}, infinite fuel for anyone
-     * aboard counts) and an engine that is not crippled. Every powered control depends on this.
+     * aboard counts), an engine that is not crippled and not stalled. Every powered control depends on this.
      */
     public boolean canRun(boolean checkOtherSeats) {
-        return this.fuel.hasUsable(checkOtherSeats) && !isCrippled();
+        return this.fuel.hasUsable(checkOtherSeats) && !isCrippled() && !isStalled();
     }
 
     public boolean canRun() {

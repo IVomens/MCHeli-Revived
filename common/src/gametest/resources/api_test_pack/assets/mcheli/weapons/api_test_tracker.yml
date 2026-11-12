@@ -1,0 +1,22 @@
+# A rocket that tracks its target with an addon's guidance law (mcheli_gametest:track): the seeker cone of
+# MaxDegreeOfMissile still applies.
+DisplayName: API test tracking rocket
+Type: rocket
+BaseDamage: 1
+Guidance: mcheli_gametest:track
+Ballistics:
+  Acceleration: 1.0
+  Gravity: 0.0
+Missile:
+  TurningFactor: 0.2
+  MaxDegreeOfMissile: 45
+  LockOn:
+    Delay: 0
+Sound:
+  Locations:
+    Fire: mcheli:gun_h3_snd
+Ammo:
+  ReloadTime: 40
+  MagSize: 4
+  MaxAmmo: 40
+FireCooldown: 10
