@@ -39,7 +39,8 @@ McHeli CE.
   lookups, loader-neutral events (vehicles spawned, removed and destroyed, seats boarded and left,
   weapons fired, which can be cancelled, projectile impacts, lock-ons and countermeasures), and content
   packs shipped inside a mod's jar, which load after the bundled content and before `mcheli_addons/`
-  ([docs/API.md](docs/API.md)). The API jar comes with each GitHub release.
+  ([docs/API.md](docs/API.md)). The API jar comes with each GitHub release and from a public Maven
+  repository, `https://ivomens.github.io/MCHeli-Revived/maven/`.
 - Vehicle ownership and locking: a vehicle remembers the player who placed it, and its owner can lock
   it with `/mcheli lock` or by sneaking and using it with an empty hand. A locked vehicle can only be
   flown by its owner, their team and operators, and only its owner and operators can pick it up or
@@ -197,5 +198,15 @@ McHeli CE.
   by how far the slot lies ahead, so one that has overshot slows down, and the catch-up boost now
   carries a follower to the edge of its slot. With a stopped leader, a helicopter hovers at the slot's
   height instead of sinking at 0.35 throttle. McHeli CE flew formation the same way.
+
+### API 1.1
+
+- The API is published to a public Maven repository on GitHub Pages,
+  `https://ivomens.github.io/MCHeli-Revived/maven/`, with sources, javadoc and checksums; no credentials
+  needed. Addon development runs can take the mod jars from the GitHub release assets
+  ([docs/API.md](docs/API.md#getting-the-jar)).
+- An addon template, `templates/addon-template`: a NeoForge and Fabric project built against the API, with
+  a sample content pack, event listener, game test and CI workflows, and a rename task
+  ([docs/ADDON_TEMPLATE.md](docs/ADDON_TEMPLATE.md)).
 
 [Unreleased]: https://github.com/IVomens/MCHeli-Revived/commits/main

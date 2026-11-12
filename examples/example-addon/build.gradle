@@ -1,6 +1,7 @@
 // An example addon for MCHeli: Revived, built against the public API alone (docs/API.md). It is part of this
 // build so CI proves the API is enough for an addon; an addon in its own repository uses the same setup with
-// the API jar from the GitHub release or from mavenLocal() instead of project(':api'):
+// the API from the public Maven repository (docs/API.md) instead of project(':api'), as templates/addon-template
+// does:
 //
 //     compileOnly 'com.ivomens.mcheli:mcheli-revived-api:1.0.0'
 //

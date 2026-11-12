@@ -95,8 +95,9 @@ in CI or with `/mcheli validate`, and which pack wins when two define the same t
 
 Mods can build on MCHeli through its API: look up vehicles and content, listen to vehicle and weapon
 events (and cancel shots), and ship content packs inside their own jar. [docs/API.md](docs/API.md)
-explains how to get the API jar, its versioning rules and every type, with the example addon in
-`examples/example-addon`.
+explains how to get the API jar (from a public Maven repository), its versioning rules and every type,
+with the example addon in `examples/example-addon`. To start an addon of your own, copy the addon template
+([docs/ADDON_TEMPLATE.md](docs/ADDON_TEMPLATE.md)).
 
 The in-game vehicle inspector shows a vehicle's live state, its definition with the file line of each
 value, and for operators the server's view beside the client's; its export belongs in bug reports. See

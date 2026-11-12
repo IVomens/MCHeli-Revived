@@ -12,23 +12,64 @@ open an issue rather than reaching into `com.ivomens.mcheli` outside `com.ivomen
 ## Getting the jar
 
 The API has its own version, independent of the mod's: `api_version` in `gradle.properties` (1.0.0 at
-the time of writing).
+the time of writing). It is on a public Maven repository, served by GitHub Pages; no account or token is
+needed:
 
-* **From a release:** every [GitHub release](https://github.com/IVomens/MCHeli-Revived/releases) carries
-  `mcheli-revived-api-<api version>.jar` and its `-sources.jar`. Put them in your project (for example in
-  `libs/`) and add `compileOnly files('libs/mcheli-revived-api-1.0.0.jar')`.
-* **From a checkout:** `./gradlew :api:publishToMavenLocal` publishes
-  `com.ivomens.mcheli:mcheli-revived-api:<api version>` (with sources and javadoc) to `~/.m2`. Then:
+```groovy
+repositories {
+    maven {
+        url = 'https://ivomens.github.io/MCHeli-Revived/maven/'
+        content { includeModule 'com.ivomens.mcheli', 'mcheli-revived-api' }
+    }
+}
 
-  ```groovy
-  repositories { mavenLocal() }
-  dependencies { compileOnly 'com.ivomens.mcheli:mcheli-revived-api:1.0.0' }
-  ```
+dependencies {
+    compileOnly 'com.ivomens.mcheli:mcheli-revived-api:1.0.0'
+}
+```
+
+The repository has the jar, its `-sources` and `-javadoc` jars (so IDEs show the documentation), the POM and
+checksums. Every release of MCHeli adds its API version there; a version, once published, never changes.
+Nightly builds are not published.
+
+**The quickest start is the addon template**, [`templates/addon-template`](../templates/addon-template): a
+NeoForge and Fabric project with this already set up, a sample content pack, a sample listener, a game test
+and CI workflows. [ADDON_TEMPLATE.md](ADDON_TEMPLATE.md) goes from nothing to a running addon.
 
 The dependency is **compile only**. At run time the API's classes come from the MCHeli mod jar, so never
 bundle the API jar in yours; declare MCHeli as a required dependency instead (`neoforge.mods.toml` or
-`fabric.mod.json`). For development runs, put the MCHeli mod jar on your run classpath
-(`runtimeOnly files(...)` / `modLocalRuntime`).
+`fabric.mod.json`).
+
+**Development runs** need the MCHeli mod jar on their class path. The jars are not on the Maven repository
+(about 80 MB each); Gradle can take them from the GitHub release with an Ivy repository instead:
+
+```groovy
+repositories {
+    ivy {
+        url = 'https://github.com/IVomens/MCHeli-Revived/releases/download/'
+        patternLayout { artifact 'v[revision]/[module]-[revision](-[classifier]).[ext]' }
+        metadataSources { artifact() }
+        content { includeModule 'com.ivomens.mcheli', 'mcheli-revived' }
+    }
+}
+
+dependencies {
+    // NeoForge (ModDevGradle): loaded as a mod of its own, as from a mods folder
+    runtimeOnly 'com.ivomens.mcheli:mcheli-revived:2.0.0:neoforge'
+    // Fabric (Loom): remapped for the run. SnakeYAML is nested in MCHeli's jar, which Fabric Loader does not
+    // open on a development class path, so it is added here.
+    modLocalRuntime 'com.ivomens.mcheli:mcheli-revived:2.0.0:fabric'
+    runtimeOnly 'org.yaml:snakeyaml:2.5'
+}
+```
+
+**Before a release** (to build against API changes on `main`), publish from a checkout instead:
+`./gradlew publishToMavenLocal` puts `com.ivomens.mcheli:mcheli-revived-api:<api version>` (with sources and
+javadoc) and the mod jars as `com.ivomens.mcheli:mcheli-revived:<mod version>` (classifiers `neoforge` and
+`fabric`, the same coordinates as above) in `~/.m2`. Then use `mavenLocal()` in place of the two repositories
+above; the template switches with `-Pmcheli_repo=local`. Every
+[GitHub release](https://github.com/IVomens/MCHeli-Revived/releases) also carries the API jar and its sources
+as plain files.
 
 The jar is compiled against Minecraft 1.21.1 with Mojang's names, as NeoForge's and Loom's development
 environments use. Its POM lists no dependencies: Minecraft comes from your own loader setup.
