@@ -4,6 +4,7 @@ import com.ivomens.mcheli.api.content.ContentLookup;
 import com.ivomens.mcheli.api.event.EventBus;
 import com.ivomens.mcheli.api.target.TargetRegistry;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
+import com.ivomens.mcheli.api.wingman.Wingmen;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -71,4 +72,10 @@ public interface McheliApi {
      * which entities they never target. Any thread, either side. Since API 1.1.
      */
     TargetRegistry targets();
+
+    /**
+     * The AI wingmen: who has which, what they are doing, and the orders the wingman panel gives. Server side,
+     * on the server thread. Since API 1.1.
+     */
+    Wingmen wingmen();
 }

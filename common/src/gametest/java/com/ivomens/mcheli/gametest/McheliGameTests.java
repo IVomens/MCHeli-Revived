@@ -2,6 +2,7 @@ package com.ivomens.mcheli.gametest;
 
 import com.ivomens.mcheli.gametest.api.ApiGameTests;
 import com.ivomens.mcheli.gametest.api.TargetApiGameTests;
+import com.ivomens.mcheli.gametest.api.WingmanApiGameTests;
 import com.ivomens.mcheli.gametest.admin.AdminCommandGameTests;
 import com.ivomens.mcheli.gametest.admin.LimitGameTests;
 import com.ivomens.mcheli.gametest.admin.OwnershipGameTests;
@@ -58,6 +59,7 @@ public final class McheliGameTests {
         tests.addAll(MultiplayGameTests.multiplay());
         tests.addAll(ApiGameTests.api());
         tests.addAll(TargetApiGameTests.targets());
+        tests.addAll(WingmanApiGameTests.wingmen());
         tests.addAll(DispenserGameTests.dispensers());
         tests.addAll(OwnershipGameTests.ownership());
         tests.addAll(LimitGameTests.limits());

@@ -8,6 +8,7 @@ import com.ivomens.mcheli.api.target.TargetRegistry;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
 import com.ivomens.mcheli.api.vehicle.VehicleHitBox;
 import com.ivomens.mcheli.api.vehicle.VehicleSeat;
+import com.ivomens.mcheli.api.wingman.Wingmen;
 import com.ivomens.mcheli.combat.guidance.ExternalTargets;
 import com.ivomens.mcheli.entityview.Riders;
 import com.ivomens.mcheli.event.ApiEventBus;
@@ -28,11 +29,12 @@ import java.util.Optional;
 public final class ApiService implements McheliApi {
 
     /** The API version this build implements; ApiVersionTest keeps it equal to api_version in gradle.properties. */
-    public static final String API_VERSION = "1.0.0";
+    public static final String API_VERSION = "1.1.0";
 
     private final ApiEventBus events = new ApiEventBus();
     private final ContentLookup content = new LoadedContentLookup();
     private final ExternalTargets targets = new ExternalTargets();
+    private final Wingmen wingmen = new ApiWingmen();
 
     @Override
     public String apiVersion() {
@@ -79,5 +81,10 @@ public final class ApiService implements McheliApi {
     @Override
     public TargetRegistry targets() {
         return this.targets;
+    }
+
+    @Override
+    public Wingmen wingmen() {
+        return this.wingmen;
     }
 }
