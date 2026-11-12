@@ -1,6 +1,7 @@
 package com.ivomens.mcheli.radar;
 
 import com.ivomens.mcheli.aircraft.AircraftEntity;
+import com.ivomens.mcheli.api.vehicle.VehicleKind;
 import com.ivomens.mcheli.combat.countermeasure.ChaffEntity;
 import com.ivomens.mcheli.combat.countermeasure.FlareEntity;
 import com.ivomens.mcheli.combat.projectile.ProjectileEntity;
@@ -35,12 +36,28 @@ public record EntityInfo(int entityId, String worldName, String entityName, Rada
 
     /** A snapshot of {@code e} as it is now. */
     public static EntityInfo of(Entity e) {
+        return of(e, kindOf(e));
+    }
+
+    /** A snapshot of {@code e} as it is now, shown as the given kind. */
+    public static EntityInfo of(Entity e, RadarContactKind kind) {
         String name = e.getName().getString();
         if (e instanceof AircraftEntity ac && ac.spec() != null) {
             name = ac.spec().name();
         }
-        return seenNow(e.getId(), e.level().dimension().location().toString(), name, kindOf(e),
+        return seenNow(e.getId(), e.level().dimension().location().toString(), name, kind,
                 e.getX(), e.getY(), e.getZ(), e.xOld, e.yOld, e.zOld);
+    }
+
+    /** The kind the radar draws an addon's target as, by the vehicle kind its signature names. */
+    public static RadarContactKind kindOf(VehicleKind shownAs) {
+        return switch (shownAs) {
+            case HELICOPTER -> RadarContactKind.HELICOPTER;
+            case PLANE -> RadarContactKind.PLANE;
+            case SHIP -> RadarContactKind.SHIP;
+            case TANK -> RadarContactKind.TANK;
+            case VEHICLE -> RadarContactKind.GROUND_VEHICLE;
+        };
     }
 
     /**

@@ -99,7 +99,7 @@ public final class LockOnSeeker {
 
     /** Lock time in ticks; stealthy targets take longer. */
     public int lockTicks() {
-        return LockCone.lockTicks(this.lockTicks, TargetFilter.stealthOf(this.target));
+        return LockCone.lockTicks(this.lockTicks, this.filter.stealthFor(this.target));
     }
 
     public int lockCount() {
@@ -174,6 +174,8 @@ public final class LockOnSeeker {
             this.completionAnnounced = locked;
             if (locked) {
                 ApiEvents.lockOnCompleted(user, this.target, Riders.vehicleOf(user));
+                ExternalTargets.get().lockedOn(user, this.target, Riders.vehicleOf(user),
+                        ExternalTargets.seekerOf(this.filter));
             }
         }
         return locked;
@@ -198,7 +200,7 @@ public final class LockOnSeeker {
             double distSq = candidate.distanceToSqr(user);
             if (distSq >= rangeSq || distSq >= nearestDistSq) continue;
             // stealth narrows the cone down to half its size
-            float cone = LockCone.searchAngle(this.angle, TargetFilter.stealthOf(candidate));
+            float cone = LockCone.searchAngle(this.angle, this.filter.stealthFor(candidate));
             if (!inLockAngle(eye, user.getYRot(), user.getXRot(), candidate, cone)) continue;
             Vec3 center = new Vec3(candidate.getX(), candidate.getY() + candidate.getBbHeight() / 2.0F, candidate.getZ());
             BlockHitResult hit = this.level.clip(new ClipContext(eye.position(), center, ClipContext.Block.COLLIDER,
@@ -217,6 +219,12 @@ public final class LockOnSeeker {
 
     private boolean canContinue(Entity user) {
         Entity locked = this.target;
+        ExternalTargets external = ExternalTargets.get();
+        if (external.isActive()) {
+            if (external.isExcluded(locked)) return false;
+            ExternalTarget registered = external.find(locked);
+            if (registered != null) return this.filter.keepsExternal(locked, registered.signature(locked));
+        }
         if (locked instanceof Vehicle vehicle && this.filter.radar() && vehicle.signature().announcedChaffTime() > 0) {
             return false;
         }
@@ -243,7 +251,7 @@ public final class LockOnSeeker {
     private void advance(Entity user) {
         Entity locked = this.target;
         double distSq = locked.distanceToSqr(user);
-        double reach = LockCone.reach(this.range, TargetFilter.stealthOf(locked));
+        double reach = LockCone.reach(this.range, this.filter.stealthFor(locked));
         if (distSq >= reach * reach) {
             this.clearLock();
             return;

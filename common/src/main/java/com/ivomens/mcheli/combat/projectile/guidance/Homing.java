@@ -1,7 +1,10 @@
 package com.ivomens.mcheli.combat.projectile.guidance;
 
 import com.ivomens.mcheli.combat.countermeasure.CountermeasureFlag;
+import com.ivomens.mcheli.api.target.TargetSignature;
+import com.ivomens.mcheli.combat.guidance.ExternalTargets;
 import com.ivomens.mcheli.combat.guidance.TargetFilter;
+import com.ivomens.mcheli.combat.guidance.ThreatSeeker;
 import com.ivomens.mcheli.combat.projectile.FlightModel;
 import com.ivomens.mcheli.combat.projectile.ProjectileEntity;
 import com.ivomens.mcheli.combat.weapon.WeaponSpec;
@@ -98,6 +101,24 @@ final class Homing {
         return !missile.level().getEntities(missile, target.getBoundingBox().inflate(DECOY_RANGE),
                 entity -> flares && CountermeasureFlag.FLARE_USING.isSet(entity)
                         || chaff && CountermeasureFlag.CHAFF_USING.isSet(entity)).isEmpty();
+    }
+
+    /**
+     * Whether the target is an addon's entity whose signature says it drops what decoys the missile, which
+     * destroys the missile as a vehicle's flares or chaff do.
+     */
+    static boolean decoyedByExternalTarget(ProjectileEntity missile, Entity target) {
+        ExternalTargets external = ExternalTargets.get();
+        if (!external.isActive()) {
+            return false;
+        }
+        TargetSignature signature = external.signature(target);
+        if (signature == null || !signature.isFlareUsing() && !signature.isChaffUsing()) {
+            return false;
+        }
+        ThreatSeeker seeker = ThreatSeeker.of(missile.spec());
+        return signature.isFlareUsing() && seeker.decoyedByFlares()
+                || signature.isChaffUsing() && seeker.decoyedByChaff();
     }
 
     /** Sets the missile off between itself and the target, as a hit on the target. */

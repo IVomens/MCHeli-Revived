@@ -240,12 +240,13 @@ public final class ProjectileEntity extends McheliEntity {
         return this.target;
     }
 
-    /** Sets the target on the server and tells the clients; a player on foot hears a missile alert. */
+    /** Sets the target on the server and tells the clients and the target (see {@link MissileAlert}). */
     public void setTarget(@Nullable Entity entity) {
+        Entity previous = this.target;
         this.target = entity;
         HomingProjectiles.of(this.level()).targetChanged(this);
         if (!this.level().isClientSide) {
-            MissileAlert.warnIfOnFoot(entity);
+            MissileAlert.targetChanged(this, previous, entity);
             this.entityData.set(TARGET_ID, entity != null ? entity.getId() : 0);
         }
     }

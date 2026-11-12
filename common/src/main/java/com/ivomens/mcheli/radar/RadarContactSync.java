@@ -2,10 +2,13 @@ package com.ivomens.mcheli.radar;
 
 import com.ivomens.mcheli.aircraft.AircraftEntity;
 import com.ivomens.mcheli.aircraft.RiddenVehicle;
+import com.ivomens.mcheli.api.target.TargetSignature;
+import com.ivomens.mcheli.combat.guidance.ExternalTargets;
 import com.ivomens.mcheli.combat.countermeasure.ChaffEntity;
 import com.ivomens.mcheli.combat.countermeasure.FlareEntity;
 import com.ivomens.mcheli.combat.projectile.ProjectileEntity;
 import com.ivomens.mcheli.combat.projectile.ProjectileKind;
+import com.ivomens.mcheli.combat.weapon.net.RadarContactKind;
 import com.ivomens.mcheli.combat.weapon.net.RadarContactsMessage;
 import com.ivomens.mcheli.config.McheliConfig;
 import com.ivomens.mcheli.helicopter.HelicopterEntity;
@@ -20,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -33,8 +37,8 @@ import java.util.concurrent.Executors;
 
 /**
  * Sends each player the radar contacts around them. Every {@code RadarUpdateInterval} ticks the tracked entities
- * (players and lockable MCHeli entities) are snapshotted on the server thread; the per-player range filtering
- * and message building run on virtual threads. One per server ({@link #of}), closed when the server stops.
+ * (players, lockable MCHeli entities and the targets addons registered) are snapshotted on the server thread;
+ * the per-player range filtering and message building run on virtual threads. One per server ({@link #of}), closed when the server stops.
  * <p>
  * Only players aboard a vehicle get contacts: the radar is drawn by the vehicle's instruments, and nothing
  * else reads it. Each of them gets what changed since their last snapshot ({@link RadarReceiver}).
@@ -101,9 +105,11 @@ public final class RadarContactSync implements AutoCloseable {
             if (world.players().isEmpty()) {
                 continue;
             }
+            ExternalTargets external = ExternalTargets.get();
             for (Entity entity : world.getAllEntities()) {
-                if (shouldTrack(world, entity)) {
-                    EntityInfo info = EntityInfo.of(entity);
+                RadarContactKind kind = trackedKind(world, entity, external);
+                if (kind != null) {
+                    EntityInfo info = EntityInfo.of(entity, kind);
                     this.contacts.put(entity.getId(), info);
                     vehicles.add(new VehicleSnapshot(info, info.worldName(), entity.getX(), entity.getZ()));
                 }
@@ -198,22 +204,36 @@ public final class RadarContactSync implements AutoCloseable {
         return null;
     }
 
-    private boolean shouldTrack(ServerLevel world, Entity entity) {
-        if (entity.isRemoved()) return false;
+    /**
+     * What the entity shows up as on radar, or null when it does not. An addon's target shows up while its radar
+     * cross-section is above 0, an excluded entity never; both only cost anything while the API has registrations.
+     */
+    @Nullable
+    public static RadarContactKind trackedKind(ServerLevel world, Entity entity, ExternalTargets external) {
+        if (entity.isRemoved()) return null;
 
-        if (!isRadarVisible(entity)) return false;
+        RadarContactKind externalKind = null;
+        if (external.isActive()) {
+            if (external.isExcluded(entity)) return null;
+            TargetSignature signature = external.signature(entity);
+            if (signature != null && signature.radarCrossSection() > 0.0F) {
+                externalKind = EntityInfo.kindOf(signature.shownAs());
+            }
+        }
+        if (externalKind == null && !isRadarVisible(entity)) return null;
 
-        if (entity instanceof PlaneEntity || entity instanceof HelicopterEntity || entity instanceof ChaffEntity) {
+        boolean flies = externalKind == RadarContactKind.PLANE || externalKind == RadarContactKind.HELICOPTER;
+        if (flies || entity instanceof PlaneEntity || entity instanceof HelicopterEntity || entity instanceof ChaffEntity) {
             int ground = world.getHeight(Heightmap.Types.MOTION_BLOCKING, (int) Math.floor(entity.getX()), (int) Math.floor(entity.getZ()));
             int heightAboveGround = (int) (entity.getY() - ground);
 
-            if (heightAboveGround < MIN_HEIGHT_ABOVE_GROUND) return false;
+            if (heightAboveGround < MIN_HEIGHT_ABOVE_GROUND) return null;
 
             Vec3 motion = entity.getDeltaMovement();
-            if (motion.lengthSqr() < MIN_SPEED_SQR) return false;
+            if (motion.lengthSqr() < MIN_SPEED_SQR) return null;
         }
 
-        return true;
+        return externalKind != null ? externalKind : EntityInfo.kindOf(entity);
     }
 
     /** Players, vehicles, decoys and air-to-air missiles show up on radar. */

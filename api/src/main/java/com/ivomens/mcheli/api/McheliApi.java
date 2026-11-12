@@ -2,6 +2,7 @@ package com.ivomens.mcheli.api;
 
 import com.ivomens.mcheli.api.content.ContentLookup;
 import com.ivomens.mcheli.api.event.EventBus;
+import com.ivomens.mcheli.api.target.TargetRegistry;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -64,4 +65,10 @@ public interface McheliApi {
 
     /** Where addons listen to what happens to vehicles and weapons. */
     EventBus events();
+
+    /**
+     * Which entities of other mods MCHeli's radar, lock-on seekers and guided missiles treat as targets, and
+     * which entities they never target. Any thread, either side. Since API 1.1.
+     */
+    TargetRegistry targets();
 }

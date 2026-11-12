@@ -1,5 +1,6 @@
 package com.ivomens.mcheli.combat.guidance;
 
+import com.ivomens.mcheli.api.target.TargetSignature;
 import com.ivomens.mcheli.api.vehicle.Targetable;
 import com.ivomens.mcheli.api.vehicle.Vehicle;
 import com.ivomens.mcheli.combat.countermeasure.ChaffEntity;
@@ -66,6 +67,12 @@ public record TargetFilter(boolean air, boolean ground, boolean water, int minHe
         // riding players are locked through their vehicle
         if (entity instanceof Player && (entity.getVehicle() != null || this.ridableOnly)) return false;
         if (ForeignVehicles.isCamera(entity)) return false;
+        ExternalTargets external = ExternalTargets.get();
+        if (external.isActive()) {
+            if (external.isExcluded(entity)) return false;
+            ExternalTarget registered = external.find(entity);
+            if (registered != null) return this.acceptsExternal(entity, registered.signature(entity));
+        }
         Boolean special = this.special(entity, shooter);
         if (special != null) return special;
         if (!(entity instanceof LivingEntity || entity instanceof Vehicle || ForeignVehicles.isVehicle(entity))) {
@@ -95,9 +102,65 @@ public record TargetFilter(boolean air, boolean ground, boolean water, int minHe
     }
 
     private boolean isHidden(Targetable signature) {
-        if (this.radar && signature.announcedChaffTime() > 0) return true;
-        if (this.radar && signature.isBreakingRadarLocks()) return true;
-        return (this.heatSeeking || !this.radar) && signature.isFlareUsing();
+        return this.isHidden(signature.announcedChaffTime() > 0, signature.isBreakingRadarLocks(),
+                signature.isFlareUsing());
+    }
+
+    private boolean isHidden(boolean chaff, boolean jamming, boolean flares) {
+        if (this.radar && chaff) return true;
+        if (this.radar && jamming) return true;
+        return (this.heatSeeking || !this.radar) && flares;
+    }
+
+    /**
+     * Whether the seeker may lock an addon's target with this signature (null: no target right now): one it
+     * can see at all, not hidden by its decoys, and where the seeker looks.
+     */
+    private boolean acceptsExternal(Entity entity, @Nullable TargetSignature signature) {
+        return signature != null && !this.isHidden(signature.isChaffUsing(), false, signature.isFlareUsing())
+                && this.keepsExternal(entity, signature);
+    }
+
+    /**
+     * Whether a lock on an addon's target holds: as for a vehicle, chaff breaks a radar lock, flares break none,
+     * and the target has to stay visible and where the seeker looks.
+     */
+    public boolean keepsExternal(Entity entity, @Nullable TargetSignature signature) {
+        if (signature == null || this.visibility(signature) <= 0.0F) return false;
+        if (this.radar && signature.isChaffUsing()) return false;
+        if (!this.water && entity.isInWater()) return false;
+        return switch (signature.domain()) {
+            case AIR -> this.air;
+            case GROUND -> this.ground;
+            case BY_HEIGHT -> this.acceptsAltitude(entity);
+        };
+    }
+
+    /**
+     * How much of an addon's target this seeker sees, 0 to 1: the heat signature for a heat seeker, the radar
+     * cross-section for a radar seeker, the stronger for one that uses both, all of it for any other.
+     */
+    private float visibility(TargetSignature signature) {
+        if (this.heatSeeking && this.radar) return Math.max(signature.heat(), signature.radarCrossSection());
+        if (this.heatSeeking) return signature.heat();
+        if (this.radar) return signature.radarCrossSection();
+        return 1.0F;
+    }
+
+    /**
+     * The stealth this seeker sees in the entity, 0 for none to 1 for invisible: an addon's target's is what its
+     * signature hides from this seeker, anything else's as {@link #stealthOf}.
+     */
+    public float stealthFor(@Nullable Entity entity) {
+        if (entity != null) {
+            ExternalTargets external = ExternalTargets.get();
+            ExternalTarget registered = external.isActive() ? external.find(entity) : null;
+            if (registered != null) {
+                TargetSignature signature = registered.signature(entity);
+                return signature != null ? 1.0F - this.visibility(signature) : 1.0F;
+            }
+        }
+        return stealthOf(entity);
     }
 
     /**
