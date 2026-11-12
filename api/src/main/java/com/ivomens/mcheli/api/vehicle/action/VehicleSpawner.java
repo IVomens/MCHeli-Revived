@@ -18,8 +18,9 @@ import javax.annotation.Nullable;
  *         .spawn();
  * }</pre>
  *
- * <p>The vehicle joins the level the way a placed one does ({@code VehicleSpawned} fires), with full health,
- * an empty fuel tank and full ammunition, like a vehicle placed from a new item. Unlike a player placing it, a
+ * <p>The vehicle joins the level the way a placed one does ({@code VehicleSpawned} fires), with full health
+ * and the fuel and ammunition of a vehicle placed from a new item, which is usually none: fill it with
+ * {@link VehicleControl#refuel()} and {@link VehicleControl#rearm()}. Unlike a player placing it, a
  * spawner does not check creative-only types, target drones or the {@code PlaceableOnSpongeOnly} rule, and
  * checks the server's vehicle limits only when asked to ({@link #respectLimits}).
  *

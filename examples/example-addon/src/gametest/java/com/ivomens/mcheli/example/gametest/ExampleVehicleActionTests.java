@@ -27,9 +27,10 @@ import java.util.List;
 
 /**
  * An addon changing vehicles through the API alone: it spawns a helicopter with a pilot, damages, repairs,
- * refuels and rearms it, ejects the pilot and locks it; and the addon's sortie count ({@link ExampleSorties})
- * counts the pilot, is saved and loaded with the helicopter and reaches a client copy, while the last pilot's
- * name stays on the server. Only the sync check reaches into MCHeli, to stand in for a client.
+ * refuels, rearms and empties its gun, ejects the pilot and locks it; and the addon's sortie count
+ * ({@link ExampleSorties}) counts the pilot, is saved and loaded with the helicopter and reaches a client copy,
+ * while the last pilot's name stays on the server. Only the sync check reaches into MCHeli, to stand in for a
+ * client.
  */
 @GameTestHolder(ExampleAddon.MOD_ID)
 @PrefixGameTestTemplate(false)
@@ -51,8 +52,8 @@ public final class ExampleVehicleActionTests {
                 && control.health() < control.maxHealth(), "the hit did no damage");
         check(control.repair() == ActionResult.SUCCESS && control.health() == control.maxHealth(), "repair");
         check(control.refuel() == ActionResult.SUCCESS && control.fuel() == control.fuelCapacity(), "refuel");
-        check(control.setAmmo(0, 0) == ActionResult.SUCCESS && control.ammo(0) == 0, "empty the gun");
         check(control.rearm() == ActionResult.SUCCESS && control.ammo(0) == control.maxAmmo(0), "rearm");
+        check(control.setAmmo(0, 0) == ActionResult.SUCCESS && control.ammo(0) == 0, "empty the gun");
         check(control.eject(0) == ActionResult.SUCCESS && player.getVehicle() == null, "the pilot was not ejected");
         check(control.owner().filter(player.getUUID()::equals).isPresent(), "the spawner's owner was not kept");
         check(control.setLocked(true) == ActionResult.SUCCESS && control.isLocked(), "could not lock");

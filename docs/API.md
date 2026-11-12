@@ -159,7 +159,7 @@ if (control.damage(level.damageSources().explosion(null, null), 20.0F) == Action
 How the actions relate to the game's own rules:
 
 * **Spawning** places the vehicle as a player placing its item would, with the same starting fuel and
-  ammunition, and `VehicleSpawned` fires. Rules meant for players are not applied: creative-only types,
+  ammunition (usually none; call `refuel()` and `rearm()`), and `VehicleSpawned` fires. Rules meant for players are not applied: creative-only types,
   target drones and `PlaceableOnSpongeOnly` are not checked. The server's vehicle limits
   (`MaxVehiclesPerPlayer` for the owner, per chunk, per level, per kind, with `OpsBypassLimits` for an
   operator owner) apply only with `respectLimits(true)`, because addons usually spawn vehicles for reasons
@@ -348,7 +348,7 @@ the class path, so NeoForge loads them as two separate mods, as from a mods fold
   of its own (only a dedicated server does), so a test mixin in `mcheli_example_test` protects the test's
   area.
 * `addonchangesavehicle` (`ExampleVehicleActionTests`): the addon spawns a helicopter with a pilot through a
-  `VehicleSpawner`, then damages, repairs, refuels, empties and rearms it, ejects the pilot, and locks it and
+  `VehicleSpawner`, then damages, repairs, refuels and rearms it, empties its gun, ejects the pilot, and locks it and
   clears its owner through a `VehicleControl`.
 * `sortiesaresavedandsynced`: the pilot's boarding counts a sortie, the count and the pilot's name survive a
   save and load, and the sync messages give a client copy the count but not the name.

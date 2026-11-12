@@ -44,9 +44,10 @@ final class CrewActions {
             rider.stopRiding();
         }
         if (seatId == 0 && rider instanceof Player player) {
-            vehicle.pilotBoarding().board(player, spec);
+            vehicle.pilotBoarding().seatPilot(player, spec);
         } else {
-            rider.startRiding(mount);
+            // forced past the vanilla boarding cooldown of a rider that just got off; the seat is free
+            rider.startRiding(mount, true);
         }
         return seats.riderOf(seatId) == rider ? ActionResult.SUCCESS : ActionResult.REFUSED;
     }
