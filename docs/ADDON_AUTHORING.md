@@ -263,3 +263,46 @@ listed them, so which of two same-named files won could differ between computers
 * `CommunityPacksTest` loads the community-style fixtures in `neoforge/src/test/resources/content/community`
   (CRLF, BOMs, tabs, legacy keys, overrides) and compares the load report with
   `golden/report/community.txt`.
+
+## 8. Behaviours and movement models from mods
+
+Mods built on the API ([API.md](API.md#vehicle-extensions-package-comivomensmcheliapivehicleextension-since-api-11))
+can add **behaviours** to vehicles (a winch, a beacon, a siren) and **movement models** that replace a ground
+vehicle's physics (a hovercraft). A vehicle file opts in by naming them; without the mod installed the vehicle
+still loads, as it would without the lines.
+
+```yaml
+Behaviours:
+  mymod:winch: { Length: 20 }      # namespace:path, then the settings that mod reads
+  mymod:beacon: {}                 # {} when it needs none
+Movement: mymod:hovercraft         # vehicles/ only
+```
+
+or, for a model that takes settings:
+
+```yaml
+Movement:
+  Model: mymod:hovercraft
+  Settings: { HoverHeight: 1.0, Thrust: 0.02 }
+```
+
+* **`Behaviours`** works in every vehicle folder. Each key is the id the mod registered (lower case,
+  `namespace:path`); each value is that behaviour's settings map. Behaviours run in the order the file lists
+  them.
+* **`Movement`** works in `vehicles/` files (emplaced guns and light ground vehicles) only; elsewhere it is an
+  unknown key. The model moves the vehicle instead of the ground vehicle physics and the key-driven driving
+  (`VehicleFeatures.CanMove`/`CanRotate` no longer push or steer it); seats, weapons, camera, HUD, hit boxes
+  and everything else keep working. `PhysicalProperties.Gravity` and `GravityInWater` are handed to the model,
+  which may use them.
+* What goes in a settings map is up to the mod: read its documentation. The schemas accept any map there, so
+  your editor cannot check those keys; the game checks them when it loads the file.
+
+Problems are warnings in the content report, with the file and line, and the vehicle still loads:
+
+| Message | What to do |
+|---|---|
+| `unknown behaviour 'mymod:winch' (no installed mod registers any), it is ignored` | Install the mod that adds it, or check the spelling; the message lists the ids that are registered. |
+| `unknown movement model 'mymod:hovercraft' (...), the vehicle moves as its kind does` | The same for `Movement`. |
+| `'winch' is not a behaviour id; write it as namespace:path, ...` | Ids name their mod: `mymod:winch`. |
+| `behaviour 'mymod:winch' rejected its settings (...), it is left out` | The mod's own message says which setting is wrong. |
+| `unknown key 'Movement'` | Only `vehicles/` files take a movement model. |
