@@ -54,6 +54,7 @@ public abstract class MixinEntity {
             AircraftIndex index = AircraftIndex.of(aircraft.level());
             if (callback == EntityInLevelCallback.NULL) {
                 index.remove(aircraft);
+                aircraft.lifecycle().leftLevel(aircraft.getRemovalReason());
                 if (!aircraft.level().isClientSide && aircraft.getRemovalReason() != null) {
                     ApiEvents.vehicleRemoved(aircraft, aircraft.getRemovalReason());
                 }

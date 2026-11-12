@@ -1,7 +1,7 @@
 package com.ivomens.mcheli.aircraft;
 
+import com.ivomens.mcheli.extension.ExtensionRegistry;
 import com.ivomens.mcheli.platform.LocalClient;
-import com.ivomens.mcheli.vehicle.component.LifecycleComponent;
 import com.ivomens.mcheli.vehicle.component.RestComponent;
 import com.ivomens.mcheli.vehicle.component.ScheduledStep;
 import com.ivomens.mcheli.vehicle.component.ScriptedPilotComponent;
@@ -9,6 +9,7 @@ import com.ivomens.mcheli.vehicle.component.TickContext;
 import com.ivomens.mcheli.vehicle.component.TickOrder;
 import com.ivomens.mcheli.vehicle.component.TickPhase;
 import com.ivomens.mcheli.vehicle.component.TickStep;
+import com.ivomens.mcheli.vehicle.component.VehicleComponent;
 
 import java.util.List;
 import net.minecraft.world.entity.Entity;
@@ -51,10 +52,10 @@ final class VehicleTickPipeline {
     /** Every step in order, the vehicle type's included once they are known; for the vehicle inspector. */
     private List<ScheduledStep> schedule;
 
-    VehicleTickPipeline(AircraftEntity vehicle, RestComponent rest, LifecycleComponent lifecycle) {
+    VehicleTickPipeline(AircraftEntity vehicle, AircraftComponents components) {
         this.vehicle = vehicle;
-        this.context = new TickContext(lifecycle);
-        this.rest = rest;
+        this.context = new TickContext(components.lifecycle());
+        this.rest = components.rest();
         this.scriptedPilot = TickStep.server("scripted pilot: take the controls",
                 vehicle.scriptedPilot()::takeControls);
         this.typeUpdate = new TickStep("physics: the vehicle type's update", ctx -> runTypeSteps(ctx, false),
@@ -63,8 +64,12 @@ final class VehicleTickPipeline {
                 .then(TickPhase.INPUT, input(vehicle))
                 .then(TickPhase.LIFECYCLE, lifecycle(vehicle))
                 .then(TickPhase.SYSTEMS, systems(vehicle))
+                .then(TickPhase.SYSTEMS, behaviours("addons: behaviours before movement",
+                        components.behavioursBefore()))
                 .then(TickPhase.PHYSICS, physics(vehicle))
                 .then(TickPhase.FOLLOW_HULL, followHull(vehicle))
+                .then(TickPhase.FOLLOW_HULL, behaviours("addons: behaviours after movement",
+                        components.behavioursAfter()))
                 .then(TickPhase.BOOKKEEPING, bookkeeping(vehicle));
         this.plan.check(false);
         this.steps = this.plan.steps();
@@ -87,6 +92,14 @@ final class VehicleTickPipeline {
             step.run(this.context, clientSide);
         }
         this.rest.afterTick();
+    }
+
+    /**
+     * The tick of other mods' behaviours, only while some mod registers a behaviour type: without one the
+     * vehicle's tick is exactly what it was before addons could add behaviours.
+     */
+    private static TickStep[] behaviours(String name, VehicleComponent ticker) {
+        return ExtensionRegistry.get().hasBehaviours() ? new TickStep[]{TickStep.of(name, ticker)} : new TickStep[0];
     }
 
     /** The pilot's attitude report and keys, last tick's throttle, and a stopped vehicle's sync. */

@@ -6,6 +6,8 @@ import com.ivomens.mcheli.vehicle.settings.SupplyRules;
 import com.ivomens.mcheli.vehicle.uav.UAVTracker;
 import net.minecraft.world.entity.Entity;
 
+import javax.annotation.Nullable;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -24,6 +26,9 @@ public final class LifecycleComponent implements VehicleComponent {
     private final TowComponent tow;
     private final AircraftInventory cargo;
     private final Supplier<SupplyRules> supplies;
+    /** Null until something subscribes, which only the behaviours of other mods do. */
+    @Nullable
+    private Consumer<Entity.RemovalReason> onRemoved;
     private int age;
 
     public LifecycleComponent(AircraftEntity vehicle, StatusWord status, SeatsComponent seats,
@@ -35,6 +40,21 @@ public final class LifecycleComponent implements VehicleComponent {
         this.tow = tow;
         this.cargo = cargo;
         this.supplies = supplies;
+    }
+
+    /**
+     * What happens when the vehicle leaves its level for any reason (killed, discarded, unloaded, changed
+     * dimension), on either side. Higher components subscribe, so the lifecycle does not depend on them.
+     */
+    public void whenRemoved(Consumer<Entity.RemovalReason> listener) {
+        this.onRemoved = listener;
+    }
+
+    /** The level let go of the vehicle; on both sides, whatever the reason, once it has one. */
+    public void leftLevel(@Nullable Entity.RemovalReason reason) {
+        if (reason != null && this.onRemoved != null) {
+            this.onRemoved.accept(reason);
+        }
     }
 
     /** Ticks lived, counted halfway through each tick (see the tick pipeline); 0 before the first. */

@@ -114,7 +114,7 @@ public abstract class AircraftEntity extends VehicleEntity implements ArmedVehic
         this.setSpec(null);
         this.setDropContentsWhenDead(false);
         this.setRenderDistanceWeight(2.0 * McheliConfig.render().renderDistanceWeight());
-        this.tickPipeline = new VehicleTickPipeline(this, this.components.rest(), this.components.lifecycle());
+        this.tickPipeline = new VehicleTickPipeline(this, this.components);
         this.setBoundingBox(this.makeBoundingBox());
         this.blocksBuilding = true;
         if (!world.isClientSide) {
