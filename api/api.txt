@@ -2,7 +2,11 @@
 # The public signatures of the API. Written by ./gradlew :api:updateApiDump; see docs/API.md.
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.content.ContentLookup content()
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.event.EventBus events()
+com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.target.TargetRegistry targets()
+com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleActions vehicleActions()
+com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys vehicleData()
 com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions vehicleExtensions()
+com.ivomens.mcheli.api.McheliApi method public abstract com.ivomens.mcheli.api.wingman.Wingmen wingmen()
 com.ivomens.mcheli.api.McheliApi method public abstract java.lang.String apiVersion()
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.Vehicle> vehicles(net.minecraft.world.level.Level)
 com.ivomens.mcheli.api.McheliApi method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.Vehicle> vehiclesIn(net.minecraft.world.level.Level, net.minecraft.world.phys.AABB)
@@ -61,6 +65,25 @@ com.ivomens.mcheli.api.client.HudWidgets type public interface
 com.ivomens.mcheli.api.client.McheliClientApi method public abstract com.ivomens.mcheli.api.client.HudWidgets hudWidgets()
 com.ivomens.mcheli.api.client.McheliClientApi method public static com.ivomens.mcheli.api.client.McheliClientApi get()
 com.ivomens.mcheli.api.client.McheliClientApi type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual method default public void onImpact(com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext, net.minecraft.world.phys.HitResult)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual method default public void onRemoved(com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual method default public void onTick(com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual$Factory method public abstract com.ivomens.mcheli.api.client.weapon.ProjectileVisual create(net.minecraft.nbt.CompoundTag)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisual$Factory type public static interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract com.ivomens.mcheli.api.content.WeaponInfo weapon()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract int ticksFlown()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.nbt.CompoundTag data()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.entity.Entity entity()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.entity.Entity target()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.level.Level level()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.phys.Vec3 position()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext method public abstract net.minecraft.world.phys.Vec3 velocity()
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualContext type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualProvider method public abstract void registerVisuals(com.ivomens.mcheli.api.client.weapon.ProjectileVisualRegistrar)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualProvider type public interface
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualRegistrar method public abstract void visual(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.client.weapon.ProjectileVisual$Factory)
+com.ivomens.mcheli.api.client.weapon.ProjectileVisualRegistrar type public interface
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.List<com.ivomens.mcheli.api.content.VehicleInfo> vehicles()
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.List<com.ivomens.mcheli.api.content.WeaponInfo> weapons()
 com.ivomens.mcheli.api.content.ContentLookup method public abstract java.util.Optional<com.ivomens.mcheli.api.content.VehicleInfo> vehicle(com.ivomens.mcheli.api.vehicle.VehicleKind, java.lang.String)
@@ -80,6 +103,8 @@ com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.Strin
 com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.String id()
 com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.String packId()
 com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.lang.String type()
+com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.util.List<net.minecraft.resources.ResourceLocation> projectileEffects()
+com.ivomens.mcheli.api.content.WeaponInfo method public abstract java.util.Optional<net.minecraft.resources.ResourceLocation> guidance()
 com.ivomens.mcheli.api.content.WeaponInfo type public interface
 com.ivomens.mcheli.api.event.Cancellable method public abstract boolean isCancelled()
 com.ivomens.mcheli.api.event.Cancellable method public abstract void setCancelled(boolean)
@@ -244,6 +269,52 @@ com.ivomens.mcheli.api.event.WeaponFired method public abstract net.minecraft.wo
 com.ivomens.mcheli.api.event.WeaponFired method public abstract net.minecraft.world.entity.Entity shooter()
 com.ivomens.mcheli.api.event.WeaponFired method public abstract net.minecraft.world.phys.Vec3 origin()
 com.ivomens.mcheli.api.event.WeaponFired type public interface
+com.ivomens.mcheli.api.target.IncomingMissile method public abstract com.ivomens.mcheli.api.event.SeekerType seeker()
+com.ivomens.mcheli.api.target.IncomingMissile method public abstract java.lang.String weaponId()
+com.ivomens.mcheli.api.target.IncomingMissile method public abstract net.minecraft.world.entity.Entity missile()
+com.ivomens.mcheli.api.target.IncomingMissile method public abstract net.minecraft.world.entity.Entity shooter()
+com.ivomens.mcheli.api.target.IncomingMissile method public abstract net.minecraft.world.entity.Entity target()
+com.ivomens.mcheli.api.target.IncomingMissile type public interface
+com.ivomens.mcheli.api.target.TargetDomain field public static final com.ivomens.mcheli.api.target.TargetDomain AIR
+com.ivomens.mcheli.api.target.TargetDomain field public static final com.ivomens.mcheli.api.target.TargetDomain BY_HEIGHT
+com.ivomens.mcheli.api.target.TargetDomain field public static final com.ivomens.mcheli.api.target.TargetDomain GROUND
+com.ivomens.mcheli.api.target.TargetDomain method public static com.ivomens.mcheli.api.target.TargetDomain valueOf(java.lang.String)
+com.ivomens.mcheli.api.target.TargetDomain method public static com.ivomens.mcheli.api.target.TargetDomain[] values()
+com.ivomens.mcheli.api.target.TargetDomain type public final enum
+com.ivomens.mcheli.api.target.TargetLock method public abstract com.ivomens.mcheli.api.event.SeekerType seeker()
+com.ivomens.mcheli.api.target.TargetLock method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.target.TargetLock method public abstract net.minecraft.world.entity.Entity target()
+com.ivomens.mcheli.api.target.TargetLock method public abstract net.minecraft.world.entity.Entity user()
+com.ivomens.mcheli.api.target.TargetLock type public interface
+com.ivomens.mcheli.api.target.TargetProfile method default public void onLockedOn(com.ivomens.mcheli.api.target.TargetLock)
+com.ivomens.mcheli.api.target.TargetProfile method default public void onMissileLaunched(com.ivomens.mcheli.api.target.IncomingMissile)
+com.ivomens.mcheli.api.target.TargetProfile method public abstract com.ivomens.mcheli.api.target.TargetSignature signature(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.target.TargetProfile type public interface
+com.ivomens.mcheli.api.target.TargetRegistry method public abstract boolean isExcluded(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.target.TargetRegistry method public abstract com.ivomens.mcheli.api.event.Subscription exclude(java.util.function.Predicate<? super net.minecraft.world.entity.Entity>)
+com.ivomens.mcheli.api.target.TargetRegistry method public abstract com.ivomens.mcheli.api.event.Subscription exclude(net.minecraft.world.entity.EntityType<?>)
+com.ivomens.mcheli.api.target.TargetRegistry method public abstract com.ivomens.mcheli.api.event.Subscription register(java.util.function.Predicate<? super net.minecraft.world.entity.Entity>, com.ivomens.mcheli.api.target.TargetProfile)
+com.ivomens.mcheli.api.target.TargetRegistry method public abstract com.ivomens.mcheli.api.event.Subscription register(net.minecraft.world.entity.EntityType<?>, com.ivomens.mcheli.api.target.TargetProfile)
+com.ivomens.mcheli.api.target.TargetRegistry method public abstract java.util.Optional<com.ivomens.mcheli.api.target.TargetSignature> signatureOf(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.target.TargetRegistry type public interface
+com.ivomens.mcheli.api.target.TargetSignature field public static final com.ivomens.mcheli.api.target.TargetSignature AIR
+com.ivomens.mcheli.api.target.TargetSignature field public static final com.ivomens.mcheli.api.target.TargetSignature GROUND
+com.ivomens.mcheli.api.target.TargetSignature method public boolean equals(java.lang.Object)
+com.ivomens.mcheli.api.target.TargetSignature method public boolean isChaffUsing()
+com.ivomens.mcheli.api.target.TargetSignature method public boolean isFlareUsing()
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.target.TargetDomain domain()
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.target.TargetSignature withChaff(boolean)
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.target.TargetSignature withDomain(com.ivomens.mcheli.api.target.TargetDomain)
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.target.TargetSignature withFlares(boolean)
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.target.TargetSignature withHeat(float)
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.target.TargetSignature withRadarCrossSection(float)
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.target.TargetSignature withShownAs(com.ivomens.mcheli.api.vehicle.VehicleKind)
+com.ivomens.mcheli.api.target.TargetSignature method public com.ivomens.mcheli.api.vehicle.VehicleKind shownAs()
+com.ivomens.mcheli.api.target.TargetSignature method public float heat()
+com.ivomens.mcheli.api.target.TargetSignature method public float radarCrossSection()
+com.ivomens.mcheli.api.target.TargetSignature method public int hashCode()
+com.ivomens.mcheli.api.target.TargetSignature method public java.lang.String toString()
+com.ivomens.mcheli.api.target.TargetSignature type public final class
 com.ivomens.mcheli.api.vehicle.Crew method public abstract boolean isAboard(net.minecraft.world.entity.Entity)
 com.ivomens.mcheli.api.vehicle.Crew method public abstract boolean isValidSeatId(int)
 com.ivomens.mcheli.api.vehicle.Crew method public abstract int count()
@@ -262,6 +333,7 @@ com.ivomens.mcheli.api.vehicle.Vehicle method public abstract boolean isUAV()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.Crew seats()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.Targetable signature()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.VehicleKind kind()
+com.ivomens.mcheli.api.vehicle.Vehicle method public abstract com.ivomens.mcheli.api.vehicle.data.VehicleData data()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract double throttle()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract float roll()
 com.ivomens.mcheli.api.vehicle.Vehicle method public abstract net.minecraft.world.entity.Entity entity()
@@ -279,6 +351,105 @@ com.ivomens.mcheli.api.vehicle.VehicleKind method public static com.ivomens.mche
 com.ivomens.mcheli.api.vehicle.VehicleKind type public final enum
 com.ivomens.mcheli.api.vehicle.VehicleSeat method public abstract com.ivomens.mcheli.api.vehicle.Vehicle getParent()
 com.ivomens.mcheli.api.vehicle.VehicleSeat type public interface
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult INVALID_SEAT
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult LOCKING_DISABLED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NOT_ABOARD
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_CHANGE
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_FUEL_TANK
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_OWNER
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult NO_SUCH_WEAPON
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult REFUSED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SEAT_BLOCKED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SEAT_EMPTY
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SEAT_OCCUPIED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult SUCCESS
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult VEHICLE_DESTROYED
+com.ivomens.mcheli.api.vehicle.action.ActionResult field public static final com.ivomens.mcheli.api.vehicle.action.ActionResult VEHICLE_REMOVED
+com.ivomens.mcheli.api.vehicle.action.ActionResult method public boolean isSuccess()
+com.ivomens.mcheli.api.vehicle.action.ActionResult method public static com.ivomens.mcheli.api.vehicle.action.ActionResult valueOf(java.lang.String)
+com.ivomens.mcheli.api.vehicle.action.ActionResult method public static com.ivomens.mcheli.api.vehicle.action.ActionResult[] values()
+com.ivomens.mcheli.api.vehicle.action.ActionResult type public final enum
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method default public boolean isSpawned()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract com.ivomens.mcheli.api.vehicle.action.SpawnStatus status()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract java.util.Map<java.lang.Integer, com.ivomens.mcheli.api.vehicle.action.ActionResult> riders()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract java.util.Optional<com.ivomens.mcheli.api.vehicle.Vehicle> vehicle()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult method public abstract java.util.Optional<net.minecraft.network.chat.Component> message()
+com.ivomens.mcheli.api.vehicle.action.SpawnResult type public interface
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus CHUNK_NOT_LOADED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus INVALID_SEAT
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus LIMIT_REACHED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus OBSTRUCTED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus REFUSED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus SPAWNED
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus field public static final com.ivomens.mcheli.api.vehicle.action.SpawnStatus UNKNOWN_TYPE
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus method public boolean isSpawned()
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus method public static com.ivomens.mcheli.api.vehicle.action.SpawnStatus valueOf(java.lang.String)
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus method public static com.ivomens.mcheli.api.vehicle.action.SpawnStatus[] values()
+com.ivomens.mcheli.api.vehicle.action.SpawnStatus type public final enum
+com.ivomens.mcheli.api.vehicle.action.VehicleActions method default public com.ivomens.mcheli.api.vehicle.action.VehicleSpawner spawner(net.minecraft.server.level.ServerLevel, com.ivomens.mcheli.api.content.VehicleInfo, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.vehicle.action.VehicleActions method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleControl control(com.ivomens.mcheli.api.vehicle.Vehicle)
+com.ivomens.mcheli.api.vehicle.action.VehicleActions method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner spawner(net.minecraft.server.level.ServerLevel, com.ivomens.mcheli.api.vehicle.VehicleKind, java.lang.String, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.vehicle.action.VehicleActions type public interface
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract boolean isLocked()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract boolean mayBoard(net.minecraft.world.entity.player.Player, int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract boolean mayChangeLock(net.minecraft.world.entity.player.Player)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult board(net.minecraft.world.entity.Entity, int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult clearOwner()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult damage(net.minecraft.world.damagesource.DamageSource, float)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult destroy(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult dismount(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult eject(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult rearm()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult rearm(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult refuel()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult repair()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult repair(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setAmmo(int, int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setFuel(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setLocked(boolean)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setOwner(java.util.UUID, java.lang.String)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.action.ActionResult setOwner(net.minecraft.world.entity.player.Player)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract com.ivomens.mcheli.api.vehicle.data.MutableVehicleData data()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int ammo(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int ejectAll()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int fuel()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int fuelCapacity()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int health()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int maxAmmo(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int maxHealth()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract int weaponCount()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract java.util.Optional<com.ivomens.mcheli.api.content.WeaponInfo> weapon(int)
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract java.util.Optional<java.lang.String> ownerName()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl method public abstract java.util.Optional<java.util.UUID> owner()
+com.ivomens.mcheli.api.vehicle.action.VehicleControl type public interface
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.SpawnResult spawn()
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner owner(net.minecraft.world.entity.player.Player)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner requireFreeSpace(boolean)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner respectLimits(boolean)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner rider(int, net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner method public abstract com.ivomens.mcheli.api.vehicle.action.VehicleSpawner rotation(float, float)
+com.ivomens.mcheli.api.vehicle.action.VehicleSpawner type public interface
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData implements com.ivomens.mcheli.api.vehicle.data.VehicleData
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData method default public <T extends java.lang.Object> T update(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T>, java.util.function.UnaryOperator<T>)
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData method public abstract <T extends java.lang.Object> void set(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T>, T)
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData method public abstract void remove(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>)
+com.ivomens.mcheli.api.vehicle.data.MutableVehicleData type public interface
+com.ivomens.mcheli.api.vehicle.data.VehicleData method public abstract <T extends java.lang.Object> T get(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T>)
+com.ivomens.mcheli.api.vehicle.data.VehicleData method public abstract boolean has(com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>)
+com.ivomens.mcheli.api.vehicle.data.VehicleData type public interface
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method default public boolean isSynced()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract T defaultValue()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract com.mojang.serialization.Codec<T> codec()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract java.util.Optional<net.minecraft.network.codec.StreamCodec<? super net.minecraft.network.RegistryFriendlyByteBuf, T>> syncCodec()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public abstract net.minecraft.resources.ResourceLocation id()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public static <T extends java.lang.Object> com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T> of(net.minecraft.resources.ResourceLocation, com.mojang.serialization.Codec<T>, T)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey method public static <T extends java.lang.Object> com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T> of(net.minecraft.resources.ResourceLocation, com.mojang.serialization.Codec<T>, net.minecraft.network.codec.StreamCodec<? super net.minecraft.network.RegistryFriendlyByteBuf, T>, T)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKey type public interface<T extends java.lang.Object> 
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys method public abstract <T extends java.lang.Object> com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<T> declare(net.minecraft.resources.ResourceLocation, com.mojang.serialization.Codec<T>, net.minecraft.network.codec.StreamCodec<? super net.minecraft.network.RegistryFriendlyByteBuf, T>, T)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys method public abstract java.util.List<com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>> keys()
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys method public abstract java.util.Optional<com.ivomens.mcheli.api.vehicle.data.VehicleDataKey<?>> key(net.minecraft.resources.ResourceLocation)
+com.ivomens.mcheli.api.vehicle.data.VehicleDataKeys type public interface
 com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract boolean isClientSide()
 com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract com.ivomens.mcheli.api.vehicle.Vehicle vehicle()
 com.ivomens.mcheli.api.vehicle.extension.BehaviourContext method public abstract com.ivomens.mcheli.api.vehicle.extension.VehicleControls controls()
@@ -341,3 +512,148 @@ com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions method public abstrac
 com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions method public abstract java.util.Set<net.minecraft.resources.ResourceLocation> behaviourTypes()
 com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions method public abstract java.util.Set<net.minecraft.resources.ResourceLocation> movementModels()
 com.ivomens.mcheli.api.vehicle.extension.VehicleExtensions type public interface
+com.ivomens.mcheli.api.weapon.DetonationContext implements com.ivomens.mcheli.api.weapon.ProjectileEffectContext
+com.ivomens.mcheli.api.weapon.DetonationContext method public abstract boolean isExplosionCancelled()
+com.ivomens.mcheli.api.weapon.DetonationContext method public abstract net.minecraft.world.phys.Vec3 at()
+com.ivomens.mcheli.api.weapon.DetonationContext method public abstract void cancelExplosion()
+com.ivomens.mcheli.api.weapon.DetonationContext type public interface
+com.ivomens.mcheli.api.weapon.GuidanceContext implements com.ivomens.mcheli.api.weapon.ProjectileView
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract boolean isInSeekerCone(net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract boolean isTargetDecoyed()
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract double turnRate()
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract float seekerConeDegrees()
+com.ivomens.mcheli.api.weapon.GuidanceContext method public abstract void setTarget(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.weapon.GuidanceContext type public interface
+com.ivomens.mcheli.api.weapon.GuidanceLaw method default public com.ivomens.mcheli.api.weapon.SteeringCommand decoyed(com.ivomens.mcheli.api.weapon.GuidanceContext)
+com.ivomens.mcheli.api.weapon.GuidanceLaw method public abstract com.ivomens.mcheli.api.weapon.SteeringCommand steer(com.ivomens.mcheli.api.weapon.GuidanceContext)
+com.ivomens.mcheli.api.weapon.GuidanceLaw type public interface
+com.ivomens.mcheli.api.weapon.GuidanceLaw$Factory method public abstract com.ivomens.mcheli.api.weapon.GuidanceLaw create(net.minecraft.nbt.CompoundTag)
+com.ivomens.mcheli.api.weapon.GuidanceLaw$Factory type public static interface
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onBlockHit(com.ivomens.mcheli.api.weapon.ProjectileEffectContext, net.minecraft.world.phys.BlockHitResult)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onDetonate(com.ivomens.mcheli.api.weapon.DetonationContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onEntityHit(com.ivomens.mcheli.api.weapon.ProjectileEffectContext, net.minecraft.world.phys.EntityHitResult)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onExpire(com.ivomens.mcheli.api.weapon.ProjectileEffectContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onSpawn(com.ivomens.mcheli.api.weapon.ProjectileEffectContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect method default public void onTick(com.ivomens.mcheli.api.weapon.ProjectileEffectContext)
+com.ivomens.mcheli.api.weapon.ProjectileEffect type public interface
+com.ivomens.mcheli.api.weapon.ProjectileEffect$Factory method public abstract com.ivomens.mcheli.api.weapon.ProjectileEffect create(net.minecraft.nbt.CompoundTag)
+com.ivomens.mcheli.api.weapon.ProjectileEffect$Factory type public static interface
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext implements com.ivomens.mcheli.api.weapon.ProjectileView
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext method public abstract net.minecraft.world.entity.Entity spawnProjectile(java.lang.String, net.minecraft.world.phys.Vec3, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext method public abstract void explode(net.minecraft.world.phys.Vec3, float)
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext method public abstract void stallEngine(com.ivomens.mcheli.api.vehicle.Vehicle, int)
+com.ivomens.mcheli.api.weapon.ProjectileEffectContext type public interface
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract boolean isSubmunition()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract com.ivomens.mcheli.api.content.WeaponInfo weapon()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract double speed()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract int ticksFlown()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.nbt.CompoundTag data()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.server.level.ServerLevel level()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity entity()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity launcher()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity shooter()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.entity.Entity target()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.phys.Vec3 position()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.phys.Vec3 targetPoint()
+com.ivomens.mcheli.api.weapon.ProjectileView method public abstract net.minecraft.world.phys.Vec3 velocity()
+com.ivomens.mcheli.api.weapon.ProjectileView type public interface
+com.ivomens.mcheli.api.weapon.SteeringCommand constructor public (com.ivomens.mcheli.api.weapon.SteeringCommand$Kind, net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.SteeringCommand method public com.ivomens.mcheli.api.weapon.SteeringCommand$Kind kind()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public final boolean equals(java.lang.Object)
+com.ivomens.mcheli.api.weapon.SteeringCommand method public final int hashCode()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public final java.lang.String toString()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public net.minecraft.world.phys.Vec3 point()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand detonate()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand dropTarget()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand keepCourse()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand selfDestruct()
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand steerTowards(net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.SteeringCommand method public static com.ivomens.mcheli.api.weapon.SteeringCommand track(net.minecraft.world.phys.Vec3)
+com.ivomens.mcheli.api.weapon.SteeringCommand type public final record
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind DETONATE
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind DROP_TARGET
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind KEEP_COURSE
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind SELF_DESTRUCT
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind STEER
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind field public static final com.ivomens.mcheli.api.weapon.SteeringCommand$Kind TRACK
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind method public static com.ivomens.mcheli.api.weapon.SteeringCommand$Kind valueOf(java.lang.String)
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind method public static com.ivomens.mcheli.api.weapon.SteeringCommand$Kind[] values()
+com.ivomens.mcheli.api.weapon.SteeringCommand$Kind type public static final enum
+com.ivomens.mcheli.api.weapon.WeaponBehaviourProvider method public abstract void registerBehaviours(com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar)
+com.ivomens.mcheli.api.weapon.WeaponBehaviourProvider type public interface
+com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar method public abstract void guidance(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.weapon.GuidanceLaw$Factory)
+com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar method public abstract void projectileEffect(net.minecraft.resources.ResourceLocation, com.ivomens.mcheli.api.weapon.ProjectileEffect$Factory)
+com.ivomens.mcheli.api.weapon.WeaponBehaviourRegistrar type public interface
+com.ivomens.mcheli.api.wingman.MissionKind field public static final com.ivomens.mcheli.api.wingman.MissionKind CAP
+com.ivomens.mcheli.api.wingman.MissionKind field public static final com.ivomens.mcheli.api.wingman.MissionKind CAS
+com.ivomens.mcheli.api.wingman.MissionKind field public static final com.ivomens.mcheli.api.wingman.MissionKind ESCORT
+com.ivomens.mcheli.api.wingman.MissionKind field public static final com.ivomens.mcheli.api.wingman.MissionKind FERRY
+com.ivomens.mcheli.api.wingman.MissionKind field public static final com.ivomens.mcheli.api.wingman.MissionKind RECON
+com.ivomens.mcheli.api.wingman.MissionKind field public static final com.ivomens.mcheli.api.wingman.MissionKind STRIKE
+com.ivomens.mcheli.api.wingman.MissionKind method public static com.ivomens.mcheli.api.wingman.MissionKind valueOf(java.lang.String)
+com.ivomens.mcheli.api.wingman.MissionKind method public static com.ivomens.mcheli.api.wingman.MissionKind[] values()
+com.ivomens.mcheli.api.wingman.MissionKind type public final enum
+com.ivomens.mcheli.api.wingman.MissionRequest field public static final double DEFAULT_CRUISE_ALTITUDE
+com.ivomens.mcheli.api.wingman.MissionRequest field public static final double DEFAULT_ORBIT_RADIUS
+com.ivomens.mcheli.api.wingman.MissionRequest field public static final int DEFAULT_STRIKE_PASSES
+com.ivomens.mcheli.api.wingman.MissionRequest field public static final int DEFAULT_TIME_LIMIT_SECONDS
+com.ivomens.mcheli.api.wingman.MissionRequest method public double cruiseAltitude()
+com.ivomens.mcheli.api.wingman.MissionRequest method public double orbitRadius()
+com.ivomens.mcheli.api.wingman.MissionRequest method public double targetX()
+com.ivomens.mcheli.api.wingman.MissionRequest method public double targetZ()
+com.ivomens.mcheli.api.wingman.MissionRequest method public int strikePasses()
+com.ivomens.mcheli.api.wingman.MissionRequest method public int timeLimitSeconds()
+com.ivomens.mcheli.api.wingman.MissionRequest method public java.lang.String baseId()
+com.ivomens.mcheli.api.wingman.MissionRequest method public java.util.Set<com.ivomens.mcheli.api.wingman.MissionKind> kinds()
+com.ivomens.mcheli.api.wingman.MissionRequest method public java.util.Set<java.lang.String> weapons()
+com.ivomens.mcheli.api.wingman.MissionRequest method public static com.ivomens.mcheli.api.wingman.MissionRequest$Builder builder(com.ivomens.mcheli.api.wingman.MissionKind, com.ivomens.mcheli.api.wingman.MissionKind[])
+com.ivomens.mcheli.api.wingman.MissionRequest type public final class
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest build()
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest$Builder baseId(java.lang.String)
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest$Builder cruiseAltitude(double)
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest$Builder orbitRadius(double)
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest$Builder strikePasses(int)
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest$Builder target(double, double)
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest$Builder timeLimitSeconds(int)
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder method public com.ivomens.mcheli.api.wingman.MissionRequest$Builder weapon(java.lang.String)
+com.ivomens.mcheli.api.wingman.MissionRequest$Builder type public static final class
+com.ivomens.mcheli.api.wingman.WingmanAttack field public static final com.ivomens.mcheli.api.wingman.WingmanAttack AUTO
+com.ivomens.mcheli.api.wingman.WingmanAttack field public static final com.ivomens.mcheli.api.wingman.WingmanAttack HOLD_FIRE
+com.ivomens.mcheli.api.wingman.WingmanAttack field public static final com.ivomens.mcheli.api.wingman.WingmanAttack TARGET
+com.ivomens.mcheli.api.wingman.WingmanAttack method public static com.ivomens.mcheli.api.wingman.WingmanAttack valueOf(java.lang.String)
+com.ivomens.mcheli.api.wingman.WingmanAttack method public static com.ivomens.mcheli.api.wingman.WingmanAttack[] values()
+com.ivomens.mcheli.api.wingman.WingmanAttack type public final enum
+com.ivomens.mcheli.api.wingman.WingmanOrderResult field public static final com.ivomens.mcheli.api.wingman.WingmanOrderResult DONE
+com.ivomens.mcheli.api.wingman.WingmanOrderResult field public static final com.ivomens.mcheli.api.wingman.WingmanOrderResult FORMATION_FULL
+com.ivomens.mcheli.api.wingman.WingmanOrderResult field public static final com.ivomens.mcheli.api.wingman.WingmanOrderResult INVALID
+com.ivomens.mcheli.api.wingman.WingmanOrderResult field public static final com.ivomens.mcheli.api.wingman.WingmanOrderResult NOT_ALLOWED
+com.ivomens.mcheli.api.wingman.WingmanOrderResult field public static final com.ivomens.mcheli.api.wingman.WingmanOrderResult NOT_A_WINGMAN
+com.ivomens.mcheli.api.wingman.WingmanOrderResult field public static final com.ivomens.mcheli.api.wingman.WingmanOrderResult NOT_FOUND
+com.ivomens.mcheli.api.wingman.WingmanOrderResult field public static final com.ivomens.mcheli.api.wingman.WingmanOrderResult NOT_IN_AIRCRAFT
+com.ivomens.mcheli.api.wingman.WingmanOrderResult method public static com.ivomens.mcheli.api.wingman.WingmanOrderResult valueOf(java.lang.String)
+com.ivomens.mcheli.api.wingman.WingmanOrderResult method public static com.ivomens.mcheli.api.wingman.WingmanOrderResult[] values()
+com.ivomens.mcheli.api.wingman.WingmanOrderResult type public final enum
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract com.ivomens.mcheli.api.vehicle.Vehicle aircraft()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract com.ivomens.mcheli.api.wingman.WingmanAttack attack()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract int formationSlot()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract java.lang.String status()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract java.lang.String weaponType()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract java.util.Set<com.ivomens.mcheli.api.wingman.MissionKind> missionKinds()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract java.util.UUID aircraftId()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract java.util.UUID attackTarget()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract java.util.UUID owner()
+com.ivomens.mcheli.api.wingman.WingmanState method public abstract net.minecraft.world.entity.Entity leader()
+com.ivomens.mcheli.api.wingman.WingmanState type public interface
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult abort(net.minecraft.server.level.ServerPlayer, java.util.UUID)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult attack(net.minecraft.server.level.ServerPlayer, java.util.UUID, net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult autoAttack(net.minecraft.server.level.ServerPlayer, java.util.UUID)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult dispatch(net.minecraft.server.level.ServerPlayer, java.util.UUID, com.ivomens.mcheli.api.wingman.MissionRequest)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult follow(net.minecraft.server.level.ServerPlayer, net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult holdFire(net.minecraft.server.level.ServerPlayer, java.util.UUID)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult release(net.minecraft.server.level.ServerPlayer, java.util.UUID)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract com.ivomens.mcheli.api.wingman.WingmanOrderResult setWeaponType(net.minecraft.server.level.ServerPlayer, java.util.UUID, java.lang.String)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract java.util.List<com.ivomens.mcheli.api.wingman.WingmanState> all(net.minecraft.server.MinecraftServer)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract java.util.List<com.ivomens.mcheli.api.wingman.WingmanState> following(net.minecraft.world.entity.Entity)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract java.util.List<com.ivomens.mcheli.api.wingman.WingmanState> orderableBy(net.minecraft.server.level.ServerPlayer)
+com.ivomens.mcheli.api.wingman.Wingmen method public abstract java.util.Optional<com.ivomens.mcheli.api.wingman.WingmanState> get(net.minecraft.server.MinecraftServer, java.util.UUID)
+com.ivomens.mcheli.api.wingman.Wingmen type public interface
