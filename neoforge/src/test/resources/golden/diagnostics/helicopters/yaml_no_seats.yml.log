@@ -1,0 +1,5 @@
+# {"schema":1,"source":"assets/mcheli/helicopters/yaml_no_seats.yml","commit":"32abae6"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_no_seats) loading start.
+ERROR Failed to load 'assets/mcheli/helicopters/yaml_no_seats.yml' from addon 'mcheli': At least one seat must be set.
+    caused by java.lang.Exception: At least one seat must be set.

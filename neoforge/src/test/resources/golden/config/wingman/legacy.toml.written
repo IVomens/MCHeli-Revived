@@ -1,0 +1,37 @@
+# {"schema":1,"sample":"config/wingman/legacy.toml","modVersion":"empty in unit tests","commit":"e274e5c"}
+-- written file --
+fields: maxWingmen=10 formationSideDist=25.0 uavControllerRange=1200
+[uav]
+;UAV controller effective range in blocks. -1 for unlimited.
+controllerRange = 1200
+;UAV maximum flight distance in blocks. -1 for unlimited.
+maxDistance = 3000
+;Keep a small area of chunks loaded around a UAV while it is being flown by a player
+;(or is flying an autonomous mission) and is outside every player's loaded area, so it keeps
+;simulating far from its operator. Manned aircraft never need this: their pilot loads them.
+;Same effect as EnableUavChunkLoading in mcheli.cfg; the radius comes from UavChunkLoadRadius.
+;Off by default: each active far UAV costs a forced chunk area.
+forceChunkload = true
+
+[tvmissile]
+;While a player is steering a TV/TA missile, keep the chunks along its path loaded with a
+;short lease so the missile keeps flying (and can hit) beyond the simulation distance.
+chunkLoad = true
+;Maximum distance (blocks) a TV missile may travel from its operator before self-destructing.
+;-1 = unlimited.
+maxRange = 750
+
+[formation]
+;Lateral distance from the leader centre-line (blocks).
+formationSideDist = 25.00
+;Altitude offset relative to leader Y (blocks). Positive = above, negative = below.
+formationAltOffset = -10.00
+;Distance behind the leader (blocks).
+formationRearDist = 30.00
+;Maximum wingmen per aircraft.
+maxWingmen = 10
+;Minimum absolute Y altitude for attack runs regardless of weapon type. 0 = no floor.
+minAttackAltitude = 0.00
+;Maximum absolute Y altitude for attack runs regardless of weapon type. 0 = no ceiling.
+maxAttackAltitude = 0.00
+

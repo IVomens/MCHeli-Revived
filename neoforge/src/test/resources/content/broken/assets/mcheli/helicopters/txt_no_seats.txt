@@ -1,0 +1,2 @@
+DisplayName = TXT No Seats
+MaxHP = 10

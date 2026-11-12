@@ -1,0 +1,3 @@
+# A weapon type no factory knows: the file loads, but no vehicle can create the weapon.
+DisplayName: Unknown Type
+Type: plasma_cannon

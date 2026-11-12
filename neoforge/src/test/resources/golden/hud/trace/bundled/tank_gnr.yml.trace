@@ -1,0 +1,143 @@
+# {"schema":1,"hud":"bundled/tank_gnr.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (158.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation 36.0 of 512x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+-- frame cruise #2 (colour at start #FF28D448)
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (158.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation 36.0 of 512x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+-- frame damaged_gunner #1 (colour at start #FF000000)
+rect #FF000000 (1591.1007025761123, 1068.75) (511.10070257611244, -11.25)
+rect #FF000000 (-568.8992974238876, 1451.25) (511.10070257611244, 371.25)
+rect #FF000000 (-951.1007025761124, -708.75) (128.89929742388756, 371.25)
+rect #FF000000 (1208.8992974238877, -1091.25) (128.89929742388756, -11.25)
+prepare texture
+texture mcheli:textures/gui/tank_scope.png (128.89929742388756, -12.0) size (256.0, 256.0) uv (0.0, 0.0) uv size (256.0, 256.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (21.733021077283354, 304.5) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -121.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (65.19906323185009, 304.5) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (77.18969555035127, 304.5) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -180.0 of 512x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+-- frame damaged_gunner #2 (colour at start #FFDF0408)
+rect #FF000000 (1591.1007025761123, 1068.75) (511.10070257611244, -11.25)
+rect #FF000000 (-568.8992974238876, 1451.25) (511.10070257611244, 371.25)
+rect #FF000000 (-951.1007025761124, -708.75) (128.89929742388756, 371.25)
+rect #FF000000 (1208.8992974238877, -1091.25) (128.89929742388756, -11.25)
+prepare texture
+texture mcheli:textures/gui/tank_scope.png (128.89929742388756, -12.0) size (256.0, 256.0) uv (0.0, 0.0) uv size (256.0, 256.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (21.733021077283354, 304.5) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -121.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (65.19906323185009, 304.5) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (77.18969555035127, 304.5) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -180.0 of 512x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (158.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -180.0 of 512x256
+-- frame uav_no_weapon #2 (colour at start #FF28D448)
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/plane_hud_wwii.png (158.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -180.0 of 512x256

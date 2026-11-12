@@ -1,0 +1,38 @@
+# {"schema":1,"weapon":"dispenser_water_till","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3e99015"}
+modes: "Water Dispenser(Till)"
+mount: vehicle pzl-m18 (PlaneEntity), pilot seat, weapon #0
+ready after 205 ticks
+before shot: ammo 20 reserve 0 heat 0 cooldown 0 reload 0 name "Water Dispenser(Till)"
+t0 spawned #0 mcheli:dispensed_item at 3072.0 101.46247830769568 3072.447452602581 motion 0.0 0.0 0.0 yaw 1.0262985 pitch -12.997983
+after shot: ammo 19 reserve 0 heat 0 cooldown 0 reload 0 name "Water Dispenser(Till)"
+t1 #0 3072.0 101.41247830695062 3072.447452602581
+t2 #0 3072.0 101.3124783054605 3072.447452602581
+t3 spawned #1 mcheli:dispensed_item at 3072.0 101.16247830322533 3072.447452602581 motion 0.34559470415115356 0.16818703897297382 0.2632514238357544 yaw 131.0 pitch 0.0
+t3 spawned #2 mcheli:dispensed_item at 3072.0 101.16247830322533 3072.447452602581 motion -0.2501974105834961 -0.18009780161082745 0.29976511001586914 yaw 342.0 pitch 0.0
+t3 spawned #3 mcheli:dispensed_item at 3072.0 101.16247830322533 3072.447452602581 motion -0.2781917452812195 0.07073201425373554 0.26722514629364014 yaw 137.0 pitch 0.0
+t3 spawned #4 mcheli:dispensed_item at 3072.0 101.16247830322533 3072.447452602581 motion 0.49079352617263794 0.04732959158718586 -0.25498390197753906 yaw 274.0 pitch 0.0
+t3 spawned #5 mcheli:dispensed_item at 3072.0 101.16247830322533 3072.447452602581 motion -0.1548137664794922 -0.3117507230490446 0.4484630227088928 yaw 265.0 pitch 0.0
+t3 #0 removed: DISCARDED
+t3 #1 3072.0 101.16247830322533 3072.447452602581
+t3 #2 3072.0 101.16247830322533 3072.447452602581
+t3 #3 3072.0 101.16247830322533 3072.447452602581
+t3 #4 3072.0 101.16247830322533 3072.447452602581
+t3 #5 3072.0 101.16247830322533 3072.447452602581
+t4 #1 3072.345594704151 101.28066534145324 3072.710704026417
+t4 #2 removed: DISCARDED
+t4 #3 3071.721808254719 101.183210316734 3072.7146777488747
+t4 #4 3072.4907935261726 101.15980789406746 3072.1924687006035
+t4 #5 removed: DISCARDED
+t5 #1 3072.6908438135983 101.3488523789361 3072.9736921988288
+t5 #3 3071.4438947011827 101.15394232949762 3072.981635670022
+t5 #4 3072.981096258819 101.10713748416453 3071.937739782528
+t6 #1 3073.035747673936 101.3670394156739 3073.2364173830683
+t6 #3 3071.1662590612004 101.07467434151619 3073.2483266332483
+t6 #4 3073.470908688733 101.00446707351654 3071.6832655933704
+t7 #1 3073.380306630413 101.33522645166664 3073.4988798421236
+t7 #3 removed: DISCARDED
+t7 #4 removed: DISCARDED
+t8 #1 3073.724521027934 101.25341348691433 3073.76107983872
+t9 #1 3074.068391211057 101.12160052141695 3074.02301763532
+t10 #1 removed: DISCARDED
+after 60 ticks: ammo 19 reserve 0 heat 0 cooldown 0 reload 0 name "Water Dispenser(Till)"

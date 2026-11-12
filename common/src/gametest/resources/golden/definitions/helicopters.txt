@@ -1,0 +1,905 @@
+# Built-in helicopters, as the physics and gameplay see them. AllHeliSpeed=1.0
+helicopters/ah-1z
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.8, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.38, -0.75), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.0, 0.79), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.7999999880790711, 3.5), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=m197, pos=(0.0, 0.8539999723434448, 1.4809999465942383), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=hydra70, pos=(1.0399999618530273, 1.4760000705718994, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 2 MountDef[weaponType=hydra70, pos=(-1.0399999618530273, 1.1759999990463257, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 3 MountDef[weaponType=hydra70, pos=(0.800000011920929, 1.1759999990463257, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 4 MountDef[weaponType=hydra70, pos=(-0.800000011920929, 1.4760000705718994, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 5 MountDef[weaponType=hydra70_mpsm, pos=(1.0399999618530273, 1.2359999418258667, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 6 MountDef[weaponType=hydra70_mpsm, pos=(-1.0399999618530273, 1.5360000133514404, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 7 MountDef[weaponType=hydra70_mpsm, pos=(0.800000011920929, 1.5360000133514404, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 8 MountDef[weaponType=hydra70_mpsm, pos=(-0.800000011920929, 1.2359999418258667, -1.9170000553131104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 9 MountDef[weaponType=agm114, pos=(1.850000023841858, 1.3830000162124634, -1.909999966621399), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 10 MountDef[weaponType=agm114, pos=(-1.850000023841858, 1.3830000162124634, -1.909999966621399), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 11 MountDef[weaponType=agm114, pos=(1.5399999618530273, 1.3830000162124634, -1.909999966621399), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 12 MountDef[weaponType=agm114, pos=(-1.5399999618530273, 1.3830000162124634, -1.909999966621399), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 13 MountDef[weaponType=agm114tv, pos=(1.850000023841858, 1.093999981880188, -1.909999966621399), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 14 MountDef[weaponType=agm114tv, pos=(-1.850000023841858, 1.093999981880188, -1.909999966621399), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 15 MountDef[weaponType=agm114tv, pos=(1.5399999618530273, 1.093999981880188, -1.909999966621399), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 16 MountDef[weaponType=agm114tv, pos=(-1.5399999618530273, 1.093999981880188, -1.909999966621399), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 17 MountDef[weaponType=aim9, pos=(2.4200000762939453, 2.0390000343322754, -1.559999942779541), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 18 MountDef[weaponType=aim9, pos=(-2.4200000762939453, 2.0390000343322754, -1.559999942779541), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 19 MountDef[weaponType=a10gau8, pos=(0.0, 1.0499999523162842, 0.949999988079071), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 20 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.5290000438690186, 2.890000104904175), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 21 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 1.5290000438690186, 2.890000104904175), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.019, -14.331) rot=(1.0, 0.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 3.5, -2.933) rot=(0.0, 1.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 1.179, 2.893) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.5, 1.48) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(0.0, 0.4, 1.48) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon2 pos=(1.85, 1.033, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(-1.85, 1.033, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(1.54, 1.033, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(-1.54, 1.033, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(1.85, 0.744, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(-1.85, 0.744, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon8 pos=(1.54, 0.744, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon9 pos=(-1.54, 0.744, -1.91) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon10 pos=(2.42, 1.689, -1.56) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon11 pos=(-2.42, 1.689, -1.56) rot=(0.0, 0.0, 0.0)
+  part CANOPY canopy0 pos=(-0.258, 2.624, 0.746) rot=(0.0, -0.285, 0.677)
+  part CANOPY canopy pos=(-0.258, 2.624, 0.746) rot=(0.0, -0.285, 0.677)
+  part CANOPY canopy1 pos=(0.234, 2.793, -1.347) rot=(0.0, -0.14, 1.73)
+helicopters/ah-6
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.45, 0.8, 1.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.45, 0.8, 1.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.9, 0.8, 0.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.9, 0.8, 0.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=m134, pos=(1.4800000190734863, 0.75, 1.5399999618530273), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=m134, pos=(-1.4800000190734863, 0.75, 1.5399999618530273), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=hydra70_l, pos=(2.200000047683716, 0.5099999904632568, 1.1100000143051147), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=hydra70_l, pos=(-2.200000047683716, 0.5099999904632568, 1.1100000143051147), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=hydra70_m264rp, pos=(2.200000047683716, 0.5099999904632568, 1.1100000143051147), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=hydra70_m264rp, pos=(-2.200000047683716, 0.5099999904632568, 1.1100000143051147), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=aim92, pos=(2.299999952316284, 0.5099999904632568, 1.1100000143051147), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=aim92, pos=(-2.299999952316284, 0.5099999904632568, 1.1100000143051147), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.44999998807907104, 2.9100000858306885), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 9 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.44999998807907104, 2.9100000858306885), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.35, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.5, 1.9, -6.55) rot=(1.0, 0.0, 0.0)
+  part WEAPON weapon0 pos=(1.488, 0.314, -1.444) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon1 pos=(-1.488, 0.314, -1.444) rot=(0.0, 0.0, -1.0)
+helicopters/ah-64
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.7, onGroundPitch=-3.5, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.5, -0.28), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.3, 1.26), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.7999999880790711, 4.5), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=m230, pos=(0.0, 0.7300000190734863, 0.8999999761581421), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=hydra70, pos=(2.7200000286102295, 1.159999966621399, -2.130000114440918), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 2 MountDef[weaponType=hydra70, pos=(-2.7200000286102295, 1.159999966621399, -2.130000114440918), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 3 MountDef[weaponType=hydra70_mpsm, pos=(2.7200000286102295, 1.159999966621399, -2.130000114440918), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 4 MountDef[weaponType=hydra70_mpsm, pos=(-2.7200000286102295, 1.159999966621399, -2.130000114440918), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 5 MountDef[weaponType=aim92, pos=(2.7200000286102295, 1.2400000095367432, -1.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=aim92, pos=(-2.7200000286102295, 1.2400000095367432, -1.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=aim92, pos=(2.7200000286102295, 1.2400000095367432, -1.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=aim92, pos=(-2.7200000286102295, 1.2400000095367432, -1.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 9 MountDef[weaponType=agm114, pos=(1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 10 MountDef[weaponType=agm114, pos=(-1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 11 MountDef[weaponType=agm114, pos=(1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 12 MountDef[weaponType=agm114, pos=(-1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 13 MountDef[weaponType=agm114tv, pos=(1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 14 MountDef[weaponType=agm114tv, pos=(-1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 15 MountDef[weaponType=agm114tv, pos=(1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 16 MountDef[weaponType=agm114tv, pos=(-1.7200000286102295, 1.309999942779541, -1.6399999856948853), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 17 MountDef[weaponType=a10gau8, pos=(0.0, 1.0499999523162842, 0.949999988079071), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 18 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.4500000476837158, 4.5), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 19 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 1.4500000476837158, 4.5), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 5.19, -1.95) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.85, 4.04, -11.94) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 1.81, 3.13) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.0, 1.26, 3.31) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera2 pos=(0.0, 1.26, 3.31) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.29, 0.72) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 0.29, 0.72) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(0.0, 0.81, -2.13) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(-1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(-1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(-1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon8 pos=(1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon9 pos=(-1.72, 0.96, -1.64) rot=(0.0, 0.0, 0.0)
+helicopters/ah-6x
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.0, 0.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.45, 0.8, 1.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(0.45, 0.8, 1.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=m134, pos=(-1.4800000190734863, 0.75, 1.5399999618530273), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=m134, pos=(1.4800000190734863, 0.75, 1.5399999618530273), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=hydra70_l, pos=(2.200000047683716, 0.5099999904632568, 1.1100000143051147), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=hydra70_l, pos=(-2.200000047683716, 0.5099999904632568, 1.1100000143051147), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=aim92_l, pos=(2.299999952316284, 0.5099999904632568, 1.1100000143051147), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=aim92_l, pos=(-2.299999952316284, 0.5099999904632568, 1.1100000143051147), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.44999998807907104, 2.9100000858306885), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=targeting_pod_pv30s, pos=(0.0, 0.44999998807907104, 2.9100000858306885), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=targeting_pod_block, pos=(0.0, 0.44999998807907104, 2.9100000858306885), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.35, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.5, 1.9, -6.55) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.15, 2.51) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(-1.488, 0.314, -1.444) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon1 pos=(1.488, 0.314, -1.444) rot=(0.0, 0.0, -1.0)
+helicopters/bell206l
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.44, 1.06, 1.49), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.44, 1.06, 1.49), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.44, 1.2, 0.05), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.44, 1.2, 0.05), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(-0.44, 1.2, -0.89), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(0.44, 1.2, -0.89), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  part ROTOR blade0 pos=(0.0, 3.8, -0.91) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.17, 3.0, -11.55) rot=(1.0, 0.0, 0.0)
+helicopters/bell207
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.7, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.03, 0.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 0.84, 1.55), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.209999988079071, 2.8), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=m60_tw, pos=(0.10999999940395355, 0.7300000190734863, 3.1500000953674316), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-120.0, maxYaw=120.0, minPitch=-10.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=m60_tw, pos=(-0.10999999940395355, 0.7300000190734863, 3.1500000953674316), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-120.0, maxYaw=120.0, minPitch=-10.0, maxPitch=80.0, turret=false]
+  mount 2 MountDef[weaponType=mgm21a, pos=(1.6100000143051147, 2.25, -0.20000000298023224), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=mgm21a, pos=(-1.6100000143051147, 2.25, -0.20000000298023224), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.8500000238418579, 2.799999952316284), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.8500000238418579, 2.799999952316284), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.37, -1.045) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 1.819, -9.65) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.71, -0.02, 0.02) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.71, -0.02, 0.02) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.36, 2.08) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 0.36, 2.08) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(1.61, 1.9, -0.2) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(-1.61, 1.9, -0.2) rot=(0.0, 0.0, 0.0)
+helicopters/bell47g
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.5, 0.96, 0.29), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.5, 0.96, 0.29), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  part ROTOR blade0 pos=(0.0, 3.78, -1.17) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.05, 2.34, -10.04) rot=(1.0, 0.0, 0.0)
+helicopters/bell47gf
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=true]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.5, 0.96, 0.29), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.5, 0.96, 0.29), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=m134_l, pos=(0.5299999713897705, 0.3799999952316284, 1.9900000095367432), yaw=0.5, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.78, -1.17) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.05, 2.34, -10.04) rot=(1.0, 0.0, 0.0)
+  part WEAPON weapon0 pos=(0.464, 0.102, 1.994) rot=(0.0, 0.0, -1.0)
+helicopters/ch47
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.5, onGroundPitch=-2.5, floats=true]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.79, 1.5, -0.5), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.79, 1.5, -0.5), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.82, 1.2, -10.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(-0.68, 1.3, -1.5), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(-1.2, 2.999999988079071, -1.5), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 4 SeatDef[pos=(0.68, 1.3, -1.5), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(1.2, 2.999999988079071, -1.5), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 5 SeatDef[pos=(0.4, 1.2, -9.9), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.6, 1.2, -7.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-0.6, 1.2, -7.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 8 SeatDef[pos=(0.6, 1.2, -8.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 9 SeatDef[pos=(-0.6, 1.2, -8.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 10 SeatDef[pos=(0.6, 1.2, -9.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 11 SeatDef[pos=(-0.6, 1.2, -9.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 12 SeatDef[pos=(0.0, 1.5, -3.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -12.8), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[container], range=8.0]]
+  seat 13 SeatDef[pos=(0.0, 2.4, -3.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -12.8), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[container], range=8.0]]
+  seat 14 SeatDef[pos=(0.0, 1.5, -4.6), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -12.8), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[container], range=8.0]]
+  seat 15 SeatDef[pos=(0.0, 2.4, -4.6), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -12.8), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[container], range=8.0]]
+  seat 16 SeatDef[pos=(0.0, 1.5, -5.6), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -12.8), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[zodiac], range=12.0]]
+  mount 0 MountDef[weaponType=m3m_l, pos=(-0.699999988079071, 1.9500000476837158, -11.149999618530273), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=-180.0, minYaw=-70.0, maxYaw=70.0, minPitch=-5.0, maxPitch=30.0, turret=false]
+  mount 1 MountDef[weaponType=m134_l50, pos=(-1.2860000133514404, 2.32099986076355, -1.5190000534057617), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=3, defaultYaw=90.0, minYaw=-70.0, maxYaw=70.0, minPitch=-80.0, maxPitch=80.0, turret=false]
+  mount 2 MountDef[weaponType=m134_r50, pos=(1.2860000133514404, 2.32099986076355, -1.5190000534057617), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=4, defaultYaw=-90.0, minYaw=-70.0, maxYaw=70.0, minPitch=-80.0, maxPitch=80.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 4.651, -0.298) rot=(0.0, 1.0, 0.11)
+  part ROTOR blade1 pos=(0.0, 6.049, -12.614) rot=(0.0, -1.0, -0.093)
+  part HATCH hatch0 pos=(0.0, 0.858, -11.549) rot=(-1.0, 0.0, 0.0)
+  part WEAPON weapon0 pos=(-0.7, 1.6, -11.15) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-1.286, 1.941, -1.519) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(-1.286, 1.941, -1.519) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(-1.286, 1.941, -1.519) rot=(-1.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(1.286, 1.941, -1.519) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(1.286, 1.941, -1.519) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(1.286, 1.941, -1.519) rot=(1.0, 0.0, 0.0)
+helicopters/ec665
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.8, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.91, 1.76), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.32, 0.17), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.2999999880790711, 4.8), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=rmk30, pos=(0.0, 0.7799999713897705, 3.369999885559082), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=20mmgunpod, pos=(2.309999942779541, 1.600000023841858, 0.3199999928474426), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=20mmgunpod, pos=(-2.309999942779541, 1.600000023841858, 0.3199999928474426), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=pars_3_lr, pos=(1.25, 1.5700000524520874, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=pars_3_lr, pos=(-1.25, 1.5700000524520874, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=pars_3_lr, pos=(1.5299999713897705, 0.5699999928474426, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=pars_3_lr, pos=(-1.5299999713897705, 0.5699999928474426, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=pars_3_lr, pos=(1.2400000095367432, 1.2799999713897705, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=pars_3_lr, pos=(-1.2400000095367432, 1.2799999713897705, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 9 MountDef[weaponType=pars_3_lr, pos=(1.5399999618530273, 1.2699999809265137, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 10 MountDef[weaponType=pars_3_lr, pos=(-1.5399999618530273, 1.2699999809265137, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 11 MountDef[weaponType=aim92, pos=(0.7900000214576721, 0.8999999761581421, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 12 MountDef[weaponType=aim92, pos=(-0.7900000214576721, 0.8999999761581421, -0.009999999776482582), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 13 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.9500000476837158, 4.800000190734863), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 14 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.9500000476837158, 4.800000190734863), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.85, -1.25) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.5, 3.43, -10.13) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 5.38, -1.22) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.43, 3.37) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(0.0, 0.43, 3.37) rot=(0.0, 0.0, 0.0)
+helicopters/fl282
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.8, onGroundPitch=-6.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.45, 0.25), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.9500000476837158, 4.800000190734863), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=targeting_pod_pv5s, pos=(0.0, 0.9500000476837158, 4.800000190734863), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.48, 3.94, -1.69) rot=(-0.26, -1.0, -0.12)
+  part ROTOR blade1 pos=(-0.48, 3.94, -1.69) rot=(-0.26, 1.0, 0.12)
+helicopters/ka-27
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.5, 1.5, 0.09), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.5, 1.5, 0.09), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.5, 1.7, -1.45), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.6, 1.7, -3.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(0.6, 1.7, -4.35), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-0.6, 1.7, -2.6), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(-0.6, 1.7, -3.85), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-0.6, 1.7, -5.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=s-5m57mm, pos=(-1.25, 1.7000000476837158, -2.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=s-5m57mm, pos=(1.25, 1.7000000476837158, -2.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=plab-250-120, pos=(-1.25, 1.7000000476837158, -4.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=plab-250-120, pos=(1.25, 1.7000000476837158, -4.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=kh-35, pos=(-1.25, 1.7000000476837158, -2.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=kh-35, pos=(1.25, 1.7000000476837158, -2.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.3499999940395355, 3.0999999046325684), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.3499999940395355, 3.0999999046325684), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 5.0, -3.87) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 7.0, -3.87) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(-1.25, 1.35, -4.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(1.25, 1.35, -4.0) rot=(0.0, 0.0, 0.0)
+helicopters/ka-29
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.7, 1.6, 0.76), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.7, 1.6, 0.76), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.2999999880790711, 2.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.6, 1.7, -2.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.6, 1.7, -3.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(0.6, 1.7, -4.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-0.6, 1.7, -2.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(-0.6, 1.7, -3.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-0.6, 1.7, -4.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=2a42_ka50, pos=(1.4500000476837158, 2.1499998569488525, -0.16699999570846558), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=s-8, pos=(2.5869998931884766, 1.2929999828338623, -0.9100000262260437), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=s-8, pos=(-2.5869998931884766, 1.2929999828338623, -0.9100000262260437), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=9k114, pos=(3.5999999046325684, 1.4500000476837158, -1.2000000476837158), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=9k114, pos=(-3.5999999046325684, 1.4500000476837158, -1.2000000476837158), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=gshg7_62mm, pos=(-0.6000000238418579, 2.009000062942505, 2.132999897003174), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=-30.0, maxYaw=30.0, minPitch=-17.0, maxPitch=40.0, turret=false]
+  mount 6 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.9500000476837158, 2.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.9500000476837158, 2.0), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 7.0, -3.09) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 7.0, -3.09) rot=(0.0, -1.0, 0.0)
+  part HATCH hatch0 pos=(1.1, 1.46, -6.25) rot=(0.0, 0.0, 1.0)
+  part HATCH hatch1 pos=(0.99, 3.11, -6.25) rot=(0.0, 0.0, 1.0)
+  part WEAPON weapon0 pos=(-0.6, 1.659, 2.133) rot=(0.0, 0.0, -1.0)
+  part WEAPON_BAY wb0 pos=(0.0, 1.57, 1.96) rot=(1.0, 0.0, 0.0)
+helicopters/ka50n
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.65, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.7, 2.4), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=2a42_ka50, pos=(-1.0399999618530273, 1.0, 2.0), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-3.0, maxYaw=6.0, minPitch=0.0, maxPitch=30.0, turret=false]
+  mount 1 MountDef[weaponType=s-8_ka50, pos=(2.119999885559082, 0.8999999761581421, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 2 MountDef[weaponType=s-8_ka50, pos=(-2.119999885559082, 0.8999999761581421, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 3 MountDef[weaponType=9k121_ka50, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=9k121_ka50, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=9k121_ka50, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=9k121tv_ka50, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=9k121tv_ka50, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=9k121tv_ka50, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 9 MountDef[weaponType=9k38_ka50, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 10 MountDef[weaponType=9k38_ka50, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 11 MountDef[weaponType=9k38_ka50, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 12 MountDef[weaponType=9k38_ka50, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 13 MountDef[weaponType=9k38_ka50, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 14 MountDef[weaponType=9k38_ka50, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 15 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.5899999737739563, 5.5), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 16 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.5899999737739563, 5.5), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 0.0, 0.0) rot=(0.0, -1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 0.0, 0.0) rot=(0.0, 1.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.24, 5.09) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.0, 0.24, 5.09) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.7, 0.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(0.0, 0.7, -0.5) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(3.12, 0.35, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(3.12, 0.35, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(3.12, 0.35, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(3.12, 0.35, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(3.12, 0.35, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(3.12, 0.35, 2.0) rot=(0.0, 0.0, 0.0)
+helicopters/ka52
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.25, 0.7, 2.4), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.25, 0.7, 2.4), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=2a42_ka50, pos=(-1.0399999618530273, 1.0, 2.0), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-3.0, maxYaw=6.0, minPitch=0.0, maxPitch=30.0, turret=false]
+  mount 1 MountDef[weaponType=9k121_ka52, pos=(2.119999885559082, 0.8999999761581421, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 2 MountDef[weaponType=9k121_ka52, pos=(-2.119999885559082, 0.8999999761581421, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 3 MountDef[weaponType=9k121_ka52, pos=(2.119999885559082, 0.8999999761581421, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 4 MountDef[weaponType=9k121_ka52, pos=(-2.119999885559082, 0.8999999761581421, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 5 MountDef[weaponType=9k121_ka52, pos=(2.119999885559082, 0.8999999761581421, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 6 MountDef[weaponType=9k121_ka52, pos=(-2.119999885559082, 0.8999999761581421, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 7 MountDef[weaponType=9k121tv_ka52, pos=(2.119999885559082, 0.8999999761581421, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 8 MountDef[weaponType=9k121tv_ka52, pos=(-2.119999885559082, 0.8999999761581421, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 9 MountDef[weaponType=9k121tv_ka52, pos=(2.119999885559082, 0.8999999761581421, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 10 MountDef[weaponType=9k121tv_ka52, pos=(-2.119999885559082, 0.8999999761581421, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 11 MountDef[weaponType=9k121tv_ka52, pos=(2.119999885559082, 0.8999999761581421, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 12 MountDef[weaponType=9k121tv_ka52, pos=(-2.119999885559082, 0.8999999761581421, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 13 MountDef[weaponType=9k38_ka52, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 14 MountDef[weaponType=9k38_ka52, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 15 MountDef[weaponType=9k38_ka52, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 16 MountDef[weaponType=9k38_ka52, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 17 MountDef[weaponType=9k38_ka52, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 18 MountDef[weaponType=9k38_ka52, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 19 MountDef[weaponType=9k38_ka52, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 20 MountDef[weaponType=9k38_ka52, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 21 MountDef[weaponType=9k38_ka52, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 22 MountDef[weaponType=9k38_ka52, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 23 MountDef[weaponType=9k38_ka52, pos=(3.119999885559082, 0.699999988079071, 2.0), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 24 MountDef[weaponType=9k38_ka52, pos=(-3.119999885559082, 0.699999988079071, 2.0), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 25 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.5899999737739563, 5.300000190734863), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 26 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.5899999737739563, 5.300000190734863), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 0.0, 0.0) rot=(0.0, -1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 0.0, 0.0) rot=(0.0, 1.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.2, 4.3) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.0, 0.2, 4.3) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.7, 0.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(-2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(-2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(-2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon8 pos=(-2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon9 pos=(2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon10 pos=(-2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon11 pos=(2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon12 pos=(-2.12, 0.55, 2.0) rot=(0.0, 0.0, 0.0)
+helicopters/mh-53e
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.55, onGroundPitch=0.0, floats=true]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.85, 1.63, 0.07), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.85, 1.63, 0.07), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(0.5, 1.17, -1.62), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=50.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(1.4, 3.069999988079071, -1.62), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 3 SeatDef[pos=(-0.5, 1.17, -1.62), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=50.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(-1.4, 3.069999988079071, -1.62), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 4 SeatDef[pos=(1.05, 1.2, -2.95), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-1.05, 1.2, -2.95), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(1.05, 1.2, -4.05), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-1.05, 1.2, -4.05), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 8 SeatDef[pos=(1.05, 1.2, -5.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 9 SeatDef[pos=(-1.05, 1.2, -5.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 10 SeatDef[pos=(1.05, 1.2, -6.4), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 11 SeatDef[pos=(-1.05, 1.2, -6.4), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 12 SeatDef[pos=(1.05, 1.2, -7.6), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 13 SeatDef[pos=(-1.05, 1.2, -7.6), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 14 SeatDef[pos=(1.05, 1.2, -8.7), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 15 SeatDef[pos=(-1.05, 1.2, -8.7), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 16 SeatDef[pos=(1.05, 1.2, -9.85), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 17 SeatDef[pos=(-1.05, 1.2, -9.85), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 18 SeatDef[pos=(0.0, 0.85, -9.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=180.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -12.0), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[growler], range=7.0]]
+  seat 19 SeatDef[pos=(0.0, 0.85, -4.5), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=180.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -12.0), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[growler], range=7.0]]
+  mount 0 MountDef[weaponType=m3m_l, pos=(1.4700000286102295, 2.049999952316284, -1.6200000047683716), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=-90.0, minYaw=-70.0, maxYaw=70.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=m3m_r, pos=(-1.4700000286102295, 2.049999952316284, -1.6200000047683716), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=3, defaultYaw=90.0, minYaw=-70.0, maxYaw=70.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 5.6, -5.4) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(2.39, 5.94, -22.63) rot=(-1.267, 0.461, 0.0)
+  part HATCH hatch0 pos=(0.0, 2.5, -15.65) rot=(1.0, 0.0, 0.0)
+  part HATCH hatch1 pos=(0.0, 0.543, -10.47) rot=(1.0, 0.0, 0.0)
+  part WEAPON weapon0 pos=(1.47, 1.7, -1.62) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-1.47, 1.7, -1.62) rot=(0.0, 0.0, 0.0)
+  part LANDING_GEAR lg0 pos=(0.0, 1.12, 0.93) rot=(1.0, 0.0, 0.0)
+  part LANDING_GEAR lg1 pos=(0.0, 1.01, -8.35) rot=(1.0, 0.0, 0.0)
+helicopters/mh-6
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.45, 0.8, 1.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.45, 0.8, 1.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-1.45, 0.6, -0.9), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(1.45, 0.6, -0.9), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(-1.45, 0.6, 0.7), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(1.45, 0.6, 0.7), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 2.549999952316284, 1.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.35, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.5, 1.9, -6.55) rot=(1.0, 0.0, 0.0)
+helicopters/mh-60g
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.65, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.85, 0.9, 1.3), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.85, 0.9, 1.3), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.399999988079071, 3.5), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.95, 0.9, -0.31), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(1.35, 2.599999988079071, -0.31), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 3 SeatDef[pos=(-0.95, 0.9, -0.31), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(-1.35, 2.599999988079071, -0.31), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 4 SeatDef[pos=(0.95, 0.9, -2.52), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-0.95, 0.9, -2.52), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.87, 0.9, -3.62), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(0.0, 0.9, -3.62), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 8 SeatDef[pos=(-0.87, 0.9, -3.62), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 9 SeatDef[pos=(0.87, 0.9, -1.23), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 10 SeatDef[pos=(0.0, 0.9, -1.23), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 11 SeatDef[pos=(-0.87, 0.9, -1.23), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=m3m_l, pos=(1.5800000429153442, 1.5800000429153442, -2.5), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=4, defaultYaw=-90.0, minYaw=-70.0, maxYaw=70.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=m3m_r, pos=(-1.5800000429153442, 1.5800000429153442, -2.5), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=5, defaultYaw=90.0, minYaw=-70.0, maxYaw=70.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 2 MountDef[weaponType=m134_l50, pos=(1.6200000047683716, 1.8300000429153442, -0.3100000023841858), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=-90.0, minYaw=-80.0, maxYaw=80.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 3 MountDef[weaponType=m134_r50, pos=(-1.6200000047683716, 1.8300000429153442, -0.3100000023841858), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=3, defaultYaw=90.0, minYaw=-80.0, maxYaw=80.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 4 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.0499999523162842, 3.5), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 1.0499999523162842, 3.5), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.98, -2.33) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.6, 4.07, -14.57) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.7, 2.88) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(1.58, 1.23, -2.5) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-1.58, 1.23, -2.5) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(1.62, 1.475, -0.31) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(1.62, 1.475, -0.31) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(1.62, 1.475, -0.31) rot=(-1.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(-1.62, 1.475, -0.31) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(-1.62, 1.475, -0.31) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(-1.62, 1.475, -0.31) rot=(1.0, 0.0, 0.0)
+helicopters/mh-60l_dap
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.85, 0.9, 1.45), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.85, 0.9, 1.45), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.399999988079071, 3.5), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(-1.05, 0.9, -0.3), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(-1.55, 2.599999988079071, -0.3), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 3 SeatDef[pos=(1.05, 0.9, -0.3), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(1.55, 2.599999988079071, -0.3), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=m230_30, pos=(-2.509999990463257, 1.6399999856948853, -1.5099999904632568), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=-20.0, maxPitch=20.0, turret=false]
+  mount 1 MountDef[weaponType=hydra70_10, pos=(2.509999990463257, 1.540000081062317, -1.809999942779541), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=20.0, turret=false]
+  mount 2 MountDef[weaponType=m134_r50, pos=(-1.7899999618530273, 1.8300000429153442, -0.25), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=0.0, minYaw=0.0, maxYaw=135.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 3 MountDef[weaponType=m134_l50, pos=(1.7899999618530273, 1.8300000429153442, -0.25), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=3, defaultYaw=0.0, minYaw=-135.0, maxYaw=0.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 4 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.0499999523162842, 3.5), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 1.0499999523162842, 3.5), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.98, -2.33) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.6, 4.07, -14.59) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.52, 2.84) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(-2.51, 1.29, -1.51) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-1.88, 1.28, -2.18) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(-1.825, 1.475, -0.25) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(-1.825, 1.475, -0.25) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(-1.825, 1.475, -0.25) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon5 pos=(1.792, 1.475, -0.25) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(1.792, 1.475, -0.25) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(1.792, 1.475, -0.25) rot=(0.0, 0.0, -1.0)
+helicopters/mi-24
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.5, onGroundPitch=-4.56, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.9, 3.73), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 0.44, 5.08), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 0.9999999880790711, 5.937), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.27, 1.08, -0.59), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.27, 1.08, 0.08), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(-0.27, 1.08, -0.59), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-0.27, 1.08, 0.08), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.25, 0.87, 1.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-0.25, 0.87, 1.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=gsh-23-2, pos=(0.0, 0.7799999713897705, 5.936999797821045), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-60.0, maxYaw=60.0, minPitch=-10.0, maxPitch=60.0, turret=false]
+  mount 1 MountDef[weaponType=yakb-12_7, pos=(2.0399999618530273, 1.4600000381469727, 0.6399999856948853), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=yakb-12_7, pos=(-2.0399999618530273, 1.4600000381469727, 0.6399999856948853), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=gshg-7_62, pos=(2.200000047683716, 1.4600000381469727, 0.38999998569488525), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=gshg-7_62, pos=(1.8799999952316284, 1.4600000381469727, 0.38999998569488525), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=gshg-7_62, pos=(-2.200000047683716, 1.4600000381469727, 0.38999998569488525), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=gshg-7_62, pos=(-1.8799999952316284, 1.4600000381469727, 0.38999998569488525), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=9m114, pos=(4.25, -2.120000123977661, -0.3700000047683716), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=9m114, pos=(3.9700000286102295, -2.120000123977661, -0.3700000047683716), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 9 MountDef[weaponType=9m114, pos=(-4.25, -2.120000123977661, -0.3700000047683716), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 10 MountDef[weaponType=9m114, pos=(-3.9700000286102295, -2.120000123977661, -0.3700000047683716), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 11 MountDef[weaponType=s-8_h, pos=(2.9200000762939453, 1.4900000095367432, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 12 MountDef[weaponType=s-8_h, pos=(-2.9200000762939453, 1.4900000095367432, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 13 MountDef[weaponType=s-8_h, pos=(2.7799999713897705, 1.4900000095367432, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 14 MountDef[weaponType=s-8_h, pos=(-2.7799999713897705, 1.4900000095367432, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 15 MountDef[weaponType=s-8_h, pos=(3.0, 1.4300000667572021, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 16 MountDef[weaponType=s-8_h, pos=(-3.0, 1.4300000667572021, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 17 MountDef[weaponType=s-8_h, pos=(2.700000047683716, 1.4300000667572021, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 18 MountDef[weaponType=s-8_h, pos=(-2.700000047683716, 1.4300000667572021, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 19 MountDef[weaponType=s-8_h, pos=(2.9000000953674316, 1.3899999856948853, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 20 MountDef[weaponType=s-8_h, pos=(-2.9000000953674316, 1.3899999856948853, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 21 MountDef[weaponType=s-8_h, pos=(2.809999942779541, 1.3899999856948853, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 22 MountDef[weaponType=s-8_h, pos=(-2.809999942779541, 1.3899999856948853, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 23 MountDef[weaponType=s-8_h, pos=(3.0399999618530273, 1.3600000143051147, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 24 MountDef[weaponType=s-8_h, pos=(-3.0399999618530273, 1.3600000143051147, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 25 MountDef[weaponType=s-8_h, pos=(2.6600000858306885, 1.3600000143051147, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 26 MountDef[weaponType=s-8_h, pos=(-2.6600000858306885, 1.3600000143051147, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 27 MountDef[weaponType=s-8_h, pos=(2.9600000381469727, 1.3200000524520874, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 28 MountDef[weaponType=s-8_h, pos=(-2.9600000381469727, 1.3200000524520874, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 29 MountDef[weaponType=s-8_h, pos=(2.75, 1.3200000524520874, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 30 MountDef[weaponType=s-8_h, pos=(-2.75, 1.3200000524520874, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 31 MountDef[weaponType=s-8_h, pos=(3.0399999618530273, 1.2599999904632568, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 32 MountDef[weaponType=s-8_h, pos=(-3.0399999618530273, 1.2599999904632568, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 33 MountDef[weaponType=s-8_h, pos=(2.9200000762939453, 1.2400000095367432, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 34 MountDef[weaponType=s-8_h, pos=(-2.9200000762939453, 1.2400000095367432, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 35 MountDef[weaponType=s-8_h, pos=(2.7699999809265137, 1.2400000095367432, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 36 MountDef[weaponType=s-8_h, pos=(-2.7699999809265137, 1.2400000095367432, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 37 MountDef[weaponType=s-8_h, pos=(2.6700000762939453, 1.2599999904632568, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 38 MountDef[weaponType=s-8_h, pos=(-2.6700000762939453, 1.2599999904632568, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 39 MountDef[weaponType=s-8_h, pos=(3.0, 1.1899999380111694, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 40 MountDef[weaponType=s-8_h, pos=(-3.0, 1.1899999380111694, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 41 MountDef[weaponType=s-8_h, pos=(2.8499999046325684, 1.2000000476837158, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 42 MountDef[weaponType=s-8_h, pos=(-2.8499999046325684, 1.2000000476837158, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 43 MountDef[weaponType=s-8_h, pos=(2.700000047683716, 1.1899999380111694, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 44 MountDef[weaponType=s-8_h, pos=(-2.700000047683716, 1.1899999380111694, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 45 MountDef[weaponType=s-8_h, pos=(2.930000066757202, 1.1299999952316284, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 46 MountDef[weaponType=s-8_h, pos=(-2.930000066757202, 1.1299999952316284, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 47 MountDef[weaponType=s-8_h, pos=(2.8499999046325684, 1.1100000143051147, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 48 MountDef[weaponType=s-8_h, pos=(-2.8499999046325684, 1.1100000143051147, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 49 MountDef[weaponType=s-8_h, pos=(2.7699999809265137, 1.1299999952316284, -2.319999933242798), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 50 MountDef[weaponType=s-8_h, pos=(-2.7699999809265137, 1.1299999952316284, -2.319999933242798), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 51 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.6499999761581421, 5.940000057220459), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 52 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.6499999761581421, 5.940000057220459), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.0, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.53, 4.36, -12.21) rot=(1.0, 0.0, 0.0)
+  part HATCH hatch0 pos=(1.02, 2.07, 1.83) rot=(0.0, 0.0, 1.0)
+  part HATCH hatch1 pos=(0.94, 0.75, 1.83) rot=(0.0, 0.0, -1.0)
+  part HATCH hatch2 pos=(-1.02, 2.07, 1.83) rot=(0.0, 0.0, -1.0)
+  part HATCH hatch3 pos=(-0.94, 0.75, 1.83) rot=(0.0, 0.0, 1.0)
+  part WEAPON weapon0 pos=(0.0, 0.43, 5.937) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 0.206, 6.22) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(2.043, 1.119, 0.64) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon2 pos=(-2.043, 1.119, 0.64) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon3 pos=(2.202, 1.118, 0.39) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon4 pos=(1.887, 1.118, 0.39) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon5 pos=(-2.202, 1.118, 0.39) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon6 pos=(-1.887, 1.118, 0.39) rot=(0.0, 0.0, -1.0)
+  part LANDING_GEAR lg0 pos=(0.0, 0.6, 4.0) rot=(1.0, 0.0, 0.0)
+  part LANDING_GEAR lg1 pos=(0.53, 0.59, -1.25) rot=(0.0, 1.0, 0.0)
+  part LANDING_GEAR lg2 pos=(-0.53, 0.59, -1.25) rot=(0.0, -1.0, 0.0)
+  part LANDING_GEAR lg3 pos=(0.9, 0.75, -1.4) rot=(0.0, 0.0, -1.0)
+  part LANDING_GEAR lg4 pos=(-0.9, 0.75, -1.4) rot=(0.0, 0.0, 1.0)
+helicopters/mi-24ps
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=-4.56, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.9, 3.73), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 0.44, 5.08), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.27, 1.08, -0.59), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.27, 1.08, 0.08), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(-0.27, 1.08, -0.59), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-0.27, 1.08, 0.08), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.25, 0.87, 1.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-0.25, 0.87, 1.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.6499999761581421, 5.940000057220459), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=targeting_pod_pv30s, pos=(0.0, 0.6499999761581421, 5.940000057220459), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 0.0, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.53, 4.36, -12.21) rot=(1.0, 0.0, 0.0)
+  part HATCH hatch0 pos=(1.02, 2.07, 1.83) rot=(0.0, 0.0, 1.0)
+  part HATCH hatch1 pos=(0.94, 0.75, 1.83) rot=(0.0, 0.0, -1.0)
+  part HATCH hatch2 pos=(-1.02, 2.07, 1.83) rot=(0.0, 0.0, -1.0)
+  part HATCH hatch3 pos=(-0.94, 0.75, 1.83) rot=(0.0, 0.0, 1.0)
+  part CAMERA camera0 pos=(0.0, 0.14, 5.94) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.0, 0.14, 5.94) rot=(0.0, -1.0, 0.0)
+  part LANDING_GEAR lg0 pos=(0.0, 0.6, 4.0) rot=(1.0, 0.0, 0.0)
+  part LANDING_GEAR lg1 pos=(0.53, 0.59, -1.25) rot=(0.0, 1.0, 0.0)
+  part LANDING_GEAR lg2 pos=(-0.53, 0.59, -1.25) rot=(0.0, -1.0, 0.0)
+  part LANDING_GEAR lg3 pos=(0.9, 0.75, -1.4) rot=(0.0, 0.0, -1.0)
+  part LANDING_GEAR lg4 pos=(-0.9, 0.75, -1.4) rot=(0.0, 0.0, 1.0)
+helicopters/mi28
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=-4.5, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.76, 0.77), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.23, 2.19), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.499999988079071, 4.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=2a42, pos=(0.0, 0.4000000059604645, 2.680000066757202), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=s-8, pos=(1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 2 MountDef[weaponType=s-8, pos=(-1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 3 MountDef[weaponType=s-8dm, pos=(1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 4 MountDef[weaponType=s-8dm, pos=(-1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 5 MountDef[weaponType=s-8s, pos=(1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 6 MountDef[weaponType=s-8s, pos=(-1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 7 MountDef[weaponType=s-8tsm, pos=(1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 8 MountDef[weaponType=s-8tsm, pos=(-1.3300000429153442, 1.0700000524520874, -0.44999998807907104), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=25.0, turret=false]
+  mount 9 MountDef[weaponType=9m39, pos=(-2.180000066757202, 0.7300000190734863, -0.3799999952316284), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 10 MountDef[weaponType=9m39, pos=(-2.7300000190734863, 0.7300000190734863, -0.3799999952316284), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 11 MountDef[weaponType=9k118, pos=(2.130000114440918, 1.2699999809265137, -0.4399999976158142), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 12 MountDef[weaponType=9k118, pos=(2.130000114440918, 0.9199999570846558, -0.4399999976158142), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 13 MountDef[weaponType=9k118tv, pos=(2.7799999713897705, 1.2699999809265137, -0.4399999976158142), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 14 MountDef[weaponType=9k118tv, pos=(2.7799999713897705, 0.9199999570846558, -0.4399999976158142), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 15 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.149999976158142, 4.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 16 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 1.149999976158142, 4.0), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.7, -0.92) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.88, 3.85, -12.92) rot=(1.0, 0.0, 0.0)
+  part ROTOR blade2 pos=(-0.65, 3.85, -12.92) rot=(-1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 1.34, 4.66) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.0, 1.15, 4.13) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera2 pos=(0.0, 0.42, 2.65) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.11, 2.65) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(0.0, 1.03, -1.46) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(-2.18, 0.38, -0.38) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(-2.73, 0.38, -0.38) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(2.13, 0.92, -0.44) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(2.13, 0.57, -0.44) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(2.78, 0.92, -0.44) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(2.78, 0.57, -0.44) rot=(0.0, 0.0, 0.0)
+helicopters/mq-8b
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.5, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.0, 0.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=hydra70_4, pos=(-2.0, 1.0499999523162842, 1.090000033378601), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=gbu-44, pos=(2.180000066757202, 1.0700000524520874, 0.09000000357627869), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=gbu-44, pos=(1.8600000143051147, 1.0700000524520874, 0.09000000357627869), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.6499999761581421, 1.399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=targeting_pod_pv30s, pos=(0.0, 0.6499999761581421, 1.399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.2, -0.75) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.5, 1.97, -6.495) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.29, 1.2) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.0, 0.29, 1.2) rot=(0.0, -1.0, 0.0)
+helicopters/nh90
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.8, onGroundPitch=-1.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.4, 0.52, 5.11), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.4, 0.52, 5.11), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.54, 0.57, 3.58), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.54, 0.57, 3.58), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(-0.54, 0.57, 2.98), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(0.54, 0.57, 2.98), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(-0.54, 0.57, 0.57), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(0.54, 0.57, 0.57), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 8 SeatDef[pos=(-0.54, 0.57, -0.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 9 SeatDef[pos=(0.54, 0.57, -0.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 10 SeatDef[pos=(-0.54, 0.57, -0.78), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 11 SeatDef[pos=(0.54, 0.57, -0.78), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  part ROTOR blade0 pos=(0.0, 3.56, 1.59) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.63, 3.63, -8.63) rot=(1.0, 0.0, 0.0)
+  part HATCH hatch0 pos=(0.08, 0.0, 1.7) rot=(0.0, 0.0, 0.0)
+  part HATCH hatch1 pos=(-0.08, 0.0, 1.7) rot=(0.0, 0.0, 0.0)
+  part LANDING_GEAR lg0 pos=(0.0, 0.29, 6.38) rot=(1.0, 0.0, 0.0)
+  part LANDING_GEAR lg1 pos=(-0.96, 0.02, 0.02) rot=(0.0, 0.0, -1.0)
+  part LANDING_GEAR lg2 pos=(0.96, 0.02, 0.02) rot=(0.0, 0.0, 1.0)
+helicopters/oh-1
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.8, onGroundPitch=-4.1, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.49, 1.75), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 0.99, 0.1), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 3.8999999880790712, 0.42), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=hydra70_l, pos=(1.1200000047683716, 1.4300000667572021, -0.33000001311302185), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=hydra70_l, pos=(-1.1200000047683716, 1.4300000667572021, -0.33000001311302185), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=hydra70_m264rp, pos=(1.1200000047683716, 1.4300000667572021, -0.33000001311302185), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=hydra70_m264rp, pos=(-1.1200000047683716, 1.4300000667572021, -0.33000001311302185), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=sam2, pos=(1.8200000524520874, 1.350000023841858, -0.4000000059604645), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=sam2, pos=(-1.8200000524520874, 1.350000023841858, -0.4000000059604645), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 0.6499999761581421, 1.399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 0.6499999761581421, 1.399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=targeting_pod_pv30s, pos=(0.0, 0.6499999761581421, 1.399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 9 MountDef[weaponType=targeting_pod_block, pos=(0.0, 0.6499999761581421, 1.399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 10 MountDef[weaponType=cas_gbu-38b, pos=(0.0, 150.35000610351562, 30.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.93, -1.54) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 2.01, -9.26) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 3.2, -0.42) rot=(0.0, -1.0, 0.0)
+  part CAMERA camera1 pos=(0.0, 3.2, -0.42) rot=(0.0, -1.0, 0.0)
+helicopters/penetrator
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.8, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.77, 0.46), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.0, -0.7), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.32, 0.72, -3.89), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(-0.32, 0.72, -3.89), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=fim92, pos=(2.390000104904175, 0.75, -1.8700000047683716), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=fim92, pos=(-2.390000104904175, 0.75, -1.8700000047683716), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=xm301, pos=(0.7400000095367432, 0.5899999737739563, -0.09000000357627869), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-75.0, maxYaw=75.0, minPitch=-8.0, maxPitch=80.0, turret=false]
+  mount 3 MountDef[weaponType=xm301, pos=(-0.7400000095367432, 0.5899999737739563, -0.09000000357627869), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-75.0, maxYaw=75.0, minPitch=-8.0, maxPitch=80.0, turret=false]
+  mount 4 MountDef[weaponType=cas_gbu-38b, pos=(0.0, 150.35000610351562, 30.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=m3m_l, pos=(0.7099999785423279, 0.4099999964237213, -4.510000228881836), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=-180.0, minYaw=-10.0, maxYaw=115.0, minPitch=-8.0, maxPitch=70.0, turret=false]
+  mount 6 MountDef[weaponType=m3m_r, pos=(-0.7099999785423279, 0.4099999964237213, -4.510000228881836), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=3, defaultYaw=-180.0, minYaw=-115.0, maxYaw=10.0, minPitch=-8.0, maxPitch=70.0, turret=false]
+  mount 7 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.9500000476837158, 2.200000047683716), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 2.9, -2.88) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.44, 3.52, -12.34) rot=(1.0, 0.0, 0.0)
+  part WEAPON weapon0 pos=(0.74, 0.48, -0.11) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.74, 0.36, -0.07) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(0.74, 0.24, -0.11) rot=(0.0, 0.0, 1.0)
+  part WEAPON weapon2 pos=(-0.74, 0.48, -0.11) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon2_0 pos=(-0.74, 0.36, -0.07) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(-0.74, 0.24, -0.11) rot=(0.0, 0.0, 1.0)
+  part WEAPON weapon4 pos=(0.71, 0.2, -4.51) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon4_0 pos=(0.71, 0.13, -4.39) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(-0.71, 0.2, -4.51) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon5_0 pos=(-0.71, 0.13, -4.39) rot=(0.0, 0.0, 0.0)
+helicopters/rc-goblin
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.4, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 2.0, 0.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  part ROTOR blade0 pos=(0.0, 0.24, -0.14) rot=(0.0, -1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 0.0, -0.65) rot=(1.0, 0.0, 0.0)
+helicopters/rc-goblin-bomb
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.4, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 2.0, 0.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=plastic_bomb, pos=(0.0, 0.3499999940395355, 0.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 0.24, -0.14) rot=(0.0, -1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 0.0, -0.65) rot=(1.0, 0.0, 0.0)
+helicopters/robinson_r44
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.43, 0.91, 1.76), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.43, 0.91, 1.76), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.43, 0.95, 0.64), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.43, 0.95, 0.64), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  part ROTOR blade0 pos=(0.0, 4.55, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.47, 2.61, -8.55) rot=(1.0, 0.0, 0.0)
+  part HATCH hatch0 pos=(0.87, 1.01, 2.48) rot=(0.046, -1.0, 0.51)
+  part HATCH hatch1 pos=(-0.87, 1.01, 2.48) rot=(0.046, 1.0, -0.51)
+  part HATCH hatch2 pos=(0.87, 1.01, 2.48) rot=(0.046, -1.0, 0.51)
+  part HATCH hatch3 pos=(-0.87, 1.01, 2.48) rot=(0.046, 1.0, -0.51)
+helicopters/robinson_r44f
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=true]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.43, 0.91, 1.76), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.43, 0.91, 1.76), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.43, 0.95, 0.64), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.43, 0.95, 0.64), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  part ROTOR blade0 pos=(0.0, 4.55, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.47, 2.61, -8.55) rot=(1.0, 0.0, 0.0)
+  part HATCH hatch0 pos=(0.87, 1.01, 2.48) rot=(0.046, -1.0, 0.51)
+  part HATCH hatch1 pos=(-0.87, 1.01, 2.48) rot=(0.046, 1.0, -0.51)
+  part HATCH hatch2 pos=(0.87, 1.01, 2.48) rot=(0.046, -1.0, 0.51)
+  part HATCH hatch3 pos=(-0.87, 1.01, 2.48) rot=(0.046, 1.0, -0.51)
+helicopters/sh-3
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.65, onGroundPitch=0.0, floats=true]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.5, 1.55, 0.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.5, 1.55, 0.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.7, 1.2, -6.45), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(-0.6, 1.3, -2.8), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(0.56, 1.3, -3.9), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(0.56, 1.3, -4.9), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.56, 1.3, -5.9), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=m240_r, pos=(-1.4769999980926514, 1.9789999723434448, -6.447000026702881), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=90.0, minYaw=-80.0, maxYaw=80.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 5.0, -3.776) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.8, 3.523, -16.111) rot=(1.0, 0.0, 0.0)
+  part WEAPON weapon0 pos=(-1.477, 1.629, -6.447) rot=(0.0, 0.0, 0.0)
+  part LANDING_GEAR lg0 pos=(0.0, 0.849, -2.605) rot=(1.0, 0.0, 0.0)
+helicopters/sh-60
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.6, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.85, 0.9, 1.45), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.85, 0.9, 1.45), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.399999988079071, 3.5), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(-1.15, 0.9, -2.15), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.85, 0.9, -1.78), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(0.02, 0.9, 0.27), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-0.03, 0.9, -0.67), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.0, 0.9, -3.67), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-0.86, 0.9, -3.67), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 8 SeatDef[pos=(0.0, 0.3, -3.0), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, -3.0), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[zodiac], range=12.0]]
+  mount 0 MountDef[weaponType=agm114tv, pos=(2.359999895095825, 0.7599999904632568, -1.0299999713897705), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 1 MountDef[weaponType=agm114tv, pos=(2.359999895095825, 0.7599999904632568, -1.0299999713897705), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 2 MountDef[weaponType=agm114tv, pos=(2.359999895095825, 0.7599999904632568, -1.0299999713897705), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=agm114tv, pos=(2.359999895095825, 0.7599999904632568, -1.0299999713897705), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=agm119, pos=(2.359999895095825, 0.7599999904632568, -3.0299999713897705), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=mk46, pos=(-1.5299999713897705, 1.100000023841858, -3.4000000953674316), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=m3m_r, pos=(-1.8799999952316284, 1.6299999952316284, -2.180000066757202), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=90.0, minYaw=-80.0, maxYaw=80.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 7 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.0499999523162842, 3.5), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 8 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 1.0499999523162842, 3.5), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.98, -2.33) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.6, 4.07, -14.57) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.52, 2.84) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(-1.88, 1.28, -2.18) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(2.36, 0.41, -1.03) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(2.36, 0.41, -1.03) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(2.36, 0.41, -1.03) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(2.36, 0.41, -1.03) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(-1.53, 0.75, -3.4) rot=(0.0, 0.0, 0.0)
+helicopters/uh-1c
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.65, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.5, 0.8, 0.1), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.5, 0.8, 0.1), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 1.399999988079071, 3.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(1.05, 0.7, -1.45), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(-1.05, 0.7, -1.45), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=m134, pos=(2.4600000381469727, 0.8400000333786011, -2.5399999618530273), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=-30.0, maxPitch=30.0, turret=false]
+  mount 1 MountDef[weaponType=m134, pos=(-2.4600000381469727, 0.8400000333786011, -2.5399999618530273), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=30.0, maxPitch=30.0, turret=false]
+  mount 2 MountDef[weaponType=m60_l, pos=(1.659999966621399, 1.5199999809265137, -1.4500000476837158), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=-90.0, minYaw=-80.0, maxYaw=80.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 3 MountDef[weaponType=m60_r, pos=(-1.659999966621399, 1.5199999809265137, -1.4500000476837158), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=3, defaultYaw=90.0, minYaw=-80.0, maxYaw=80.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 4 MountDef[weaponType=m75_40mm, pos=(0.0, 0.8999999761581421, 2.069999933242798), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-30.0, maxYaw=30.0, minPitch=-10.0, maxPitch=70.0, turret=false]
+  mount 5 MountDef[weaponType=targeting_pod_mob, pos=(0.0, 1.0499999523162842, 3.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=targeting_pod_pv10s, pos=(0.0, 1.0499999523162842, 3.0), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 7 MountDef[weaponType=hydra70_l, pos=(1.909999966621399, 0.6200000047683716, -2.5399999618530273), yaw=1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=30.0, turret=false]
+  mount 8 MountDef[weaponType=hydra70_l, pos=(-1.909999966621399, 0.6200000047683716, -2.5399999618530273), yaw=-1.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=30.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.715, -2.536) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(0.0, 3.715, -12.005) rot=(1.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 0.55, 2.07) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(2.459, 0.491, -2.54) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(2.459, 0.491, -2.54) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon2 pos=(-2.459, 0.491, -2.54) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(-2.459, 0.491, -2.54) rot=(0.0, 0.0, -1.0)
+  part WEAPON weapon4 pos=(1.665, 1.175, -1.455) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon5 pos=(-1.665, 1.175, -1.455) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon6 pos=(0.0, 0.55, 2.07) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon6_0 pos=(0.0, 0.55, 2.07) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon7 pos=(0.0, 0.27, -2.54) rot=(0.0, 0.0, 0.0)
+helicopters/w3
+  handling RotorcraftHandling[gravity=Gravity[air=-0.04, water=-0.04], speedLimit=0.7, onGroundPitch=0.0, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=0.0]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.55, 0.75, 2.4), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.55, 0.75, 2.4), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 4.59), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(-0.78, 0.87, 1.04), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.34, 0.83, -0.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(-0.34, 0.83, -0.2), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(0.34, 0.83, -0.91), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(-0.34, 0.83, -0.91), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(0.34, 0.83, -1.7), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 8 SeatDef[pos=(-0.34, 0.83, -1.7), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=mg12_7mm, pos=(0.0, 0.4399999976158142, 5.489999771118164), yaw=0.0, pitch=-1.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=80.0, turret=false]
+  mount 1 MountDef[weaponType=mg7_62mm, pos=(-1.9700000286102295, 1.8100000619888306, 1.0399999618530273), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=90.0, minYaw=-70.0, maxYaw=70.0, minPitch=-50.0, maxPitch=80.0, turret=false]
+  mount 2 MountDef[weaponType=s-13, pos=(-1.7999999523162842, 1.4200000762939453, -0.44999998807907104), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 3 MountDef[weaponType=s-13, pos=(1.7999999523162842, 1.4200000762939453, -0.44999998807907104), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 4 MountDef[weaponType=grom, pos=(-2.6600000858306885, 1.7400000095367432, 0.6000000238418579), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 5 MountDef[weaponType=grom, pos=(-2.359999895095825, 1.7400000095367432, 0.6000000238418579), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  mount 6 MountDef[weaponType=pom2, pos=(2.509999990463257, 1.309999942779541, -0.4399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part ROTOR blade0 pos=(0.0, 3.66, 0.0) rot=(0.0, 1.0, 0.0)
+  part ROTOR blade1 pos=(-0.28, 3.93, -10.7) rot=(1.0, 0.0, 0.0)
+  part HATCH hatch0 pos=(0.07, 0.0, -1.1) rot=(0.0, 0.0, 0.0)
+  part CAMERA camera0 pos=(0.0, 2.65, 1.91) rot=(0.0, -1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 0.07, 4.01) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 0.27, 4.01) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-1.18, 1.41, 1.04) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon1_0 pos=(-1.24, 1.24, 1.04) rot=(0.0, 0.0, 0.0)

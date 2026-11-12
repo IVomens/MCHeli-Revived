@@ -1,0 +1,10 @@
+// Other types leave gravity alone, wherever the Type line is.
+DisplayName = Gravity Rocket
+Gravity = -0.2
+Type = rocket
+Target = block
+SetCartridge = shell
+SetCartridge =
+TrajectoryParticle = none
+Sight = MoveSight
+Sight = unknownsight

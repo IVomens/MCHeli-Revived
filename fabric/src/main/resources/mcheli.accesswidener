@@ -1,0 +1,60 @@
+accessWidener v2 named
+
+# Every entry of common's META-INF/accesstransformer.cfg, in the same order (AccessWidenerCoverageTest
+# checks that none is missing). The access widener cannot make a member protected, so the protected
+# ones become public.
+
+accessible field net/minecraft/client/sounds/SoundManager registry Ljava/util/Map;
+accessible field net/minecraft/client/renderer/ItemInHandRenderer mainHandItem Lnet/minecraft/world/item/ItemStack;
+accessible field net/minecraft/client/renderer/ItemInHandRenderer mainHandHeight F
+accessible field net/minecraft/client/multiplayer/MultiPlayerGameMode destroyDelay I
+accessible field net/minecraft/client/renderer/ItemInHandRenderer oMainHandHeight F
+accessible method net/minecraft/server/level/ChunkMap getChunks ()Ljava/lang/Iterable;
+accessible field net/minecraft/client/Minecraft mainRenderTarget Lcom/mojang/blaze3d/pipeline/RenderTarget;
+mutable field net/minecraft/client/Minecraft mainRenderTarget Lcom/mojang/blaze3d/pipeline/RenderTarget;
+accessible field net/minecraft/client/KeyMapping key Lcom/mojang/blaze3d/platform/InputConstants$Key;
+
+# Opened by NeoForge's own access transformer as well.
+accessible class net/minecraft/client/gui/screens/MenuScreens$ScreenConstructor
+accessible method net/minecraft/client/renderer/GameRenderer loadEffect (Lnet/minecraft/resources/ResourceLocation;)V
+accessible method net/minecraft/client/renderer/block/model/ItemOverrides <init> ()V
+accessible method net/minecraft/world/damagesource/DamageSources source (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/world/damagesource/DamageSource;
+accessible method net/minecraft/world/entity/player/Player closeContainer ()V
+accessible class net/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier
+accessible method net/minecraft/world/item/context/UseOnContext <init> (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/phys/BlockHitResult;)V
+accessible method net/minecraft/client/renderer/RenderType create (Ljava/lang/String;Lcom/mojang/blaze3d/vertex/VertexFormat;Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;IZZLnet/minecraft/client/renderer/RenderType$CompositeState;)Lnet/minecraft/client/renderer/RenderType$CompositeRenderType;
+accessible class net/minecraft/client/renderer/RenderType$CompositeState
+accessible class net/minecraft/client/renderer/RenderStateShard$LineStateShard
+accessible class net/minecraft/client/renderer/RenderStateShard$TextureStateShard
+accessible class net/minecraft/client/renderer/RenderStateShard$TransparencyStateShard
+accessible class net/minecraft/client/renderer/RenderStateShard$WriteMaskStateShard
+accessible field net/minecraft/client/renderer/RenderStateShard POSITION_COLOR_SHADER Lnet/minecraft/client/renderer/RenderStateShard$ShaderStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard RENDERTYPE_ENTITY_TRANSLUCENT_SHADER Lnet/minecraft/client/renderer/RenderStateShard$ShaderStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard RENDERTYPE_ENTITY_TRANSLUCENT_EMISSIVE_SHADER Lnet/minecraft/client/renderer/RenderStateShard$ShaderStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard RENDERTYPE_LINES_SHADER Lnet/minecraft/client/renderer/RenderStateShard$ShaderStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard LIGHTNING_TRANSPARENCY Lnet/minecraft/client/renderer/RenderStateShard$TransparencyStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard TRANSLUCENT_TRANSPARENCY Lnet/minecraft/client/renderer/RenderStateShard$TransparencyStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard LIGHTMAP Lnet/minecraft/client/renderer/RenderStateShard$LightmapStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard OVERLAY Lnet/minecraft/client/renderer/RenderStateShard$OverlayStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard CULL Lnet/minecraft/client/renderer/RenderStateShard$CullStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard NO_CULL Lnet/minecraft/client/renderer/RenderStateShard$CullStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard NO_DEPTH_TEST Lnet/minecraft/client/renderer/RenderStateShard$DepthTestStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard COLOR_DEPTH_WRITE Lnet/minecraft/client/renderer/RenderStateShard$WriteMaskStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard COLOR_WRITE Lnet/minecraft/client/renderer/RenderStateShard$WriteMaskStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard VIEW_OFFSET_Z_LAYERING Lnet/minecraft/client/renderer/RenderStateShard$LayeringStateShard;
+accessible field net/minecraft/client/renderer/RenderStateShard ITEM_ENTITY_TARGET Lnet/minecraft/client/renderer/RenderStateShard$OutputStateShard;
+accessible field com/mojang/blaze3d/vertex/BufferBuilder buffer Lcom/mojang/blaze3d/vertex/ByteBufferBuilder;
+accessible field com/mojang/blaze3d/vertex/BufferBuilder format Lcom/mojang/blaze3d/vertex/VertexFormat;
+accessible field com/mojang/blaze3d/vertex/BufferBuilder mode Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;
+accessible field com/mojang/blaze3d/vertex/BufferBuilder building Z
+accessible field com/mojang/blaze3d/vertex/BufferBuilder vertices I
+accessible field com/mojang/blaze3d/vertex/BufferBuilder vertexPointer J
+accessible field com/mojang/blaze3d/vertex/BufferBuilder elementsToFill I
+
+# Needed by the Fabric glue only.
+# LiveIconCreativeTab subclasses the tab directly, as NeoForge's tab factory does.
+accessible method net/minecraft/world/item/CreativeModeTab <init> (Lnet/minecraft/world/item/CreativeModeTab$Row;ILnet/minecraft/world/item/CreativeModeTab$Type;Lnet/minecraft/network/chat/Component;Ljava/util/function/Supplier;Lnet/minecraft/world/item/CreativeModeTab$DisplayItemsGenerator;)V
+# FabricNetworkHelper lists the players tracking an entity in the same order as NeoForge does.
+accessible field net/minecraft/server/level/ChunkMap entityMap Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+accessible class net/minecraft/server/level/ChunkMap$TrackedEntity
+accessible field net/minecraft/server/level/ChunkMap$TrackedEntity seenBy Ljava/util/Set;

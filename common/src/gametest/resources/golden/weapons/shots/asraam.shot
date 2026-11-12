@@ -1,0 +1,38 @@
+# {"schema":1,"weapon":"asraam","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "ASRAAM AAM"
+target: armor stand at 3072.0 140.0 3168.0
+mount: vehicle tornado-gr4 (PlaneEntity), pilot seat, weapon #2
+ready after 41 ticks
+before shot: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "ASRAAM AAM"
+t0 spawned #0 mcheli:aa_missile at 3075.5299999713898 103.29999995231628 3067.8899998664856 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 1 reserve 0 heat 0 cooldown 7 reload 0 name "ASRAAM AAM"
+t1 #0 3075.5299999713898 103.29999995231628 3071.7899998664857
+t2 #0 3075.5299999713898 103.29999995231628 3075.689999866486
+t3 #0 3075.5299999713898 103.29999995231628 3079.589999866486
+t4 #0 3075.5299999713898 103.29999995231628 3083.489999866486
+t5 #0 3075.5299999713898 103.29999995231628 3087.389999866486
+t6 #0 3075.5299999713898 103.29999995231628 3091.289999866486
+t7 #0 3075.5299999713898 103.29999995231628 3095.1899998664862
+t8 #0 3075.5299999713898 103.29999995231628 3099.0899998664863
+t9 #0 3075.439197330975 104.24403874397677 3102.8729280498296
+t10 #0 3075.302487811985 105.66535301993038 3106.5021395670037
+t11 #0 3075.1424298612455 107.32941161692176 3110.0256733667825
+t12 #0 3074.9703088617257 109.11888491487791 3113.4866211672306
+t13 #0 3074.791871460298 110.97402732110528 3116.912494303584
+t14 #0 3074.610093102798 112.86390431345194 3120.319152722408
+t15 #0 3074.4265334282886 114.77230094740351 3123.715375349595
+t16 #0 3074.2420172884417 116.6906415695196 3127.1059391746358
+t17 #0 3074.056984004007 118.61435873739958 3130.4934271733828
+t18 #0 3073.8716690148044 120.54100467725614 3133.879234872767
+t19 #0 3073.6861992636045 122.46925961579643 3137.2641180115747
+t20 #0 3073.500643630419 124.39840743504485 3140.6484876424634
+t21 #0 3073.3150397495137 126.32805686656624 3144.032568650776
+t22 #0 3073.1294083407565 128.2579924941733 3147.4164849401327
+t23 #0 3072.9437609060383 130.18809473729684 3150.800305319685
+t24 #0 3072.758103882159 132.1182966751023 3154.18406830618
+t25 #0 3072.5724408895294 134.04856066762153 3157.567795566518
+t26 #0 3072.3867739445786 135.9788657508437 3160.951499169264
+t27 #0 3072.2011040748193 137.9092012421326 3164.3351852644173
+t28 explosion by #0 at 3072.0 140.0 3168.0 size 5.0 block 5.0 damage 5.0 blockPower 5.0 radius 5.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t28 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "ASRAAM AAM"

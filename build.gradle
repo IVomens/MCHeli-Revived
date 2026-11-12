@@ -1,0 +1,7 @@
+// The build is split into subprojects (see settings.gradle); the shared setup lives in the
+// convention plugins under buildSrc. ModDevGradle and Loom are declared once here, so the modules
+// that use them share one copy of each.
+plugins {
+    alias(libs.plugins.moddev) apply false
+    alias(libs.plugins.loom) apply false
+}

@@ -1,0 +1,13 @@
+DisplayName: M2 Browning
+Type: machinegun1
+BaseDamage: 10
+Ballistics:
+  Acceleration: 6.0
+Sound:
+  Locations:
+    Fire: mcheli:gun_l2_snd
+Ammo:
+  ReloadTime: 60
+  MagSize: 100
+  MaxAmmo: 800
+FireCooldown: 1

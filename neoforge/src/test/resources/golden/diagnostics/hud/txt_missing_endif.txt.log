@@ -1,0 +1,7 @@
+# {"schema":1,"source":"assets/mcheli/hud/txt_missing_endif.txt","commit":"671aa2e"}
+result: skipped
+DEBUG content file(mcheli:mcheli|txt_missing_endif) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/hud/txt_missing_endif.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+ERROR Failed to load 'assets/mcheli/hud/txt_missing_endif.txt' from addon 'mcheli' at line 1, key 'if': the if on line 1 has no endif
+DEBUG Parse error details for 'assets/mcheli/hud/txt_missing_endif.txt'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: the if on line 1 has no endif

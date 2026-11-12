@@ -1,0 +1,20 @@
+# {"schema":1,"weapon":"sc50bi","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3e99015"}
+modes: "SC 50 Bi 50kg"
+mount: vehicle fi167 (PlaneEntity), pilot seat, weapon #3
+ready after 41 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "SC 50 Bi 50kg"
+t0 spawned #0 mcheli:bomb at 3068.2000000476837 102.73702190871494 3070.9458866438813 motion 0.0 -0.0 0.0 yaw 0.0 pitch 0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 7 reload 0 name "SC 50 Bi 50kg"
+t1 #0 3068.2000000476837 102.70702190938549 3070.9458866438813
+t2 #0 3068.2000000476837 102.6470219107266 3070.9458866438813
+t3 #0 3068.2000000476837 102.55702191273825 3070.9458866438813
+t4 #0 3068.2000000476837 102.43702191542046 3070.9458866438813
+t5 #0 3068.2000000476837 102.28702191877322 3070.9458866438813
+t6 #0 3068.2000000476837 102.10702192279653 3070.9458866438813
+t7 #0 3068.2000000476837 101.8970219274904 3070.9458866438813
+t8 #0 3068.2000000476837 101.65702193285482 3070.9458866438813
+t9 #0 3068.2000000476837 101.38702193888979 3070.9458866438813
+t10 #0 3068.2000000476837 101.08702194559531 3070.9458866438813
+t11 explosion by #0 at 3068.2000000476837 101.0 3070.9458866438813 size 3.0 block 3.0 damage 3.0 blockPower 3.0 radius 3.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t11 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 0 reload 0 name "SC 50 Bi 50kg"

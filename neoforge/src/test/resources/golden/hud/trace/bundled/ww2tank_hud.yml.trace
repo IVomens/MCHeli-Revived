@@ -1,0 +1,211 @@
+# {"schema":1,"hud":"bundled/ww2tank_hud.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+lines LINE_STRIP #FF000000 [320.0,184.0 320.0,196.0]
+lines LINE_STRIP #FF000000 [320.0,176.0 320.0,164.0]
+lines LINE_STRIP #FF000000 [324.0,180.0 336.0,180.0]
+lines LINE_STRIP #FF000000 [316.0,180.0 304.0,180.0]
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (113, 238) "300"
+text #FFFFFFFF (139, 238) "/"
+text #FFFFFFFF (148, 238) "900"
+text #FFFFFFFF (113, 249) "M230 30mm"
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation 269.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (480.0, 222.0) size (48.0, 48.0) uv (0.0, 128.0) uv size (96.0, 96.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (496.0, 222.0) size (16.0, 48.0) uv (128.0, 0.0) uv size (32.0, 96.0) rotation 70.2 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (121.0, 269.0) size (16.0, 32.0) uv (192.0, 0.0) uv size (32.0, 64.0) rotation -35.0 of 256x256
+centered text #FFFFE400 (380, 225) "[ FLARE ]"
+-- frame cruise #2 (colour at start #FFFFE400)
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+lines LINE_STRIP #FF000000 [320.0,184.0 320.0,196.0]
+lines LINE_STRIP #FF000000 [320.0,176.0 320.0,164.0]
+lines LINE_STRIP #FF000000 [324.0,180.0 336.0,180.0]
+lines LINE_STRIP #FF000000 [316.0,180.0 304.0,180.0]
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (113, 238) "300"
+text #FFFFFFFF (139, 238) "/"
+text #FFFFFFFF (148, 238) "900"
+text #FFFFFFFF (113, 249) "M230 30mm"
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation 269.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (480.0, 222.0) size (48.0, 48.0) uv (0.0, 128.0) uv size (96.0, 96.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (496.0, 222.0) size (16.0, 48.0) uv (128.0, 0.0) uv size (32.0, 96.0) rotation 70.2 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (121.0, 269.0) size (16.0, 32.0) uv (192.0, 0.0) uv size (32.0, 64.0) rotation -35.0 of 256x256
+centered text #FFFFE400 (380, 225) "[ FLARE ]"
+-- frame damaged_gunner #1 (colour at start #FF000000)
+lines LINE_STRIP #FF000000 [320.0,186.0 320.0,204.0]
+lines LINE_STRIP #FF000000 [320.0,174.0 320.0,156.0]
+lines LINE_STRIP #FF000000 [325.9953161592506,180.0 343.98126463700237,180.0]
+lines LINE_STRIP #FF000000 [314.0046838407494,180.0 296.01873536299763,180.0]
+rect #FF000000 (1591.1007025761123, 1068.75) (511.10070257611244, -11.25)
+rect #FF000000 (-568.8992974238876, 1451.25) (511.10070257611244, 371.25)
+rect #FF000000 (-951.1007025761124, -708.75) (128.89929742388756, 371.25)
+rect #FF000000 (1208.8992974238877, -1091.25) (128.89929742388756, -11.25)
+prepare texture
+texture mcheli:textures/gui/tank_scope.png (128.89929742388756, -12.0) size (256.0, 256.0) uv (0.0, 0.0) uv size (256.0, 256.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (544, 325) " 31"
+text #FFFFFFFF (583, 325) "/ 100"
+rect #FFFFFFFF (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF000000 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FFFFFFFF (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (296.01873536299763, 262.5) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (296.01873536299763, 262.5) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (559.8126463700235, 243.0) size (48.0, 48.0) uv (0.0, 128.0) uv size (96.0, 96.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (583.7939110070258, 243.0) size (16.0, 48.0) uv (128.0, 0.0) uv size (32.0, 96.0) rotation -117.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (21.733021077283354, 313.5) size (16.0, 32.0) uv (192.0, 0.0) uv size (32.0, 64.0) rotation -31.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+text #FFFFFFFF (537, 135) "NIGHT VISION"
+-- frame damaged_gunner #2 (colour at start #FFFFFFFF)
+lines LINE_STRIP #FF000000 [320.0,186.0 320.0,204.0]
+lines LINE_STRIP #FF000000 [320.0,174.0 320.0,156.0]
+lines LINE_STRIP #FF000000 [325.9953161592506,180.0 343.98126463700237,180.0]
+lines LINE_STRIP #FF000000 [314.0046838407494,180.0 296.01873536299763,180.0]
+rect #FF000000 (1591.1007025761123, 1068.75) (511.10070257611244, -11.25)
+rect #FF000000 (-568.8992974238876, 1451.25) (511.10070257611244, 371.25)
+rect #FF000000 (-951.1007025761124, -708.75) (128.89929742388756, 371.25)
+rect #FF000000 (1208.8992974238877, -1091.25) (128.89929742388756, -11.25)
+prepare texture
+texture mcheli:textures/gui/tank_scope.png (128.89929742388756, -12.0) size (256.0, 256.0) uv (0.0, 0.0) uv size (256.0, 256.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (544, 325) " 31"
+text #FFFFFFFF (583, 325) "/ 100"
+rect #FFFFFFFF (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF000000 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FFFFFFFF (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (296.01873536299763, 262.5) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (296.01873536299763, 262.5) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (559.8126463700235, 243.0) size (48.0, 48.0) uv (0.0, 128.0) uv size (96.0, 96.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (583.7939110070258, 243.0) size (16.0, 48.0) uv (128.0, 0.0) uv size (32.0, 96.0) rotation -117.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (21.733021077283354, 313.5) size (16.0, 32.0) uv (192.0, 0.0) uv size (32.0, 64.0) rotation -31.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+text #FFFFFFFF (537, 135) "NIGHT VISION"
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+text #FFDF0408 (420, 275) "[ --.-- ]"
+lines LINE_STRIP #FF000000 [320.0,184.0 320.0,196.0]
+lines LINE_STRIP #FF000000 [320.0,176.0 320.0,164.0]
+lines LINE_STRIP #FF000000 [324.0,180.0 336.0,180.0]
+lines LINE_STRIP #FF000000 [316.0,180.0 304.0,180.0]
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (350, 210) "DIST = ----"
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (480.0, 222.0) size (48.0, 48.0) uv (0.0, 128.0) uv size (96.0, 96.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (496.0, 222.0) size (16.0, 48.0) uv (128.0, 0.0) uv size (32.0, 96.0) rotation -117.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (121.0, 269.0) size (16.0, 32.0) uv (192.0, 0.0) uv size (32.0, 64.0) rotation -35.0 of 256x256
+text #FFFFFFFF (465, 140) "FREE LOOK"
+text #FFFFFFFF (465, 150) "THERMAL VISION"
+-- frame uav_no_weapon #2 (colour at start #FFFFFFFF)
+text #FFDF0408 (420, 275) "[ --.-- ]"
+lines LINE_STRIP #FF000000 [320.0,184.0 320.0,196.0]
+lines LINE_STRIP #FF000000 [320.0,176.0 320.0,164.0]
+lines LINE_STRIP #FF000000 [324.0,180.0 336.0,180.0]
+lines LINE_STRIP #FF000000 [316.0,180.0 304.0,180.0]
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (350, 210) "DIST = ----"
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (304.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (480.0, 222.0) size (48.0, 48.0) uv (0.0, 128.0) uv size (96.0, 96.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (496.0, 222.0) size (16.0, 48.0) uv (128.0, 0.0) uv size (32.0, 96.0) rotation -117.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/ww2tank_hud.png (121.0, 269.0) size (16.0, 32.0) uv (192.0, 0.0) uv size (32.0, 64.0) rotation -35.0 of 256x256
+text #FFFFFFFF (465, 140) "FREE LOOK"
+text #FFFFFFFF (465, 150) "THERMAL VISION"

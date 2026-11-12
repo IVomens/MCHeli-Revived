@@ -1,0 +1,15 @@
+# {"schema":1,"weapon":"f5w","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3e99015"}
+modes: "F5W 936kg Torpedo"
+mount: vehicle fi167 (PlaneEntity), pilot seat, weapon #1
+ready after 41 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "F5W 936kg Torpedo"
+t0 spawned #0 mcheli:torpedo at 3072.0 101.71799101638359 3066.8733843339014 motion 0.0 0.0 0.0 yaw -1.0170231 pitch 0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 160 reload 0 name "F5W 936kg Torpedo"
+t1 #0 3072.0 101.67799101727766 3066.8733843339014
+t2 #0 3072.0 101.5979910190658 3066.8733843339014
+t3 #0 3072.0 101.47799102174801 3066.8733843339014
+t4 #0 3072.0 101.31799102532429 3066.8733843339014
+t5 #0 3072.0 101.11799102979464 3066.8733843339014
+t6 explosion by #0 at 3072.0 101.0 3066.8733843339014 size 3.0 block 3.0 damage 3.0 blockPower 3.0 radius 3.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t6 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 100 reload 0 name "F5W 936kg Torpedo"

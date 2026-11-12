@@ -1,0 +1,7 @@
+// Dispensers get the bomb gravity too; a second Type line resets it again.
+DisplayName = Gravity Before Dispenser
+Gravity = -0.5
+Type = dispenser
+Gravity = -0.25
+Type = dispenser
+DispenseItem = water_bucket

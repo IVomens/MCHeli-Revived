@@ -1,0 +1,37 @@
+# {"schema":1,"weapon":"ram116","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "RIM-116 RAM"
+target: armor stand at 3072.0 140.0 3168.0
+mount: vehicle searam (GroundVehicleEntity), pilot seat, weapon #0
+ready after 65 ticks
+before shot: ammo 11 reserve 0 heat 0 cooldown 0 reload 0 name "RIM-116 RAM"
+t0 spawned #0 mcheli:aa_missile at 3071.5699999928474 102.96000003814697 3074.5 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 10 reserve 0 heat 0 cooldown 20 reload 0 name "RIM-116 RAM"
+t1 #0 3071.5699999928474 102.96000003814697 3078.4
+t2 #0 3071.5699999928474 102.96000003814697 3082.3
+t3 #0 3071.5699999928474 102.96000003814697 3086.2000000000003
+t4 #0 3071.5699999928474 102.96000003814697 3090.1000000000004
+t5 #0 3071.5699999928474 102.96000003814697 3094.0000000000005
+t6 #0 3071.5699999928474 102.96000003814697 3097.9000000000005
+t7 #0 3071.5699999928474 102.96000003814697 3101.8000000000006
+t8 #0 3071.5699999928474 102.96000003814697 3105.7000000000007
+t9 #0 3071.581997569059 103.99346565445809 3109.4605591177474
+t10 #0 3071.600036867861 105.5473624354516 3113.0375801377745
+t11 #0 3071.6211390180742 107.36509180777614 3116.488002521809
+t12 #0 3071.6438230997314 109.3190880164702 3119.8631150012457
+t13 #0 3071.6673375157397 111.34460883870857 3123.1957884732374
+t14 #0 3071.691293154516 113.40813638429285 3126.505060326075
+t15 #0 3071.715485561817 115.49205906008748 3129.801525252134
+t16 #0 3071.739806140255 117.58702233785908 3133.090983775091
+t17 #0 3071.7641967132536 119.68801491439646 3136.376594113108
+t18 #0 3071.7886258798444 121.7923319249434 3139.6600759746298
+t19 #0 3071.813076566476 123.89850266175472 3142.9423689218424
+t20 #0 3071.8375394185514 126.00572132425049 3146.2239891127388
+t21 #0 3071.8620092686615 128.1135427941952 3149.505222093994
+t22 #0 3071.8864832380914 130.22171910041345 3152.786227075203
+t23 #0 3071.9109597111906 132.33011107151353 3156.0670934544487
+t24 #0 3071.9354377802333 134.43864051645232 3159.3478714725356
+t25 #0 3071.9599169497924 136.54726475935817 3162.628588554591
+t26 #0 3071.9843970056677 138.65596534915593 3165.909256558131
+t27 explosion by #0 at 3072.0 140.0 3168.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t27 #0 removed: DISCARDED
+after 60 ticks: ammo 10 reserve 0 heat 0 cooldown 0 reload 0 name "RIM-116 RAM"

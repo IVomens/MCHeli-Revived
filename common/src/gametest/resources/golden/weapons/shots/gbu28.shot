@@ -1,0 +1,32 @@
+# {"schema":1,"weapon":"gbu28","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "GBU-28"
+mount: vehicle b-2a (PlaneEntity), pilot seat, weapon #3
+ready after 21 ticks
+before shot: ammo 6 reserve 0 heat 0 cooldown 0 reload 0 name "GBU-28"
+t0 spawned #0 mcheli:as_missile at 3073.8400000333786 103.14999985694885 3065.869999885559 motion -2.0818997077904979E-16 0.0 1.7000000476837158 yaw 0.0 pitch 0.0
+after shot: ammo 5 reserve 0 heat 0 cooldown 8 reload 0 name "GBU-28"
+t1 #0 3073.8400000333786 103.13999985717237 3067.569999933243
+t2 #0 3073.8400000333786 103.1199998576194 3069.2699999809265
+t3 #0 3073.8400000333786 103.08999985828996 3070.9700000286102
+t4 #0 3073.8400000333786 103.04999985918403 3072.670000076294
+t5 #0 3073.8400000333786 102.99999986030161 3074.3700001239777
+t6 #0 3073.8400000333786 102.93999986164272 3076.0700001716614
+t7 #0 3073.8400000333786 102.86999986320734 3077.770000219345
+t8 #0 3073.8400000333786 102.78999986499548 3079.470000267029
+t9 #0 3073.8400000333786 102.69999986700714 3081.1700003147125
+t10 #0 3073.8400000333786 102.59999986924231 3082.8700003623962
+t11 #0 3073.8400000333786 102.489999871701 3084.57000041008
+t12 #0 3073.8400000333786 102.36999987438321 3086.2700004577637
+t13 #0 3073.8400000333786 102.23999987728894 3087.9700005054474
+t14 #0 3073.8400000333786 102.09999988041818 3089.670000553131
+t15 #0 3073.8400000333786 101.94999988377094 3091.370000600815
+t16 #0 3073.8400000333786 101.78999988734722 3093.0700006484985
+t17 #0 3073.8400000333786 101.61999989114702 3094.7700006961823
+t18 #0 3073.8400000333786 101.43999989517033 3096.470000743866
+t19 #0 3073.8400000333786 101.24999989941716 3098.1700007915497
+t20 #0 3073.8400000333786 101.04999990388751 3099.8700008392334
+t21 explosion by #0 at 3073.8400000333786 101.0 3100.274761986342 size 1.0 block 1.0 damage 1.0 blockPower 1.0 radius 1.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t21 #0 3073.8400000333786 100.83999990858138 3101.570000886917
+t22 explosion by #0 at 3073.8400000333786 100.8397799085863 3101.5717008869647 size 6.0 block 5.0 damage 6.0 blockPower 5.0 radius 6.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t22 #0 removed: DISCARDED
+after 60 ticks: ammo 5 reserve 0 heat 0 cooldown 0 reload 0 name "GBU-28"

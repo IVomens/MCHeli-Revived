@@ -1,0 +1,37 @@
+# {"schema":1,"weapon":"aim7_spa","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "AIM-7 Sparrow"
+target: armor stand at 3072.0 140.0 3168.0
+mount: vehicle sea_sparrow (GroundVehicleEntity), pilot seat, weapon #0
+ready after 95 ticks
+before shot: ammo 8 reserve 0 heat 0 cooldown 0 reload 0 name "AIM-7 Sparrow"
+t0 spawned #0 mcheli:aa_missile at 3070.860000014305 103.09999990463257 3073.9400000572205 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 7 reserve 0 heat 0 cooldown 9 reload 0 name "AIM-7 Sparrow"
+t1 #0 3070.860000014305 103.09999990463257 3077.8400000572205
+t2 #0 3070.860000014305 103.09999990463257 3081.7400000572206
+t3 #0 3070.860000014305 103.09999990463257 3085.6400000572207
+t4 #0 3070.860000014305 103.09999990463257 3089.540000057221
+t5 #0 3070.860000014305 103.09999990463257 3093.440000057221
+t6 #0 3070.860000014305 103.09999990463257 3097.340000057221
+t7 #0 3070.860000014305 103.09999990463257 3101.240000057221
+t8 #0 3070.860000014305 103.09999990463257 3105.140000057221
+t9 #0 3070.891601577772 104.12289263232346 3108.903335254732
+t10 #0 3070.9391277357167 105.66123934698372 3112.4868015444863
+t11 #0 3070.994731777759 107.46105441927799 3115.946219688633
+t12 #0 3071.0545090704727 109.3959510284982 3119.3318661242347
+t13 #0 3071.116476739654 111.40174666655956 3122.6759570121008
+t14 #0 3071.179607995316 113.44520576233427 3125.997144957468
+t15 #0 3071.2433633573164 115.50886619515062 3129.305806449952
+t16 #0 3071.307456354299 117.58345533939931 3132.607619886581
+t17 #0 3071.371733585919 119.66400786805526 3135.9056753156174
+t18 #0 3071.4361122992104 121.7478451982247 3139.2016542844017
+t19 #0 3071.5005475288135 123.83351187220235 3142.4964748601305
+t20 #0 3071.5650146570383 125.9202110542172 3145.7906409933357
+t21 #0 3071.6295000968253 128.0075029525861 3149.084431235452
+t22 #0 3071.6939962855126 130.09514277590125 3152.3780007595024
+t23 #0 3071.758498981298 132.1829932237055 3155.6714366416536
+t24 #0 3071.8230057995997 134.27097711085645 3158.964787846337
+t25 #0 3071.8875154304046 136.35905203430048 3162.2580812771776
+t26 #0 3071.9520272739637 138.44719858110716 3165.5513292516093
+t27 explosion by #0 at 3072.0 140.0 3168.0 size 5.0 block 5.0 damage 5.0 blockPower 5.0 radius 5.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t27 #0 removed: DISCARDED
+after 60 ticks: ammo 7 reserve 0 heat 0 cooldown 0 reload 0 name "AIM-7 Sparrow"

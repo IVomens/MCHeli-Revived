@@ -1,0 +1,4 @@
+# {"schema":1,"source":"assets/mcheli/weapons/unsupported_extension.json","commit":"0a48bd0"}
+result: skipped
+DEBUG content file(mcheli:mcheli|unsupported_extension) loading start.
+WARN Skipping 'assets/mcheli/weapons/unsupported_extension.json' in addon 'mcheli': no reader for '.json' files

@@ -1,0 +1,5 @@
+# A seat HUD that does not exist.
+DisplayName: Missing HUD
+Seats:
+- Position: [0.0, 1.0, 0.0]
+  Hud: no_such_hud

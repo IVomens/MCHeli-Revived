@@ -1,0 +1,7 @@
+# {"schema":1,"source":"assets/mcheli/hud/yaml_wrong_type.yml","commit":"671aa2e"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_wrong_type) loading start.
+ERROR Failed to load 'assets/mcheli/hud/yaml_wrong_type.yml' from addon 'mcheli' at line 2, key '[1].DrawRectangle.Position': expected [x, y] or a map with the keys 'x' and 'y' but got the whole number 5
+DEBUG Parse error details for 'assets/mcheli/hud/yaml_wrong_type.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected [x, y] or a map with the keys 'x' and 'y' but got the whole number 5
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected [x, y] or a map with the keys 'x' and 'y' but got the whole number 5

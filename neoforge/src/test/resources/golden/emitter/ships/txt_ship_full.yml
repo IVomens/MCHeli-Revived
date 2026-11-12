@@ -1,0 +1,47 @@
+# {"schema":1,"emitted from":"assets/mcheli/ships/txt_ship_full.txt","commit":"09ffef3"}
+DisplayName: TXT Fixture Ship
+RepairOtherVehicles:
+  Range: 0.0
+  Value: 10
+PhysicalProperties:
+  CanFloat: true
+Seats:
+- Position: [0.0, 1.0, 0.0]
+  Hud: plane
+ShipFeatures:
+  VariableSweepWing: false
+  SweepWingSpeed: 0.5
+  EnableVtol:
+    Enabled: false
+    Yaw: 1.0
+    Pitch: 0.5
+Components:
+  ShipRotor:
+  - Position: [0.0, -1.0, -5.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: rotor0
+    RotFactor: 90.0
+  - Position: [0.0, -1.0, -5.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: rotor1
+    RotFactor: -90.0
+    Blades:
+    - Position: [0.0, -1.0, -5.0]
+      Rotation: [0.0, 0.0, 1.0]
+      PartName: blade1
+      BladeNum: 3
+      BladeRot: 120
+  Wing:
+  - Position: [2.0, 0.0, 0.0]
+    Rotation: [0.0, 1.0, 0.0]
+    PartName: wing0
+    MaxRotation: 45.0
+    Pylons:
+    - Position: [2.0, 0.0, 0.0]
+      Rotation: [0.0, 1.0, 0.0]
+      PartName: wing0_pylon0
+      MaxRotation: 45.0
+  Nozzle:
+  - Position: [0.0, 0.0, -6.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: nozzle0

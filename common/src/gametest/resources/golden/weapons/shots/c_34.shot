@@ -1,0 +1,30 @@
+# {"schema":1,"weapon":"c_34","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "Krupp C/34 40.6cm"
+mount: vehicle krupp_c_34 (GroundVehicleEntity), pilot seat, weapon #0
+ready after 21 ticks
+before shot: ammo 30 reserve 0 heat 0 cooldown 0 reload 0 name "Krupp C/34 40.6cm"
+t0 spawned #0 mcheli:bullet at 3072.0 104.22402370329192 3073.9497031505553 motion -4.775395453593154E-16 0.06804776898006754 3.899406301110059 yaw 0.0 pitch -1.0
+after shot: ammo 29 reserve 0 heat 0 cooldown 80 reload 0 name "Krupp C/34 40.6cm"
+t1 #0 3072.0 104.31011924050699 3081.7485157527753
+t2 #0 3072.0 104.346214776977 3089.5473283549954
+t3 #0 3072.0 104.33231031270196 3097.3461409572155
+t4 #0 3072.0 104.26840584768186 3105.1449535594356
+t5 #0 3072.0 104.1545013819167 3112.9437661616557
+t6 #0 3072.0 103.99059691540648 3120.742578763876
+t7 #0 3072.0 103.77669244815121 3128.541391366096
+t8 #0 3072.0 103.51278798015088 3136.340203968316
+t9 #0 3072.0 103.19888351140548 3144.139016570536
+t10 #0 3072.0 102.83497904191503 3151.937829172756
+t11 #0 3072.0 102.42107457167953 3159.7366417749763
+t12 #0 3072.0 101.95717010069896 3167.5354543771964
+t13 #0 3072.0 101.44326562897334 3175.3342669794165
+t14 #0 3072.0 100.87936115650265 3183.1330795816366
+t15 #0 3072.0 100.31545668403197 3190.9318921838567
+t16 #0 3072.0 99.75155221156129 3198.730704786077
+t17 #0 3072.0 99.18764773909061 3206.529517388297
+t18 #0 3072.0 98.62374326661993 3214.328329990517
+t19 #0 3072.0 98.05983879414924 3222.127142592737
+t20 #0 3072.0 97.49593432167856 3229.925955194957
+t21 explosion by #0 at 3072.0 97.0 3236.784738954615 size 12.0 block 0.0 damage 12.0 blockPower 0.0 radius 12.0 sound false flaming false destroyBlocks true setFire 0 damageFactor true inWater false
+t21 #0 removed: DISCARDED
+after 60 ticks: ammo 29 reserve 0 heat 0 cooldown 20 reload 0 name "Krupp C/34 40.6cm"

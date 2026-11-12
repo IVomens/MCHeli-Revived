@@ -1,0 +1,35 @@
+# {"schema":1,"weapon":"pars_3_lr","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "TRIGAT-LR", "TRIGAT-LR [TA]"
+target: armor stand at 3072.0 101.0 3168.0
+mount: vehicle ec665 (HelicopterEntity), pilot seat, weapon #2
+ready after 21 ticks
+before shot: ammo 8 reserve 0 heat 0 cooldown 0 reload 0 name "TRIGAT-LR"
+t0 spawned #0 mcheli:at_missile at 3073.25 102.57000005245209 3071.9900000002235 motion -0.06804776898006754 0.0 3.899406301110059 yaw 1.0 pitch -0.0
+after shot: ammo 7 reserve 0 heat 0 cooldown 30 reload 0 name "TRIGAT-LR"
+t1 #0 3073.1819522310197 102.57000005245209 3075.8894063013336
+t2 #0 3073.1139044620395 102.57000005245209 3079.7888126024436
+t3 #0 3073.0458566930592 102.57000005245209 3083.6882189035537
+t4 #0 3072.977808924079 102.57000005245209 3087.5876252046637
+t5 #0 3072.9097611550987 102.57000005245209 3091.4870315057738
+t6 #0 3072.8417133861185 102.57000005245209 3095.386437806884
+t7 #0 3072.7736656171382 102.57000005245209 3099.285844107994
+t8 #0 3072.705617848158 102.57000005245209 3103.185250409104
+t9 #0 3072.6503680599685 102.52277836386854 3107.084573116066
+t10 #0 3072.601930455379 102.45043734307447 3110.9836012738474
+t11 #0 3072.5571327372895 102.36467913894293 3114.8824009218006
+t12 #0 3072.5142887723546 102.27172041417589 3118.781057494283
+t13 #0 3072.472499125052 102.17487640303311 3122.6796309337456
+t14 #0 3072.431282001729 102.07592268467971 3126.57815749007
+t15 #0 3072.390378087831 101.97581484684325 3130.476657880045
+t16 #0 3072.349647050672 101.87506999992516 3134.3751436705065
+t17 #0 3072.3090124740643 101.77396972227031 3138.2736212663176
+t18 #0 3072.268432453056 101.67266842315023 3142.172094212061
+t19 #0 3072.2278838272146 101.57125144232504 3146.070564476786
+t20 #0 3072.1873536895846 101.46976633813559 3149.969033160971
+t21 #0 3072.146834794731 101.36823980782017 3153.8675008833975
+t22 #0 3072.1063230719346 101.26668685072543 3157.765967992047
+t23 #0 3072.0658163011994 101.1651156468462 3161.664434676792
+t24 #0 3072.0253135300727 101.06352970567579 3165.5629010190974
+t25 explosion by #0 at 3072.0 101.0 3168.0 size 2.0 block 2.0 damage 2.0 blockPower 2.0 radius 2.0 sound false flaming false destroyBlocks true setFire 0 damageFactor true inWater false
+t25 #0 removed: DISCARDED
+after 60 ticks: ammo 7 reserve 0 heat 0 cooldown 0 reload 0 name "TRIGAT-LR"

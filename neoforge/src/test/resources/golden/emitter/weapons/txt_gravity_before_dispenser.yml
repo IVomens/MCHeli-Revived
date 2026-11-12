@@ -1,0 +1,18 @@
+# {"schema":1,"emitted from":"assets/mcheli/weapons/txt_gravity_before_dispenser.txt","commit":"be2b1b8"}
+DisplayName: Gravity Before Dispenser
+Type: dispenser
+Ballistics:
+  Acceleration: 1.0
+  AccelerationInWater: 1.0
+  Gravity: -0.03
+  GravityInWater: -0.03
+  VelocityInWater: 0.999
+Sound:
+  Locations:
+    Fire: mcheli:txt_gravity_before_dispenser_snd
+Render:
+  Smoke:
+    BulletColorInWater: '#FFFFFFFF'
+    BulletColor: '#FFFFFFFF'
+DispenseItem:
+  Location: water_bucket

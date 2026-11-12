@@ -1,0 +1,15 @@
+# {"schema":1,"source":"assets/mcheli/weapons/yaml_syntax_error.yml","commit":"32abae6"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_syntax_error) loading start.
+ERROR Failed to load 'assets/mcheli/weapons/yaml_syntax_error.yml' from addon 'mcheli' at line 4: YAML syntax error: expected ',' or ']', but got <stream end>
+DEBUG Parse error details for 'assets/mcheli/weapons/yaml_syntax_error.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: YAML syntax error: expected ',' or ']', but got <stream end>
+    caused by org.yaml.snakeyaml.parser.ParserException: while parsing a flow sequence
+ in 'string', line 4, column 17:
+      Acceleration: [1.0, 2.0
+                    ^
+expected ',' or ']', but got <stream end>
+ in 'string', line 4, column 26:
+      Acceleration: [1.0, 2.0
+                             ^
+

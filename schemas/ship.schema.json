@@ -1,0 +1,4962 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/IVomens/MCHeli-Revived/main/schemas/ship.schema.json",
+  "title": "MCHeli ship",
+  "description": "A YAML file in assets/mcheli/ships/ of an MCHeli addon pack. Generated from the game's schema declarations; do not edit.",
+  "x-mcheli-schema-version": 1,
+  "type": "object",
+  "properties": {
+    "DisplayName": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ],
+      "description": "The name shown in game; the file name when left out. The name, or a map of language codes (en_us, ja_jp) to names where DEFAULT is the name itself. Legacy TXT key: displayname."
+    },
+    "Author": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {}
+        }
+      ],
+      "default": "",
+      "description": "Who made the vehicle; shown in its tooltip. A name, or a list of names."
+    },
+    "Authors": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {}
+        }
+      ],
+      "default": "",
+      "description": "Another spelling of 'Author'."
+    },
+    "ItemID": {
+      "type": "integer",
+      "default": 0,
+      "description": "The numeric item id of 1.7 packs; kept for converted packs and not used by the game. Legacy TXT key: itemid."
+    },
+    "Category": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ],
+      "default": "zzz",
+      "description": "The category shown in the tooltip, such as M.A; the creative tab is sorted by it. The creative tab category, such as M.A; a list is joined with commas. Legacy TXT key: category."
+    },
+    "Recepie": {
+      "type": "object",
+      "properties": {
+        "isShaped": {
+          "type": "boolean",
+          "default": true,
+          "description": "TXT: the last of 'AddRecipe' (shaped) and 'AddShapelessRecipe' decides."
+        },
+        "Pattern": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "TXT: each 'AddRecipe' or 'AddShapelessRecipe' line adds a line, in upper case."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Recipe": {
+      "type": "object",
+      "properties": {
+        "isShaped": {
+          "type": "boolean",
+          "default": true,
+          "description": "TXT: the last of 'AddRecipe' (shaped) and 'AddShapelessRecipe' decides."
+        },
+        "Pattern": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "TXT: each 'AddRecipe' or 'AddShapelessRecipe' line adds a line, in upper case."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Another spelling of 'Recepie'."
+    },
+    "CanRide": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether players can get in. Legacy TXT key: canride."
+    },
+    "RotorSpeed": {
+      "type": "number",
+      "minimum": -10000,
+      "maximum": 10000,
+      "description": "Degrees per tick, or null for the kind's own; the game takes 0.01 off it. The game clamps a value outside -10000 to 10000 and says so. Legacy TXT key: rotorspeed."
+    },
+    "TurretPosition": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+          }
+        ]
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "default": [
+        0,
+        0,
+        0
+      ],
+      "description": "A list [x, y, z] of three numbers."
+    },
+    "GlobalUnmountPos": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+          }
+        ]
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Where riders are put when they leave; next to their seat when left out. A list [x, y, z] of three numbers."
+    },
+    "CreativeOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Only players in creative mode can place it. Legacy TXT key: creativeonly."
+    },
+    "Regeneration": {
+      "type": "boolean",
+      "default": false,
+      "description": "The AI crew regenerate health while someone rides in the vehicle. Legacy TXT key: regeneration."
+    },
+    "Invulnerable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Nothing damages the vehicle. Legacy TXT key: invulnerable."
+    },
+    "MaxFuel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000000,
+      "default": 0,
+      "description": "Fuel the tank holds; 0 for a vehicle that needs no fuel. The game clamps a value outside 0 to 100000000 and says so. Legacy TXT key: maxfuel."
+    },
+    "FuelType": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      ],
+      "default": "mch_fuel",
+      "description": "The fluids a vehicle burns: one name, or a map of names to how fast each is used up. A fluid name, or a map of fluid names to how fast each is used up."
+    },
+    "MaxHP": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000000,
+      "default": 50,
+      "description": "Hit points when undamaged. The game clamps a value outside 1 to 1000000000 and says so. Legacy TXT key: maxhp."
+    },
+    "Stealth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0,
+      "description": "How hard the vehicle is to lock on to, from 0 (not at all) to 1. The game clamps a value outside 0 to 1 and says so. Legacy TXT key: stealth."
+    },
+    "FuelConsumption": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10000,
+      "default": 1,
+      "description": "How fast the vehicle burns fuel. The game clamps a value outside 0 to 10000 and says so. Legacy TXT key: fuelconsumption."
+    },
+    "FuelSupplyRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 0,
+      "description": "Also 'FuelSupply.Range', or 'FuelSupply' written as a number. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: fuelsupplyrange."
+    },
+    "FuelSupply": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "Infinite": {
+              "type": "boolean",
+              "default": false
+            },
+            "Range": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000,
+              "description": "The game clamps a value outside 0 to 1000 and says so. Another place for 'FuelSupplyRange'; converted files write it there.",
+              "default": 0
+            },
+            "Type": {
+              "type": "string",
+              "default": "mch_fuel"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0,
+          "description": "Also 'FuelSupply.Range', or 'FuelSupply' written as a number. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: fuelsupplyrange."
+        }
+      ]
+    },
+    "Electric": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "default": false
+            },
+            "Battery": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    },
+    "AmmoSupplyRange": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 0,
+      "description": "Blocks within which the vehicle resupplies the ammunition of others; 0 for none. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: ammosupplyrange."
+    },
+    "RepairOtherVehicles": {
+      "type": "object",
+      "description": "TXT: 'RepairOtherVehicles = range[, value]'.",
+      "properties": {
+        "Range": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 1000 and says so."
+        },
+        "Value": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000,
+          "default": 10,
+          "description": "The game clamps a value outside 0 to 10000000 and says so."
+        }
+      },
+      "additionalProperties": false
+    },
+    "NameOnModernAARadar": {
+      "type": "string",
+      "default": "",
+      "description": "Legacy TXT key: nameonmodernaaradar."
+    },
+    "NameOnEarlyAARadar": {
+      "type": "string",
+      "default": "",
+      "description": "Legacy TXT key: nameonearlyaaradar."
+    },
+    "NameOnModernASRadar": {
+      "type": "string",
+      "default": "",
+      "description": "Legacy TXT key: nameonmodernasradar."
+    },
+    "NameOnEarlyASRadar": {
+      "type": "string",
+      "default": "",
+      "description": "Legacy TXT key: nameonearlyasradar."
+    },
+    "RadarType": {
+      "anyOf": [
+        {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "MODERN_AA",
+                "EARLY_AA",
+                "MODERN_AS",
+                "EARLY_AS"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Any case."
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "description": "A name or its number; a name the game does not know is ignored. Another place for 'AircraftFeatures.Radar.Type'; converted files write it there."
+    },
+    "RWRType": {
+      "anyOf": [
+        {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "FOUR_WAY",
+                "ALL_WAY_EARLY",
+                "DIGITAL"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Any case."
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "description": "A name or its number; a name the game does not know is ignored. Another place for 'AircraftFeatures.RWR.Type'; converted files write it there."
+    },
+    "ExplosionSizeByCrash": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 5,
+      "description": "Size of the explosion when the vehicle crashes. The game clamps a value outside 0 to 100 and says so. Legacy TXT key: explosionsizebycrash."
+    },
+    "ThrottleDownFactor": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "default": 1,
+      "description": "The game clamps a value outside 0 to 10 and says so. Legacy TXT key: throttledownfactor."
+    },
+    "Camera": {
+      "type": "object",
+      "properties": {
+        "ThirdPersonDist": {
+          "type": "number",
+          "minimum": 4,
+          "maximum": 100,
+          "default": 4,
+          "description": "The game clamps a value outside 4 to 100 and says so. Legacy TXT key: thirdpersondist."
+        },
+        "AlwaysCameraView": {
+          "type": "boolean",
+          "default": false,
+          "description": "TXT: the fourth value of a 'CameraPosition' line."
+        },
+        "Zoom": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "default": 8,
+          "description": "The game clamps a value outside 1 to 10 and says so. Legacy TXT key: camerazoom."
+        },
+        "CameraZoom": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "default": 8,
+          "description": "Another spelling of 'Zoom'."
+        },
+        "DefaultFreeLook": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: defaultfreelook."
+        },
+        "RotationSpeed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000,
+          "default": 100,
+          "description": "The game clamps a value outside 0 to 10000 and says so. Legacy TXT key: camerarotationspeed."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cameraPosition"
+          },
+          "description": "TXT: 'CameraPosition' lines."
+        },
+        "Positons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cameraPosition"
+          },
+          "description": "Another spelling of 'Pos'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Sound": {
+      "type": "object",
+      "properties": {
+        "MoveSound": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          ],
+          "description": "A sound id, or a YAML map that also defines the sound for the client (see 'SoundRegistry#parseSound(Map)'). Reading registers the sound; the emitter writes the id. A sound id such as 'mcheli:gun', or a map that also defines the sound for the client. Legacy TXT key: sound."
+        },
+        "Vol": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 10 and says so. Legacy TXT key: soundvolume."
+        },
+        "Volume": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "default": 1,
+          "description": "Another spelling of 'Vol'."
+        },
+        "Pitch": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 10 and says so. Legacy TXT key: soundpitch."
+        },
+        "Range": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 1000,
+          "default": 100,
+          "description": "The game clamps a value outside 1 to 1000 and says so. Legacy TXT key: soundrange."
+        }
+      },
+      "additionalProperties": false
+    },
+    "PhysicalProperties": {
+      "type": "object",
+      "properties": {
+        "Speed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.7999999523162842,
+          "default": 0.1,
+          "description": "The game clamps a value outside 0 to 1.7999999523162842 and says so. Legacy TXT key: speed."
+        },
+        "CanFloat": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: float."
+        },
+        "FloatOffset": {
+          "type": "number",
+          "default": 0,
+          "description": "How deep the vehicle floats; kept with the sign the game uses, the opposite of the file's. Legacy TXT key: floatoffset."
+        },
+        "MotionFactor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.96,
+          "description": "The game clamps a value outside 0 to 1 and says so. Legacy TXT key: motionfactor."
+        },
+        "Gravity": {
+          "type": "number",
+          "minimum": -50,
+          "maximum": 50,
+          "default": -0.04,
+          "description": "The game clamps a value outside -50 to 50 and says so. Legacy TXT key: gravity."
+        },
+        "RotationSnapValue": {
+          "type": "number",
+          "minimum": -5,
+          "maximum": 5,
+          "default": -0.6,
+          "description": "The game clamps a value outside -5 to 5 and says so. Legacy TXT key: autopilotrot."
+        },
+        "GravityInWater": {
+          "type": "number",
+          "minimum": -50,
+          "maximum": 50,
+          "default": -0.04,
+          "description": "The game clamps a value outside -50 to 50 and says so. Legacy TXT key: gravityinwater."
+        },
+        "StepHeight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: stepheight."
+        },
+        "CanRotOnGround": {
+          "type": "boolean",
+          "default": true,
+          "description": "Also 'AircraftFeatures.CanRotateOnGround'. Legacy TXT key: canrotonground."
+        },
+        "CanMoveOnGround": {
+          "type": "boolean",
+          "default": true,
+          "description": "Legacy TXT key: canmoveonground."
+        },
+        "OnGroundPitch": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "default": 0,
+          "description": "Nose-up pitch while standing, in degrees; kept with the sign the game uses, the opposite of the file's. The game clamps a value outside -90 to 90 and says so. Legacy TXT key: ongroundpitch."
+        },
+        "PivotTurnThrottle": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 1 and says so. Legacy TXT key: pivotturnthrottle."
+        },
+        "Mobility": {
+          "type": "object",
+          "properties": {
+            "Yaw": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 1,
+              "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: mobilityyaw."
+            },
+            "Pitch": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 1,
+              "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: mobilitypitch."
+            },
+            "Roll": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 1,
+              "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: mobilityroll."
+            },
+            "YawOnGround": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 1,
+              "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: mobilityyawonground."
+            }
+          },
+          "additionalProperties": false
+        },
+        "GroundPitchFactors": {
+          "type": "object",
+          "properties": {
+            "Pitch": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 180,
+              "default": 0,
+              "description": "The game clamps a value outside 0 to 180 and says so. Legacy TXT key: ongroundpitchfactor."
+            },
+            "Roll": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 180,
+              "default": 0,
+              "description": "The game clamps a value outside 0 to 180 and says so. Legacy TXT key: ongroundrollfactor."
+            }
+          },
+          "additionalProperties": false
+        },
+        "BodySize": {
+          "type": "object",
+          "properties": {
+            "Height": {
+              "type": "number",
+              "minimum": 0.10000000149011612,
+              "maximum": 1000,
+              "default": 0.7,
+              "description": "The game clamps a value outside 0.10000000149011612 to 1000 and says so. Legacy TXT key: height."
+            },
+            "Width": {
+              "type": "number",
+              "minimum": 0.10000000149011612,
+              "maximum": 1000,
+              "default": 2,
+              "description": "The game clamps a value outside 0.10000000149011612 to 1000 and says so. Legacy TXT key: width."
+            }
+          },
+          "additionalProperties": false
+        },
+        "RotationLimits": {
+          "type": "object",
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "Set by being there, and by any TXT rotation limit line."
+            },
+            "Pitch": {
+              "type": "object",
+              "properties": {
+                "Min": {
+                  "type": "number",
+                  "minimum": -89.9000015258789,
+                  "maximum": 0,
+                  "default": -89.9,
+                  "description": "The game clamps a value outside -89.9000015258789 to 0 and says so."
+                },
+                "Max": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 80,
+                  "default": 80,
+                  "description": "The game clamps a value outside 0 to 80 and says so."
+                }
+              },
+              "additionalProperties": false
+            },
+            "Roll": {
+              "type": "object",
+              "properties": {
+                "Min": {
+                  "type": "number",
+                  "minimum": -80,
+                  "maximum": 0,
+                  "default": -89.9,
+                  "description": "The game clamps a value outside -80 to 0 and says so."
+                },
+                "Max": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 80,
+                  "default": 80,
+                  "description": "The game clamps a value outside 0 to 80 and says so."
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Render": {
+      "type": "object",
+      "properties": {
+        "Textures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "TXT: 'AddTexture' lines, in lower case."
+        },
+        "SmoothShading": {
+          "type": "boolean",
+          "default": true,
+          "description": "Legacy TXT key: smoothshading."
+        },
+        "HideRiders": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: hideentity."
+        },
+        "ModelWidth": {
+          "type": "number",
+          "default": 1,
+          "description": "Legacy TXT key: entitywidth."
+        },
+        "ModelHeight": {
+          "type": "number",
+          "default": 1,
+          "description": "Legacy TXT key: entityheight."
+        },
+        "ModelPitch": {
+          "type": "number",
+          "default": 0,
+          "description": "Legacy TXT key: entitypitch."
+        },
+        "ModelRoll": {
+          "type": "number",
+          "default": 0,
+          "description": "Legacy TXT key: entityroll."
+        },
+        "ParticleScale": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 50,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 50 and says so. Legacy TXT key: particlesscale."
+        },
+        "EnableSeaSurfaceParticle": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: enableseasurfaceparticle."
+        },
+        "SplashParticles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/splashParticle"
+          },
+          "description": "TXT: 'AddParticleSplash' lines."
+        },
+        "OneProbeScale": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "SignMarkers": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Armor": {
+      "type": "object",
+      "properties": {
+        "ArmorDamageFactor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 10000 and says so. Legacy TXT key: armordamagefactor."
+        },
+        "ArmorMinDamage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 1000000 and says so. Legacy TXT key: armormindamage."
+        },
+        "ArmorMaxDamage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000,
+          "default": 100000,
+          "description": "The game clamps a value outside 0 to 1000000 and says so. Legacy TXT key: armormaxdamage."
+        },
+        "DamageFactor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.2,
+          "description": "The game clamps a value outside 0 to 1 and says so. Legacy TXT key: damagefactor."
+        },
+        "SubmergedDamageHeight": {
+          "type": "number",
+          "minimum": -1000,
+          "maximum": 1000,
+          "default": 0,
+          "description": "The game clamps a value outside -1000 to 1000 and says so. Legacy TXT key: submergeddamageheight."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Weapons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/weapon"
+      },
+      "description": "The weapons mounted on the vehicle, each naming a weapon file and the seat that fires it."
+    },
+    "Seats": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/seat"
+      },
+      "description": "The seats; the first is the pilot or driver."
+    },
+    "GunnerHud": {
+      "type": "string",
+      "description": "The HUD the pilot of a one-seat vehicle sees in gunner mode; the kind's own when left out."
+    },
+    "Racks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rack"
+      },
+      "description": "Racks that carry other vehicles or items."
+    },
+    "ExclusiveSeats": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      },
+      "default": [],
+      "description": "Groups of seats of which only one may be taken at a time, by number from 1 with racks after the seats. Usually written as 'ExcludeWith' on the seats; converted TXT files use it for groups of three or more. Groups of seat numbers."
+    },
+    "RideRack": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647,
+            "description": "The game clamps a value outside 0 to 2147483647 and says so."
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647,
+              "description": "The game clamps a value outside 0 to 2147483647 and says so."
+            }
+          }
+        ]
+      },
+      "default": {},
+      "description": "The racks of other vehicles this one can ride on. Vehicle names to the rack number this vehicle rides on, or a list of rack numbers."
+    },
+    "BoundingBoxes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/boundingBox"
+      },
+      "description": "TXT: 'BoundingBox' and 'BoundingEraBox' lines."
+    },
+    "Wheels": {
+      "type": "object",
+      "properties": {
+        "Hitboxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/wheel"
+          }
+        },
+        "WheelRotation": {
+          "type": "number",
+          "minimum": -10000,
+          "maximum": 10000,
+          "default": 30,
+          "description": "The game clamps a value outside -10000 to 10000 and says so. Legacy TXT key: partwheelrot."
+        },
+        "TrackRotation": {
+          "type": "number",
+          "minimum": -10000,
+          "maximum": 10000,
+          "default": 30,
+          "description": "The game clamps a value outside -10000 to 10000 and says so. Legacy TXT key: trackrollerrot."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Uav": {
+      "type": "object",
+      "properties": {
+        "IsUav": {
+          "type": "boolean",
+          "default": false,
+          "description": "TXT: 'UAV' and 'SmallUAV' lines."
+        },
+        "IsSmallUav": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsNewUav": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsTargetDrone": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: targetdrone."
+        },
+        "Range": {
+          "type": "integer",
+          "default": -1,
+          "description": "Blocks; -1 for the wingman controller's range."
+        },
+        "ControlRange": {
+          "type": "integer",
+          "default": -1,
+          "description": "Another spelling of 'Range'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "AircraftFeatures": {
+      "type": "object",
+      "description": "Equipment shared by every kind.",
+      "properties": {
+        "GunnerMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: enablegunnermode."
+        },
+        "InventorySize": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 32767,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 32767 and says so. Legacy TXT key: inventorysize."
+        },
+        "NightVision": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: enablenightvision."
+        },
+        "EntityRadar": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: enableentityradar."
+        },
+        "CanReverse": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: enableback."
+        },
+        "CanRotateOnGround": {
+          "type": "boolean",
+          "default": true,
+          "description": "Another place for 'PhysicalProperties.CanRotOnGround'; converted files write it there."
+        },
+        "CanRotOnGround": {
+          "type": "boolean",
+          "default": true,
+          "description": "Another place for 'PhysicalProperties.CanRotOnGround'; converted files write it there."
+        },
+        "ConcurrentGunner": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: concurrentgunnermode."
+        },
+        "EjectionSeat": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: enableejectionseat."
+        },
+        "ThrottleUpDown": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 3 and says so. Legacy TXT key: throttleupdown."
+        },
+        "ThrottleUpDownEntity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 2,
+          "description": "The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: throttleupdownonentity."
+        },
+        "Parachuting": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "Enabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Legacy TXT key: enableparachuting."
+                },
+                "Pos": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+                      }
+                    ]
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "default": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "description": "TXT: the first three values of 'MobDropOption'. A list [x, y, z] of three numbers."
+                },
+                "Position": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+                      }
+                    ]
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "default": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "description": "Another spelling of 'Pos'."
+                },
+                "Interval": {
+                  "type": "integer",
+                  "default": 1,
+                  "description": "TXT: the fourth value of 'MobDropOption', 12 when left out."
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "boolean",
+              "default": false,
+              "description": "Legacy TXT key: enableparachuting."
+            }
+          ]
+        },
+        "Flare": {
+          "type": "object",
+          "properties": {
+            "Pos": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+                  }
+                ]
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "default": [
+                0,
+                0,
+                0
+              ],
+              "description": "TXT: 'FlareOption'. A list [x, y, z] of three numbers."
+            },
+            "Positions": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+                  }
+                ]
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "default": [
+                0,
+                0,
+                0
+              ],
+              "description": "Another spelling of 'Pos'."
+            },
+            "Types": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "NONE",
+                            "NORMAL",
+                            "LARGE_AIRCRAFT",
+                            "SIDE",
+                            "FRONT",
+                            "DOWN",
+                            "SMOKE_LAUNCHER"
+                          ]
+                        },
+                        {
+                          "pattern": "^\\s*(?:[Nn][Oo][Nn][Ee]|[Nn][Oo][Rr][Mm][Aa][Ll]|[Ll][Aa][Rr][Gg][Ee]_[Aa][Ii][Rr][Cc][Rr][Aa][Ff][Tt]|[Ss][Ii][Dd][Ee]|[Ff][Rr][Oo][Nn][Tt]|[Dd][Oo][Ww][Nn]|[Ss][Mm][Oo][Kk][Ee]_[Ll][Aa][Uu][Nn][Cc][Hh][Ee][Rr])\\s*$"
+                        }
+                      ],
+                      "description": "Any case."
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "NONE",
+                              "NORMAL",
+                              "LARGE_AIRCRAFT",
+                              "SIDE",
+                              "FRONT",
+                              "DOWN",
+                              "SMOKE_LAUNCHER"
+                            ]
+                          },
+                          {
+                            "pattern": "^\\s*(?:[Nn][Oo][Nn][Ee]|[Nn][Oo][Rr][Mm][Aa][Ll]|[Ll][Aa][Rr][Gg][Ee]_[Aa][Ii][Rr][Cc][Rr][Aa][Ff][Tt]|[Ss][Ii][Dd][Ee]|[Ff][Rr][Oo][Nn][Tt]|[Dd][Oo][Ww][Nn]|[Ss][Mm][Oo][Kk][Ee]_[Ll][Aa][Uu][Nn][Cc][Hh][Ee][Rr])\\s*$"
+                          }
+                        ],
+                        "description": "Any case."
+                      },
+                      {
+                        "type": "integer"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "default": [],
+              "description": "The flare patterns; a 'Flare' section without them fires none. Flare patterns by name, or legacy numbers. Legacy TXT key: flaretype."
+            },
+            "Type": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "NONE",
+                            "NORMAL",
+                            "LARGE_AIRCRAFT",
+                            "SIDE",
+                            "FRONT",
+                            "DOWN",
+                            "SMOKE_LAUNCHER"
+                          ]
+                        },
+                        {
+                          "pattern": "^\\s*(?:[Nn][Oo][Nn][Ee]|[Nn][Oo][Rr][Mm][Aa][Ll]|[Ll][Aa][Rr][Gg][Ee]_[Aa][Ii][Rr][Cc][Rr][Aa][Ff][Tt]|[Ss][Ii][Dd][Ee]|[Ff][Rr][Oo][Nn][Tt]|[Dd][Oo][Ww][Nn]|[Ss][Mm][Oo][Kk][Ee]_[Ll][Aa][Uu][Nn][Cc][Hh][Ee][Rr])\\s*$"
+                        }
+                      ],
+                      "description": "Any case."
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "NONE",
+                              "NORMAL",
+                              "LARGE_AIRCRAFT",
+                              "SIDE",
+                              "FRONT",
+                              "DOWN",
+                              "SMOKE_LAUNCHER"
+                            ]
+                          },
+                          {
+                            "pattern": "^\\s*(?:[Nn][Oo][Nn][Ee]|[Nn][Oo][Rr][Mm][Aa][Ll]|[Ll][Aa][Rr][Gg][Ee]_[Aa][Ii][Rr][Cc][Rr][Aa][Ff][Tt]|[Ss][Ii][Dd][Ee]|[Ff][Rr][Oo][Nn][Tt]|[Dd][Oo][Ww][Nn]|[Ss][Mm][Oo][Kk][Ee]_[Ll][Aa][Uu][Nn][Cc][Hh][Ee][Rr])\\s*$"
+                          }
+                        ],
+                        "description": "Any case."
+                      },
+                      {
+                        "type": "integer"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "default": [],
+              "description": "Another spelling of 'Types'."
+            },
+            "Chaff": {
+              "default": false,
+              "description": "'Chaff': false leaves chaff as it was, anything else turns it on. false leaves chaff off; any other value turns it on. Legacy TXT key: haschaff."
+            },
+            "HasChaff": {
+              "default": false,
+              "description": "Another spelling of 'Chaff'."
+            },
+            "ChaffUseTime": {
+              "type": "integer",
+              "default": 100,
+              "description": "Legacy TXT key: chaffusetime."
+            },
+            "ChaffWaitTime": {
+              "type": "integer",
+              "default": 400,
+              "description": "Legacy TXT key: chaffwaittime."
+            },
+            "ChaffCooldown": {
+              "type": "integer",
+              "default": 400,
+              "description": "Another spelling of 'ChaffWaitTime'."
+            }
+          },
+          "additionalProperties": false
+        },
+        "Maintenance": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "EngineShutdownThreshold": {
+                  "type": "integer",
+                  "default": 20,
+                  "description": "Legacy TXT key: engineshutdownthreshold."
+                },
+                "EngineShutdown": {
+                  "type": "integer",
+                  "default": 20,
+                  "description": "Another spelling of 'EngineShutdownThreshold'."
+                },
+                "UseTime": {
+                  "deprecated": true,
+                  "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+                },
+                "Cooldown": {
+                  "deprecated": true,
+                  "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "not": {
+                "type": "object"
+              },
+              "deprecated": true,
+              "description": "A plain value here is an old spelling. No longer supported: the game ignores this key and says so once per load. You can delete it."
+            }
+          ]
+        },
+        "APS": {
+          "type": "object",
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "A legacy TXT key whose presence switches a feature on, whatever its value ('HasAPS = no'). Legacy TXT key: hasaps."
+            },
+            "UseTime": {
+              "type": "integer",
+              "default": 100,
+              "description": "Legacy TXT key: apsusetime."
+            },
+            "WaitTime": {
+              "type": "integer",
+              "default": 400,
+              "description": "Legacy TXT key: apswaittime."
+            },
+            "Range": {
+              "type": "integer",
+              "default": 8,
+              "description": "Legacy TXT key: apsrange."
+            }
+          },
+          "additionalProperties": false
+        },
+        "ArmorExplosionDamageMultiplier": {
+          "type": "number",
+          "default": 1,
+          "description": "Legacy TXT key: armorexplosiondamage, armorexplosiondamagemultiplier."
+        },
+        "ArmorExplosionDamage": {
+          "type": "number",
+          "default": 1,
+          "description": "Another spelling of 'ArmorExplosionDamageMultiplier'."
+        },
+        "Radar": {
+          "type": "object",
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "Legacy TXT key: enableradar."
+            },
+            "Type": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "MODERN_AA",
+                        "EARLY_AA",
+                        "MODERN_AS",
+                        "EARLY_AS"
+                      ]
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "description": "Any case."
+                },
+                {
+                  "type": "integer"
+                }
+              ],
+              "default": "EARLY_AA",
+              "description": "Also the top-level 'RadarType', which reads a name it does not know as 'MODERN_AA'. A name or its number; a name the game does not know is ignored. Legacy TXT key: radartype."
+            },
+            "MaxTargetRange": {
+              "type": "number",
+              "default": 3000,
+              "description": "Legacy TXT key: radarmaxtargetrange."
+            },
+            "ScanAzimuth": {
+              "type": "number",
+              "default": 120,
+              "description": "Legacy TXT key: radarscanazimuthdeg."
+            },
+            "ScanElevation": {
+              "type": "number",
+              "default": 40,
+              "description": "Legacy TXT key: radarscanelevationdeg."
+            },
+            "ScanTick": {
+              "type": "integer",
+              "default": 12,
+              "description": "Legacy TXT key: radarscantick."
+            },
+            "EnableBVR": {
+              "type": "boolean",
+              "default": false,
+              "description": "Legacy TXT key: enablebvr."
+            },
+            "Passive": {
+              "type": "boolean",
+              "default": false
+            },
+            "PanelFillAlpha": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "FollowTurretYaw": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "DetectChanceBase": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "GainNearFactor": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "GainFarFactor": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "RcsFrontFactor": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "RcsSideFactor": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "RcsRearFactor": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "RcsTimeFactor": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "ContactHoldTick": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "ElevationReference": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "ElevationCoverage": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "MinScanAltitude": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "MaxScanAltitude": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "SearchType": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "TrackAzimuth": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "TrackElevation": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "RetargetCooldownTick": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            }
+          },
+          "additionalProperties": false
+        },
+        "RWR": {
+          "type": "object",
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "Legacy TXT key: enablerwr."
+            },
+            "Type": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "FOUR_WAY",
+                        "ALL_WAY_EARLY",
+                        "DIGITAL"
+                      ]
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "description": "Any case."
+                },
+                {
+                  "type": "integer"
+                }
+              ],
+              "default": "DIGITAL",
+              "description": "Also the top-level 'RWRType', which reads a name it does not know as 'DIGITAL'. A name or its number; a name the game does not know is ignored. Legacy TXT key: rwrtype."
+            },
+            "Name": {
+              "type": "string",
+              "default": "?",
+              "description": "The name the vehicle shows on other vehicles' warning receivers. Legacy TXT key: nameonrwr."
+            }
+          },
+          "additionalProperties": false
+        },
+        "ECM": {
+          "type": "object",
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "A legacy TXT key whose presence switches a feature on, whatever its value ('HasAPS = no'). Legacy TXT key: hasecmjammer."
+            },
+            "WaitTime": {
+              "type": "integer",
+              "default": 400,
+              "description": "Legacy TXT key: ecmjammerwaittime."
+            },
+            "UseTime": {
+              "type": "integer",
+              "default": 100,
+              "description": "Legacy TXT key: ecmjammerusetime."
+            },
+            "Type": {
+              "type": "integer",
+              "default": 0,
+              "description": "Legacy TXT key: ecmjammertype."
+            },
+            "PhotoelectricJammer": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "DIRCM": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            }
+          },
+          "additionalProperties": false
+        },
+        "ImpactAngles": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ShipFeatures": {
+      "type": "object",
+      "properties": {
+        "VariableSweepWing": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: variablesweepwing."
+        },
+        "SweepWingSpeed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5,
+          "default": 0.1,
+          "description": "The top speed with the wing swept back; scaled by the server's speed setting like the speed. The game clamps a value outside 0 to 5 and says so. Legacy TXT key: sweepwingspeed."
+        },
+        "EnableVtol": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "Enabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Legacy TXT key: enablevtol."
+                },
+                "IsDefault": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Legacy TXT key: defaultvtol."
+                },
+                "Yaw": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "default": 0.3,
+                  "description": "The game clamps a value outside 0 to 1 and says so. Legacy TXT key: vtolyaw."
+                },
+                "Pitch": {
+                  "type": "number",
+                  "minimum": 0.009999999776482582,
+                  "maximum": 1,
+                  "default": 0.2,
+                  "description": "The game clamps a value outside 0.009999999776482582 to 1 and says so. Legacy TXT key: vtolpitch."
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "boolean",
+              "default": false,
+              "description": "Legacy TXT key: enablevtol."
+            }
+          ]
+        },
+        "EnableAutoPilot": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Components": {
+      "type": "object",
+      "properties": {
+        "Camera": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/camera"
+          }
+        },
+        "Canopy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/canopy"
+          }
+        },
+        "Hatch": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hatch"
+          }
+        },
+        "LightHatch": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lightHatch"
+          }
+        },
+        "WeaponBay": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/weaponBay"
+          }
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/rotatingPart"
+          }
+        },
+        "SteeringWheel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/steeringWheel"
+          }
+        },
+        "Wheel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/wheel2"
+          }
+        },
+        "LandingGear": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/landingGear"
+          }
+        },
+        "Weapon": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/weaponPart"
+          }
+        },
+        "SearchLight": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/searchLight"
+          }
+        },
+        "TrackRoller": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/trackRoller"
+          }
+        },
+        "Throttle": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/throttle"
+          }
+        },
+        "CrawlerTrack": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/crawlerTrack"
+          }
+        },
+        "RepelHook": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/repellingHook"
+          }
+        },
+        "ShipRotor": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/propeller"
+          }
+        },
+        "Wing": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/wing"
+          }
+        },
+        "Nozzle": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nozzle"
+          }
+        },
+        "TurretWeaponBay": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "TurretRotation": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "NameOnAdvancedAARadar": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "HUDType": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "HudType": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "WeaponGroupType": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "SchemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1,
+      "description": "The content schema version the file is written for. Optional; a file without it is version 1. This game reads version 1."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "cameraPosition": {
+      "type": "object",
+      "properties": {
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Pos'."
+        },
+        "FixedRot": {
+          "type": "boolean",
+          "default": false
+        },
+        "Yaw": {
+          "type": "number",
+          "default": 0
+        },
+        "Pitch": {
+          "type": "number",
+          "default": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "splashParticle": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 2,
+          "description": "The game clamps a value outside 1 to 100 and says so."
+        },
+        "Size": {
+          "type": "number",
+          "default": 2
+        },
+        "Acceleration": {
+          "type": "number",
+          "default": 1
+        },
+        "Accel": {
+          "type": "number",
+          "default": 1,
+          "description": "Another spelling of 'Acceleration'."
+        },
+        "Age": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000,
+          "default": 80,
+          "description": "The game clamps a value outside 1 to 100000 and says so."
+        },
+        "Motion": {
+          "type": "number",
+          "default": 0.01
+        },
+        "Gravity": {
+          "type": "number",
+          "default": 0
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "weapon": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string"
+        },
+        "WeaponType": {
+          "type": "string",
+          "description": "Another spelling of 'Type'."
+        },
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Position'."
+        },
+        "Yaw": {
+          "type": "number",
+          "default": 0
+        },
+        "Pitch": {
+          "type": "number",
+          "default": 0
+        },
+        "SeatID": {
+          "type": "integer",
+          "default": 1,
+          "description": "The seat that fires it, numbered from 1 in the file and from 0 in the game; 0 or 1 is the pilot."
+        },
+        "CanUsePilot": {
+          "type": "boolean",
+          "default": true,
+          "description": "The pilot can always fire the pilot seat's weapons."
+        },
+        "DefaultYaw": {
+          "type": "number",
+          "default": 0
+        },
+        "MinYaw": {
+          "type": "number",
+          "default": 0
+        },
+        "MaxYaw": {
+          "type": "number",
+          "default": 0
+        },
+        "MinPitch": {
+          "type": "number",
+          "default": 0
+        },
+        "MaxPitch": {
+          "type": "number",
+          "default": 0
+        },
+        "Turret": {
+          "type": "boolean",
+          "default": false
+        },
+        "MuzzleFlashPos": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Type"
+              ]
+            },
+            {
+              "required": [
+                "WeaponType"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "seat": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "UnmountPos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Gunner": {
+          "type": "boolean",
+          "default": false
+        },
+        "SwitchGunner": {
+          "type": "boolean",
+          "default": false
+        },
+        "FixRot": {
+          "type": "boolean",
+          "default": false
+        },
+        "FixYaw": {
+          "type": "number",
+          "default": 0
+        },
+        "FixPitch": {
+          "type": "number",
+          "default": 0
+        },
+        "MinPitch": {
+          "type": "number",
+          "default": -30
+        },
+        "MaxPitch": {
+          "type": "number",
+          "default": 70
+        },
+        "RotSeat": {
+          "type": "boolean",
+          "default": false
+        },
+        "InvCamPos": {
+          "type": "boolean",
+          "default": false
+        },
+        "Camera": {
+          "$ref": "#/$defs/cameraPosition",
+          "description": "Where the gunner looks from. TXT spells it with the seat, as the same position."
+        },
+        "Cam": {
+          "$ref": "#/$defs/cameraPosition",
+          "description": "Another spelling of 'Camera'."
+        },
+        "Hud": {
+          "type": "string",
+          "description": "The HUD shown in the seat; a seat without one shows none."
+        },
+        "ExcludeWith": {
+          "type": "object",
+          "properties": {
+            "Seats": {
+              "type": "array",
+              "items": {}
+            },
+            "Racks": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "additionalProperties": false,
+          "default": {},
+          "description": "Seats and racks, by number, that cannot be used while this seat is taken."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "rack": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "UnmountPos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Camera": {
+          "$ref": "#/$defs/cameraPosition",
+          "description": "Where a vehicle has to be to be loaded. TXT writes it 1.5 lower than YAML."
+        },
+        "Cam": {
+          "$ref": "#/$defs/cameraPosition",
+          "description": "Another spelling of 'Camera'."
+        },
+        "Names": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "default": [],
+          "description": "One name, or a list of names; written as 'Name: x' for one and a list for more."
+        },
+        "Name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "default": [],
+          "description": "Another spelling of 'Names'."
+        },
+        "Range": {
+          "type": "number",
+          "default": 0,
+          "description": "How close a vehicle must come; TXT racks default to 6 blocks."
+        },
+        "Yaw": {
+          "type": "number",
+          "default": 0
+        },
+        "Pitch": {
+          "type": "number",
+          "default": 0
+        },
+        "RotSeat": {
+          "type": "boolean",
+          "default": false
+        },
+        "ExcludeWith": {
+          "type": "object",
+          "properties": {
+            "Seats": {
+              "type": "array",
+              "items": {}
+            },
+            "Racks": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "additionalProperties": false,
+          "default": {},
+          "description": "Seats and racks, by number, that cannot be used while this seat is taken."
+        },
+        "OpenParaAlt": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Camera"
+              ]
+            },
+            {
+              "required": [
+                "Cam"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "boundingBox": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "DEFAULT",
+                "ENGINE",
+                "TURRET"
+              ]
+            },
+            {
+              "pattern": "^\\s*(?:[Dd][Ee][Ff][Aa][Uu][Ll][Tt]|[Ee][Nn][Gg][Ii][Nn][Ee]|[Tt][Uu][Rr][Rr][Ee][Tt])\\s*$"
+            }
+          ],
+          "default": "DEFAULT",
+          "description": "A box type by name; legacy TXT reads a name it does not know as 'DEFAULT'. Any case."
+        },
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Size": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Width, height and depth; the game keeps them as floats. A list [x, y, z] of three numbers."
+        },
+        "DamageFactor": {
+          "type": "number",
+          "default": 1
+        },
+        "DmgFact": {
+          "type": "number",
+          "default": 1,
+          "description": "Another spelling of 'DamageFactor'."
+        },
+        "Name": {
+          "type": "string",
+          "default": ""
+        },
+        "IsERA": {
+          "type": "boolean",
+          "default": false
+        },
+        "ERA": {
+          "type": "boolean",
+          "default": false,
+          "description": "Another spelling of 'IsERA'."
+        },
+        "EraExplosion": {
+          "type": "number",
+          "default": 0
+        },
+        "EraMinDamage": {
+          "type": "number",
+          "default": 0
+        }
+      },
+      "required": [
+        "Size"
+      ],
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "wheel": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Scale": {
+          "type": "number",
+          "default": 1
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "camera": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "YawSync": {
+          "type": "boolean",
+          "default": true
+        },
+        "PitchSync": {
+          "type": "boolean",
+          "default": false
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "canopy": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "MaxRotation": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 90,
+          "description": "How far the canopy opens, as a factor of 90 degrees. The game clamps a value outside -180 to 180 and says so."
+        },
+        "IsSliding": {
+          "type": "boolean",
+          "default": false
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "hatch": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "MaxRotation": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 90,
+          "description": "The game clamps a value outside -180 to 180 and says so."
+        },
+        "IsSliding": {
+          "type": "boolean",
+          "default": false
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "lightHatch": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "MaxRotation": {
+          "type": "number",
+          "minimum": -1800,
+          "maximum": 1800,
+          "default": 90,
+          "description": "Light hatches turn up to ten full turns either way. The game clamps a value outside -1800 to 1800 and says so."
+        },
+        "IsSliding": {
+          "type": "boolean",
+          "default": false
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "weaponBay": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "WeaponName": {
+          "type": "string"
+        },
+        "MaxRotation": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 90,
+          "description": "How far the bay door opens, as a factor of 90 degrees. The game clamps a value outside -180 to 180 and says so."
+        },
+        "IsSliding": {
+          "type": "boolean",
+          "default": false
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "rotatingPart": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "Speed": {
+          "type": "number",
+          "default": 0
+        },
+        "AlwaysRotate": {
+          "type": "boolean",
+          "default": false
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "steeringWheel": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "Direction": {
+          "type": "number",
+          "default": 0
+        },
+        "Pivot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "wheel2": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            1,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "Wheels keep their names in lower case."
+        },
+        "Direction": {
+          "type": "number",
+          "minimum": -1800,
+          "maximum": 1800,
+          "default": 0,
+          "description": "The game clamps a value outside -1800 to 1800 and says so."
+        },
+        "Pivot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "required": [
+        "Position"
+      ],
+      "additionalProperties": false
+    },
+    "landingGear": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "MaxRotation": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 90,
+          "description": "The game clamps a value outside -180 to 180 and says so."
+        },
+        "IsReverse": {
+          "type": "boolean",
+          "default": false
+        },
+        "IsHatch": {
+          "type": "boolean",
+          "default": false
+        },
+        "ArticulatedRotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "MaxArticulatedRotation": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 90,
+          "description": "The game clamps a value outside -180 to 180 and says so."
+        },
+        "SlideVec": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "weaponPart": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "WeaponNames": {
+          "type": "string",
+          "default": "unnamed",
+          "description": "Weapon types separated by '/', in lower case. Names separated by '/'."
+        },
+        "BarrelRot": {
+          "type": "boolean",
+          "default": false,
+          "description": "The barrels spin while firing."
+        },
+        "IsMissile": {
+          "type": "boolean",
+          "default": false
+        },
+        "HideGM": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hidden in gunner view."
+        },
+        "Yaw": {
+          "type": "boolean",
+          "default": false
+        },
+        "Pitch": {
+          "type": "boolean",
+          "default": false
+        },
+        "RecoilBuf": {
+          "type": "number",
+          "default": 0
+        },
+        "Turret": {
+          "type": "boolean",
+          "default": false
+        },
+        "Children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/barrel"
+          },
+          "description": "TXT: 'AddPartWeaponChild' lines, which add to the weapon part before them."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "RotBarrel": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "barrel": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Yaw": {
+          "type": "boolean",
+          "default": false
+        },
+        "Pitch": {
+          "type": "boolean",
+          "default": false
+        },
+        "RecoilBuf": {
+          "type": "number",
+          "default": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "searchLight": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "ColorStart": {
+          "type": "string",
+          "pattern": "^\\s*(#|0[xX])?[0-9A-Fa-f]+\\s*$",
+          "default": "#FFFFFF",
+          "description": "A colour as ARGB hex. Legacy TXT reads '0x', or plain hex digits; a leading '#' fails. An ARGB hex colour such as '#FF8800'."
+        },
+        "ColorEnd": {
+          "type": "string",
+          "pattern": "^\\s*(#|0[xX])?[0-9A-Fa-f]+\\s*$",
+          "default": "#FFFFFF",
+          "description": "A colour as ARGB hex. Legacy TXT reads '0x', or plain hex digits; a leading '#' fails. An ARGB hex colour such as '#FF8800'."
+        },
+        "Height": {
+          "type": "number",
+          "default": 1
+        },
+        "Width": {
+          "type": "number",
+          "default": 1
+        },
+        "Yaw": {
+          "type": "number",
+          "default": 0
+        },
+        "Pitch": {
+          "type": "number",
+          "default": 0
+        },
+        "StRot": {
+          "type": "number",
+          "default": 0
+        },
+        "FixedDirection": {
+          "type": "boolean",
+          "default": false
+        },
+        "Steering": {
+          "type": "boolean",
+          "default": false
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "trackRoller": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "throttle": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "SlidePos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "MaxAngle": {
+          "type": "number",
+          "default": 0
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "crawlerTrack": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "IsReverse": {
+          "type": "boolean",
+          "default": false
+        },
+        "SegmentLength": {
+          "type": "number",
+          "default": 1
+        },
+        "ZOffset": {
+          "type": "number",
+          "default": 0
+        },
+        "TrackList": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "default": [],
+          "description": "A corner of a crawler track: '[y, z]'; TXT writes 'y/z'. Corners [y, z]."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "repellingHook": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Interval": {
+          "type": "integer",
+          "default": 0
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "propeller": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "RotFactor": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 90,
+          "description": "How far it tilts with VTOL, in degrees. The game clamps a value outside -180 to 180 and says so."
+        },
+        "Blades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/blade"
+          }
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "blade": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "BladeNum": {
+          "type": "integer",
+          "default": 1
+        },
+        "BladeRot": {
+          "type": "integer",
+          "description": "A blade without its angle is left out, as it always was."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "RotFactor": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "wing": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "MaxRotation": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 0,
+          "description": "The game clamps a value outside -180 to 180 and says so."
+        },
+        "MaxRot": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "default": 0,
+          "description": "Another spelling of 'MaxRotation'."
+        },
+        "Pylons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pylon"
+          }
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "pylon": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "MaxRotation": {
+          "type": "number",
+          "default": 0
+        },
+        "MaxRot": {
+          "type": "number",
+          "default": 0,
+          "description": "Another spelling of 'MaxRotation'."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "nozzle": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Pos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "A list [x, y, z] of three numbers."
+        },
+        "Rot": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^\\s*[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][-+]?\\d+)?[fFdD]?\\s*$"
+              }
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "default": [
+            0,
+            0,
+            0
+          ],
+          "description": "Another spelling of 'Rotation'."
+        },
+        "PartName": {
+          "type": "string",
+          "description": "A part name, as written."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

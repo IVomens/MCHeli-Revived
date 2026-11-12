@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="LGPL-3.0-only"
+
+[[mods]]
+modId="mcheli_example"
+version="1.0.0"
+displayName="MCHeli Example Addon"
+description='''Shows the MCHeli: Revived API: a content pack in the jar, and a listener that counts shots and stops them in spawn protection.'''
+
+[[dependencies.mcheli_example]]
+    modId="mcheli"
+    type="required"
+    versionRange="[2.0.0,)"
+    # MCHeli loads its content while it is constructed; the pack is found through META-INF/services, so no
+    # ordering is needed for it. AFTER keeps the log readable.
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mcheli_example]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.0,)"
+    ordering="NONE"
+    side="BOTH"

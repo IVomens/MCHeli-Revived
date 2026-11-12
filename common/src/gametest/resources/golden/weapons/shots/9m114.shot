@@ -1,0 +1,10 @@
+# {"schema":1,"weapon":"9m114","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3e99015"}
+modes: "9M114 [TV]", "9M114"
+mount: vehicle mi-24 (HelicopterEntity), pilot seat, weapon #3
+ready after 21 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "9M114 [TV]"
+t0 spawned #0 mcheli:tv_missile at 3076.25 98.85933679234931 3071.778953782645 motion -0.0348110953728099 0.13967022688769784 1.9948133785795812 yaw 1.0024483 pitch -4.005
+after shot: ammo 3 reserve 0 heat 0 cooldown 100 reload 0 name "9M114 [TV]"
+t1 explosion by #0 at 3076.2499651889048 98.8594764625762 3071.780948596024 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming true destroyBlocks true setFire 0 damageFactor true inWater false
+t1 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 40 reload 0 name "9M114 [TV]"

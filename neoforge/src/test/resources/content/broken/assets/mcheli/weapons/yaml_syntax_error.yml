@@ -1,0 +1,4 @@
+DisplayName: Broken Syntax
+Type: rocket
+Ballistics:
+  Acceleration: [1.0, 2.0

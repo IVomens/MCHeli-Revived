@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="LGPL-3.0-only"
+
+# The example addon's game tests, a mod of their own so the addon's jar stays as it ships.
+[[mods]]
+modId="mcheli_example_test"
+version="1.0.0"
+displayName="MCHeli Example Addon Game Tests"
+description='''Game tests that run the example addon next to MCHeli: Revived.'''
+
+[[dependencies.mcheli_example_test]]
+    modId="mcheli_example"
+    type="required"
+    versionRange="[1.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mcheli_example_test]]
+    modId="mcheli"
+    type="required"
+    versionRange="[2.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# A game test server never has spawn protection; this lets a test switch it on for an area.
+[[mixins]]
+config="mcheli_example_test.mixins.json"

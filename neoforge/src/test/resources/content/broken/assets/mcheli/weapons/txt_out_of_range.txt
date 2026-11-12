@@ -1,0 +1,7 @@
+DisplayName = TXT Out Of Range
+Type = bomb
+Explosion = 9999
+ExplosionInWater = -4
+Round = 0
+ReloadTime = 0
+LockTime = 1

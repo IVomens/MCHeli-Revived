@@ -1,0 +1,142 @@
+name: CI
+
+# Builds every push and pull request: compiles all modules and runs the unit and architecture tests
+# (build), runs the dedicated-server game tests on both loaders in parallel (gametest, a job per
+# loader), and checks server performance against a committed baseline (benchmark). A newer push to the
+# same branch or pull request cancels the run still going for the older one. When something fails,
+# the test reports and game test logs are uploaded so the failure can be read without rerunning it
+# locally. The content job checks the bundled YAML content against the JSON Schemas in schemas/.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build and unit test (all modules)
+        run: ./gradlew build
+
+      # Part of the build above; named here so a break of the API for addons shows as its own step.
+      - name: Example addon (compiled against the API alone)
+        run: ./gradlew :example-addon:build :api:publishToMavenLocal
+
+      - name: Upload the test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            */build/reports/
+            */build/test-results/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  # The dedicated-server game tests, one job per loader so the two run side by side. Each job compiles
+  # what its game test server needs itself, so they do not wait for the build job either.
+  gametest:
+    strategy:
+      fail-fast: false
+      matrix:
+        loader: [neoforge, fabric]
+    name: game tests (${{ matrix.loader }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Game tests (${{ matrix.loader }} dedicated server)
+        run: ./gradlew :${{ matrix.loader }}:runGameTestServer
+
+      # The example addon's jar and MCHeli's jar loaded as two mods: the addon's content pack is found and
+      # its WeaponFired listener counts and cancels shots.
+      - name: Example addon game tests (NeoForge, next to the MCHeli jar)
+        if: matrix.loader == 'neoforge'
+        run: ./gradlew :example-addon:runGameTestServer
+
+      - name: Upload the game test logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gametest-${{ matrix.loader }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            fabric/build/gametest/
+            run/logs/
+            examples/example-addon/run/logs/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  benchmark:
+    # The performance gate (docs/BENCHMARKS.md): parked, flying and firefight with 100 vehicles each on
+    # the NeoForge game test server, against common/src/gametest/resources/bench/server-gate-baseline.json.
+    # It fails when a tier allocates more than 10 % more per tick, or when its median tick time,
+    # divided by a calibration loop timed in the same run, grows by more than 35 %. The results are
+    # always uploaded, so a new baseline can be taken from a CI run as well.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Benchmark gate (NeoForge dedicated server)
+        run: ./gradlew :neoforge:runBenchmarkGate
+
+      - name: Upload the benchmark results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            build/benchmarks/
+            run/logs/
+          if-no-files-found: ignore
+          retention-days: 30
+
+  content:
+    # Every bundled YAML file against the generated JSON Schemas, with the same action addon packs use
+    # (.github/actions/validate-content). The build job checks that schemas/ is up to date.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate the bundled content
+        uses: ./.github/actions/validate-content
+        with:
+          path: common/src/main/resources
+          schemas: schemas/
+
+      - name: The schema files are valid JSON Schema
+        run: check-jsonschema --check-metaschema schemas/*.schema.json

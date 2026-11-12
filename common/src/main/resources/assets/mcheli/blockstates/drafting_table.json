@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "direction8=south": {
+      "model": "mcheli:block/drafting_table"
+    },
+    "direction8=southwest": {
+      "model": "mcheli:block/drafting_table"
+    },
+    "direction8=west": {
+      "model": "mcheli:block/drafting_table"
+    },
+    "direction8=northwest": {
+      "model": "mcheli:block/drafting_table"
+    },
+    "direction8=north": {
+      "model": "mcheli:block/drafting_table"
+    },
+    "direction8=northeast": {
+      "model": "mcheli:block/drafting_table"
+    },
+    "direction8=east": {
+      "model": "mcheli:block/drafting_table"
+    },
+    "direction8=southeast": {
+      "model": "mcheli:block/drafting_table"
+    }
+  }
+}

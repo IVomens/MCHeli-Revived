@@ -1,0 +1,19 @@
+# {"schema":1,"weapon":"d56ts","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "D-56TS 76mmGun", "D-56TS 76mmGun [HE]"
+mount: vehicle project1204 (ShipEntity), pilot seat, weapon #0
+ready after 21 ticks
+before shot: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "D-56TS 76mmGun"
+t0 spawned #0 mcheli:bullet at 3072.0 103.02999997138977 3074.000000000745 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 0 reserve 1 heat 0 cooldown 25 reload 5 name "D-56TS 76mmGun"
+t1 #0 3072.0 102.99499997217208 3080.8250000007447
+t2 #0 3072.0 102.9249999737367 3087.6500000007445
+t3 #0 3072.0 102.81999997608364 3094.4750000007443
+t4 #0 3072.0 102.67999997921288 3101.300000000744
+t5 #0 3072.0 102.50499998312443 3108.125000000744
+t6 #0 3072.0 102.2949999878183 3114.950000000744
+t7 #0 3072.0 102.04999999329448 3121.7750000007436
+t8 #0 3072.0 101.76999999955297 3128.6000000007434
+t9 #0 3072.0 101.45500000659376 3135.4250000007432
+t10 #0 3072.0 101.10500001441687 3142.250000000743
+t11 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "D-56TS 76mmGun"

@@ -1,0 +1,63 @@
+# {"schema":1,"emitted from":"assets/mcheli/planes/txt_plane_full.txt","commit":"09ffef3"}
+DisplayName: TXT Fixture Plane
+MaxHP: 120
+RepairOtherVehicles:
+  Range: 0.0
+  Value: 10
+PhysicalProperties:
+  Speed: 1.8
+Weapons:
+- Type: m61a1
+  Position: [0.0, 0.0, 4.0]
+Seats:
+- Position: [0.0, 1.0, 2.0]
+  Hud: plane
+PlaneFeatures:
+  VariableSweepWing: true
+  SweepWingSpeed: 5.0
+  EnableVtol:
+    Enabled: true
+    IsDefault: true
+    Yaw: 0.5
+    Pitch: 0.01
+Components:
+  PlaneRotor:
+  - Position: [0.0, 0.0, 5.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: rotor0
+    RotFactor: 90.0
+  - Position: [0.0, 0.0, 5.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: rotor1
+    RotFactor: 180.0
+    Blades:
+    - Position: [0.0, 0.0, 5.0]
+      Rotation: [0.0, 0.0, 1.0]
+      PartName: blade1
+      BladeNum: 3
+      BladeRot: 120
+  Wing:
+  - Position: [4.0, 0.0, 0.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: wing0
+    MaxRotation: 30.0
+    Pylons:
+    - Position: [4.0, -0.5, 0.0]
+      Rotation: [0.0, 0.0, 1.0]
+      PartName: wing0_pylon0
+      MaxRotation: 30.0
+    - Position: [5.0, -0.5, 0.0]
+      Rotation: [0.0, 0.0, 1.0]
+      PartName: wing0_pylon1
+      MaxRotation: 30.0
+  Nozzle:
+  - Position: [0.0, 0.0, -6.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: nozzle0
+  ExhaustFlame:
+  - Position: [0.0, 0.0, -7.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: flame
+    Texture: flame_tex
+    Yaw: 10.0
+    Delay: 3

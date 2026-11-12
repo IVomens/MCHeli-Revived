@@ -1,0 +1,516 @@
+# {"schema":1,"emitted from":"assets/mcheli/helicopters/txt_heli_full.txt","commit":"98e04e3"}
+DisplayName:
+  ja_jp: TXTヘリ
+  DEFAULT: TXT Fixture Helicopter
+ItemID: 65535
+Category: ATTACK.FIXTURE.TEST.ONE
+Recepie:
+  isShaped: false
+  Pattern:
+  - '" X ", "XYX", X, IRON_INGOT, Y, REDSTONE'
+  - IRON_INGOT, REDSTONE
+RotorSpeed: 20.0
+TurretPosition: [0.0, 0.5, 2.5]
+GlobalUnmountPos: [2.0, 0.0, 0.0]
+CreativeOnly: true
+Regeneration: true
+MaxFuel: 3500
+MaxHP: 1
+Stealth: 0.3
+FuelConsumption: 1.25
+FuelSupplyRange: 12.0
+AmmoSupplyRange: 14.0
+RepairOtherVehicles:
+  Range: 8.0
+  Value: 25
+NameOnModernAARadar: FIX-AA
+NameOnEarlyAARadar: FIX-EA
+NameOnModernASRadar: FIX-AS
+NameOnEarlyASRadar: FIX-ES
+ExplosionSizeByCrash: 100
+ThrottleDownFactor: 2.5
+Camera:
+  AlwaysCameraView: true
+  Zoom: 10
+  DefaultFreeLook: true
+  RotationSpeed: 120.0
+  Pos:
+  - Pos: [0.0, 1.5, 3.0]
+  - Pos: [0.0, 0.5, 4.0]
+    FixedRot: true
+    Yaw: 15.0
+    Pitch: -5.0
+Sound:
+  MoveSound: mcheli:heli_rotor
+  Vol: 1.5
+  Pitch: 0.9
+  Range: 120.0
+PhysicalProperties:
+  Speed: 0.8
+  CanFloat: true
+  FloatOffset: 0.25
+  MotionFactor: 1.0
+  Gravity: -0.05
+  RotationSnapValue: -5.0
+  GravityInWater: 0.02
+  StepHeight: 1.5
+  CanRotOnGround: false
+  OnGroundPitch: 5.0
+  PivotTurnThrottle: 0.4
+  Mobility:
+    Yaw: 0.8
+    Pitch: 0.7
+    Roll: 0.9
+    YawOnGround: 0.4
+  GroundPitchFactors:
+    Pitch: 3.0
+    Roll: 2.0
+  BodySize:
+    Height: 0.1
+    Width: 3.5
+  RotationLimits:
+    Roll:
+      Min: -45.0
+      Max: 45.0
+Render:
+  Textures:
+  - fixture_heli_desert
+  - fixture_heli_snow
+  ModelWidth: 1.5
+  ModelHeight: 2.5
+  ModelPitch: 5.0
+  ModelRoll: -5.0
+  ParticleScale: 1.5
+  EnableSeaSurfaceParticle: true
+  SplashParticles:
+  - Position: [0.0, 0.5, -2.0]
+  - Position: [1.0, 0.5, -2.0]
+    Count: 4
+    Size: 3.0
+    Acceleration: 0.5
+    Age: 60
+    Motion: 0.02
+    Gravity: -0.01
+Armor:
+  ArmorDamageFactor: 0.8
+  ArmorMinDamage: 4.0
+  ArmorMaxDamage: 200.0
+  DamageFactor: 0.5
+  SubmergedDamageHeight: 1.25
+Weapons:
+- Type: m230
+  Position: [0.0, -1.0, 3.0]
+- Type: m230
+  Position: [0.0, -1.0, 3.0]
+  Yaw: 5.0
+  Pitch: -5.0
+  SeatID: 2
+  CanUsePilot: false
+  DefaultYaw: -170.0
+  MinYaw: -90.0
+  MaxYaw: 90.0
+  MinPitch: -30.0
+  MaxPitch: 20.0
+- Type: hydra70
+  Position: [1.5, -0.5, 1.0]
+  Turret: true
+Seats:
+- Position: [0.0, 1.0, 2.0]
+  Hud: heli
+- Position: [0.0, 1.0, 1.0]
+  UnmountPos: [0.0, 2.0, 0.0]
+  RotSeat: true
+  Hud: heli_gnr
+  ExcludeWith:
+    Seats: [3]
+- Position: [0.0, 1.0, 0.0]
+  Gunner: true
+  Camera:
+    Pos: [0.0, 0.0, 0.0]
+  Hud: gunner
+- Position: [0.0, 1.0, -1.0]
+  Gunner: true
+  SwitchGunner: true
+  InvCamPos: true
+  Camera:
+    Pos: [0.0, 1.0, -2.0]
+  Hud: gunner
+- Position: [0.0, 1.0, -2.0]
+  UnmountPos: [0.0, 2.0, -2.0]
+  Gunner: true
+  MinPitch: -60.0
+  MaxPitch: 30.0
+  RotSeat: true
+  InvCamPos: true
+  Camera:
+    Pos: [0.0, 1.0, -3.0]
+  Hud: gunner
+- Position: [1.0, 1.0, -3.0]
+  Gunner: true
+  FixRot: true
+  FixYaw: 90.0
+  FixPitch: 10.0
+  InvCamPos: true
+  Camera:
+    Pos: [1.0, 1.0, -4.0]
+  Hud: gunner
+- Position: [-1.0, 1.0, -3.0]
+  UnmountPos: [0.0, 1.0, 0.0]
+  Gunner: true
+  SwitchGunner: true
+  FixRot: true
+  FixYaw: -90.0
+  FixPitch: 10.0
+  RotSeat: true
+  InvCamPos: true
+  Camera:
+    Pos: [-1.0, 1.0, -4.0]
+  Hud: gunner
+Racks:
+- Position: [0.0, -1.0, 0.0]
+  Camera:
+    Pos: [0.0, 2.5, 0.0]
+  Names:
+  - container
+  - fuel_tank
+  Range: 6.0
+- Position: [0.0, -1.0, 1.0]
+  UnmountPos: [0.0, 1.0, 0.0]
+  Camera:
+    Pos: [0.0, 2.5, 0.0]
+  Names: crate
+  Range: 8.0
+  Yaw: 90.0
+  Pitch: 10.0
+  RotSeat: true
+RideRack:
+  uh-1y: [1, 3]
+  ah-1z: 2
+BoundingBoxes:
+- Type: DEFAULT
+  Position: [0.0, 0.0, 1.0]
+  Size: [2.0, 2.0, 2.0]
+- Type: DEFAULT
+  Position: [0.0, 1.0, -2.0]
+  Size: [1.0, 1.0, 1.0]
+  DamageFactor: 0.5
+- Type: DEFAULT
+  Position: [1.0, 0.0, 0.0]
+  Size: [1.0, 1.0, 1.0]
+  DamageFactor: 0.8
+  Name: era_left
+  IsERA: true
+  EraExplosion: 5.0
+  EraMinDamage: 3.0
+- Type: DEFAULT
+  Position: [-1.0, 0.0, 0.0]
+  Size: [1.0, 1.0, 1.0]
+  DamageFactor: 0.8
+  Name: era_right
+  IsERA: true
+  EraExplosion: 5.0
+  EraMinDamage: 3.0
+Wheels:
+  Hitboxes:
+  - Position: [1.5, -0.20000000298023224, 3.0]
+  - Position: [1.5, -0.20000000298023224, 0.5]
+  - Position: [1.5, -0.20000000298023224, -2.0]
+  WheelRotation: -20.0
+Uav:
+  IsSmallUav: true
+AircraftFeatures:
+  GunnerMode: true
+  InventorySize: 54
+  NightVision: true
+  EntityRadar: true
+  CanReverse: true
+  ConcurrentGunner: true
+  EjectionSeat: true
+  ThrottleUpDown: 1.2
+  ThrottleUpDownEntity: 3.0
+  Parachuting:
+    Pos: [0.0, -1.0, 0.0]
+    Interval: 30
+  Flare:
+    Pos: [0.0, -1.0, -2.0]
+    Types:
+    - NORMAL
+    - LARGE_AIRCRAFT
+    - SMOKE_LAUNCHER
+    Chaff: true
+    ChaffUseTime: 40
+  APS:
+    UseTime: 30
+    WaitTime: 300
+    Range: 100
+  ArmorExplosionDamageMultiplier: 1.5
+  Radar:
+    MaxTargetRange: 50.0
+    ScanElevation: 60.0
+    ScanTick: 5
+    EnableBVR: true
+  RWR:
+    Name: FIXRWR
+  ECM:
+    WaitTime: 600
+    UseTime: 60
+    Type: 2
+HeliFeatures:
+  IsFoldableBlade: true
+Components:
+  Camera:
+  - Position: [0.0, -1.0, 4.0]
+    Rotation: [0.0, -1.0, 0.0]
+    PartName: camera0
+  - Position: [0.0, -1.0, 4.0]
+    Rotation: [0.0, -1.0, 0.0]
+    PartName: camera1
+    YawSync: false
+    PitchSync: true
+  Canopy:
+  - Position: [0.0, 2.0, 1.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: canopy0
+    MaxRotation: 1.0
+  - Position: [0.0, 2.0, 1.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: canopy
+    MaxRotation: 1.0
+  - Position: [0.0, 2.0, 0.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: canopy1
+    MaxRotation: 0.6666667
+  - Position: [0.0, 0.0, -1.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: canopy2
+    MaxRotation: 90.0
+    IsSliding: true
+  Hatch:
+  - Position: [0.0, 1.0, -3.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: hatch0
+    MaxRotation: 90.0
+  - Position: [0.0, 1.0, -4.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: hatch1
+    MaxRotation: 45.0
+  - Position: [0.0, 0.0, 1.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: hatch2
+    MaxRotation: 90.0
+    IsSliding: true
+  LightHatch:
+  - Position: [0.0, 1.0, 2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: light_hatch0
+    MaxRotation: 90.0
+  - Position: [0.0, 1.0, 2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: light_hatch1
+    MaxRotation: 1800.0
+  WeaponBay:
+  - Position: [1.0, -1.0, 0.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: wb0
+    WeaponName: bay_l
+    MaxRotation: 1.0
+  - Position: [1.0, -1.0, 0.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: wb1
+    WeaponName: bay_r
+    MaxRotation: 1.3333334
+  - Position: [0.0, 0.0, 1.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: wb2
+    WeaponName: slide_bay
+    MaxRotation: 90.0
+    IsSliding: true
+  Rotation:
+  - Position: [0.0, 2.0, 0.0]
+    Rotation: [0.0, 1.0, 0.0]
+    PartName: rotpart2
+    Speed: 10.0
+    AlwaysRotate: true
+  - Position: [0.0, 2.0, 0.0]
+    Rotation: [0.0, 1.0, 0.0]
+    PartName: rotpart2
+    Speed: 10.0
+  SteeringWheel:
+  - Position: [0.0, 1.0, 2.5]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: steering_wheel0
+    Direction: 90.0
+    Pivot: [0.0, 1.0, 2.5]
+  Wheel:
+  - Position: [1.0, -1.0, 2.0]
+    Rotation: [0.0, 1.0, 0.0]
+    PartName: wheel0
+    Direction: 0.0
+    Pivot: [1.0, -1.0, 2.0]
+  - Position: [1.0, -1.0, 2.0]
+    Rotation: [0.0, 1.0, 0.0]
+    PartName: wheel1
+    Direction: 1800.0
+    Pivot: [1.0, -1.0, 2.0]
+  - Position: [1.0, -1.0, 2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: wheel2
+    Direction: 30.0
+    Pivot: [1.0, -1.0, 2.0]
+  - Position: [1.0, -1.0, 2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: wheel3
+    Direction: 30.0
+    Pivot: [1.100000023841858, -1.100000023841858, 2.0999999046325684]
+  LandingGear:
+  - Position: [0.0, -1.0, 2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: lg0
+    MaxRotation: 90.0
+  - Position: [0.0, -1.0, -2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: lg1
+    MaxRotation: 100.0
+    ArticulatedRotation: [0.0, 1.0, 0.0]
+    MaxArticulatedRotation: 45.0
+  - Position: [1.0, -1.0, 0.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: lg2
+    MaxRotation: 80.0
+    IsReverse: true
+  - Position: [-1.0, -1.0, 0.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: lg3
+    MaxRotation: 90.0
+    IsHatch: true
+  - Position: [0.0, -1.0, 1.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: lg4
+    MaxRotation: 90.0
+    SlideVec: [0.0, 0.5, 0.0]
+  - Position: [0.0, -1.0, 1.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: lg5
+    MaxRotation: 30.0
+    SlideVec: [0.0, 0.5, 0.0]
+  Weapon:
+  - Position: [0.0, -1.0, 2.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: weapon0
+    WeaponNames: hydra70/m230
+    HideGM: true
+    Pitch: true
+  - Position: [0.0, -1.0, 2.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: weapon1
+    WeaponNames: hydra70
+    Yaw: true
+    RecoilBuf: 1.5
+    Children:
+    - Position: [0.0, -1.2000000476837158, 2.200000047683716]
+      Rotation: [0.0, 0.0, 0.0]
+      Yaw: true
+    - Position: [0.0, -1.399999976158142, 2.4000000953674316]
+      Rotation: [0.0, 0.0, 0.0]
+      Pitch: true
+      RecoilBuf: 0.75
+  - Position: [0.0, -1.0, 3.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: weapon2
+    WeaponNames: m230
+    BarrelRot: true
+    HideGM: true
+    Yaw: true
+  - Position: [0.0, -1.0, 3.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: weapon3
+    WeaponNames: m230
+    HideGM: true
+    Yaw: true
+    Turret: true
+  - Position: [0.0, -1.0, 3.0]
+    Rotation: [0.0, 0.0, -1.0]
+    PartName: weapon4
+    WeaponNames: m230
+    BarrelRot: true
+    HideGM: true
+    Yaw: true
+    Turret: true
+  - Position: [2.0, -1.0, 1.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: weapon5
+    WeaponNames: agm114
+    IsMissile: true
+    HideGM: true
+  SearchLight:
+  - Position: [0.0, -1.0, 3.0]
+    ColorStart: '#FFFFFF'
+    ColorEnd: '#80FFFF00'
+    Height: 20.0
+    Width: 3.0
+  - Position: [0.0, -1.0, 3.0]
+    ColorStart: '#FF0000'
+    ColorEnd: '#00FF00'
+    Height: 25.0
+    Width: 4.0
+    Yaw: 10.0
+    Pitch: -20.0
+    FixedDirection: true
+  - Position: [1.0, -1.0, 3.0]
+    ColorStart: '#FFFFFFFF'
+    ColorEnd: '#000000'
+    Height: 30.0
+    Width: 5.0
+    Pitch: -10.0
+    StRot: 0.5
+    FixedDirection: true
+    Steering: true
+  TrackRoller:
+  - Position: [1.0, -1.0, 0.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: track_roller0
+  Throttle:
+  - Position: [0.0, 1.0, 2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: throttle0
+    SlidePos: [0.0, 0.0, 0.0]
+    MaxAngle: 30.0
+  - Position: [0.0, 1.0, 2.0]
+    Rotation: [1.0, 0.0, 0.0]
+    PartName: throttle1
+    SlidePos: [0.10000000149011612, 0.20000000298023224, 0.30000001192092896]
+    MaxAngle: 30.0
+  CrawlerTrack:
+  - Position: [0.0, 0.0, 0.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: crawler_track0
+    SegmentLength: 0.6
+    ZOffset: 1.2
+    TrackList:
+    - [0.0, 0.0]
+    - [1.0, 0.0]
+    - [1.0, 1.0]
+    - [0.0, 1.0]
+  HeliRotor:
+  - Position: [0.0, 2.0, 0.0]
+    Rotation: [0.0, 1.0, 0.0]
+    PartName: blade0
+    BladeCount: 2
+    BladeRot: 4
+  - Position: [0.0, 2.0, -8.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: blade1
+    BladeCount: 4
+    BladeRot: 2
+    CanFold: true
+  - Position: [0.0, 1.0, 0.0]
+    Rotation: [0.0, 1.0, 0.0]
+    PartName: blade2
+    BladeCount: 2
+    BladeRot: 2
+    OldRenderer: true
+  RepelHook:
+  - Position: [1.5, 1.0, 0.0]
+    Interval: 10
+  - Position: [-1.5, 1.0, 0.0]
+    Interval: 30

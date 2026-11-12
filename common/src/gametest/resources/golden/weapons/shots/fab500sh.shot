@@ -1,0 +1,30 @@
+# {"schema":1,"weapon":"fab500sh","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "FAB-500 SH"
+mount: vehicle su37 (PlaneEntity), pilot seat, weapon #4
+ready after 41 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "FAB-500 SH"
+t0 spawned #0 mcheli:bomb at 3078.75 103.19000005722046 3064.409999847412 motion 0.0 -0.0 0.0 yaw 0.0 pitch 0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 8 reload 0 name "FAB-500 SH"
+t1 #0 3078.75 103.18000005744398 3064.409999847412
+t2 #0 3078.75 103.16000005789101 3064.409999847412
+t3 #0 3078.75 103.13000005856156 3064.409999847412
+t4 #0 3078.75 103.09000005945563 3064.409999847412
+t5 #0 3078.75 103.04000006057322 3064.409999847412
+t6 #0 3078.75 102.98000006191432 3064.409999847412
+t7 #0 3078.75 102.91000006347895 3064.409999847412
+t8 #0 3078.75 102.83000006526709 3064.409999847412
+t9 #0 3078.75 102.74000006727874 3064.409999847412
+t10 #0 3078.75 102.64000006951392 3064.409999847412
+t11 #0 3078.75 102.53000007197261 3064.409999847412
+t12 #0 3078.75 102.41000007465482 3064.409999847412
+t13 #0 3078.75 102.28000007756054 3064.409999847412
+t14 #0 3078.75 102.14000008068979 3064.409999847412
+t15 #0 3078.75 101.99000008404255 3064.409999847412
+t16 #0 3078.75 101.83000008761883 3064.409999847412
+t17 #0 3078.75 101.66000009141862 3064.409999847412
+t18 #0 3078.75 101.48000009544194 3064.409999847412
+t19 #0 3078.75 101.29000009968877 3064.409999847412
+t20 #0 3078.75 101.09000010415912 3064.409999847412
+t21 explosion by #0 at 3078.75 101.0 3064.409999847412 size 5.0 block 4.0 damage 5.0 blockPower 4.0 radius 5.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t21 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 0 reload 0 name "FAB-500 SH"

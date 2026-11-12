@@ -1,0 +1,2 @@
+DisplayName = Frag Grenade
+TimeFuse = 3

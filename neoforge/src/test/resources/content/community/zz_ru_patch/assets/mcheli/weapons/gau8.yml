@@ -1,0 +1,10 @@
+﻿# yaml-language-server: $schema=https://raw.githubusercontent.com/IVomens/MCHeli-Revived/main/schemas/weapon.schema.json
+SchemaVersion: 1
+DisplayName: GAU-8 (RU)   # replaces the Desert Storm GAU-8
+Type: machinegun2
+BaseDamage: 14
+Ballistics:
+  Acceleraton: 5.0        # a typo
+Ammo:
+  MagSize: 50000          # more than the game allows
+SwitchCooldown: 4         # the game no longer reads this

@@ -1,0 +1,18 @@
+// The ship keys, which repeat the plane keys without exhaust flames.
+DisplayName = TXT Fixture Ship
+Float = true
+AddSeat = 0, 1, 0
+AddPartRotor = 0, -1, -5, 0, 0, 1
+AddPartRotor = 0, -1, -5, 0, 0, 1, -90
+AddBlade = 3, 120, 0, -1, -5, 0, 0, 1
+AddPartWing = 2, 0, 0, 0, 1, 0, 45
+AddPartPylon = 2, 0, 0, 0, 1, 0, 45
+AddPartNozzle = 0, 0, -6, 1, 0, 0
+VariableSweepWing = false
+SweepWingSpeed = 0.5
+EnableVtol = false
+DefaultVtol = false
+VtolYaw = 2
+VtolPitch = 0.5
+EnableAutoPilot = false
+AddExhaustFlame = flame, flame_tex, 0, 0, -7, 0, 0, 1, 10, 3

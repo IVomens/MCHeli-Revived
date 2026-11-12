@@ -1,0 +1,19 @@
+# An unknown variable is reported when the HUD loads, and reads as nil, as it did in Aviator. A formula
+# that is only nil has no value: the element fails while drawing, the HUD logs the error once and draws
+# nothing in later frames.
+# 'hovering==1' does not fail: hovering is a boolean, and a boolean is never equal to a number, so
+# the block never draws (the bundled common_pilot and civilian_aircraft HUDs have the same condition).
+- DrawRectangle:
+    Position: ['0', '0']
+    Size: ['2', '2']
+- If: hovering==1
+  Do:
+  - DrawRectangle:
+      Position: ['5', '0']
+      Size: ['2', '2']
+- DrawRectangle:
+    Position: ['10', 'no_such_variable']
+    Size: ['2', '2']
+- DrawRectangle:
+    Position: ['15', '0']
+    Size: ['2', '2']

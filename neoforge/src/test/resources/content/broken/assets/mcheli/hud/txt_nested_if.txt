@@ -1,0 +1,5 @@
+If = altitude > 10
+If = altitude > 20
+DrawRect = 0, 0, 1, 1
+Endif
+Endif

@@ -1,0 +1,5 @@
+// The tank keys. WeightType is matched in lower case; anything but car or tank means 0.
+DisplayName = TXT Fixture Tank
+AddSeat = 0, 1, 0
+WeightType = Tank
+WeightedCenterZ = 2000

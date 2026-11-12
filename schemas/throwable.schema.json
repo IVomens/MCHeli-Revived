@@ -1,0 +1,307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/IVomens/MCHeli-Revived/main/schemas/throwable.schema.json",
+  "title": "MCHeli throwable",
+  "description": "A YAML file in assets/mcheli/throwable/ of an MCHeli addon pack. Generated from the game's schema declarations; do not edit.",
+  "x-mcheli-schema-version": 1,
+  "type": "object",
+  "properties": {
+    "Author": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {}
+        }
+      ],
+      "default": "",
+      "description": "A name, or a list of names."
+    },
+    "DisplayName": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ],
+      "description": "The name, or a map of language codes (en_us, ja_jp) to names where DEFAULT is the name itself. Legacy TXT key: displayname."
+    },
+    "ItemID": {
+      "type": "integer",
+      "default": 0,
+      "description": "Numeric item ids only matter for very old packs. Legacy TXT key: itemid."
+    },
+    "StackSize": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 64,
+      "default": 1,
+      "description": "The game clamps a value outside 1 to 64 and says so. Legacy TXT key: stacksize."
+    },
+    "Sound": {
+      "type": "object",
+      "properties": {
+        "Volume": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: soundvolume."
+        },
+        "Vol": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 1,
+          "description": "Another spelling of 'Volume'."
+        },
+        "Pitch": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 1 and says so. Legacy TXT key: soundpitch."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Recipe": {
+      "type": "object",
+      "properties": {
+        "isShaped": {
+          "type": "boolean",
+          "default": true
+        },
+        "Pattern": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "Recepie": {
+      "type": "object",
+      "properties": {
+        "isShaped": {
+          "type": "boolean",
+          "default": true
+        },
+        "Pattern": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      },
+      "additionalProperties": false,
+      "description": "Another spelling of 'Recipe'."
+    },
+    "Power": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647,
+      "default": 0,
+      "description": "The game clamps a value outside 0 to 2147483647 and says so. Legacy TXT key: power."
+    },
+    "Acceleration": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 1,
+      "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: acceleration."
+    },
+    "AccelerationInWater": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 1,
+      "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: accelerationinwater."
+    },
+    "DispenseAcceleration": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 1,
+      "description": "Throwing speed when a dispenser throws it. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: dispenseacceleration."
+    },
+    "Explosion": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 50,
+      "default": 0,
+      "description": "The game clamps a value outside 0 to 50 and says so. Legacy TXT key: explosion."
+    },
+    "DelayFuse": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000,
+      "default": 0,
+      "description": "Ticks between the first impact and the explosion. The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: delayfuse."
+    },
+    "Bound": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100000,
+      "default": 0.2,
+      "description": "The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: bound."
+    },
+    "TimeFuse": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000,
+      "default": 0,
+      "description": "Ticks from the throw to the explosion; 0 waits for an impact. The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: timefuse."
+    },
+    "Flaming": {
+      "type": "boolean",
+      "default": false,
+      "description": "Legacy TXT key: flaming."
+    },
+    "ProximityFuseDist": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 20,
+      "default": 0,
+      "description": "The game clamps a value outside 0 to 20 and says so. Legacy TXT key: proximityfusedist."
+    },
+    "Accuracy": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 0,
+      "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: accuracy."
+    },
+    "AliveTime": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000,
+      "default": 10,
+      "description": "Ticks the grenade (or its smoke) exists. The game clamps a value outside 0 to 1000000 and says so. Legacy TXT key: alivetime."
+    },
+    "Bomblet": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 0,
+      "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bomblet."
+    },
+    "BombletSpread": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 0.3,
+      "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bombletdiff."
+    },
+    "Gravity": {
+      "type": "number",
+      "minimum": -50,
+      "maximum": 50,
+      "default": 0,
+      "description": "The game clamps a value outside -50 to 50 and says so. Legacy TXT key: gravity."
+    },
+    "GravityInWater": {
+      "type": "number",
+      "minimum": -50,
+      "maximum": 50,
+      "default": -0.04,
+      "description": "The game clamps a value outside -50 to 50 and says so. Legacy TXT key: gravityinwater."
+    },
+    "Smoke": {
+      "type": "object",
+      "properties": {
+        "DisableSmoke": {
+          "type": "boolean",
+          "default": true,
+          "description": "Legacy TXT key: disablesmoke."
+        },
+        "Size": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 10,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: smokesize."
+        },
+        "Count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: smokenum."
+        },
+        "Color": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\s*(#|0[xX])?[0-9A-Fa-f]+\\s*$"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          ],
+          "default": "#FFFFFFFF",
+          "description": "TXT 'SmokeColor = r, g, b' (0 to 255, always opaque); see smokeColorLine. A colour: hex '#AARRGGBB' or '#RRGGBB', or a list [a, r, g, b] of numbers from 0 to 1."
+        },
+        "Velocity": {
+          "type": "object",
+          "properties": {
+            "Vertical": {
+              "type": "number",
+              "minimum": -100,
+              "maximum": 100,
+              "default": 1,
+              "description": "The game clamps a value outside -100 to 100 and says so. Legacy TXT key: smokevelocityvertical."
+            },
+            "Y": {
+              "type": "number",
+              "minimum": -100,
+              "maximum": 100,
+              "default": 1,
+              "description": "Another spelling of 'Vertical'."
+            },
+            "Horizontal": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000,
+              "default": 1,
+              "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: smokevelocityhorizontal."
+            },
+            "X": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000,
+              "default": 1,
+              "description": "Another spelling of 'Horizontal'."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Particle": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "SchemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1,
+      "description": "The content schema version the file is written for. Optional; a file without it is version 1. This game reads version 1."
+    }
+  },
+  "additionalProperties": false
+}

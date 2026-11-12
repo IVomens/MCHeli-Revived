@@ -1,0 +1,143 @@
+# {"schema":1,"hud":"bundled/bnr32_hud.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (488.0, 201.0) size (16.0, 64.0) uv (384.0, 0.0) uv size (32.0, 128.0) rotation -14.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (127.0, 261.0) size (16.0, 48.0) uv (64.0, 160.0) uv size (32.0, 96.0) rotation -83.0 of 512x256
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+centered text #FF58FFEE (320, 220) " [ 14:05 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[+0.30]"
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+-- frame cruise #2 (colour at start #FFFFFFFF)
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (488.0, 201.0) size (16.0, 64.0) uv (384.0, 0.0) uv size (32.0, 128.0) rotation -14.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (127.0, 261.0) size (16.0, 48.0) uv (64.0, 160.0) uv size (32.0, 96.0) rotation -83.0 of 512x256
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+centered text #FF58FFEE (320, 220) " [ 14:05 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[+0.30]"
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+-- frame damaged_gunner #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (535.8313817330211, 211.5) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (571.8032786885246, 211.5) size (16.0, 64.0) uv (384.0, 0.0) uv size (32.0, 128.0) rotation -150.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (30.725995316159242, 301.5) size (16.0, 48.0) uv (64.0, 160.0) uv size (32.0, 96.0) rotation -79.75 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+centered text #FF58FFEE (320, 240) " [ 14:05 ]"
+text #FF28D448 (12, 210) "X: -1234.5"
+text #FF28D448 (12, 225) "Y: -60.0"
+text #FF28D448 (12, 240) "Z: -1234.5"
+text #FF28D448 (95, 210) "[-1.50]"
+text #FF28D448 (95, 225) "[-1.50]"
+text #FF28D448 (95, 240) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (544, 325) " 31"
+text #FFFFFFFF (583, 325) "/ 100"
+rect #FFFFFFFF (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+text #FFFFFFFF (364, 255) "NIGHT VISION"
+-- frame damaged_gunner #2 (colour at start #FFFFFFFF)
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (535.8313817330211, 211.5) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (571.8032786885246, 211.5) size (16.0, 64.0) uv (384.0, 0.0) uv size (32.0, 128.0) rotation -150.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (30.725995316159242, 301.5) size (16.0, 48.0) uv (64.0, 160.0) uv size (32.0, 96.0) rotation -79.75 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+centered text #FF58FFEE (320, 240) " [ 14:05 ]"
+text #FF28D448 (12, 210) "X: -1234.5"
+text #FF28D448 (12, 225) "Y: -60.0"
+text #FF28D448 (12, 240) "Z: -1234.5"
+text #FF28D448 (95, 210) "[-1.50]"
+text #FF28D448 (95, 225) "[-1.50]"
+text #FF28D448 (95, 240) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (544, 325) " 31"
+text #FFFFFFFF (583, 325) "/ 100"
+rect #FFFFFFFF (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+text #FFFFFFFF (364, 255) "NIGHT VISION"
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (488.0, 201.0) size (16.0, 64.0) uv (384.0, 0.0) uv size (32.0, 128.0) rotation -150.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (127.0, 261.0) size (16.0, 48.0) uv (64.0, 160.0) uv size (32.0, 96.0) rotation -83.0 of 512x256
+centered text #FF58FFEE (320, 220) " [ 14:05 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+text #FFFFFFFF (230, 100) "FREE LOOK"
+text #FFFFFFFF (350, 230) "THERMAL VISION"
+text #FFFFFFFF (370, 180) "Auto Pilot"
+-- frame uav_no_weapon #2 (colour at start #FFFFFFFF)
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (488.0, 201.0) size (16.0, 64.0) uv (384.0, 0.0) uv size (32.0, 128.0) rotation -150.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (113.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/bnr32_hud.png (127.0, 261.0) size (16.0, 48.0) uv (64.0, 160.0) uv size (32.0, 96.0) rotation -83.0 of 512x256
+centered text #FF58FFEE (320, 220) " [ 14:05 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFFFFFFF (470, 277) "100"
+text #FFFFFFFF (496, 277) "/ 100"
+rect #FFFFFFFF (526.0, 293.0) (466.0, 287.0)
+text #FFFFFFFF (230, 100) "FREE LOOK"
+text #FFFFFFFF (350, 230) "THERMAL VISION"
+text #FFFFFFFF (370, 180) "Auto Pilot"

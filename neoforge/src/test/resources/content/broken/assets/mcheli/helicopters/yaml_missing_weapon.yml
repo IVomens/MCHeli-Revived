@@ -1,0 +1,8 @@
+# A vehicle mounting a weapon that does not exist.
+DisplayName: Missing Weapon
+MaxHP: 50
+Seats:
+- Pos: [0.0, 1.0, 0.0]
+Weapons:
+- Type: no_such_weapon
+  Position: [0.0, 0.0, 1.0]

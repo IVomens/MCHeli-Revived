@@ -1,0 +1,14 @@
+# Values outside their documented ranges.
+DisplayName: Out Of Range
+Type: aamissile
+BaseDamage: -5
+Ballistics:
+  Acceleration: 1000.0
+  Gravity: -99.0
+Explosion:
+  Power: 999
+Ammo:
+  MagSize: 0
+  MaxAmmo: -1
+  ReloadTime: 1
+FireCooldown: -3

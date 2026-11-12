@@ -1,0 +1,10 @@
+# A scout with a door gun; replaces the bundled scout whole.
+DisplayName: Scout (RU)
+Category: C
+MaxHP: 120
+Weapons:
+- Type: gau8
+  Position: [0.0, 0.5, 1.0]
+Seats:
+- Pos: [0.0, 1.0, 0.5]
+  Hud: no_such_hud

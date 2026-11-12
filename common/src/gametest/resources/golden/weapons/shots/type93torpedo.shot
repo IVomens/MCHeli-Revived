@@ -1,0 +1,16 @@
+# {"schema":1,"weapon":"type93torpedo","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "Type93 torpedo"
+mount: vehicle type93_launcher (GroundVehicleEntity), pilot seat, weapon #0
+ready after 145 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "Type93 torpedo"
+t0 spawned #0 mcheli:torpedo at 3074.4000000953674 102.05999994277954 3072.5199999809265 motion -1.8369702788777518E-16 0.0 1.5 yaw 0.0 pitch 0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 40 reload 0 name "Type93 torpedo"
+t1 #0 3074.4000000953674 102.01999994367361 3074.0199999809265
+t2 #0 3074.4000000953674 101.93999994546175 3075.5199999809265
+t3 #0 3074.4000000953674 101.81999994814396 3077.0199999809265
+t4 #0 3074.4000000953674 101.65999995172024 3078.5199999809265
+t5 #0 3074.4000000953674 101.45999995619059 3080.0199999809265
+t6 #0 3074.4000000953674 101.219999961555 3081.5199999809265
+t7 explosion by #0 at 3074.4000000953674 101.0 3082.6985712298856 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t7 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 0 reload 0 name "Type93 torpedo"

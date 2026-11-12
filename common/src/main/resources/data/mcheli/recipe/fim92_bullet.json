@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "R  ",
+    " I ",
+    "  G"
+  ],
+  "key": {
+    "G": {
+      "tag": "c:gunpowders"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "result": {
+    "id": "mcheli:fim92_bullet",
+    "count": 1
+  }
+}

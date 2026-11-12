@@ -1,0 +1,16 @@
+# {"schema":1,"weapon":"m75_40mm","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "M75 40mm grenade"
+mount: vehicle uh-1c (HelicopterEntity), pilot seat, weapon #3
+ready after 21 ticks
+before shot: ammo 5 reserve 0 heat 0 cooldown 0 reload 0 name "M75 40mm grenade"
+t0 spawned #0 mcheli:bullet at 3072.031634160507 101.89101187874583 3075.3195672559564 motion 0.06326832101399515 -0.017976194824624626 2.499134645427432 yaw -1.4456953 pitch 0.4132678
+after shot: ammo 4 reserve 0 heat 0 cooldown 5 reload 0 name "M75 40mm grenade"
+t1 #0 3072.0949024815213 101.84303568459175 3077.818701901384
+t2 #0 3072.1581708025356 101.76505949110823 3080.3178365468116
+t3 #0 3072.2214391235498 101.65708329829526 3082.816971192239
+t4 #0 3072.284707444564 101.51910710615284 3085.316105837667
+t5 #0 3072.347975765578 101.35113091468098 3087.8152404830944
+t6 #0 3072.4112440865924 101.15315472387967 3090.314375128522
+t7 explosion by #0 at 3072.4537478332763 101.0 3091.9932972841166 size 2.0 block 1.0 damage 2.0 blockPower 1.0 radius 2.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t7 #0 removed: DISCARDED
+after 60 ticks: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "M75 40mm grenade"

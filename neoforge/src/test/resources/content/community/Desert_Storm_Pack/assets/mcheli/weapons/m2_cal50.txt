@@ -1,0 +1,8 @@
+DisplayName = M2 Browning (desert)
+Type = MachineGun1
+Power = 11
+Delay = 1
+Round = 120
+MaxAmmo = 960
+ReloadTime = 60
+Sound = gun_l2_snd

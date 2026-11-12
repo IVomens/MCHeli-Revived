@@ -1,0 +1,39 @@
+# {"schema":1,"weapon":"aim120","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"ace9644"}
+modes: "AIM-120 AMRAAM"
+target: ah-1z at 3072.0 140.0 3168.0, chaff true, aps true range 100
+mount: vehicle f-15s_mtd (PlaneEntity), pilot seat, weapon #2
+ready after 41 ticks
+before shot: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "AIM-120 AMRAAM"
+t0 spawned #0 mcheli:aa_missile at 3073.7699999809265 102.5900000333786 3068.890000104904 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 1 reserve 0 heat 0 cooldown 9 reload 0 name "AIM-120 AMRAAM"
+t1 #0 3073.7699999809265 102.5900000333786 3072.7900001049043
+t2 #0 3073.7699999809265 102.5900000333786 3076.6900001049044
+t3 #0 3073.7699999809265 102.5900000333786 3080.5900001049044
+t4 #0 3073.7699999809265 102.5900000333786 3084.4900001049045
+t5 #0 3073.7699999809265 102.5900000333786 3088.3900001049046
+t5 target uses IRON_CURTAIN: true
+t6 #0 3073.7699999809265 102.5900000333786 3092.2900001049047
+t7 #0 3073.7699999809265 102.5900000333786 3096.190000104905
+t8 #0 3073.7699999809265 102.5900000333786 3100.090000104905
+t9 #0 3073.723869711596 103.54425931704907 3103.8711720419874
+t10 #0 3073.6544260576698 104.98176665505909 3107.4959134440874
+t11 #0 3073.57313667719 106.66588679367055 3111.0126066913504
+t12 #0 3073.4857393293705 108.47830904157789 3114.4647780803293
+t13 #0 3073.3951570177082 110.35884767908875 3117.8802384120627
+t14 #0 3073.3029046836627 112.276399618575 3121.275011462833
+t15 #0 3073.2097779815035 114.21472936919484 3124.6579399567872
+t16 #0 3073.1161993630562 116.16533099973604 3128.0337948590454
+t17 #0 3073.022395639032 118.12377076720365 3131.4051024004248
+t18 #0 3072.928490430109 120.0877889912942 3134.7731603315146
+t19 #0 3072.834552838852 122.05630929403785 3138.1385880230027
+t20 #0 3072.7406233545107 124.02892370740705 3141.5016178516157
+t21 #0 3072.6467278751447 126.00563284823993 3144.8622434796057
+t22 #0 3072.5528855932916 127.98672970914429 3148.22028589355
+t23 #0 3072.4591139006266 129.97277627932468 3151.575405249211
+t24 #0 3072.3654322865823 131.96466398649463 3154.927062617919
+t25 #0 3072.2718670848626 133.96379987002237 3158.274405037245
+t26 #0 3072.1784606255433 135.97258925604024 3161.615967611248
+t27 #0 3072.085297864627 137.9959477272472 3164.9487354094863
+t28 explosion by #0 at 3072.0 139.96000000089407 3168.0 size 5.0 block 5.0 damage 5.0 blockPower 5.0 radius 5.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t28 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "AIM-120 AMRAAM"

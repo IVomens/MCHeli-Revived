@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.ivomens.mcheli.gametest.fabric.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "GameTestServerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,41 @@
+# {"schema":1,"sample":"config/wingman/repeated_and_out_of_range.cfg","commit":"71d39d7"}
+log: WARN mcheli-wingman.cfg line 4: maxDistance = -5 is below the minimum, -1; using the default, 99999
+log: WARN mcheli-wingman.cfg line 7: formationSideDist = 0.5 is below the minimum, 1.00; using the default, 20.00
+log: WARN mcheli-wingman.cfg line 8: maxWingmen = 500 is above the maximum, 64; using the default, 10
+log: WARN mcheli-wingman.cfg line 10: maxAttackAltitude = lots is not a number; using the default, 0.00
+-- written file --
+fields: maxWingmen=10 formationSideDist=20.0 uavControllerRange=600
+[uav]
+;UAV controller effective range in blocks. -1 for unlimited.
+controllerRange = 600
+;UAV maximum flight distance in blocks. -1 for unlimited.
+maxDistance = 99999
+;Keep a small area of chunks loaded around a UAV while it is being flown by a player
+;(or is flying an autonomous mission) and is outside every player's loaded area, so it keeps
+;simulating far from its operator. Manned aircraft never need this: their pilot loads them.
+;Same effect as EnableUavChunkLoading in mcheli.cfg; the radius comes from UavChunkLoadRadius.
+;Off by default: each active far UAV costs a forced chunk area.
+forceChunkload = true
+
+[tvmissile]
+;While a player is steering a TV/TA missile, keep the chunks along its path loaded with a
+;short lease so the missile keeps flying (and can hit) beyond the simulation distance.
+chunkLoad = false
+;Maximum distance (blocks) a TV missile may travel from its operator before self-destructing.
+;-1 = unlimited.
+maxRange = 500
+
+[formation]
+;Lateral distance from the leader centre-line (blocks).
+formationSideDist = 20.00
+;Altitude offset relative to leader Y (blocks). Positive = above, negative = below.
+formationAltOffset = 0.00
+;Distance behind the leader (blocks).
+formationRearDist = 30.00
+;Maximum wingmen per aircraft.
+maxWingmen = 10
+;Minimum absolute Y altitude for attack runs regardless of weapon type. 0 = no floor.
+minAttackAltitude = 80.00
+;Maximum absolute Y altitude for attack runs regardless of weapon type. 0 = no ceiling.
+maxAttackAltitude = 0.00
+

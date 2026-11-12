@@ -1,0 +1,5 @@
+{
+  "providers": [
+    { "type": "ttf", "file": "mcheli:share_tech_mono.ttf", "size": 16.0, "oversample": 3.0, "shift": [0.0, 1.0] }
+  ]
+}

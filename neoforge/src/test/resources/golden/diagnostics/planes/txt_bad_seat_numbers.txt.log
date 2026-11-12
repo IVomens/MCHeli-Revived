@@ -1,0 +1,8 @@
+# {"schema":1,"source":"assets/mcheli/planes/txt_bad_seat_numbers.txt","commit":"09ffef3"}
+result: skipped
+DEBUG content file(mcheli:mcheli|txt_bad_seat_numbers) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/planes/txt_bad_seat_numbers.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+ERROR Failed to load 'assets/mcheli/planes/txt_bad_seat_numbers.txt' from addon 'mcheli' at line 2, key 'addseat': expected a number but got "one"
+DEBUG Parse error details for 'assets/mcheli/planes/txt_bad_seat_numbers.txt'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected a number but got "one"
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected a number but got "one"

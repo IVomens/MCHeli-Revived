@@ -1,0 +1,13 @@
+﻿// GAU-8 Avenger, 30 mm
+// Lines without an equals sign are comments.
+DISPLAYNAME	=	GAU-8 Avenger
+TYPE = MachineGun2
+power = 14
+Delay = 0
+Round = 0
+MaxAmmo = 1174
+CrossType = 1
+WeaponSwitchCount = 3
+Acceleraton = 3
+// muzzle = front of the barrel
+	Accuracy	= 1.5

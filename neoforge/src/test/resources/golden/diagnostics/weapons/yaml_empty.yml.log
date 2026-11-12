@@ -1,0 +1,6 @@
+# {"schema":1,"source":"assets/mcheli/weapons/yaml_empty.yml","commit":"32abae6"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_empty) loading start.
+ERROR Failed to load 'assets/mcheli/weapons/yaml_empty.yml' from addon 'mcheli' at line 1: the file is empty
+DEBUG Parse error details for 'assets/mcheli/weapons/yaml_empty.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: the file is empty

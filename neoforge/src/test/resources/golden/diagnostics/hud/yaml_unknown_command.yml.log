@@ -1,0 +1,40 @@
+# {"schema":1,"source":"assets/mcheli/hud/yaml_unknown_command.yml","commit":"671aa2e"}
+result: loaded as Hud
+DEBUG content file(mcheli:mcheli|yaml_unknown_command) loading start.
+WARN assets/mcheli/hud/yaml_unknown_command.yml:1 unknown key '[1].DrawCircle', ignored
+WARN assets/mcheli/hud/yaml_unknown_command.yml:6 unknown key '[2].DrawRectangle.Colour', ignored
+
+loaded values:
+@class = com.ivomens.mcheli.hud.Hud
+author = ""
+broken = false
+exit = false
+fileName = "assets/mcheli/hud/yaml_unknown_command.yml"
+filePath = "assets/mcheli/hud/yaml_unknown_command.yml"
+ignoreAutoScale = false
+isDrawing = false
+isIfFalse = false
+isWaitEndif = false
+list.size = 1
+list[0].@class = com.ivomens.mcheli.hud.HudItemRect
+list[0].fileLine = 0
+list[0].height.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].height.compiled = null
+list[0].height.source = "1"
+list[0].left.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].left.compiled = null
+list[0].left.source = "0"
+list[0].parent = <cycle Hud>
+list[0].top.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].top.compiled = null
+list[0].top.source = "0"
+list[0].width.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].width.compiled = null
+list[0].width.source = "1"
+location.@class = com.ivomens.mcheli.content.pack.AddonResourceLocation
+location.addonDomain = "mcheli"
+location.isEmpty = false
+location.namespace = "mcheli"
+location.path = "yaml_unknown_command"
+name = "yaml_unknown_command"
+parserIdentifier = "yml"

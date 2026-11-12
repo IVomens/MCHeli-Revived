@@ -1,0 +1,39 @@
+// Every AddSeat line adds a seat, in order, until the type's seat limit; the rest are dropped.
+// A weapon's seat number is clamped to that limit too.
+DisplayName = TXT Repeated Seats
+AddSeat = 0, 1, 1
+AddSeat = 0, 1, 1
+AddGunnerSeat = 0, 1, 0, 0, 1, 1
+AddSeat = 0, 1, -1
+AddSeat = 0, 1, -2
+AddSeat = 0, 1, -3
+AddSeat = 0, 1, -4
+AddSeat = 0, 1, -5
+AddSeat = 0, 1, -6
+AddSeat = 0, 1, -7
+AddSeat = 0, 1, -8
+AddSeat = 0, 1, -9
+AddSeat = 0, 1, -10
+AddSeat = 0, 1, -11
+AddSeat = 0, 1, -12
+AddSeat = 0, 1, -13
+AddSeat = 0, 1, -14
+AddSeat = 0, 1, -15
+AddSeat = 0, 1, -16
+AddSeat = 0, 1, -17
+AddSeat = 0, 1, -18
+AddSeat = 0, 1, -19
+AddSeat = 0, 1, -20
+AddSeat = 0, 1, -21
+AddSeat = 0, 1, -22
+AddSeat = 0, 1, -23
+AddSeat = 0, 1, -24
+AddSeat = 0, 1, -25
+AddSeat = 0, 1, -26
+AddSeat = 0, 1, -27
+AddSeat = 0, 1, -28
+AddSeat = 0, 1, -29
+AddSeat = 0, 1, -30
+AddWeapon = m230, 0, -1, 3, 0, 0, false, 99
+// The last DisplayName and HUD lines win; a repeated key is not an error.
+DisplayName = TXT Repeated Seats (renamed)

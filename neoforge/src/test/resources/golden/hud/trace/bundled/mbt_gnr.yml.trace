@@ -1,0 +1,253 @@
+# {"schema":1,"hud":"bundled/mbt_gnr.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+lines LINE_STRIP #CFFFFFFF [280.0,180.0 310.0,180.0]
+lines LINE_STRIP #CFFFFFFF [360.0,180.0 330.0,180.0]
+lines LINE_STRIP #CFFFFFFF [320.0,140.0 320.0,170.0]
+lines LINE_STRIP #CFFFFFFF [320.0,220.0 320.0,190.0]
+lines LINE_STRIP #CFFFFFFF [250.0,155.0 250.0,130.0 295.0,130.0]
+lines LINE_STRIP #CFFFFFFF [250.0,205.0 250.0,230.0 295.0,230.0]
+lines LINE_STRIP #CFFFFFFF [390.0,155.0 390.0,130.0 345.0,130.0]
+lines LINE_STRIP #CFFFFFFF [390.0,205.0 390.0,230.0 345.0,230.0]
+text #FFFFE400 (250, 170) "x1.0"
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FFFFE400 (225, 70) "351"
+centered text #FFFFE400 (255, 70) "354"
+centered text #FFFFE400 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FFFFE400 (345, 70) "3"
+centered text #FFFFE400 (375, 70) "6"
+centered text #FFFFE400 (405, 70) "9"
+lines LINES #FFFFE400 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FFFFE400 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FFFFE400 (320, 99) "225"
+lines LINE_STRIP #FFFFE400 [465.0,202.0 527.0,202.0 527.0,194.0 465.0,194.0 465.0,202.0]
+text #FFFFE400 (470, 185) "100"
+text #FFFFE400 (496, 185) "/ 100"
+rect #FFFFE400 (526.0, 201.0) (466.0, 195.0)
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation 269.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+-- frame cruise #2 (colour at start #FF28D448)
+lines LINE_STRIP #CFFFFFFF [280.0,180.0 310.0,180.0]
+lines LINE_STRIP #CFFFFFFF [360.0,180.0 330.0,180.0]
+lines LINE_STRIP #CFFFFFFF [320.0,140.0 320.0,170.0]
+lines LINE_STRIP #CFFFFFFF [320.0,220.0 320.0,190.0]
+lines LINE_STRIP #CFFFFFFF [250.0,155.0 250.0,130.0 295.0,130.0]
+lines LINE_STRIP #CFFFFFFF [250.0,205.0 250.0,230.0 295.0,230.0]
+lines LINE_STRIP #CFFFFFFF [390.0,155.0 390.0,130.0 345.0,130.0]
+lines LINE_STRIP #CFFFFFFF [390.0,205.0 390.0,230.0 345.0,230.0]
+text #FFFFE400 (250, 170) "x1.0"
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FFFFE400 (225, 70) "351"
+centered text #FFFFE400 (255, 70) "354"
+centered text #FFFFE400 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FFFFE400 (345, 70) "3"
+centered text #FFFFE400 (375, 70) "6"
+centered text #FFFFE400 (405, 70) "9"
+lines LINES #FFFFE400 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FFFFE400 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FFFFE400 (320, 99) "225"
+lines LINE_STRIP #FFFFE400 [465.0,202.0 527.0,202.0 527.0,194.0 465.0,194.0 465.0,202.0]
+text #FFFFE400 (470, 185) "100"
+text #FFFFE400 (496, 185) "/ 100"
+rect #FFFFE400 (526.0, 201.0) (466.0, 195.0)
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation 269.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+-- frame damaged_gunner #1 (colour at start #FF000000)
+lines LINE_STRIP #CFFFFFFF [260.04683840749414,180.0 305.0117096018735,180.0]
+lines LINE_STRIP #CFFFFFFF [379.95316159250586,180.0 334.9882903981265,180.0]
+lines LINE_STRIP #CFFFFFFF [320.0,120.0 320.0,165.0]
+lines LINE_STRIP #CFFFFFFF [320.0,240.0 320.0,195.0]
+lines LINE_STRIP #CFFFFFFF [215.08196721311475,142.5 215.08196721311475,105.0 282.5292740046838,105.0]
+lines LINE_STRIP #CFFFFFFF [215.08196721311475,217.5 215.08196721311475,255.0 282.5292740046838,255.0]
+lines LINE_STRIP #CFFFFFFF [424.91803278688525,142.5 424.91803278688525,105.0 357.4707259953162,105.0]
+lines LINE_STRIP #CFFFFFFF [424.91803278688525,217.5 424.91803278688525,255.0 357.4707259953162,255.0]
+text #FFFFE400 (215, 165) "x2.5"
+push
+translate 320.0, 30.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -30.0, 0.0
+centered text #FFFFE400 (225, 20) "351"
+centered text #FFFFE400 (255, 20) "354"
+centered text #FFFFE400 (285, 20) "357"
+centered text #FFFF0000 (315, 20) "N"
+centered text #FFFFE400 (345, 20) "3"
+centered text #FFFFE400 (375, 20) "6"
+centered text #FFFFE400 (405, 20) "9"
+lines LINES #FFFFE400 [225.0,30.0 225.0,40.0 235.0,30.0 235.0,35.0 245.0,30.0 245.0,35.0 255.0,30.0 255.0,40.0 265.0,30.0 265.0,35.0 275.0,30.0 275.0,35.0 285.0,30.0 285.0,40.0 295.0,30.0 295.0,35.0 305.0,30.0 305.0,35.0 315.0,30.0 315.0,40.0 325.0,30.0 325.0,35.0 335.0,30.0 335.0,35.0 345.0,30.0 345.0,40.0 355.0,30.0 355.0,35.0 365.0,30.0 365.0,35.0 375.0,30.0 375.0,40.0 385.0,30.0 385.0,35.0 395.0,30.0 395.0,35.0 405.0,30.0 405.0,40.0]
+pop
+lines LINE_STRIP #FFFFE400 [320.0,49.5 322.9976580796253,55.5 317.0023419203747,55.5 320.0,49.5]
+centered text #FFFFE400 (320, 58) "225"
+lines LINE_STRIP #FFFFE400 [537.3302107728338,213.0 630.2576112412178,213.0 630.2576112412178,201.0 537.3302107728338,201.0 537.3302107728338,213.0]
+text #FFFFE400 (544, 187) " 31"
+text #FFFFE400 (583, 187) "/ 100"
+rect #FFFFE400 (556.8290398126464, 208.5) (538.8290398126464, 202.5)
+text #FFFFE400 (537, 135) "NIGHT VISION"
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (439.90632318501173, 262.5) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (439.90632318501173, 262.5) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+-- frame damaged_gunner #2 (colour at start #FF28D448)
+lines LINE_STRIP #CFFFFFFF [260.04683840749414,180.0 305.0117096018735,180.0]
+lines LINE_STRIP #CFFFFFFF [379.95316159250586,180.0 334.9882903981265,180.0]
+lines LINE_STRIP #CFFFFFFF [320.0,120.0 320.0,165.0]
+lines LINE_STRIP #CFFFFFFF [320.0,240.0 320.0,195.0]
+lines LINE_STRIP #CFFFFFFF [215.08196721311475,142.5 215.08196721311475,105.0 282.5292740046838,105.0]
+lines LINE_STRIP #CFFFFFFF [215.08196721311475,217.5 215.08196721311475,255.0 282.5292740046838,255.0]
+lines LINE_STRIP #CFFFFFFF [424.91803278688525,142.5 424.91803278688525,105.0 357.4707259953162,105.0]
+lines LINE_STRIP #CFFFFFFF [424.91803278688525,217.5 424.91803278688525,255.0 357.4707259953162,255.0]
+text #FFFFE400 (215, 165) "x2.5"
+push
+translate 320.0, 30.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -30.0, 0.0
+centered text #FFFFE400 (225, 20) "351"
+centered text #FFFFE400 (255, 20) "354"
+centered text #FFFFE400 (285, 20) "357"
+centered text #FFFF0000 (315, 20) "N"
+centered text #FFFFE400 (345, 20) "3"
+centered text #FFFFE400 (375, 20) "6"
+centered text #FFFFE400 (405, 20) "9"
+lines LINES #FFFFE400 [225.0,30.0 225.0,40.0 235.0,30.0 235.0,35.0 245.0,30.0 245.0,35.0 255.0,30.0 255.0,40.0 265.0,30.0 265.0,35.0 275.0,30.0 275.0,35.0 285.0,30.0 285.0,40.0 295.0,30.0 295.0,35.0 305.0,30.0 305.0,35.0 315.0,30.0 315.0,40.0 325.0,30.0 325.0,35.0 335.0,30.0 335.0,35.0 345.0,30.0 345.0,40.0 355.0,30.0 355.0,35.0 365.0,30.0 365.0,35.0 375.0,30.0 375.0,40.0 385.0,30.0 385.0,35.0 395.0,30.0 395.0,35.0 405.0,30.0 405.0,40.0]
+pop
+lines LINE_STRIP #FFFFE400 [320.0,49.5 322.9976580796253,55.5 317.0023419203747,55.5 320.0,49.5]
+centered text #FFFFE400 (320, 58) "225"
+lines LINE_STRIP #FFFFE400 [537.3302107728338,213.0 630.2576112412178,213.0 630.2576112412178,201.0 537.3302107728338,201.0 537.3302107728338,213.0]
+text #FFFFE400 (544, 187) " 31"
+text #FFFFE400 (583, 187) "/ 100"
+rect #FFFFE400 (556.8290398126464, 208.5) (538.8290398126464, 202.5)
+text #FFFFE400 (537, 135) "NIGHT VISION"
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (439.90632318501173, 262.5) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (439.90632318501173, 262.5) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+lines LINE_STRIP #CFFFFFFF [280.0,180.0 310.0,180.0]
+lines LINE_STRIP #CFFFFFFF [360.0,180.0 330.0,180.0]
+lines LINE_STRIP #CFFFFFFF [320.0,140.0 320.0,170.0]
+lines LINE_STRIP #CFFFFFFF [320.0,220.0 320.0,190.0]
+lines LINE_STRIP #CFFFFFFF [250.0,155.0 250.0,130.0 295.0,130.0]
+lines LINE_STRIP #CFFFFFFF [250.0,205.0 250.0,230.0 295.0,230.0]
+lines LINE_STRIP #CFFFFFFF [390.0,155.0 390.0,130.0 345.0,130.0]
+lines LINE_STRIP #CFFFFFFF [390.0,205.0 390.0,230.0 345.0,230.0]
+text #FFFFE400 (250, 170) "x1.0"
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FFFFE400 (225, 70) "351"
+centered text #FFFFE400 (255, 70) "354"
+centered text #FFFFE400 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FFFFE400 (345, 70) "3"
+centered text #FFFFE400 (375, 70) "6"
+centered text #FFFFE400 (405, 70) "9"
+lines LINES #FFFFE400 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FFFFE400 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FFFFE400 (320, 99) "225"
+lines LINE_STRIP #FFFFE400 [465.0,202.0 527.0,202.0 527.0,194.0 465.0,194.0 465.0,202.0]
+text #FFFFE400 (470, 185) "100"
+text #FFFFE400 (496, 185) "/ 100"
+rect #FFFFE400 (526.0, 201.0) (466.0, 195.0)
+text #FFFFE400 (465, 140) "FREE LOOK"
+text #FFFFE400 (465, 150) "THERMAL VISION"
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (350, 210) "DIST = ----"
+-- frame uav_no_weapon #2 (colour at start #FF28D448)
+lines LINE_STRIP #CFFFFFFF [280.0,180.0 310.0,180.0]
+lines LINE_STRIP #CFFFFFFF [360.0,180.0 330.0,180.0]
+lines LINE_STRIP #CFFFFFFF [320.0,140.0 320.0,170.0]
+lines LINE_STRIP #CFFFFFFF [320.0,220.0 320.0,190.0]
+lines LINE_STRIP #CFFFFFFF [250.0,155.0 250.0,130.0 295.0,130.0]
+lines LINE_STRIP #CFFFFFFF [250.0,205.0 250.0,230.0 295.0,230.0]
+lines LINE_STRIP #CFFFFFFF [390.0,155.0 390.0,130.0 345.0,130.0]
+lines LINE_STRIP #CFFFFFFF [390.0,205.0 390.0,230.0 345.0,230.0]
+text #FFFFE400 (250, 170) "x1.0"
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FFFFE400 (225, 70) "351"
+centered text #FFFFE400 (255, 70) "354"
+centered text #FFFFE400 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FFFFE400 (345, 70) "3"
+centered text #FFFFE400 (375, 70) "6"
+centered text #FFFFE400 (405, 70) "9"
+lines LINES #FFFFE400 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FFFFE400 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FFFFE400 (320, 99) "225"
+lines LINE_STRIP #FFFFE400 [465.0,202.0 527.0,202.0 527.0,194.0 465.0,194.0 465.0,202.0]
+text #FFFFE400 (470, 185) "100"
+text #FFFFE400 (496, 185) "/ 100"
+rect #FFFFE400 (526.0, 201.0) (466.0, 195.0)
+text #FFFFE400 (465, 140) "FREE LOOK"
+text #FFFFE400 (465, 150) "THERMAL VISION"
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (0.0, 0.0) uv size (64.0, 64.0) rotation -0.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/mbt_hud.png (400.0, 235.0) size (32.0, 32.0) uv (64.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (350, 210) "DIST = ----"

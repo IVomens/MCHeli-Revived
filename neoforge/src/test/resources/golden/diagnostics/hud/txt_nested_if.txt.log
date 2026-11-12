@@ -1,0 +1,8 @@
+# {"schema":1,"source":"assets/mcheli/hud/txt_nested_if.txt","commit":"671aa2e"}
+result: skipped
+DEBUG content file(mcheli:mcheli|txt_nested_if) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/hud/txt_nested_if.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+ERROR Failed to load 'assets/mcheli/hud/txt_nested_if.txt' from addon 'mcheli' at line 2, key 'if': if blocks cannot nest, and the if on line 1 has no endif before this one
+DEBUG Parse error details for 'assets/mcheli/hud/txt_nested_if.txt'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: if blocks cannot nest, and the if on line 1 has no endif before this one
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: if blocks cannot nest, and the if on line 1 has no endif before this one

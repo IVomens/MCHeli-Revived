@@ -1,0 +1,19 @@
+# {"schema":1,"hud":"hud/test_format.txt","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"57ceb86"}
+-- frame cruise #1 (colour at start #FF000000)
+text #FF000000 (320, 180) "ALT 30"
+text #FF000000 (320, 200) "still drawn"
+-- frame cruise #2 (colour at start #FF000000)
+text #FF000000 (320, 180) "ALT 30"
+text #FF000000 (320, 200) "still drawn"
+-- frame damaged_gunner #1 (colour at start #FF000000)
+text #FF000000 (320, 180) "ALT 3"
+text #FF000000 (320, 210) "still drawn"
+-- frame damaged_gunner #2 (colour at start #FF000000)
+text #FF000000 (320, 180) "ALT 3"
+text #FF000000 (320, 210) "still drawn"
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+text #FF000000 (320, 180) "ALT 57"
+text #FF000000 (320, 200) "still drawn"
+-- frame uav_no_weapon #2 (colour at start #FF000000)
+text #FF000000 (320, 180) "ALT 57"
+text #FF000000 (320, 200) "still drawn"

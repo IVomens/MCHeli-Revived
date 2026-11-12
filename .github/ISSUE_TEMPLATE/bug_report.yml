@@ -1,0 +1,75 @@
+name: Bug report
+description: "Something in MCHeli: Revived does not work as it should."
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please check the [open issues](https://github.com/IVomens/MCHeli-Revived/issues) first.
+        For problems with a vehicle (handling, jitter, ammunition, damage, something that looks different for
+        different players), the vehicle inspector export helps most: see
+        [docs/INSPECTOR.md](https://github.com/IVomens/MCHeli-Revived/blob/main/docs/INSPECTOR.md#exporting-for-a-bug-report).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to reproduce
+      description: The steps, starting from a fresh world if you can.
+      placeholder: |
+        1. Spawn an AH-64
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: MCHeli version
+      description: From the mods list, or the jar's file name. A nightly build's name includes its commit.
+    validations:
+      required: true
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Loader
+      options:
+        - NeoForge
+        - Fabric
+    validations:
+      required: true
+  - type: dropdown
+    id: side
+    attributes:
+      label: Where it happens
+      options:
+        - Single player
+        - Multiplayer, dedicated server
+        - Multiplayer, LAN or hosted from a client
+        - Not sure
+  - type: textarea
+    id: inspector
+    attributes:
+      label: Vehicle inspector summary
+      description: |
+        For a vehicle problem: bind a key to "Vehicle Inspector" (Controls, category MCHeli), open it on the
+        vehicle while the problem shows, press "Copy summary" and paste it here. Then press "Export JSON" and
+        attach the file it writes to `mcheli/inspector/` (drag it into the box below). On a server, an
+        operator's export also holds the server's view.
+      render: text
+  - type: textarea
+    id: files
+    attributes:
+      label: Logs and files
+      description: |
+        Attach `logs/latest.log`, and `logs/mcheli-content.log` for content problems. Add the inspector export,
+        screenshots, and the addon packs involved if they are not public.
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods and addon packs
+      description: Other mods installed, and the MCHeli addon packs in `mcheli_addons`.

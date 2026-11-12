@@ -1,0 +1,8 @@
+# {"schema":1,"source":"assets/mcheli/weapons/txt_not_a_number.txt","commit":"be2b1b8"}
+result: skipped
+DEBUG content file(mcheli:mcheli|txt_not_a_number) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/weapons/txt_not_a_number.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+ERROR Failed to load 'assets/mcheli/weapons/txt_not_a_number.txt' from addon 'mcheli' at line 3, key 'power': expected a whole number but got "high"
+DEBUG Parse error details for 'assets/mcheli/weapons/txt_not_a_number.txt'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected a whole number but got "high"
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected a whole number but got "high"

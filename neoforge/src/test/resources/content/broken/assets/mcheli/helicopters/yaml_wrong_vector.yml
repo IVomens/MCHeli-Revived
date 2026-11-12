@@ -1,0 +1,4 @@
+# A position with two components.
+DisplayName: Wrong Vector
+Seats:
+- Pos: [0.0, 1.0]

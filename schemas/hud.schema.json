@@ -1,0 +1,1272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/IVomens/MCHeli-Revived/main/schemas/hud.schema.json",
+  "title": "MCHeli HUD",
+  "description": "A YAML file in assets/mcheli/hud/ of an MCHeli addon pack. Generated from the game's schema declarations; do not edit.",
+  "x-mcheli-schema-version": 1,
+  "type": "array",
+  "items": {
+    "if": {
+      "type": "object",
+      "required": [
+        "If"
+      ]
+    },
+    "then": {
+      "$ref": "#/$defs/if"
+    },
+    "else": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/command"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "SchemaVersion": {
+              "type": "integer",
+              "enum": [
+                1,
+                2
+              ],
+              "description": "The HUD format: 2 lets If blocks nest and take Else. Only as the first item."
+            }
+          },
+          "required": [
+            "SchemaVersion"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "call": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "Hud": {
+              "type": "string",
+              "description": "Text kept exactly as written, blanks included, such as a format string or a texture name."
+            }
+          },
+          "required": [
+            "Hud"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "string",
+          "description": "Text kept exactly as written, blanks included, such as a format string or a texture name."
+        }
+      ]
+    },
+    "colour": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "Argb": {
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  },
+                  "minItems": 4,
+                  "maxItems": 4
+                }
+              ],
+              "description": "One ARGB formula, or a list of four: alpha, red, green and blue. One ARGB formula such as '0xFF00FF00', or a list of four: [a, r, g, b]."
+            }
+          },
+          "required": [
+            "Argb"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "anyOf": [
+            {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          ],
+          "description": "One ARGB formula, or a list of four: alpha, red, green and blue. One ARGB formula such as '0xFF00FF00', or a list of four: [a, r, g, b]."
+        }
+      ]
+    },
+    "text": {
+      "type": "object",
+      "properties": {
+        "Text": {
+          "type": "object",
+          "properties": {
+            "Fmt": {
+              "type": "string",
+              "description": "Text kept exactly as written, blanks included, such as a format string or a texture name."
+            },
+            "Format": {
+              "type": "string",
+              "description": "Another spelling of 'Fmt'."
+            },
+            "Vars": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "default": [],
+              "description": "Names, such as the variables of a 'DrawString': a YAML list, or the rest of a TXT line."
+            },
+            "Variables": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "default": [],
+              "description": "Another spelling of 'Vars'."
+            }
+          },
+          "additionalProperties": false
+        },
+        "Position": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A position: '[x, y]' or '{x: .., y: ..'}. [x, y] or a map with the keys 'x' and 'y'; each a formula."
+        },
+        "Pos": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "Another spelling of 'Position'."
+        },
+        "Center": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "rectangle": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A position: '[x, y]' or '{x: .., y: ..'}. [x, y] or a map with the keys 'x' and 'y'; each a formula."
+        },
+        "Pos": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "Another spelling of 'Position'."
+        },
+        "Size": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A size: '[width, height]' or '{width: .., height: ..'}. [width, height] or a map with the keys 'width' and 'height'; each a formula."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "line": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "description": "The points of a line: a YAML list of '[x, y]', or the rest of a TXT line, two values a point. A list of points [x, y]."
+        },
+        "StartPos": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "description": "Another spelling of 'Position'."
+        },
+        "Start": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "description": "Another spelling of 'Position'."
+        },
+        "Factor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "A formula: text, or a plain number."
+        },
+        "Fac": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "Another spelling of 'Factor'."
+        },
+        "Pattern": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "A formula: text, or a plain number."
+        },
+        "Pat": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "Another spelling of 'Pattern'."
+        },
+        "Striped": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "StartPos"
+              ]
+            },
+            {
+              "required": [
+                "Start"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "texture": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "Text kept exactly as written, blanks included, such as a format string or a texture name."
+        },
+        "Texture": {
+          "type": "string",
+          "description": "Another spelling of 'Name'."
+        },
+        "Position": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A position: '[x, y]' or '{x: .., y: ..'}. [x, y] or a map with the keys 'x' and 'y'; each a formula."
+        },
+        "Pos": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "Another spelling of 'Position'."
+        },
+        "Size": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A size: '[width, height]' or '{width: .., height: ..'}. [width, height] or a map with the keys 'width' and 'height'; each a formula."
+        },
+        "UVPos": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A position: '[x, y]' or '{x: .., y: ..'}. [x, y] or a map with the keys 'x' and 'y'; each a formula."
+        },
+        "UVSize": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A size: '[width, height]' or '{width: .., height: ..'}. [width, height] or a map with the keys 'width' and 'height'; each a formula."
+        },
+        "Rotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "A formula: text, or a plain number."
+        },
+        "Rot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "Another spelling of 'Rotation'."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Name"
+              ]
+            },
+            {
+              "required": [
+                "Texture"
+              ]
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "radar": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A position: '[x, y]' or '{x: .., y: ..'}. [x, y] or a map with the keys 'x' and 'y'; each a formula."
+        },
+        "Pos": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "Another spelling of 'Position'."
+        },
+        "Size": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A size: '[width, height]' or '{width: .., height: ..'}. [width, height] or a map with the keys 'width' and 'height'; each a formula."
+        },
+        "Rotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "A formula: text, or a plain number."
+        },
+        "Rot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "Another spelling of 'Rotation'."
+        },
+        "EntityRadar": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "graduation": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "YAW",
+                "PITCH",
+                "PITCH_ROLL",
+                "PITCH_ROLL_ALT"
+              ]
+            },
+            {
+              "pattern": "^\\s*(?:[Yy][Aa][Ww]|[Pp][Ii][Tt][Cc][Hh]|[Pp][Ii][Tt][Cc][Hh]_[Rr][Oo][Ll][Ll]|[Pp][Ii][Tt][Cc][Hh]_[Rr][Oo][Ll][Ll]_[Aa][Ll][Tt])\\s*$"
+            }
+          ],
+          "description": "A graduation type by name, in any case. Any case."
+        },
+        "Position": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A position: '[x, y]' or '{x: .., y: ..'}. [x, y] or a map with the keys 'x' and 'y'; each a formula."
+        },
+        "Pos": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "Another spelling of 'Position'."
+        },
+        "Rotation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "A formula: text, or a plain number."
+        },
+        "Rot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "Another spelling of 'Rotation'."
+        },
+        "Roll": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "default": "0",
+          "description": "A formula: text, or a plain number."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "cameraRotation": {
+      "type": "object",
+      "properties": {
+        "Position": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "A position: '[x, y]' or '{x: .., y: ..'}. [x, y] or a map with the keys 'x' and 'y'; each a formula."
+        },
+        "Pos": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          ],
+          "description": "Another spelling of 'Position'."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Position"
+              ]
+            },
+            {
+              "required": [
+                "Pos"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "command": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "Exit": {},
+        "Call": {
+          "$ref": "#/$defs/call"
+        },
+        "Color": {
+          "$ref": "#/$defs/colour"
+        },
+        "DrawString": {
+          "$ref": "#/$defs/text"
+        },
+        "DrawRectangle": {
+          "$ref": "#/$defs/rectangle"
+        },
+        "DrawRect": {
+          "$ref": "#/$defs/rectangle"
+        },
+        "DrawLine": {
+          "$ref": "#/$defs/line"
+        },
+        "DrawTexture": {
+          "$ref": "#/$defs/texture"
+        },
+        "DrawRadar": {
+          "$ref": "#/$defs/radar"
+        },
+        "DrawGraduation": {
+          "$ref": "#/$defs/graduation"
+        },
+        "CameraRotation": {
+          "$ref": "#/$defs/cameraRotation"
+        },
+        "CameraRot": {
+          "$ref": "#/$defs/cameraRotation"
+        },
+        "IgnoreAutoScale": {
+          "type": "boolean",
+          "description": "Draws the HUD at its design size even with HUD auto scaling on."
+        },
+        "IgnoreAutoScaleGui": {
+          "type": "boolean",
+          "description": "Draws the HUD at its design size even with HUD auto scaling on."
+        },
+        "IgnoreScaledGui": {
+          "type": "boolean",
+          "description": "Draws the HUD at its design size even with HUD auto scaling on."
+        },
+        "IgnoreAutomaticScale": {
+          "type": "boolean",
+          "description": "Draws the HUD at its design size even with HUD auto scaling on."
+        }
+      },
+      "additionalProperties": false
+    },
+    "if": {
+      "type": "object",
+      "properties": {
+        "If": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "description": "A formula; the commands of the block are drawn while it is not 0."
+        },
+        "Do": {
+          "type": "array",
+          "items": {
+            "if": {
+              "type": "object",
+              "required": [
+                "If"
+              ]
+            },
+            "then": {
+              "$ref": "#/$defs/if"
+            },
+            "else": {
+              "$ref": "#/$defs/command"
+            }
+          }
+        },
+        "Then": {
+          "type": "array",
+          "items": {
+            "if": {
+              "type": "object",
+              "required": [
+                "If"
+              ]
+            },
+            "then": {
+              "$ref": "#/$defs/if"
+            },
+            "else": {
+              "$ref": "#/$defs/command"
+            }
+          }
+        },
+        "Else": {
+          "type": "array",
+          "items": {
+            "if": {
+              "type": "object",
+              "required": [
+                "If"
+              ]
+            },
+            "then": {
+              "$ref": "#/$defs/if"
+            },
+            "else": {
+              "$ref": "#/$defs/command"
+            }
+          },
+          "description": "Drawn while the condition is 0. Format 2 (SchemaVersion: 2) only."
+        }
+      },
+      "required": [
+        "If"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

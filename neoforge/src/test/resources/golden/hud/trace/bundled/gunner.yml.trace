@@ -1,0 +1,85 @@
+# {"schema":1,"hud":"bundled/gunner.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+-- frame cruise #2 (colour at start #FF28D448)
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+-- frame damaged_gunner #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+-- frame damaged_gunner #2 (colour at start #FFDF0408)
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+text #FF28D448 (350, 210) "DIST = ----"
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+-- frame uav_no_weapon #2 (colour at start #FF28D448)
+text #FF28D448 (350, 210) "DIST = ----"
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256

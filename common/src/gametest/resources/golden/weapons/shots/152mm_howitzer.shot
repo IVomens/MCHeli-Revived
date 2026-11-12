@@ -1,0 +1,19 @@
+# {"schema":1,"weapon":"152mm_howitzer","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "152mm howitzer"
+mount: vehicle kv-2 (TankEntity), pilot seat, weapon #0
+ready after 155 ticks
+before shot: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "152mm howitzer"
+t0 spawned #0 mcheli:bullet at 3072.02467710152 104.3600825823498 3073.9498315803853 motion 0.049354203039644294 -0.013834564456876496 3.899663160770249 yaw -0.72284764 pitch 0.2066339
+after shot: ammo 0 reserve 1 heat 0 cooldown 170 reload 150 name "152mm howitzer"
+t1 #0 3072.0987084060794 104.2793307370056 3079.799326321541
+t2 #0 3072.172739710639 104.13857889300249 3085.6488210626962
+t3 #0 3072.246771015198 103.93782705034049 3091.4983158038517
+t4 #0 3072.3208023197576 103.67707520901959 3097.347810545007
+t5 #0 3072.394833624317 103.3563233690398 3103.1973052861626
+t6 #0 3072.4688649288764 102.97557153040111 3109.046800027318
+t7 #0 3072.542896233436 102.53481969310353 3114.8962947684736
+t8 #0 3072.6169275379953 102.03406785714705 3120.745789509629
+t9 #0 3072.6909588425547 101.47331602253168 3126.5952842507845
+t10 explosion by #0 at 3072.7474068476004 101.0 3131.0554556692077 size 6.0 block 5.0 damage 6.0 blockPower 5.0 radius 6.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t10 #0 removed: DISCARDED
+after 60 ticks: ammo 0 reserve 1 heat 0 cooldown 110 reload 90 name "152mm howitzer"

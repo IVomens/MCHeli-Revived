@@ -1,0 +1,45 @@
+# {"schema":1,"weapon":"aim92_l","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "AIM-92 Stinger"
+target: armor stand at 3072.0 140.0 3168.0
+mount: soldier at the origin holding the weapon set (no bundled vehicle carries it)
+ready after 1 ticks
+before shot: ammo 6 reserve 0 heat 0 cooldown 0 reload 0 name "AIM-92 Stinger"
+t0 spawned #0 mcheli:aa_missile at 3072.0 102.62000000476837 3072.0 motion -3.6739405577555036E-16 0.0 3.0 yaw 0.0 pitch 0.0
+after shot: ammo 5 reserve 0 heat 0 cooldown 100 reload 0 name "AIM-92 Stinger"
+t1 #0 3072.0 102.62000000476837 3075.0
+t2 #0 3072.0 102.62000000476837 3078.0
+t3 #0 3072.0 102.62000000476837 3081.0
+t4 #0 3072.0 102.62000000476837 3084.0
+t5 #0 3072.0 102.62000000476837 3087.0
+t6 #0 3072.0 102.62000000476837 3090.0
+t7 #0 3072.0 102.62000000476837 3093.0
+t8 #0 3072.0 102.62000000476837 3096.0
+t9 #0 3072.0 103.33145130766533 3098.914418817467
+t10 #0 3072.0 104.39864261866533 3101.7181846253984
+t11 #0 3072.0 105.64461354155205 3104.447205779461
+t12 #0 3072.0 106.98167167768938 3107.132773790253
+t13 #0 3072.0 108.36565208059504 3109.7944646521623
+t14 #0 3072.0 109.77398731804702 3112.4433496740066
+t15 #0 3072.0 111.1950304355224 3115.0854390854906
+t16 #0 3072.0 112.62273078315759 3117.723937089538
+t17 #0 3072.0 114.05393053869717 3120.360538549703
+t18 #0 3072.0 115.48697574667524 3122.9961374250806
+t19 #0 3072.0 116.92099741329284 3125.631205139518
+t20 #0 3072.0 118.35553758742478 3128.2659906125314
+t21 #0 3072.0 119.79035418191597 3130.900625566405
+t22 #0 3072.0 121.22531879457426 3133.535179904508
+t23 #0 3072.0 122.66036307164549 3136.169690850176
+t24 #0 3072.0 124.09545047712383 3138.8041783029144
+t25 #0 3072.0 125.53056139247258 3141.438652948958
+t26 #0 3072.0 126.96568522860933 3144.0731205564553
+t27 #0 3072.0 128.40081623644437 3146.7075842571635
+t28 #0 3072.0 129.83595127379235 3149.3420457627803
+t29 #0 3072.0 131.27108861037414 3151.9765060158775
+t30 #0 3072.0 132.70622728558345 3154.610965539749
+t31 #0 3072.0 134.14136676180212 3157.2454246272655
+t32 #0 3072.0 135.5765067366337 3159.879883443159
+t33 #0 3072.0 137.01164704165566 3162.514342079179
+t34 #0 3072.0 138.4467875910589 3165.148800582071
+t35 explosion by #0 at 3072.0 140.0 3168.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t35 #0 removed: DISCARDED
+after 60 ticks: ammo 5 reserve 0 heat 0 cooldown 40 reload 0 name "AIM-92 Stinger"

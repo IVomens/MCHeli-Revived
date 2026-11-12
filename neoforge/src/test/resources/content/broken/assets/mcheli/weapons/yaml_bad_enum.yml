@@ -1,0 +1,5 @@
+# Values that must name an enum constant.
+DisplayName: Bad Enum
+Type: rocket
+Camera:
+  Sight: lasersight

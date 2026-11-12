@@ -1,0 +1,47 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.ivomens.mcheli.fabric.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "DataPackCommandMixin",
+    "EntityMixin",
+    "EntityTypeBuilderMixin",
+    "GrindstoneMenuMixin",
+    "ItemMixin",
+    "ItemPropertiesMixin",
+    "LivingEntityMixin",
+    "PackMixin",
+    "PackRepositoryMixin",
+    "PersistentEntitySectionManagerMixin",
+    "PlayerMixin",
+    "RepairItemRecipeMixin",
+    "ServerLevelEntityCallbacksMixin",
+    "ServerLevelMixin",
+    "ServerPlayerMixin"
+  ],
+  "client": [
+    "client.BossHealthOverlayMixin",
+    "client.CameraMixin",
+    "client.ClientLevelEntityCallbacksMixin",
+    "client.ClientLevelMixin",
+    "client.ClientPackRepositoryMixin",
+    "client.ClientPacketListenerMixin",
+    "client.EntityRendererMixin",
+    "client.GameRendererMixin",
+    "client.GuiMixin",
+    "client.ItemColorsMixin",
+    "client.ItemInHandRendererMixin",
+    "client.ItemRendererMixin",
+    "client.LevelRendererMixin",
+    "client.LivingEntityRendererMixin",
+    "client.MinecraftMixin",
+    "client.MouseHandlerMixin",
+    "client.PackSelectionModelMixin",
+    "client.ParticleEngineMixin",
+    "client.PlayerRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

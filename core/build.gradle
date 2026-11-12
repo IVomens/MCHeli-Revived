@@ -1,0 +1,18 @@
+// Everything of the mod that needs no Minecraft: the physics (core.sim) and the pure halves of the
+// features (the HUD expression compiler, the wingman brain, the content schema engine, ballistics and
+// guidance math). Plain Java 21 with JOML and no Minecraft, loader or Mojang library on the classpath,
+// so it cannot depend on the game by accident (docs/ARCHITECTURE_RULES.md). Its tests run on JUnit alone.
+plugins {
+    id 'mcheli.shared-conventions'
+}
+
+dependencies {
+    // Orientation converts to and from JOML quaternions, so the type is part of the API.
+    api libs.joml
+    // javax.annotation.Nullable, as in the rest of the mod; annotations only, nothing at run time.
+    compileOnly libs.jsr305
+    testCompileOnly libs.jsr305
+
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.platform.launcher
+}

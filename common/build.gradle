@@ -1,0 +1,118 @@
+// Everything that needs Minecraft but no mod loader, with the shared resources (assets, data, the
+// access transformer, the mixin config). It compiles against vanilla Minecraft from NeoForm, with
+// Mojang names, Parchment and our access transformer, and with no loader on the classpath: NeoForge
+// or Fabric code here does not compile.
+//
+// The gametest source set holds the game tests both loaders run: the vehicle goldens, the save
+// fixtures, the weapon snapshots and the scenario tests. It compiles here against vanilla only, which
+// keeps it loader-neutral; each loader module compiles it in and registers the tests itself.
+plugins {
+    id 'mcheli.shared-conventions'
+    id 'net.neoforged.moddev'
+}
+
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    gametestCompileOnly.extendsFrom compileOnly
+    gametestImplementation.extendsFrom implementation
+
+    sharedGametestJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    sharedGametestResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    sharedGametestJava sourceSets.gametest.java.sourceDirectories.singleFile
+    sharedGametestResources sourceSets.gametest.resources.sourceDirectories.singleFile
+}
+
+neoForge {
+    neoFormVersion = project.neo_form_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    accessTransformers = files('src/main/resources/META-INF/accesstransformer.cfg')
+
+    // These unit tests run on plain vanilla Minecraft. Tests that need the mod set up by a loader
+    // (the content, config, HUD and network goldens) live in :neoforge.
+    addModdingDependenciesTo(sourceSets.test)
+    addModdingDependenciesTo(sourceSets.gametest)
+}
+
+dependencies {
+    api project(':core')
+    // the public API, which common implements
+    api project(':api')
+
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    // The loader applies the mixins; compiling them only needs the annotations.
+    compileOnly(libs.mixin) { transitive = false }
+    compileOnly(libs.mixinextras.common) { transitive = false }
+
+    // Flywheel's loader-neutral API for the optional instancing backend (vehicle/client/render/flywheel).
+    // Compiled against only; Flywheel classes are touched only when the mod is installed.
+    compileOnly libs.flywheel.api
+
+    // YAML content definitions; the loader jars bundle it.
+    implementation libs.snakeyaml
+
+    testImplementation libs.junit.jupiter
+    // the Flywheel backend's bookkeeping is tested against fakes of Flywheel's interfaces
+    testImplementation libs.flywheel.api
+    // Minecraft pins slf4j; the validator runs on that version.
+    testImplementation(libs.json.schema.validator) { exclude group: 'org.slf4j' }
+    testRuntimeOnly libs.junit.platform.launcher
+}
+
+// The loaders compile the shared game tests only when they run them; building them here on every
+// check keeps them loader-neutral.
+tasks.named('check') {
+    dependsOn tasks.named('gametestClasses')
+}
+
+test {
+    // Minecraft's logging setup writes logs/latest.log into the working directory.
+    var testRun = layout.buildDirectory.dir('test-run').get().asFile
+    workingDir = testRun
+    doFirst { testRun.mkdirs() }
+}
+
+// The JSON Schema files of the content types, written from the schema declarations into schemas/ at the
+// repository root (docs/ADDON_AUTHORING.md). JsonSchemaFilesTest fails the build while they are out of date.
+var schemasDir = rootProject.file('schemas')
+var commonSources = file('src/main/java')
+var coreSources = project(':core').file('src/main/java')
+test {
+    systemProperty 'mcheli.schemasDir', schemasDir.absolutePath
+    systemProperty 'mcheli.commonSources', commonSources.absolutePath
+    systemProperty 'mcheli.coreSources', coreSources.absolutePath
+    systemProperty 'mcheli.mainResources', file('src/main/resources').absolutePath
+    systemProperty 'mcheli.apiVersion', project.api_version
+    inputs.dir(schemasDir).withPropertyName('schemas').optional()
+}
+tasks.register('generateSchemas', JavaExec) {
+    group = 'mcheli'
+    description = 'Writes the JSON Schema files of the content types to schemas/.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.ivomens.mcheli.content.emit.JsonSchemaFiles'
+    args schemasDir.absolutePath, commonSources.absolutePath, coreSources.absolutePath
+    var runDir = layout.buildDirectory.dir('test-run').get().asFile
+    workingDir = runDir
+    doFirst { runDir.mkdirs() }
+}

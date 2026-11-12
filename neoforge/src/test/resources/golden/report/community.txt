@@ -1,0 +1,59 @@
+# {"schema":1,"source":"content/community","commit":"2276bdf"}
+Content load
+Files: 14 read, 12 loaded, 2 skipped
+Problems: 2 errors, 19 warnings
+
+Packs, in load order (a later pack's file replaces an earlier pack's file of the same name):
+   1. @builtin  (default)
+   2. desert_storm_pack  (Desert_Storm_Pack)
+   3. ru_patch  (zz_ru_patch)
+
+Replaced files:
+  weapons 'm2_cal50': 'assets/mcheli/weapons/m2_cal50.txt' in pack 'desert_storm_pack' replaces 'assets/mcheli/weapons/m2_cal50.yml' in pack '@builtin'
+  weapons 'gau8': 'assets/mcheli/weapons/gau8.yml' in pack 'ru_patch' replaces 'assets/mcheli/weapons/gau8.txt' in pack 'desert_storm_pack'
+  weapons 'hydra70': 'assets/mcheli/weapons/hydra70.txt' in pack 'ru_patch' replaces 'assets/mcheli/weapons/hydra70.yml' in pack '@builtin'
+  weapons 'hydra70': pack 'ru_patch' has two files with this name; 'assets/mcheli/weapons/hydra70.yml' is used and 'assets/mcheli/weapons/hydra70.txt' is ignored
+  helicopters 'scout': 'assets/mcheli/helicopters/scout.yml' in pack 'ru_patch' replaces 'assets/mcheli/helicopters/scout.yml' in pack '@builtin'
+
+Problems by pack and file:
+
+(the load as a whole)
+  WARN  No 'pack.mcmeta' found in 'Desert_Storm_Pack'
+  WARN  Addon 'Desert_Storm_Pack' has no domain metadata, using fallback domain 'desert_storm_pack'
+
+[desert_storm_pack] assets/mcheli/weapons/gau8.txt
+  WARN  Loading legacy .txt content 'assets/mcheli/weapons/gau8.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+  WARN  assets/mcheli/weapons/gau8.txt:7 round: 0 is outside 1 to 30000, 1 is used
+  WARN  Setting 'crosstype' is no longer supported and is ignored (first seen in 'assets/mcheli/weapons/gau8.txt')
+  WARN  Setting 'weaponswitchcount' is no longer supported and is ignored (first seen in 'assets/mcheli/weapons/gau8.txt')
+  WARN  assets/mcheli/weapons/gau8.txt:11 unknown key 'acceleraton', ignored (did you mean 'acceleration'?)
+  WARN  assets/mcheli/weapons/gau8.txt:12 unknown key '// muzzle', ignored
+
+[desert_storm_pack] assets/mcheli/weapons/m2_cal50.txt
+  WARN  Loading legacy .txt content 'assets/mcheli/weapons/m2_cal50.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+
+[ru_patch] assets/mcheli/weapons/gau8.yml
+  WARN  assets/mcheli/weapons/gau8.yml:7 unknown key 'Ballistics.Acceleraton', ignored (did you mean 'Acceleration'?)
+  WARN  assets/mcheli/weapons/gau8.yml:9 Ammo.MagSize: 50000 is outside 1 to 30000, 30000 is used
+  WARN  Setting 'SwitchCooldown' is no longer supported and is ignored (first seen in 'assets/mcheli/weapons/gau8.yml')
+  WARN  weapons 'gau8': 'assets/mcheli/weapons/gau8.yml' in pack 'ru_patch' replaces 'assets/mcheli/weapons/gau8.txt' in pack 'desert_storm_pack'
+
+[ru_patch] assets/mcheli/weapons/hydra70.txt
+  WARN  Loading legacy .txt content 'assets/mcheli/weapons/hydra70.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+
+[ru_patch] assets/mcheli/weapons/kord.yml
+  WARN  assets/mcheli/weapons/kord.yml:1 SchemaVersion: the file is written for version 3 but this game reads version 1; keys it does not know are ignored
+
+[ru_patch] assets/mcheli/weapons/pkt.yml
+  ERROR Failed to load 'assets/mcheli/weapons/pkt.yml' from addon 'ru_patch' at line 4: YAML syntax error: found character '\t(TAB)' that cannot start any token. (Do not use \t(TAB) for indentation)
+
+[ru_patch] assets/mcheli/weapons/hydra70.yml
+  WARN  weapons 'hydra70': pack 'ru_patch' has two files with this name; 'assets/mcheli/weapons/hydra70.yml' is used and 'assets/mcheli/weapons/hydra70.txt' is ignored
+
+[desert_storm_pack] assets/mcheli/helicopters/ah1_cobra.txt
+  WARN  Loading legacy .txt content 'assets/mcheli/helicopters/ah1_cobra.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+  WARN  Setting 'hudtype' is no longer supported and is ignored (first seen in 'assets/mcheli/helicopters/ah1_cobra.txt')
+  WARN  assets/mcheli/helicopters/ah1_cobra.txt: weapon 'hellfire' is not loaded, so its AddWeapon line is left out
+
+[desert_storm_pack] assets/mcheli/throwable/Frag_Grenade.txt
+  ERROR Skipping 'assets/mcheli/throwable/Frag_Grenade.txt' in addon 'desert_storm_pack': a content file name may only use lower-case letters, digits, '_', '-' and '.'

@@ -1,0 +1,8 @@
+# {"schema":1,"source":"assets/mcheli/weapons/txt_bad_bullet_decay.txt","commit":"be2b1b8"}
+result: skipped
+DEBUG content file(mcheli:mcheli|txt_bad_bullet_decay) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/weapons/txt_bad_bullet_decay.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+ERROR Failed to load 'assets/mcheli/weapons/txt_bad_bullet_decay.txt' from addon 'mcheli' at line 3, key 'bulletdecay': unknown bullet decay type 'Linear', only 'Segmented' exists
+DEBUG Parse error details for 'assets/mcheli/weapons/txt_bad_bullet_decay.txt'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: unknown bullet decay type 'Linear', only 'Segmented' exists
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: unknown bullet decay type 'Linear', only 'Segmented' exists

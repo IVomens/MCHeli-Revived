@@ -1,0 +1,6 @@
+// Type = bomb resets Gravity and GravityInWater to -0.03, so these two lines are lost.
+DisplayName = Gravity Before Bomb
+Gravity = -0.2
+GravityInWater = -0.1
+Type = bomb
+Explosion = 4

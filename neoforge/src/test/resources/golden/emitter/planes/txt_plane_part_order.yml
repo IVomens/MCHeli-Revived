@@ -1,0 +1,29 @@
+# {"schema":1,"emitted from":"assets/mcheli/planes/txt_plane_part_order.txt","commit":"09ffef3"}
+DisplayName: TXT Plane Part Order
+RepairOtherVehicles:
+  Range: 0.0
+  Value: 10
+Seats:
+- Position: [0.0, 1.0, 0.0]
+  Hud: plane
+PlaneFeatures:
+  VariableSweepWing: false
+  SweepWingSpeed: 0.1
+  EnableVtol: false
+Components:
+  PlaneRotor:
+  - Position: [0.0, 0.0, 5.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: rotor0
+    RotFactor: 90.0
+    Blades:
+    - Position: [0.0, 0.0, 5.0]
+      Rotation: [0.0, 0.0, 1.0]
+      PartName: blade0
+      BladeNum: 2
+      BladeRot: 180
+  Wing:
+  - Position: [4.0, 0.0, 0.0]
+    Rotation: [0.0, 0.0, 1.0]
+    PartName: wing0
+    MaxRotation: 30.0

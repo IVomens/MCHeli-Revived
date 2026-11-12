@@ -1,0 +1,17 @@
+# {"schema":1,"weapon":"mk46_3","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "Mark 46 torpedo"
+mount: vehicle mk32 (GroundVehicleEntity), pilot seat, weapon #0
+ready after 85 ticks
+before shot: ammo 3 reserve 0 heat 0 cooldown 0 reload 0 name "Mark 46 torpedo"
+t0 spawned #0 mcheli:torpedo at 3072.0 101.97000002861023 3073.7200000286102 motion -1.2246468525851679E-16 0.0 1.0 yaw 0.0 pitch 0.0
+after shot: ammo 2 reserve 0 heat 0 cooldown 30 reload 0 name "Mark 46 torpedo"
+t1 #0 3072.0 101.94000002928078 3074.7200000286102
+t2 #0 3072.0 101.88000003062189 3075.7200000286102
+t3 #0 3072.0 101.79000003263354 3076.7200000286102
+t4 #0 3072.0 101.67000003531575 3077.7200000286102
+t5 #0 3072.0 101.52000003866851 3078.7200000286102
+t6 #0 3072.0 101.34000004269183 3079.7200000286102
+t7 #0 3072.0 101.13000004738569 3080.7200000286102
+t8 explosion by #0 at 3072.0 101.0 3081.2616669048243 size 2.0 block 2.0 damage 2.0 blockPower 2.0 radius 2.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t8 #0 removed: DISCARDED
+after 60 ticks: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "Mark 46 torpedo"

@@ -1,0 +1,38 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+issueTrackerURL="https://github.com/IVomens/MCHeli-Revived/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+credits="${mod_credits}"
+description='''${mod_description}'''
+logoFile="mcheli_logo.png"
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# Optional: vehicle models are instanced with Flywheel when it is installed.
+[[dependencies.${mod_id}]]
+    modId="flywheel"
+    type="optional"
+    versionRange="[1.0.7,2)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[mixins]]
+config="mcheli.mixins.json"

@@ -1,0 +1,3 @@
+// TXT throwable times are whole seconds; a fraction fails the file.
+DisplayName = Fractional
+TimeFuse = 1.5

@@ -1,0 +1,24 @@
+# {"schema":1,"weapon":"gmw","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "H&K GMW [M384 HE]"
+mount: vehicle mxtmv (TankEntity), pilot seat, weapon #0
+ready after 41 ticks
+before shot: ammo 30 reserve 0 heat 0 cooldown 0 reload 0 name "H&K GMW [M384 HE]"
+t0 spawned #0 mcheli:rocket at 3072.0 104.29999995231628 3071.410000026226 motion 0.03139764533879144 -0.008868310691776992 2.499787099121174 yaw -0.72284764 pitch 0.2066339
+after shot: ammo 29 reserve 0 heat 35 cooldown 6 reload 0 name "H&K GMW [M384 HE]"
+t1 #0 3072.031397645339 104.26113164229506 3073.909787125347
+t2 #0 3072.062795290678 104.19226333294438 3076.409574224468
+t3 #0 3072.094192936017 104.09339502426425 3078.909361323589
+t4 #0 3072.125590581356 103.96452671625468 3081.40914842271
+t5 #0 3072.156988226695 103.80565840891566 3083.908935521831
+t6 #0 3072.188385872034 103.6167901022472 3086.408722620952
+t7 #0 3072.219783517373 103.39792179624928 3088.908509720073
+t8 #0 3072.251181162712 103.14905349092191 3091.408296819194
+t9 #0 3072.282578808051 102.8701851862651 3093.9080839183152
+t10 #0 3072.31397645339 102.56131688227885 3096.4078710174363
+t11 #0 3072.345374098729 102.22244857896314 3098.9076581165573
+t12 #0 3072.376771744068 101.85358027631798 3101.4074452156783
+t13 #0 3072.408169389407 101.45471197434338 3103.9072323147993
+t14 #0 3072.439567034746 101.02584367303933 3106.4070194139204
+t15 explosion by #0 at 3072.441335364524 101.0 3106.5478085692585 size 2.0 block 2.0 damage 2.0 blockPower 2.0 radius 2.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t15 #0 removed: DISCARDED
+after 60 ticks: ammo 29 reserve 0 heat 0 cooldown 0 reload 0 name "H&K GMW [M384 HE]"

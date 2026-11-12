@@ -1,0 +1,19 @@
+# {"schema":1,"weapon":"540pound","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "540pound bomb"
+mount: soldier at the origin holding the weapon set (no bundled vehicle carries it)
+ready after 1 ticks
+before shot: ammo 6 reserve 6 heat 0 cooldown 0 reload 0 name "540pound bomb"
+t0 spawned #0 mcheli:bomb at 3072.0 102.62000000476837 3072.0 motion 0.0 0.0 0.0 yaw 0.0 pitch 0.0
+after shot: ammo 5 reserve 6 heat 0 cooldown 5 reload 0 name "540pound bomb"
+t1 #0 3072.0 102.59000000543892 3072.0
+t2 #0 3072.0 102.53000000678003 3072.0
+t3 #0 3072.0 102.44000000879169 3072.0
+t4 #0 3072.0 102.3200000114739 3072.0
+t5 #0 3072.0 102.17000001482666 3072.0
+t6 #0 3072.0 101.99000001884997 3072.0
+t7 #0 3072.0 101.78000002354383 3072.0
+t8 #0 3072.0 101.54000002890825 3072.0
+t9 #0 3072.0 101.27000003494322 3072.0
+t10 explosion by #0 at 3072.0 101.0 3072.0 size 4.0 block 3.0 damage 4.0 blockPower 3.0 radius 4.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t10 #0 removed: DISCARDED
+after 60 ticks: ammo 5 reserve 6 heat 0 cooldown 0 reload 0 name "540pound bomb"

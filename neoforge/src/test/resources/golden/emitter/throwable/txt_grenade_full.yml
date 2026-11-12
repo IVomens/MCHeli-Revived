@@ -1,0 +1,37 @@
+# {"schema":1,"emitted from":"assets/mcheli/throwable/txt_grenade_full.txt","commit":"32abae6"}
+DisplayName:
+  ja_JP: TXTグレネード
+  DEFAULT: TXT Fixture Grenade
+ItemID: 30000
+StackSize: 64
+Sound:
+  Volume: 2.0
+Recipe:
+  isShaped: false
+  Pattern:
+  - '"X", "Y", X, IRON_INGOT, Y, GUNPOWDER'
+  - IRON_INGOT, GUNPOWDER
+Power: 6
+Acceleration: 1.5
+AccelerationInWater: 0.4
+DispenseAcceleration: 1000.0
+Explosion: 50
+DelayFuse: 40
+Bound: 0.3
+TimeFuse: 80
+Flaming: true
+ProximityFuseDist: 20.0
+Accuracy: 2.0
+AliveTime: 600
+Bomblet: 3
+BombletSpread: 0.4
+Gravity: -0.06
+GravityInWater: -0.01
+Smoke:
+  DisableSmoke: false
+  Size: 6.0
+  Count: 12
+  Color: '#FFFF8000'
+  Velocity:
+    Vertical: 0.2
+    Horizontal: 0.1

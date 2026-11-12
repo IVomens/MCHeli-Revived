@@ -1,0 +1,116 @@
+# {"schema":1,"emitted from":"assets/mcheli/hud/txt_hud_full.txt","commit":"671aa2e"}
+- Color: '0xFF00FF00'
+- Color: ['255', '0', '128', '255']
+- DrawString:
+    Text:
+      Fmt: ALT %4d
+      Vars: [altitude]
+    Position: ['-50', '-40']
+    Center: false
+- DrawString:
+    Text:
+      Fmt: THR %3.0f%%
+      Vars: [throttle]
+    Position: ['-50', '-30']
+    Center: false
+- DrawString:
+    Text:
+      Fmt: '%s'
+      Vars: [wpn_name]
+    Position: ['0', '-60']
+    Center: true
+- DrawString:
+    Text:
+      Fmt: '%s / %s'
+      Vars: [wpn_ammo, wpn_rm_ammo]
+    Position: ['0', '-70']
+    Center: true
+- DrawString:
+    Text:
+      Fmt: '%s'
+      Vars: [not_a_variable]
+    Position: ['0', '-80']
+    Center: false
+- If: hp_rto < 0.5
+  Do:
+  - Color: '#FFFF0000'
+  - DrawRectangle:
+      Position: ['-20', '20']
+      Size: ['40', '10']
+- DrawLine:
+    Position:
+    - ['-10', '0']
+    - ['10', '0']
+    Striped: false
+- DrawLine:
+    Position:
+    - ['-10', '0']
+    - ['10', '0']
+    - ['10', '10']
+    Striped: false
+- DrawLine:
+    Position:
+    - ['-10', '5']
+    - ['10', '5']
+    Factor: '0xAAAA'
+    Pattern: '2'
+    Striped: true
+- DrawTexture:
+    Name: sight
+    Position: ['-16', '-16']
+    Size: ['32', '32']
+    UVPos: ['0', '0']
+    UVSize: ['256', '256']
+    Rotation: '0'
+- DrawTexture:
+    Name: sight
+    Position: ['-16', '-16']
+    Size: ['32', '32']
+    UVPos: ['0', '0']
+    UVSize: ['256', '256']
+    Rotation: yaw
+- DrawRadar:
+    Position: ['-100', '60']
+    Size: ['40', '40']
+    Rotation: '0'
+    EntityRadar: true
+- DrawRadar:
+    Position: ['-100', '60']
+    Size: ['40', '40']
+    Rotation: '0'
+    EntityRadar: false
+- DrawGraduation:
+    Type: YAW
+    Position: ['0', '-50']
+    Rotation: yaw
+    Roll: '0'
+- DrawGraduation:
+    Type: PITCH
+    Position: ['0', '0']
+    Rotation: yaw
+    Roll: pitch
+- DrawGraduation:
+    Type: PITCH_ROLL
+    Position: ['0', '0']
+    Rotation: roll
+    Roll: pitch
+- DrawGraduation:
+    Type: PITCH_ROLL_ALT
+    Position: ['0', '0']
+    Rotation: roll
+    Roll: pitch
+- CameraRotation:
+    Position: ['30', '40']
+- Call: common_pilot
+- If: is_uav == 0
+  Do:
+  - DrawRectangle:
+      Position: ['0', '0']
+      Size: ['1', '1']
+- DrawRectangle:
+    Position: ['1', '1']
+    Size: ['1', '1']
+- Exit: exit
+- DrawRectangle:
+    Position: ['2', '2']
+    Size: ['2', '2']

@@ -1,0 +1,27 @@
+# {"schema":1,"weapon":"gbu-12","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "GBU-12 Paveway II"
+mount: soldier at the origin holding the weapon set (no bundled vehicle carries it)
+ready after 1 ticks
+before shot: ammo 2 reserve 2 heat 0 cooldown 0 reload 0 name "GBU-12 Paveway II"
+t0 spawned #0 mcheli:as_missile at 3072.0 102.62000000476837 3072.0 motion -2.0818997077904979E-16 0.0 1.7000000476837158 yaw 0.0 pitch 0.0
+after shot: ammo 1 reserve 2 heat 0 cooldown 35 reload 0 name "GBU-12 Paveway II"
+t1 #0 3072.0 102.61000000499189 3073.7000000476837
+t2 #0 3072.0 102.59000000543892 3075.4000000953674
+t3 #0 3072.0 102.56000000610948 3077.100000143051
+t4 #0 3072.0 102.52000000700355 3078.800000190735
+t5 #0 3072.0 102.47000000812113 3080.5000002384186
+t6 #0 3072.0 102.41000000946224 3082.2000002861023
+t7 #0 3072.0 102.34000001102686 3083.900000333786
+t8 #0 3072.0 102.260000012815 3085.6000003814697
+t9 #0 3072.0 102.17000001482666 3087.3000004291534
+t10 #0 3072.0 102.07000001706183 3089.000000476837
+t11 #0 3072.0 101.96000001952052 3090.700000524521
+t12 #0 3072.0 101.84000002220273 3092.4000005722046
+t13 #0 3072.0 101.71000002510846 3094.1000006198883
+t14 #0 3072.0 101.5700000282377 3095.800000667572
+t15 #0 3072.0 101.42000003159046 3097.5000007152557
+t16 #0 3072.0 101.26000003516674 3099.2000007629395
+t17 #0 3072.0 101.09000003896654 3100.900000810623
+t18 explosion by #0 at 3072.0 101.0 3101.7500012214814 size 5.0 block 3.0 damage 5.0 blockPower 3.0 radius 5.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t18 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 2 heat 0 cooldown 0 reload 0 name "GBU-12 Paveway II"

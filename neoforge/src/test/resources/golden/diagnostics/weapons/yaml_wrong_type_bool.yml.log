@@ -1,0 +1,7 @@
+# {"schema":1,"source":"assets/mcheli/weapons/yaml_wrong_type_bool.yml","commit":"be2b1b8"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_wrong_type_bool) loading start.
+ERROR Failed to load 'assets/mcheli/weapons/yaml_wrong_type_bool.yml' from addon 'mcheli' at line 6, key 'Explosion.Flaming': expected true/false but got the whole number 1
+DEBUG Parse error details for 'assets/mcheli/weapons/yaml_wrong_type_bool.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected true/false but got the whole number 1
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected true/false but got the whole number 1

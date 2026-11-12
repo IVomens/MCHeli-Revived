@@ -1,0 +1,199 @@
+# {"schema":1,"emitted from":"assets/mcheli/weapons/txt_weapon_full.txt","commit":"be2b1b8"}
+DisplayName: TXT Fixture Missile
+Type: aamissile
+Group: fixture group
+BaseDamage: 30
+Ballistics:
+  Acceleration: 100.0
+  AccelerationInWater: 0.5
+  Gravity: -0.01
+  GravityInWater: -0.02
+  VelocityInWater: 0.9
+  SpeedFactor: 1.05
+  SpeedFactorStartTick: 3
+  SpeedFactorEndTick: 40
+  SpeedDependsAircraft: true
+  Piercing: 2
+  FlakSpread: 0.6
+Sound:
+  Delay: 2
+  Volume: 3.0
+  PitchRandom: 0.25
+  HitSoundRange: 64
+  Locations:
+    Fire: mcheli:aim9_snd
+    Hit: mcheli:hit_snd
+    Railgun: mcheli:railgun_snd
+Recoil:
+  Power: 2.5
+  Pitch: 1.5
+  Yaw: 0.5
+  PitchRange: 0.25
+  YawRange: 0.75
+  RecoverFactor: 0.9
+  BufferCount: 10
+  BufferSpeed: 5
+Explosion:
+  Power: 200
+  DestructionPower: 3
+  PowerUnderwater: 50
+  ExplosionAltitude: 12
+  FuseTime: 200
+  FuseDelay: 3
+  FuseRebound: 0.4
+  Flaming: true
+  CanAirburst: true
+  ExplosionAirburst: 4
+  ThroughWall: true
+  ThroughWallFactor: 0.5
+  NewBreak: true
+  ProximityFuseDist: 8.0
+  FAE: true
+Camera:
+  MortarRadarMaxDist: 512.5
+  DisplayMortarDistance: true
+  FixPitch: true
+  RotationSpeedPitch: 0.5
+  CCIP: true
+  CCIPFactor: 2.0
+  LockEntity: true
+  Sight: missilesight
+  Zoom:
+  - 1.25
+  - 2.0
+  - 10.0
+Missile:
+  LaserGuidance: true
+  EnableBVR: true
+  ScanInterval: 3
+  NameOnRWR: AIM9
+  TickEndHoming: 80
+  PDHDNMaxDegree: 30.0
+  TurningFactor: 1.25
+  MaxDegreeOfMissile: 45
+  CanBeIntercepted: true
+  Ballistic:
+    Canister: 3
+    DragInAir: 0.98
+  ARM:
+    AntiRadiationMissile: true
+  LockOn:
+    CanLockMissile: true
+    Time: 2
+    MaxRange: 2000
+    MaxAngle: 20
+    MinHeight: 5
+    PassiveRadarLockOutCount: 15
+    LockedChaffMax: 3
+    ProximityFuseTick: 5
+    ProximityFuseDamage: 12.5
+    ProximityFuseHeight: 4
+  Radar:
+    ActiveRadar: true
+    PassiveRadar: true
+  Heat:
+    HeatCount: 5
+    MaxHeatCount: 100
+    AntiFlareCount: 5
+Ammo:
+  ReloadTime: 3
+  MagSize: 4
+  MaxAmmo: 40
+  ResupplyCount: 2
+  AmmoItems:
+  - Count: 2
+    Name: minecraft:iron_ingot
+    Meta: 0
+  - Count: 1
+    Name: minecraft:gunpowder
+    Meta: 3
+  - Count: 1
+    Name: minecraft:redstone
+    Meta: 0
+FireCooldown: 20
+Target: Planes,Helicopters,Players,Monsters
+Mode: 2
+FixMode: 1
+RidableOnly: true
+Accuracy: 1.5
+SelfDestruct: true
+CanLoadChunks: true
+Render:
+  MuzzleFlashes:
+  - Distance: 1.0
+    Size: 2.0
+    Range: 0.0
+    Age: 3
+    Count: 1
+    Color: '#FF804020'
+  MuzzleSmoke:
+  - Distance: 1.0
+    Size: 2.0
+    Range: 0.5
+    Age: 20
+    Count: 4
+    Color: '#C8C8C880'
+  SpentCasings:
+    Name: shell_model
+    Acceleration: 0.3
+    Yaw: 90.0
+    Pitch: 10.0
+    Scale: 0.8
+    Gravity: -0.05
+    Bound: 0.4
+  BulletModel: aim-9_bullet
+  BombletModel: bomblet_model
+  TrajectoryParticleStartTick: 4
+  FlakParticlesCrack: 12
+  ParticlesFlak: 5
+  Smoke:
+    DisableSmoke: true
+    SmokeSize: 3.0
+    SmokeNum: 4
+    SmokeMaxAge: 60
+    BulletColorInWater: '#00FFFF'
+    BulletColor: [0.039215688, 0.078431375, 0.11764707, 0.15686275]
+Submunition:
+  Count: 6
+  DeployTime: 4
+  Spread: 0.5
+  SpawnInAir: true
+  SpawnMaxNum: 8
+  SpawnIntervalTick: 2
+  SpawnPerNum: 2
+  SpawnInheritSpeed: true
+  DestructAfterSpawn: true
+  Ahead: true
+Effects:
+  PotionEffects:
+  - Potion: minecraft:poison
+    Duration: 100
+    Amplifier: 1
+    StartDist: -1
+    EndDist: -1
+  - Potion: minecraft:slowness
+    Duration: 60
+    Amplifier: 0
+    StartDist: 2
+    EndDist: 10
+  BulletDecay:
+    Type: Segmented
+    Segments:
+    - - 10.0
+      - 0.9
+    - - 50.0
+      - 0.5
+DispenseItem:
+  Location: water_bucket
+  Meta: 2
+  DispenseRange: 6
+Length: 40
+Radius: 5
+MarkTime: 100
+DamageFactor:
+  Player: 0.5
+  Helicopter: 2.5
+  Plane: 3.0
+  Ship: 4.0
+  Tank: 5.0
+  Vehicle: 6.0

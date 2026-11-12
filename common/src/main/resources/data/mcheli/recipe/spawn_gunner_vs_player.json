@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "EG"
+  ],
+  "key": {
+    "E": {
+      "tag": "c:eggs"
+    },
+    "G": {
+      "tag": "c:storage_blocks/gold"
+    }
+  },
+  "result": {
+    "id": "mcheli:spawn_gunner_vs_player",
+    "count": 1
+  }
+}

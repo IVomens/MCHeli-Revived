@@ -1,0 +1,14 @@
+// The ground vehicle (gun emplacement) keys. AddChildPart before any AddPart is dropped.
+DisplayName = TXT Fixture Gun
+CanMove = false
+CanRotation = true
+RotationPitchMin = -20
+RotationPitchMax = 75
+AddChildPart = true, true, false, 1, 0, 1, 0
+AddPart = true, false, true, 0, 0, 1, 0
+AddPart = false, true, false, 2, 0, 1.5, 0.5, 0.25
+AddChildPart = true, true, false, 1, 0, 1.6, 1
+AddChildPart = false, false, true, 3, 0, 1.7, 1.2, 0.5
+AddChildPart = false, false, true, 3, 0, 1.7
+AddSeat = 0, 1, -1
+AddWeapon = m2_rws, 0, 1.5, 1

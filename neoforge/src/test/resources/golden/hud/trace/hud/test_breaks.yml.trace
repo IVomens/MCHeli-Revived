@@ -1,0 +1,16 @@
+# {"schema":1,"hud":"hud/test_breaks.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+rect #FF000000 (322.0, 182.0) (320.0, 180.0)
+log: ERROR HUD script error in assets/mcheli/hud/test_breaks.yml
+log:     caused by java.lang.IllegalStateException: HUD expression returned null: no_such_variable
+-- frame cruise #2 (colour at start #FF000000)
+-- frame damaged_gunner #1 (colour at start #FF000000)
+rect #FF000000 (322.0, 182.0) (320.0, 180.0)
+log: ERROR HUD script error in assets/mcheli/hud/test_breaks.yml
+log:     caused by java.lang.IllegalStateException: HUD expression returned null: no_such_variable
+-- frame damaged_gunner #2 (colour at start #FF000000)
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+rect #FF000000 (322.0, 182.0) (320.0, 180.0)
+log: ERROR HUD script error in assets/mcheli/hud/test_breaks.yml
+log:     caused by java.lang.IllegalStateException: HUD expression returned null: no_such_variable
+-- frame uav_no_weapon #2 (colour at start #FF000000)

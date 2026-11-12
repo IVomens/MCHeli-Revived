@@ -1,0 +1,24 @@
+# {"schema":1,"weapon":"cb90_mk19","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "Mk19 Grenade"
+mount: vehicle cb90 (ShipEntity), pilot seat, weapon #4
+ready after 21 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "Mk19 Grenade"
+t0 spawned #0 mcheli:rocket at 3072.0 105.13000011444092 3071.0099999904633 motion 0.06302871281501546 -0.017976194277203594 2.499140699880699 yaw -1.4456953 pitch 0.4132678
+after shot: ammo 3 reserve 0 heat 0 cooldown 4 reload 0 name "Mk19 Grenade"
+t1 #0 3072.063028712815 105.0770239200147 3073.509140690344
+t2 #0 3072.1260574256303 104.98904772543946 3076.0082813902245
+t3 #0 3072.1890861384454 104.86607153071522 3078.507422090105
+t4 #0 3072.2521148512606 104.70809533584196 3081.0065627899858
+t5 #0 3072.3151435640757 104.51511914081969 3083.5057034898664
+t6 #0 3072.378172276891 104.28714294564841 3086.004844189747
+t7 #0 3072.441200989706 104.02416675032812 3088.5039848896276
+t8 #0 3072.504229702521 103.72619055485882 3091.0031255895083
+t9 #0 3072.5672584153363 103.3932143592405 3093.502266289389
+t10 #0 3072.6302871281514 103.02523816347318 3096.0014069892695
+t11 #0 3072.6933158409665 102.62226196755684 3098.50054768915
+t12 #0 3072.7563445537817 102.18428577149149 3100.999688389031
+t13 #0 3072.819373266597 101.71130957527713 3103.4988290889114
+t14 #0 3072.882401979412 101.20333337891375 3105.997969788792
+t15 explosion by #0 at 3072.906004931489 101.0 3106.9338464002376 size 2.0 block 1.0 damage 2.0 blockPower 1.0 radius 2.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t15 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 0 reload 0 name "Mk19 Grenade"

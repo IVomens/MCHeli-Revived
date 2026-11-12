@@ -1,0 +1,2 @@
+If = altitude > 10
+DrawRect = 0, 0, 1, 1

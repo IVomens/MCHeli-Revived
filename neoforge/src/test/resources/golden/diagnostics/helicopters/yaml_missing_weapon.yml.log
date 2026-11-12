@@ -1,0 +1,6 @@
+# {"schema":1,"source":"assets/mcheli/helicopters/yaml_missing_weapon.yml","commit":"09ffef3"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_missing_weapon) loading start.
+ERROR Failed to load 'assets/mcheli/helicopters/yaml_missing_weapon.yml' from addon 'mcheli' at line 7, key 'Weapons[1]': Unknown weapon type 'no_such_weapon' (no file with that name in a weapons folder)
+DEBUG Parse error details for 'assets/mcheli/helicopters/yaml_missing_weapon.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: Unknown weapon type 'no_such_weapon' (no file with that name in a weapons folder)

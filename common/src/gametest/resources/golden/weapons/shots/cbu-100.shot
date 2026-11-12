@@ -1,0 +1,17 @@
+# {"schema":1,"weapon":"cbu-100","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "CBU-100 Cluster Bomb"
+mount: vehicle f14d (PlaneEntity), pilot seat, weapon #4
+ready after 41 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "CBU-100 Cluster Bomb"
+t0 spawned #0 mcheli:bomb at 3072.0 101.92999994754791 3067.6500000953674 motion 0.0 -0.0 0.0 yaw 0.0 pitch 0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 400 reload 0 name "CBU-100 Cluster Bomb"
+t1 #0 3072.0 101.89999994821846 3067.6500000953674
+t2 #0 3072.0 101.83999994955957 3067.6500000953674
+t3 #0 3072.0 101.74999995157123 3067.6500000953674
+t4 #0 3072.0 101.62999995425344 3067.6500000953674
+t5 #0 3072.0 101.4799999576062 3067.6500000953674
+t6 #0 3072.0 101.29999996162951 3067.6500000953674
+t7 #0 3072.0 101.08999996632338 3067.6500000953674
+t8 explosion by #0 at 3072.0 101.0 3067.6500000953674 size 3.0 block 3.0 damage 3.0 blockPower 3.0 radius 3.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t8 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 340 reload 0 name "CBU-100 Cluster Bomb"

@@ -1,0 +1,70 @@
+# {"schema":1,"weapon":"dispenser_boat","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"2163326"}
+modes: "Dispense boat"
+mount: vehicle us-2 (PlaneEntity), pilot seat, weapon #0
+ready after 185 ticks
+before shot: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "Dispense boat"
+t0 spawned #0 mcheli:dispensed_item at 3073.7999999523163 102.75 3065.9000000953674 motion 0.0 0.0 0.0 yaw -0.0 pitch -0.0
+after shot: ammo 0 reserve 1 heat 0 cooldown 0 reload 180 name "Dispense boat"
+t1 #0 3073.7999999523163 102.67000000178814 3065.9000000953674
+t2 #0 3073.7999999523163 102.51000000536442 3065.9000000953674
+t3 #0 3073.7999999523163 102.27000001072884 3065.9000000953674
+t4 #0 3073.7999999523163 101.9500000178814 3065.9000000953674
+t5 #0 3073.7999999523163 101.55000002682209 3065.9000000953674
+t6 #0 3073.7999999523163 101.07000003755093 3065.9000000953674
+t7 spawned #1 minecraft:boat at 3073.5 101.0 3065.5 motion 0.0 0.0 0.0 yaw 131.0 pitch 0.0
+t7 #0 removed: DISCARDED
+t7 #1 3073.5 101.0 3065.5
+t8 #1 3073.5 101.0 3065.5
+t9 #1 3073.5 101.0 3065.5
+t10 #1 3073.5 101.0 3065.5
+t11 #1 3073.5 101.0 3065.5
+t12 #1 3073.5 101.0 3065.5
+t13 #1 3073.5 101.0 3065.5
+t14 #1 3073.5 101.0 3065.5
+t15 #1 3073.5 101.0 3065.5
+t16 #1 3073.5 101.0 3065.5
+t17 #1 3073.5 101.0 3065.5
+t18 #1 3073.5 101.0 3065.5
+t19 #1 3073.5 101.0 3065.5
+t20 #1 3073.5 101.0 3065.5
+t21 #1 3073.5 101.0 3065.5
+t22 #1 3073.5 101.0 3065.5
+t23 #1 3073.5 101.0 3065.5
+t24 #1 3073.5 101.0 3065.5
+t25 #1 3073.5 101.0 3065.5
+t26 #1 3073.5 101.0 3065.5
+t27 #1 3073.5 101.0 3065.5
+t28 #1 3073.5 101.0 3065.5
+t29 #1 3073.5 101.0 3065.5
+t30 #1 3073.5 101.0 3065.5
+t31 #1 3073.5 101.0 3065.5
+t32 #1 3073.5 101.0 3065.5
+t33 #1 3073.5 101.0 3065.5
+t34 #1 3073.5 101.0 3065.5
+t35 #1 3073.5 101.0 3065.5
+t36 #1 3073.5 101.0 3065.5
+t37 #1 3073.5 101.0 3065.5
+t38 #1 3073.5 101.0 3065.5
+t39 #1 3073.5 101.0 3065.5
+t40 #1 3073.5 101.0 3065.5
+t41 #1 3073.5 101.0 3065.5
+t42 #1 3073.5 101.0 3065.5
+t43 #1 3073.5 101.0 3065.5
+t44 #1 3073.5 101.0 3065.5
+t45 #1 3073.5 101.0 3065.5
+t46 #1 3073.5 101.0 3065.5
+t47 #1 3073.5 101.0 3065.5
+t48 #1 3073.5 101.0 3065.5
+t49 #1 3073.5 101.0 3065.5
+t50 #1 3073.5 101.0 3065.5
+t51 #1 3073.5 101.0 3065.5
+t52 #1 3073.5 101.0 3065.5
+t53 #1 3073.5 101.0 3065.5
+t54 #1 3073.5 101.0 3065.5
+t55 #1 3073.5 101.0 3065.5
+t56 #1 3073.5 101.0 3065.5
+t57 #1 3073.5 101.0 3065.5
+t58 #1 3073.5 101.0 3065.5
+t59 #1 3073.5 101.0 3065.5
+t60 #1 3073.5 101.0 3065.5
+after 60 ticks: ammo 0 reserve 1 heat 0 cooldown 0 reload 120 name "Dispense boat"

@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        maven { url = 'https://maven.neoforged.net/releases' }
+        maven { url = 'https://maven.fabricmc.net/' }
+    }
+}
+
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.9.0'
+}
+
+rootProject.name = 'mcheli-revived'
+
+// core: everything that needs no Minecraft (the physics, and the pure halves of the features), plain
+// Java with JOML. api: the public API other mods build against (docs/API.md). common: everything that
+// needs Minecraft but no mod loader. neoforge and fabric: the loader glue; each builds its loader's mod
+// jar. architecture: the rule checks of docs/ARCHITECTURE_RULES.md over all of them. See
+// docs/ARCHITECTURE.md Part 1 §2.1.
+include 'core', 'api', 'common', 'neoforge', 'fabric', 'architecture'
+
+// An addon built only against the API, compiled with the rest to prove the API is enough (docs/API.md).
+include 'example-addon'
+project(':example-addon').projectDir = file('examples/example-addon')

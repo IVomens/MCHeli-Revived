@@ -1,0 +1,270 @@
+// The NeoForge glue and the module that builds the NeoForge mod jar. It compiles :core and :common
+// (and common's game tests) in with its own code (see mcheli.loader-conventions.gradle). It also
+// registers the game tests with NeoForge and holds the unit tests that need the mod loaded.
+plugins {
+    id 'mcheli.loader-conventions'
+    id 'net.neoforged.moddev'
+}
+
+// The released jar: mcheli-revived-<version>-neoforge.jar
+base {
+    archivesName = 'mcheli-revived'
+}
+tasks.named('jar', Jar) {
+    archiveClassifier = 'neoforge'
+}
+
+/** The shared resources: assets, data, the access transformer and the mixin config. */
+def commonResources = project(':common').file('src/main/resources')
+
+// Every run uses the game directory at the repository root: configs, saves (the "devscene" world),
+// logs and the profiler recordings.
+def gameDir = rootProject.file('run')
+
+/** Settings shared by the benchmark runs; see docs/BENCHMARKS.md. */
+def benchmarkProperties = [
+        'mcheli.bench.out'     : rootProject.file('build/benchmarks').absolutePath,
+        'mcheli.bench.baseline': new File(sharedGametestResourcesDir, 'bench/server-gate-baseline.json').absolutePath,
+        'mcheli.golden.commit' : GitCommit.shortHash(),
+]
+['workloads', 'vehicles', 'warmup', 'measure'].each { name ->
+    if (project.hasProperty(name)) {
+        benchmarkProperties["mcheli.bench.${name}".toString()] = project.property(name).toString()
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    // The jar gets the access transformer with the rest of the shared resources.
+    accessTransformers = files(new File(commonResources, 'META-INF/accesstransformer.cfg'))
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        // Headless render check: loads the "devscene" save, spawns vehicles and takes screenshots.
+        devScene {
+            client()
+            sourceSet = sourceSets.gametest
+            systemProperty 'mcheli.devScene', 'true'
+            programArguments.addAll '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+        }
+        // Stress scenarios: ./gradlew runStressTest -Pscenario=parked|flying|firefight|crowd (writes run/stress.jfr)
+        stressTest {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'mcheli.stress', project.findProperty('scenario') ?: 'flying'
+            jvmArgument '-XX:+FlightRecorder'
+            jvmArgument '-XX:FlightRecorderOptions=stackdepth=256'
+            jvmArgument '-Xmx3G'
+            jvmArgument '-XX:StartFlightRecording=filename=stress.jfr,settings=profile,dumponexit=true'
+        }
+        // Deterministic vehicle images for comparing two builds: ./gradlew runRenderCheck (writes run/renderchecks/)
+        renderCheck {
+            client()
+            sourceSet = sourceSets.gametest
+            systemProperty 'mcheli.renderCheck', 'true'
+            programArguments.addAll '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+        }
+        // Client render load test: ./gradlew runClientStress -Pvehicles=120 [-Pmoving=20] [-Porbit=true] (writes run/clientstress.jfr)
+        clientStress {
+            client()
+            sourceSet = sourceSets.gametest
+            systemProperty 'mcheli.clientStress', project.findProperty('vehicles') ?: '120'
+            systemProperty 'mcheli.clientStress.moving', project.findProperty('moving') ?: '0'
+            systemProperty 'mcheli.clientStress.orbit', project.findProperty('orbit') ?: 'false'
+            programArguments.addAll '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+            jvmArgument '-Xmx3G'
+            jvmArgument '-XX:+FlightRecorder'
+            jvmArgument '-XX:FlightRecorderOptions=stackdepth=256'
+            jvmArgument '-XX:StartFlightRecording=filename=clientstress.jfr,settings=profile,dumponexit=true'
+        }
+        // Server benchmark, every workload at 1 to 500 vehicles: ./gradlew :neoforge:runBenchmarks
+        // [-Pworkloads=parked,flying] [-Pvehicles=1,25,100] [-Pjfr] (writes build/benchmarks/server-full.json and .md)
+        benchmarks {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'mcheli.bench', 'full'
+            benchmarkProperties.each { key, value -> systemProperty key, value }
+            jvmArgument '-Xmx3G'
+            if (project.hasProperty('jfr')) {
+                // a profile of the whole run, for finding where the time and the allocation go
+                jvmArgument '-XX:FlightRecorderOptions=stackdepth=256'
+                jvmArgument '-XX:StartFlightRecording=filename=benchmarks.jfr,settings=profile,dumponexit=true'
+            }
+        }
+        // The CI subset compared with the committed baseline: ./gradlew :neoforge:runBenchmarkGate
+        // Re-record the baseline with ./gradlew :neoforge:runBenchmarkGate -Pbench=record
+        benchmarkGate {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'mcheli.bench', project.findProperty('bench') ?: 'gate'
+            benchmarkProperties.each { key, value -> systemProperty key, value }
+            jvmArgument '-Xmx3G'
+            // Escape analysis removes allocations depending on what the JIT happened to inline, which
+            // moved the allocation per tick by up to 40 % between runs; without it the count is stable.
+            jvmArgument '-XX:-DoEscapeAnalysis'
+        }
+        // Runs /mcheli benchmark client in the devscene world and checks it cleans up after itself:
+        // xvfb-run ./gradlew :neoforge:runBenchmarkCheck [-PbenchCheck=full] (logs [benchcheck] PASS or FAIL)
+        benchmarkCheck {
+            client()
+            sourceSet = sourceSets.gametest
+            systemProperty 'mcheli.clientBenchmarkCheck', project.findProperty('benchCheck') ?: 'quick'
+            programArguments.addAll '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+            jvmArgument '-Xmx3G'
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        // Game tests; the golden trajectories and save fixtures are compared by default.
+        // Re-record them with ./gradlew runGameTestServer -Pgolden=record
+        gameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'mcheli.golden', project.findProperty('golden') ?: 'compare'
+            // -Pbatch=<name> runs one batch of game tests alone
+            systemProperty 'mcheli.gametest.batch', project.findProperty('batch') ?: ''
+            systemProperty 'mcheli.golden.dir', new File(sharedGametestResourcesDir, 'golden').absolutePath
+            systemProperty 'mcheli.fixtures.dir', new File(sharedGametestResourcesDir, 'fixtures/nbt').absolutePath
+            systemProperty 'mcheli.golden.commit', GitCommit.shortHash()
+            // A fixed heap, so the run behaves the same everywhere: the default is a quarter of the
+            // machine's memory, 1.75 GB on a CI runner. The suite keeps under 1 GB live.
+            jvmArgument '-Xmx2G'
+        }
+        configureEach {
+            gameDirectory = gameDir
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+            sourceSet(sourceSets.gametest)
+        }
+    }
+
+    addModdingDependenciesTo(sourceSets.gametest)
+
+    // The unit tests that need the mod constructed by NeoForge run with the mod loaded.
+    unitTest {
+        enable()
+        testedMod = mods."${mod_id}"
+    }
+}
+
+// The game tests check the content being built. The game extracts its bundled content to
+// mcheli_addons/default and refreshes that copy only when mod_version changes, so a copy left in the run
+// folder by an older checkout would be loaded instead; it is removed before every game test run.
+tasks.matching { it.name == 'runGameTestServer' }.configureEach {
+    doFirst { delete new File(gameDir, 'mcheli_addons/default') }
+}
+
+// The benchmarks measure a fresh world: a world left by an earlier run keeps its projectiles and vehicles,
+// which the next run would count. The benchmark runs start from a new one, and from the content being built.
+tasks.matching { it.name in ['runBenchmarks', 'runBenchmarkGate'] }.configureEach {
+    doFirst { delete new File(gameDir, 'world'), new File(gameDir, 'mcheli_addons/default') }
+}
+
+configurations {
+    // Mods for the development runs only, never bundled (localRuntime 'group:mod:version').
+    localRuntime
+    runtimeClasspath.extendsFrom localRuntime
+    // the client scenes (dev scene, client stress, render check) run from the game test source set
+    gametestRuntimeClasspath.extendsFrom localRuntime
+    // The finished mod jar alone, for the example addon's game tests, which load MCHeli as a separate mod
+    // the way a player's mods folder does.
+    modJar {
+        canBeConsumed = true
+        canBeResolved = false
+    }
+}
+
+artifacts {
+    modJar tasks.named('jar')
+}
+
+dependencies {
+    // Flywheel is optional: the shared sources compile against its API, and the development runs load
+    // it only with -Pflywheel (./gradlew runClient -Pflywheel). Without it the immediate renderer draws.
+    compileOnly libs.flywheel.api
+    if (project.hasProperty('flywheel')) {
+        localRuntime libs.flywheel.neoforge
+    }
+
+    // The shared sources compiled into this module use Lombok too.
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    // Bundled as jar-in-jar, and put on the development runs' classpath.
+    implementation libs.snakeyaml
+    additionalRuntimeClasspath libs.snakeyaml
+    jarJar("org.yaml:snakeyaml:[${libs.versions.snakeyaml.get()},3)") {
+        version { prefer libs.versions.snakeyaml.get() }
+    }
+
+    // The expression engine HUD formulas were written for: the formula compiler is tested against it.
+    testImplementation libs.aviator
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.platform.launcher
+}
+
+test {
+    // the golden tests hold every parsed content file and several sample packets at once
+    maxHeapSize = '2g'
+
+    // The network codec test looks for every message class in the compiled main classes.
+    systemProperty 'architecture.mainClasses', sourceSets.main.output.classesDirs.asPath
+
+    // Golden files of the content, HUD, config and network tests.
+    // Re-record them with ./gradlew test -Pgolden=record
+    var goldenMode = project.findProperty('golden') ?: 'compare'
+    inputs.property 'goldenMode', goldenMode
+    systemProperty 'mcheli.golden', goldenMode
+    systemProperty 'mcheli.golden.testDir', file('src/test/resources/golden').absolutePath
+    systemProperty 'mcheli.golden.commit', GitCommit.shortHash()
+    // the bundled content pack that the content tests parse
+    systemProperty 'mcheli.mainResources', commonResources.absolutePath
+    systemProperty 'mcheli.testResources', file('src/test/resources').absolutePath
+    if (goldenMode == 'record') {
+        outputs.upToDateWhen { false }
+    }
+}
+
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_credits            : mod_credits,
+            mod_description        : mod_description
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata

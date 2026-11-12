@@ -1,0 +1,12 @@
+DisplayName: Hydra 70
+Type: rocket
+BaseDamage: 20
+Ballistics:
+  Acceleration: 4.0
+Explosion:
+  Power: 3
+Ammo:
+  ReloadTime: 200
+  MagSize: 19
+  MaxAmmo: 38
+FireCooldown: 4

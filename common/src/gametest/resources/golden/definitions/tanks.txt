@@ -1,0 +1,354 @@
+# Built-in tanks, as the physics and gameplay see them. AllTankSpeed=1.0
+tanks/bnr32
+  handling TankHandling[gravity=Gravity[air=-0.15, water=-0.1], maxSpeed=0.8, motionFactor=0.96, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.2]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.54, 0.12, -0.02), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.54, 0.22, -0.02), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  part HATCH hatch0 pos=(0.0, 0.62, 1.28) rot=(1.0, 0.0, 0.0)
+  part THROTTLE throttle0 pos=(-0.454, 0.882, 0.8) rot=(0.0, 1.0, -1.73)
+  part THROTTLE throttle1 pos=(-0.623, 0.882, 0.8) rot=(0.0, 1.0, -1.73)
+  part THROTTLE throttle2 pos=(-0.623, 0.882, 0.8) rot=(0.0, 1.0, -1.73)
+  part WHEEL wheel0 pos=(-1.05, 0.157, 1.965) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel1 pos=(1.05, 0.157, 1.965) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel2 pos=(-1.05, 0.157, -1.789) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel3 pos=(1.05, 0.157, -1.789) rot=(0.0, 1.0, 0.0)
+  part STEERING_WHEEL steering_wheel0 pos=(-0.539, 0.882, 0.479) rot=(0.0, 1.0, -1.73)
+tanks/centauro
+  handling TankHandling[gravity=Gravity[air=-1.0, water=-1.0], maxSpeed=0.8, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.0, 0.0), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.01, 0.0), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(0.6, 4.099999988079071, 0.6), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.78, 2.33, -0.16), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(0.78, 4.329999988079071, -0.16), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 3 SeatDef[pos=(-0.8, 2.41, -0.97), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(-0.8, 4.409999988079071, -0.97), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=105mm, pos=(0.0, 2.740000009536743, 0.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-15.0, maxPitch=7.0, turret=false]
+  mount 1 MountDef[weaponType=targeting_pod_mob, pos=(0.6000000238418579, 3.75, 0.6000000238418579), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=true]
+  mount 2 MountDef[weaponType=targeting_pod_pv10s, pos=(0.6000000238418579, 3.75, 0.6000000238418579), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=true]
+  mount 3 MountDef[weaponType=targeting_pod_block, pos=(0.6000000238418579, 3.75, 0.6000000238418579), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=true]
+  mount 4 MountDef[weaponType=mg3_l, pos=(1.1820000410079956, 3.6659998893737793, -0.14300000667572021), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=2, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-35.0, maxPitch=35.0, turret=true]
+  mount 5 MountDef[weaponType=mg3_r, pos=(-1.2039999961853027, 3.6659998893737793, -0.9670000076293945), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=3, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-35.0, maxPitch=35.0, turret=true]
+  part WEAPON weapon0 pos=(0.0, 2.01, 0.0) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 2.36, 1.32) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_1 pos=(0.0, 2.36, 1.32) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(1.182, 3.164, -0.143) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(-1.204, 3.164, -0.967) rot=(0.0, 0.0, 0.0)
+  part WHEEL wheel0 pos=(1.25, 0.43, 3.75) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel1 pos=(1.25, 0.43, 1.71) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel2 pos=(0.0, 0.43, -0.15) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel3 pos=(0.0, 0.43, -2.01) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel4 pos=(-1.25, 0.43, 3.75) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel5 pos=(-1.25, 0.43, 1.71) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel6 pos=(0.0, 0.43, -0.15) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel7 pos=(0.0, 0.43, -2.01) rot=(0.0, 1.0, 0.0)
+tanks/growler
+  handling TankHandling[gravity=Gravity[air=-0.15, water=-0.1], maxSpeed=0.6, motionFactor=0.96, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.41, 0.4, -0.27), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.41, 0.4, -0.27), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(0.0, 1.2, -1.06), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 2.199999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[container], range=5.0]]
+  part WHEEL wheel0 pos=(-0.68, 0.19, 1.2) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel1 pos=(0.68, 0.19, 1.2) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel2 pos=(-0.68, 0.19, -1.1) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel3 pos=(0.68, 0.19, -1.1) rot=(0.0, 1.0, 0.0)
+tanks/kurganets25
+  handling TankHandling[gravity=Gravity[air=-0.1, water=-0.1], maxSpeed=0.55, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.75, 0.33, 1.57), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(-0.75, 0.33, 1.57), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 4.199999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.88, 0.45, -1.32), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(-0.88, 0.45, -1.32), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(0.88, 0.45, -0.72), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 5 SeatDef[pos=(-0.88, 0.45, -0.72), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.88, 0.45, -0.01), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(-0.88, 0.45, -0.01), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 8 SeatDef[pos=(0.88, 0.45, 0.68), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 9 SeatDef[pos=(-0.88, 0.45, 0.68), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=2a42_ifv, pos=(-0.03999999910593033, 2.990000009536743, 3.4200000762939453), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=8.0, turret=true]
+  mount 1 MountDef[weaponType=mg_coaxial, pos=(0.11999999731779099, 2.919999837875366, 0.550000011920929), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=8.0, turret=true]
+  mount 2 MountDef[weaponType=9m133, pos=(-1.7400000095367432, 2.990000009536743, 0.6399999856948853), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=0.0, maxPitch=0.0, turret=true]
+  mount 3 MountDef[weaponType=9m133, pos=(1.7400000095367432, 2.990000009536743, 0.6399999856948853), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=0.0, maxPitch=0.0, turret=true]
+  mount 4 MountDef[weaponType=9m133s, pos=(-1.409999966621399, 2.990000009536743, 0.6399999856948853), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=0.0, maxPitch=0.0, turret=true]
+  mount 5 MountDef[weaponType=9m133s, pos=(1.409999966621399, 2.990000009536743, 0.6399999856948853), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=0.0, maxPitch=0.0, turret=true]
+  mount 6 MountDef[weaponType=kurganets_spot, pos=(0.0, 3.8499999046325684, 0.0), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-90.0, maxPitch=90.0, turret=false]
+  part HATCH hatch0 pos=(-0.38, 1.05, -2.01) rot=(0.05, 1.0, -0.1)
+  part WEAPON weapon0 pos=(0.0, 2.14, 0.0) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 2.64, 0.23) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track1 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller0 pos=(-1.51, 0.49, 4.83) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller1 pos=(-1.51, 0.02, 3.98) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller2 pos=(-1.51, 0.02, 3.18) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller3 pos=(-1.51, 0.02, 2.38) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller4 pos=(-1.51, 0.02, 1.58) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller5 pos=(-1.51, 0.02, 0.77) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller6 pos=(-1.51, 0.02, -0.02) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller7 pos=(-1.51, 0.02, -0.83) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller8 pos=(-1.51, 0.49, -1.63) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller9 pos=(1.51, 0.49, 4.83) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller10 pos=(1.51, 0.02, 3.98) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller11 pos=(1.51, 0.02, 3.18) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller12 pos=(1.51, 0.02, 2.38) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller13 pos=(1.51, 0.02, 1.58) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller14 pos=(1.51, 0.02, 0.77) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller15 pos=(1.51, 0.02, -0.02) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller16 pos=(1.51, 0.02, -0.83) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller17 pos=(1.51, 0.49, -1.63) rot=(0.0, 0.0, 0.0)
+tanks/kv-2
+  handling TankHandling[gravity=Gravity[air=-0.06, water=-0.06], maxSpeed=0.45, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.45, 0.0), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.05, -1.0), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 2.299999988079071, 2.8), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=152mm_howitzer, pos=(0.0, 3.366999864578247, 0.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-14.0, maxPitch=7.0, turret=false]
+  mount 1 MountDef[weaponType=ww2tank_coaxmg, pos=(0.5989999771118164, 1.8650000095367432, 2.609999895095825), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-16.12, maxYaw=16.12, minPitch=-23.62, maxPitch=22.0, turret=false]
+  part WEAPON weapon0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 3.017, 1.245) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_1 pos=(0.0, 3.017, 1.245) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(0.599, 1.515, 2.609) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track1 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller0 pos=(1.7, 0.735, 3.285) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller1 pos=(1.7, 0.956, 1.538) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller2 pos=(1.7, 0.956, -0.795) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller3 pos=(1.7, 0.956, -3.133) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller4 pos=(1.7, 0.07, 2.497) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller5 pos=(1.7, 0.07, 1.276) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller6 pos=(1.7, 0.07, 0.015) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller7 pos=(1.7, 0.07, -1.202) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller8 pos=(1.7, 0.07, -2.352) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller9 pos=(1.7, 0.087, -3.366) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller10 pos=(1.7, 0.674, -4.38) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller11 pos=(-1.7, 0.735, 3.285) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller12 pos=(-1.7, 0.956, 1.538) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller13 pos=(-1.7, 0.956, -0.795) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller14 pos=(-1.7, 0.956, -3.133) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller15 pos=(-1.7, 0.07, 2.321) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller16 pos=(-1.7, 0.07, 1.099) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller17 pos=(-1.7, 0.07, -0.161) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller18 pos=(-1.7, 0.07, -1.378) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller19 pos=(-1.7, 0.07, -2.529) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller20 pos=(-1.7, 0.087, -3.543) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller21 pos=(-1.7, 0.674, -4.38) rot=(0.0, 0.0, 0.0)
+tanks/m1129
+  handling TankHandling[gravity=Gravity[air=-0.1, water=-0.1], maxSpeed=0.8, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.86, 2.54, 2.12), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 1 SeatDef[pos=(-0.75, 2.52, -0.62), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(-0.75, 4.219999988079071, -0.62), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.0, 1.16, -1.67), unmountPos=null, gunner=true, switchGunner=true, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-87.0, maxPitch=-45.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 3.889999988079071, -1.67), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=81mm_mortar, pos=(0.0, 2.1499998569488525, -2.6700000762939453), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-90.0, maxPitch=-45.0, turret=false]
+  mount 1 MountDef[weaponType=m240_r, pos=(-0.7549999952316284, 3.5169999599456787, 0.3240000009536743), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=-90.0, maxYaw=90.0, minPitch=-30.0, maxPitch=20.0, turret=false]
+  part WEAPON weapon0 pos=(0.0, 1.8, -2.67) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 1.8, -2.67) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-0.755, 3.167, 0.324) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon1_0 pos=(-0.755, 3.167, 0.324) rot=(0.0, 0.0, 0.0)
+  part WEAPON_BAY wb0 pos=(-1.03, 2.61, -2.7) rot=(0.0, 0.0, 1.0)
+  part WEAPON_BAY wb1 pos=(1.03, 2.61, -2.7) rot=(0.0, 0.0, 1.0)
+  part WHEEL wheel0 pos=(-1.53, 0.39, 2.72) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel1 pos=(1.53, 0.39, 2.72) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel2 pos=(-1.53, 0.39, 1.09) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel3 pos=(1.53, 0.39, 1.09) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel4 pos=(-1.53, 0.39, -0.76) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel5 pos=(1.53, 0.39, -0.76) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel6 pos=(-1.53, 0.39, -2.42) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel7 pos=(-1.53, 0.39, -2.42) rot=(0.0, 1.0, 0.0)
+tanks/m1a2
+  handling TankHandling[gravity=Gravity[air=-0.1, water=-0.1], maxSpeed=0.7, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 2.5, 0.25), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 3.199999988079071, 0.25), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 1 SeatDef[pos=(-0.55, 1.0, -0.96), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(-0.846, 4.299999988079071, 0.373), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 2 SeatDef[pos=(0.55, 2.5, -0.96), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(0.55, 4.299999988079071, -0.96), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=rehinmetall_apfsds, pos=(0.0, 2.4499998092651367, 2.0199999809265137), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=7.0, turret=true]
+  mount 1 MountDef[weaponType=rehinmetall_he, pos=(0.0, 2.4499998092651367, 2.0199999809265137), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=7.0, turret=true]
+  mount 2 MountDef[weaponType=mg7_62mm_mbt, pos=(-0.4300000071525574, 2.629999876022339, 2.0199999809265137), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=7.0, turret=true]
+  mount 3 MountDef[weaponType=m2_rws, pos=(-0.8460000157356262, 4.03000020980835, 0.37299999594688416), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-70.0, maxPitch=30.0, turret=true]
+  mount 4 MountDef[weaponType=m240_r, pos=(1.2430000305175781, 3.5899999141693115, -0.7699999809265137), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=2, defaultYaw=0.0, minYaw=-220.0, maxYaw=30.0, minPitch=-50.0, maxPitch=30.0, turret=true]
+  part WEAPON weapon0 pos=(0.0, 2.1, 0.0) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 2.1, 2.02) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_1 pos=(0.0, 2.1, 2.02) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-0.846, 3.68, 0.373) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon2 pos=(-0.846, 3.68, 0.373) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon3 pos=(1.243, 3.24, -0.77) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon4 pos=(1.243, 3.24, -0.77) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track1 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller0 pos=(-1.82, 0.81, 3.7) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller1 pos=(-1.82, 0.18, 2.22) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller2 pos=(-1.82, 0.18, 1.02) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller3 pos=(-1.82, 0.18, 0.06) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller4 pos=(-1.82, 0.18, -0.9) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller5 pos=(-1.82, 0.18, -1.86) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller6 pos=(-1.82, 0.18, -2.82) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller7 pos=(-1.82, 0.18, -3.78) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller8 pos=(-1.82, 0.81, -4.59) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller9 pos=(1.82, 0.81, 3.7) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller10 pos=(1.82, 0.18, 2.5) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller11 pos=(1.82, 0.18, 1.3) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller12 pos=(1.82, 0.18, 0.34) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller13 pos=(1.82, 0.18, -0.62) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller14 pos=(1.82, 0.18, -1.58) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller15 pos=(1.82, 0.18, -2.54) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller16 pos=(1.82, 0.18, -3.5) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller17 pos=(1.82, 0.81, -4.59) rot=(0.0, 0.0, 0.0)
+tanks/m26
+  handling TankHandling[gravity=Gravity[air=-0.1, water=-0.1], maxSpeed=0.6, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.2]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 0.0, 0.0), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=90mm_gun_m3, pos=(0.0, 2.6639997959136963, 0.7540000081062317), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-20.0, maxPitch=10.0, turret=false]
+  mount 1 MountDef[weaponType=targeting_pod_block, pos=(0.0, 0.9500000476837158, 4.800000190734863), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=1, defaultYaw=0.0, minYaw=0.0, maxYaw=0.0, minPitch=0.0, maxPitch=0.0, turret=false]
+  part WEAPON weapon0 pos=(0.0, 1.7, 0.754) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 2.314, 1.908) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_1 pos=(0.0, 2.314, 1.908) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track1 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller0 pos=(1.757, 0.768, 3.28) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller1 pos=(-1.757, 0.768, 3.28) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller2 pos=(1.757, 0.234, 2.505) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller3 pos=(-1.757, 0.234, 2.505) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller4 pos=(1.757, 0.234, 1.52) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller5 pos=(-1.757, 0.234, 1.52) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller6 pos=(1.757, 0.234, 0.535) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller7 pos=(-1.757, 0.234, 0.535) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller8 pos=(1.757, 0.234, -0.449) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller9 pos=(-1.757, 0.234, -0.449) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller10 pos=(1.757, 0.234, -1.434) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller11 pos=(-1.757, 0.234, -1.434) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller12 pos=(1.757, 0.234, -2.419) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller13 pos=(-1.757, 0.234, -2.419) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller14 pos=(1.757, 0.606, -3.463) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller15 pos=(-1.757, 0.606, -3.463) rot=(0.0, 0.0, 0.0)
+tanks/merkava_mk4
+  handling TankHandling[gravity=Gravity[air=-0.1, water=-0.1], maxSpeed=0.6, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 2.5, 0.25), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(2.0, 4.199999988079071, 0.25), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 1 SeatDef[pos=(0.0, 1.0, -1.25), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-90.0, maxPitch=90.0, rotSeat=true, invertCameraPos=true, camera=SeatCameraDef[pos=(-0.55, 4.499999988079071, -1.16), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=rehinmetall_apfsds, pos=(0.0, 2.569999933242798, 0.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=7.0, turret=true]
+  mount 1 MountDef[weaponType=canistershell, pos=(0.0, 2.569999933242798, 0.0), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=7.0, turret=true]
+  mount 2 MountDef[weaponType=60mm_mortar, pos=(0.8999999761581421, 3.3499999046325684, 0.5199999809265137), yaw=0.0, pitch=-45.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-85.0, maxPitch=7.0, turret=true]
+  mount 3 MountDef[weaponType=mg12_7mm_l, pos=(0.0, 3.2699999809265137, 2.700000047683716), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=7.0, turret=true]
+  mount 4 MountDef[weaponType=mg7_62mm, pos=(-0.8299999833106995, 3.740000009536743, -0.5699999928474426), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=1, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-80.0, maxPitch=50.0, turret=true]
+  part WEAPON weapon0 pos=(0.0, 1.52, 0.25) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 2.01, 1.62) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_1 pos=(0.0, 2.01, 1.62) rot=(0.0, 0.0, 0.0)
+  part WEAPON weapon1 pos=(-0.83, 3.39, -0.57) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track1 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller0 pos=(-1.72, 0.77, 5.04) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller1 pos=(-1.72, 0.18, 3.88) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller2 pos=(-1.72, 0.18, 2.8) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller3 pos=(-1.72, 0.18, 1.62) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller4 pos=(-1.72, 0.18, 0.37) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller5 pos=(-1.72, 0.18, -1.12) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller6 pos=(-1.72, 0.18, -2.19) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller7 pos=(-1.72, 0.73, -3.1) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller8 pos=(1.72, 0.77, 5.04) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller9 pos=(1.72, 0.18, 3.88) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller10 pos=(1.72, 0.18, 2.8) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller11 pos=(1.72, 0.18, 1.62) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller12 pos=(1.72, 0.18, 0.37) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller13 pos=(1.72, 0.18, -1.12) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller14 pos=(1.72, 0.18, -2.19) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller15 pos=(1.72, 0.73, -3.1) rot=(0.0, 0.0, 0.0)
+tanks/mxtmv
+  handling TankHandling[gravity=Gravity[air=-0.15, water=-0.1], maxSpeed=0.7, motionFactor=0.96, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(-0.7, 0.79, 0.27), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 1 SeatDef[pos=(0.7, 0.79, 0.27), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 2 SeatDef[pos=(-0.7, 1.07, -1.01), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 3 SeatDef[pos=(0.7, 1.07, -1.01), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 4 SeatDef[pos=(0.0, 2.2, -0.59), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-25.0, maxPitch=4.0, rotSeat=false, invertCameraPos=true, camera=SeatCameraDef[pos=(0.0, 4.099999988079071, -0.59), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  seat 5 SeatDef[pos=(-0.7, 1.45, -2.35), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 6 SeatDef[pos=(0.7, 1.45, -2.35), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  seat 7 SeatDef[pos=(0.0, 1.2, -2.35), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 4.199999988079071, -3.85), fixRot=false, yaw=0.0, pitch=0.0], rack=RackDef[vehicleNames=[container], range=6.0]]
+  mount 0 MountDef[weaponType=gmw, pos=(0.0, 3.299999952316284, -0.5899999737739563), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=4, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-25.0, maxPitch=4.0, turret=true]
+  mount 1 MountDef[weaponType=gmw_fl, pos=(0.0, 3.299999952316284, -0.5899999737739563), yaw=0.0, pitch=0.0, pilotCanUse=false, seatId=4, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-25.0, maxPitch=4.0, turret=true]
+  part HATCH hatch0 pos=(1.12, 1.58, 0.92) rot=(0.0, 1.0, 0.0)
+  part HATCH hatch1 pos=(-1.12, 1.86, -1.46) rot=(0.0, 1.0, 0.0)
+  part HATCH hatch2 pos=(1.12, 1.86, -1.46) rot=(0.0, 1.0, 0.0)
+  part WEAPON weapon0 pos=(0.0, 2.3, -0.59) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 2.74, 0.48) rot=(0.0, 0.0, 0.0)
+  part CANOPY canopy0 pos=(-1.12, 1.58, 0.92) rot=(0.0, 1.0, 0.0)
+  part CANOPY canopy pos=(-1.12, 1.58, 0.92) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel0 pos=(-1.03, 0.33, 2.05) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel1 pos=(1.03, 0.33, 2.05) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel2 pos=(-1.03, 0.33, -2.02) rot=(0.0, 1.0, 0.0)
+  part WHEEL wheel3 pos=(-1.03, 0.33, -2.02) rot=(0.0, 1.0, 0.0)
+tanks/t-90
+  handling TankHandling[gravity=Gravity[air=-0.1, water=-0.1], maxSpeed=0.6, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.7]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 1.58, 0.44), unmountPos=null, gunner=false, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=null, rack=null]
+  mount 0 MountDef[weaponType=2a46m-1_apfsds, pos=(0.0, 1.9600000381469727, 0.4399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-14.0, maxPitch=5.0, turret=false]
+  mount 1 MountDef[weaponType=2a46m-1_heatmp, pos=(0.0, 1.9600000381469727, 0.4399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-14.0, maxPitch=5.0, turret=false]
+  mount 2 MountDef[weaponType=2a46m-1_he, pos=(0.0, 1.9600000381469727, 0.4399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-14.0, maxPitch=5.0, turret=false]
+  mount 3 MountDef[weaponType=9m119m, pos=(0.0, 1.9600000381469727, 0.4399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-90.0, maxPitch=90.0, turret=false]
+  mount 4 MountDef[weaponType=mg_coaxial, pos=(0.0, 1.9600000381469727, 0.4399999976158142), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-14.0, maxPitch=5.0, turret=false]
+  part WEAPON weapon0 pos=(0.0, 1.58, 0.44) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 1.6, 1.81) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_1 pos=(0.0, 1.6, 1.81) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track1 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller0 pos=(-2.32, 0.6, 4.04) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller1 pos=(-2.32, 0.16, 3.13) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller2 pos=(-2.32, 0.16, 2.08) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller3 pos=(-2.32, 0.16, 1.03) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller4 pos=(-2.32, 0.16, -0.02) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller5 pos=(-2.32, 0.16, -1.07) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller6 pos=(-2.32, 0.16, -2.12) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller7 pos=(-2.32, 0.6, -3.32) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller8 pos=(2.32, 0.6, 4.04) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller9 pos=(2.32, 0.16, 3.13) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller10 pos=(2.32, 0.16, 2.08) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller11 pos=(2.32, 0.16, 1.03) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller12 pos=(2.32, 0.16, -0.02) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller13 pos=(2.32, 0.16, -1.07) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller14 pos=(2.32, 0.16, -2.12) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller15 pos=(2.32, 0.6, -3.32) rot=(0.0, 0.0, 0.0)
+tanks/t84
+  handling TankHandling[gravity=Gravity[air=-0.1, water=-0.1], maxSpeed=0.65, motionFactor=0.9, canMoveOnGround=true, reverseEnabled=true, floats=false]
+  body BodyDef[width=2.0, height=0.7, stepHeight=1.5]
+  wingSweep null
+  targetDrone null
+  seat 0 SeatDef[pos=(0.0, 2.5, 0.25), unmountPos=null, gunner=true, switchGunner=false, fixRot=false, fixYaw=0.0, fixPitch=0.0, minPitch=-30.0, maxPitch=70.0, rotSeat=false, invertCameraPos=false, camera=SeatCameraDef[pos=(0.0, 0.699999988079071, 0.0), fixRot=false, yaw=0.0, pitch=0.0], rack=null]
+  mount 0 MountDef[weaponType=kba-3_ap, pos=(0.0, 2.429999828338623, 6.71999979019165), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=5.0, turret=true]
+  mount 1 MountDef[weaponType=kba-3_he, pos=(0.0, 2.429999828338623, 6.71999979019165), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=5.0, turret=true]
+  mount 2 MountDef[weaponType=9m119m, pos=(0.0, 2.429999828338623, 6.71999979019165), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-90.0, maxPitch=90.0, turret=true]
+  mount 3 MountDef[weaponType=mg7_62mm, pos=(-0.17000000178813934, 2.5999999046325684, 2.0999999046325684), yaw=0.0, pitch=0.0, pilotCanUse=true, seatId=0, defaultYaw=0.0, minYaw=-360.0, maxYaw=360.0, minPitch=-50.0, maxPitch=5.0, turret=true]
+  part WEAPON weapon0 pos=(0.0, 1.52, 0.25) rot=(0.0, 0.0, 0.0)
+    part WEAPON_CHILD weapon0_0 pos=(0.0, 2.01, 1.62) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track0 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part CRAWLER_TRACK crawler_track1 pos=(0.0, 0.0, 0.0) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller0 pos=(-1.79, 0.81, 4.14) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller1 pos=(-1.79, 0.21, 3.01) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller2 pos=(-1.79, 0.21, 1.99) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller3 pos=(-1.79, 0.21, 0.83) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller4 pos=(-1.79, 0.21, -0.04) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller5 pos=(-1.79, 0.21, -1.11) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller6 pos=(-1.79, 0.21, -2.13) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller7 pos=(-1.79, 0.81, -3.26) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller8 pos=(1.79, 0.81, 4.14) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller9 pos=(1.79, 0.21, 3.01) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller10 pos=(1.79, 0.21, 1.99) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller11 pos=(1.79, 0.21, 0.83) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller12 pos=(1.79, 0.21, -0.04) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller13 pos=(1.79, 0.21, -1.11) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller14 pos=(1.79, 0.21, -2.13) rot=(0.0, 0.0, 0.0)
+  part TRACK_ROLLER track_roller15 pos=(1.79, 0.81, -3.26) rot=(0.0, 0.0, 0.0)

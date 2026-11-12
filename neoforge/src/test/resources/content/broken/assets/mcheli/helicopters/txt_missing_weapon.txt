@@ -1,0 +1,3 @@
+DisplayName = TXT Missing Weapon
+AddSeat = 0, 1, 0
+AddWeapon = no_such_weapon, 0, 0, 1

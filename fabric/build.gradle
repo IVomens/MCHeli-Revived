@@ -1,0 +1,257 @@
+// The Fabric glue and the module that builds the Fabric mod jar. Like :neoforge it compiles :core and
+// :common in with its own code (see mcheli.loader-conventions.gradle); here the game is set up by
+// Fabric Loom, with Mojang names layered with the same Parchment mappings, so the shared sources
+// compile unchanged. The access widener opens what common's access transformer opens.
+plugins {
+    id 'mcheli.loader-conventions'
+    id 'fabric-loom'
+}
+
+// The released jar: mcheli-revived-<version>-fabric.jar. Loom builds it from the named-mapped jar
+// (kept as -fabric-dev) by remapping it to intermediary names.
+base {
+    archivesName = 'mcheli-revived'
+}
+tasks.named('jar', Jar) {
+    archiveClassifier = 'fabric-dev'
+}
+tasks.named('remapJar') {
+    archiveClassifier = 'fabric'
+}
+
+repositories {
+    maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
+        content { includeGroup 'org.parchmentmc.data' }
+    }
+    maven {
+        // Team Reborn Energy
+        name = 'FabricMC'
+        url = 'https://maven.fabricmc.net/'
+        content { includeGroup 'teamreborn' }
+    }
+}
+
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.runtimeClasspath
+    }
+}
+
+// Fabric runs use their own game directory, so the two loaders' configs and saves never mix.
+def gameDir = 'run'
+
+/** Settings shared by the benchmark runs; see docs/BENCHMARKS.md. */
+def benchmarkProperties = [
+        'mcheli.bench.out'     : rootProject.file('build/benchmarks').absolutePath,
+        'mcheli.bench.baseline': new File(sharedGametestResourcesDir, 'bench/server-gate-baseline.json').absolutePath,
+        'mcheli.golden.commit' : GitCommit.shortHash(),
+]
+['workloads', 'vehicles', 'warmup', 'measure'].each { name ->
+    if (project.hasProperty(name)) {
+        benchmarkProperties["mcheli.bench.${name}".toString()] = project.property(name).toString()
+    }
+}
+
+loom {
+    // The mixins need no refmap: Loom rewrites their targets to intermediary names in the remapped jar.
+    accessWidenerPath = file('src/main/resources/mcheli.accesswidener')
+
+    // The main source set is the mod; the game tests are a second, development-only mod.
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+        "${mod_id}_gametest" {
+            sourceSet sourceSets.gametest
+        }
+    }
+
+    runs {
+        client {
+            configName = 'Fabric client'
+            client()
+            runDir = gameDir
+            ideConfigGenerated = true
+        }
+        server {
+            configName = 'Fabric server'
+            server()
+            runDir = gameDir
+            programArgs '--nogui'
+            ideConfigGenerated = true
+        }
+        // Headless render check: loads the "devscene" save, spawns vehicles and takes screenshots.
+        devScene {
+            configName = 'Fabric dev scene'
+            client()
+            runDir = gameDir
+            source sourceSets.gametest
+            property 'mcheli.devScene', 'true'
+            programArgs '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+        }
+        // Stress scenarios: ./gradlew :fabric:runStressTest -Pscenario=parked|flying|firefight|crowd
+        // (writes fabric/build/gametest/stress.jfr)
+        stressTest {
+            configName = 'Fabric stress test'
+            server()
+            runDir = 'build/gametest'
+            source sourceSets.gametest
+            property 'fabric-api.gametest'
+            property 'mcheli.stress', (project.findProperty('scenario') ?: 'flying').toString()
+            vmArgs '-Xmx3G', '-XX:+FlightRecorder', '-XX:FlightRecorderOptions=stackdepth=256',
+                    '-XX:StartFlightRecording=filename=stress.jfr,settings=profile,dumponexit=true'
+        }
+        // Deterministic vehicle images for comparing two builds: ./gradlew :fabric:runRenderCheck
+        // (writes fabric/run/renderchecks/)
+        renderCheck {
+            configName = 'Fabric render check'
+            client()
+            runDir = gameDir
+            source sourceSets.gametest
+            property 'mcheli.renderCheck', 'true'
+            programArgs '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+        }
+        // Client render load test: ./gradlew :fabric:runClientStress -Pvehicles=120 [-Pmoving=20]
+        // (writes fabric/run/clientstress.jfr)
+        clientStress {
+            configName = 'Fabric client stress test'
+            client()
+            runDir = gameDir
+            source sourceSets.gametest
+            property 'mcheli.clientStress', (project.findProperty('vehicles') ?: '120').toString()
+            property 'mcheli.clientStress.moving', (project.findProperty('moving') ?: '0').toString()
+            property 'mcheli.clientStress.orbit', (project.findProperty('orbit') ?: 'false').toString()
+            programArgs '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+            vmArgs '-Xmx3G', '-XX:+FlightRecorder', '-XX:FlightRecorderOptions=stackdepth=256',
+                    '-XX:StartFlightRecording=filename=clientstress.jfr,settings=profile,dumponexit=true'
+        }
+        // Server benchmark: ./gradlew :fabric:runBenchmarks [-Pworkloads=...] [-Pvehicles=...]
+        // (writes build/benchmarks/server-full.json and .md at the repository root)
+        benchmarks {
+            configName = 'Fabric benchmarks'
+            server()
+            runDir = 'build/gametest'
+            source sourceSets.gametest
+            property 'fabric-api.gametest'
+            property 'mcheli.bench', 'full'
+            benchmarkProperties.each { key, value -> property key, value }
+            vmArgs '-Xmx3G'
+        }
+        // The CI subset against the committed baseline: ./gradlew :fabric:runBenchmarkGate [-Pbench=record]
+        benchmarkGate {
+            configName = 'Fabric benchmark gate'
+            server()
+            runDir = 'build/gametest'
+            source sourceSets.gametest
+            property 'fabric-api.gametest'
+            property 'mcheli.bench', (project.findProperty('bench') ?: 'gate').toString()
+            benchmarkProperties.each { key, value -> property key, value }
+            // see the NeoForge benchmarkGate run: escape analysis makes allocation counts unstable
+            vmArgs '-Xmx3G', '-XX:-DoEscapeAnalysis'
+        }
+        // Runs /mcheli benchmark client in the devscene world and checks it cleans up after itself:
+        // xvfb-run ./gradlew :fabric:runBenchmarkCheck [-PbenchCheck=full] (logs [benchcheck] PASS or FAIL)
+        benchmarkCheck {
+            configName = 'Fabric benchmark check'
+            client()
+            runDir = gameDir
+            source sourceSets.gametest
+            property 'mcheli.clientBenchmarkCheck', (project.findProperty('benchCheck') ?: 'quick').toString()
+            programArgs '--quickPlaySingleplayer', 'devscene', '--username', 'Dev'
+            vmArgs '-Xmx3G'
+        }
+        // Game tests; the golden trajectories and save fixtures are compared by default.
+        // Re-record them with ./gradlew :fabric:runGameTestServer -Pgolden=record
+        gameTestServer {
+            configName = 'Fabric game tests'
+            server()
+            runDir = 'build/gametest'
+            source sourceSets.gametest
+            property 'fabric-api.gametest'
+            property 'fabric-api.gametest.report-file', "${layout.buildDirectory.get().asFile}/gametest/report.xml"
+            property 'mcheli.golden', (project.findProperty('golden') ?: 'compare').toString()
+            // -Pbatch=<name> runs one batch of game tests alone
+            property 'mcheli.gametest.batch', (project.findProperty('batch') ?: '').toString()
+            property 'mcheli.golden.dir', new File(sharedGametestResourcesDir, 'golden').absolutePath
+            property 'mcheli.fixtures.dir', new File(sharedGametestResourcesDir, 'fixtures/nbt').absolutePath
+            property 'mcheli.golden.commit', GitCommit.shortHash()
+            // see the NeoForge gameTestServer run: a fixed heap, the same everywhere
+            vmArgs '-Xmx2G'
+        }
+    }
+}
+
+// see the NeoForge game tests: a stale extracted copy of the bundled content must not shadow the build
+tasks.matching { it.name == 'runGameTestServer' }.configureEach {
+    doFirst { delete file('build/gametest/mcheli_addons/default') }
+}
+
+// see the NeoForge benchmarks: every benchmark run starts from a fresh world
+tasks.matching { it.name in ['runBenchmarks', 'runBenchmarkGate'] }.configureEach {
+    doFirst { delete file('build/gametest/world'), file('build/gametest/mcheli_addons/default') }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft_version}:${parchment_mappings_version}@zip")
+    }
+    modImplementation libs.fabric.loader
+    modImplementation libs.fabric.api
+
+    // Flywheel is optional: the shared sources compile against its API (Mojang names, as this module's
+    // sources), and the development runs load it only with -Pflywheel. Without it the immediate
+    // renderer draws.
+    compileOnly libs.flywheel.api
+    if (project.hasProperty('flywheel')) {
+        modLocalRuntime libs.flywheel.fabric
+    }
+
+    // Compiled against, never bundled: used only when Team Reborn Energy is installed.
+    modCompileOnly(libs.team.reborn.energy) { transitive = false }
+
+    // The shared sources compiled into this module use Lombok and javax.annotation.Nullable too.
+    compileOnly libs.jsr305
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    // Bundled inside the jar (jar-in-jar), as on NeoForge.
+    implementation libs.snakeyaml
+    include libs.snakeyaml
+
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.platform.launcher
+}
+
+tasks.named('processResources', ProcessResources) {
+    // NeoForge reads common's access transformer; Fabric has its own access widener.
+    exclude 'META-INF/accesstransformer.cfg'
+
+    var replaceProperties = [
+            minecraft_version  : minecraft_version,
+            fabric_loader      : libs.versions.fabric.loader.get(),
+            fabric_api         : libs.versions.fabric.api.get(),
+            mod_id             : mod_id,
+            mod_name           : mod_name,
+            mod_license        : mod_license,
+            mod_version        : mod_version,
+            mod_authors        : mod_authors,
+            mod_credits        : mod_credits,
+            mod_description    : mod_description
+    ]
+    inputs.properties replaceProperties
+    filesMatching('fabric.mod.json') {
+        expand replaceProperties
+    }
+}
+
+test {
+    // The access widener has to open everything common's access transformer opens.
+    systemProperty 'mcheli.accessTransformer',
+            project(':common').file('src/main/resources/META-INF/accesstransformer.cfg').absolutePath
+    systemProperty 'mcheli.accessWidener', file('src/main/resources/mcheli.accesswidener').absolutePath
+}

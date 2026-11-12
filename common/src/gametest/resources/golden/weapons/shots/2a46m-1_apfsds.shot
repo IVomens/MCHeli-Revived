@@ -1,0 +1,22 @@
+# {"schema":1,"weapon":"2a46m-1_apfsds","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "2A46M-1 Smoothbore Gun[APFSDS]"
+mount: vehicle t-90 (TankEntity), pilot seat, weapon #0
+ready after 105 ticks
+before shot: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "2A46M-1 Smoothbore Gun[APFSDS]"
+t0 spawned #0 mcheli:bullet at 3072.0185080934143 102.954765333693 3074.3899051359103 motion 0.03701618682840376 -0.010469408907946317 3.8998102765890805 yaw -0.5421357 pitch 0.15497543
+after shot: ammo 0 reserve 1 heat 0 cooldown 120 reload 100 name "2A46M-1 Smoothbore Gun[APFSDS]"
+t1 #0 3072.092540467071 102.91382651632415 3082.1895256890884
+t2 #0 3072.166572840728 102.85288769940233 3089.9891462422665
+t3 #0 3072.2406052143847 102.77194888292755 3097.7887667954446
+t4 #0 3072.3146375880415 102.6710100668998 3105.5883873486227
+t5 #0 3072.3886699616983 102.55007125131908 3113.388007901801
+t6 #0 3072.462702335355 102.4091324361854 3121.187628454979
+t7 #0 3072.536734709012 102.24819362149876 3128.987249008157
+t8 #0 3072.6107670826686 102.06725480725915 3136.786869561335
+t9 #0 3072.6847994563254 101.86631599346657 3144.5864901145133
+t10 #0 3072.7588318299822 101.64537718012103 3152.3861106676914
+t11 #0 3072.832864203639 101.40443836722253 3160.1857312208695
+t12 #0 3072.906896577296 101.14349955477105 3167.9853517740476
+t13 explosion by #0 at 3072.9447112622183 101.0 3171.969287168302 size 1.0 block 1.0 damage 1.0 blockPower 1.0 radius 1.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t13 #0 removed: DISCARDED
+after 60 ticks: ammo 0 reserve 1 heat 0 cooldown 60 reload 40 name "2A46M-1 Smoothbore Gun[APFSDS]"

@@ -1,0 +1,22 @@
+// A module whose code ships inside every loader jar (:core, :api, :common). It hands its source folders to
+// the loader modules, which compile them together with their own code (the MultiLoader pattern, see
+// mcheli.loader-conventions.gradle).
+plugins {
+    id 'mcheli.java-conventions'
+}
+
+configurations {
+    sharedJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    sharedResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    sharedJava sourceSets.main.java.sourceDirectories.singleFile
+    sharedResources sourceSets.main.resources.sourceDirectories.singleFile
+}

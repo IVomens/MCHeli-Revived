@@ -1,0 +1,5 @@
+# {"schema":1,"emitted from":"assets/mcheli/throwable/txt_seconds_to_ticks.txt","commit":"32abae6"}
+DisplayName: TXT Seconds
+AliveTime: 60
+Smoke:
+  Color: '#FFFFFFFF'

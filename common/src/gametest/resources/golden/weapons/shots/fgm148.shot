@@ -1,0 +1,42 @@
+# {"schema":1,"weapon":"fgm148","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "FGM-148 Javelin", "FGM-148 Javelin [TA]"
+target: armor stand at 3072.0 101.0 3168.0
+mount: soldier at the origin holding the weapon set (no bundled vehicle carries it)
+ready after 1 ticks
+before shot: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "FGM-148 Javelin"
+t0 spawned #0 mcheli:at_missile at 3072.0 102.62000000476837 3072.0 motion -3.6739405577555036E-16 0.0 3.0 yaw 0.0 pitch 0.0
+after shot: ammo 0 reserve 0 heat 0 cooldown 100 reload 10 name "FGM-148 Javelin"
+t1 #0 3072.0 102.62000000476837 3075.0
+t2 #0 3072.0 102.62000000476837 3078.0
+t3 #0 3072.0 102.62000000476837 3081.0
+t4 #0 3072.0 102.62000000476837 3084.0
+t5 #0 3072.0 102.59107546715728 3086.9998605586134
+t6 #0 3072.0 102.54715402234558 3089.9995390258305
+t7 #0 3072.0 102.49544619076522 3092.9990933760887
+t8 #0 3072.0 102.43968960544302 3095.9985751985364
+t9 #0 3072.0 102.38182435253104 3098.998017082038
+t10 #0 3072.0 102.3228589470212 3101.9974375395523
+t11 #0 3072.0 102.2633184708836 3104.9968466366413
+t12 #0 3072.0 102.20347677158347 3107.9962497390975
+t13 #0 3072.0 102.14347693234919 3110.9956496823015
+t14 #0 3072.0 102.08339386279215 3113.9950479594154
+t15 #0 3072.0 102.023266866816 3116.994445356286
+t16 #0 3072.0 101.96311661608259 3119.9938422868936
+t17 #0 3072.0 101.90295401150026 3122.99323896973
+t18 #0 3072.0 101.84278481834362 3125.9926355204043
+t19 #0 3072.0 101.7826120956823 3128.992032000273
+t20 #0 3072.0 101.72243747257353 3131.9914284420147
+t21 #0 3072.0 101.66226182009052 3134.990824863105
+t22 #0 3072.0 101.60208560615308 3137.9902212729307
+t23 #0 3072.0 101.5419090834305 3140.9896176765615
+t24 #0 3072.0 101.48173238917065 3143.9890140767507
+t25 #0 3072.0 101.42155559842814 3146.988410475004
+t26 #0 3072.0 101.36137875255788 3149.9878068721514
+t27 #0 3072.0 101.3012018745338 3152.987203268654
+t28 #0 3072.0 101.24102497722082 3155.9865996647695
+t29 #0 3072.0 101.18084806785544 3158.985996060643
+t30 #0 3072.0 101.12067115045866 3161.9853924563554
+t31 #0 3072.0 101.0604942270436 3164.984788851947
+t32 explosion by #0 at 3072.0 101.0 3168.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming true destroyBlocks true setFire 0 damageFactor true inWater false
+t32 #0 removed: DISCARDED
+after 60 ticks: ammo 0 reserve 0 heat 0 cooldown 40 reload 0 name "FGM-148 Javelin"

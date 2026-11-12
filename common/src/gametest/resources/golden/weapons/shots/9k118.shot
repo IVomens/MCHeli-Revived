@@ -1,0 +1,35 @@
+# {"schema":1,"weapon":"9k118","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3e99015"}
+modes: "9K118 Sheksna", "9K118 Sheksna [TA]"
+target: armor stand at 3072.0 101.0 3168.0
+mount: vehicle mi28 (HelicopterEntity), pilot seat, weapon #6
+ready after 21 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "9K118 Sheksna"
+t0 spawned #0 mcheli:at_missile at 3074.130000114441 102.23667717895002 3071.4735690562097 motion -0.06788615936496588 0.2686268522791434 3.890145380779653 yaw 1.0023841 pitch -3.9523025
+after shot: ammo 3 reserve 0 heat 0 cooldown 100 reload 0 name "9K118 Sheksna"
+t1 #0 3074.062113955076 102.50530403122916 3075.3637144369895
+t2 #0 3073.9942277957107 102.7739308835083 3079.2538598177694
+t3 #0 3073.9263416363456 103.04255773578744 3083.144005198549
+t4 #0 3073.8584554769805 103.31118458806658 3087.034150579329
+t5 #0 3073.7905693176153 103.57981144034572 3090.924295960109
+t6 #0 3073.72268315825 103.84843829262486 3094.8144413408886
+t7 #0 3073.654796998885 104.117065144904 3098.7045867216684
+t8 #0 3073.58691083952 104.38569199718314 3102.5947321024482
+t9 #0 3073.5055841766543 104.41928986647761 3106.4937393039145
+t10 #0 3073.417229920747 104.32783560464914 3110.391665629983
+t11 #0 3073.325161345748 104.16966180719965 3114.2873689589464
+t12 #0 3073.2311121229714 103.97572899192103 3118.181408610369
+t13 #0 3073.1359984987275 103.76252652854627 3122.0744149175944
+t14 #0 3073.0403085500484 103.53887494013279 3125.9668207803893
+t15 #0 3072.944304050865 103.30951574181252 3129.8588867477492
+t16 #0 3072.848126317449 103.0770117646688 3133.7507618413524
+t17 #0 3072.7518521521 102.84275679709283 3137.642529549638
+t18 #0 3072.6555235984056 102.60751412201951 3141.534236333758
+t19 #0 3072.5591638546 102.37170498172807 3145.425908063122
+t20 #0 3072.4627858282015 102.13556378364714 3149.317559205066
+t21 #0 3072.3663967566795 101.89922197303186 3153.2091978953154
+t22 #0 3072.270000709681 101.66275346479006 3157.1008287162867
+t23 #0 3072.173599929683 101.42619898877147 3160.992454195375
+t24 #0 3072.07719546899 101.1895776579856 3164.884075518908
+t25 explosion by #0 at 3072.0 101.0 3168.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming true destroyBlocks true setFire 0 damageFactor true inWater false
+t25 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 40 reload 0 name "9K118 Sheksna"

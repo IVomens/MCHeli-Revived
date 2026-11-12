@@ -1,0 +1,2 @@
+DisplayName = TXT Bad Seat
+AddSeat = 0, one, 0

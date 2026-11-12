@@ -1,0 +1,20 @@
+# {"schema":1,"weapon":"xm301","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "XM301 20mm", "XM301 20mm [HE]"
+mount: vehicle penetrator (HelicopterEntity), pilot seat, weapon #1
+ready after 21 ticks
+before shot: ammo 750 reserve 0 heat 0 cooldown 0 reload 0 name "XM301 20mm"
+t0 spawned #0 mcheli:bullet at 3072.7831819922308 101.57784804151453 3073.859483940167 motion 0.08636396538802901 -0.024303864518864543 3.8989678874866236 yaw -1.2649834 pitch 0.3616093
+after shot: ammo 749 reserve 0 heat 4 cooldown 0 reload 0 name "XM301 20mm"
+t1 #0 3072.955909923007 101.5292403124768 3081.6574197151403
+t2 #0 3073.128637853783 101.48063258343907 3089.4553554901136
+t3 #0 3073.301365784559 101.43202485440135 3097.253291265087
+t4 #0 3073.474093715335 101.38341712536362 3105.05122704006
+t5 #0 3073.646821646111 101.3348093963259 3112.849162815033
+t6 #0 3073.8195495768873 101.28620166728817 3120.6470985900064
+t7 #0 3073.9922775076634 101.23759393825044 3128.4450343649796
+t8 #0 3074.1650054384395 101.18898620921271 3136.242970139953
+t9 #0 3074.3377333692156 101.14037848017499 3144.040905914926
+t10 #0 3074.5104612999917 101.09177075113726 3151.8388416898993
+t11 #0 3074.6831892307678 101.04316302209953 3159.6367774648725
+t12 #0 removed: DISCARDED
+after 60 ticks: ammo 749 reserve 0 heat 0 cooldown 0 reload 0 name "XM301 20mm"

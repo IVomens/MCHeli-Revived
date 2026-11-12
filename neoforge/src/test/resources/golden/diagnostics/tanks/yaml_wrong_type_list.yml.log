@@ -1,0 +1,7 @@
+# {"schema":1,"source":"assets/mcheli/tanks/yaml_wrong_type_list.yml","commit":"09ffef3"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_wrong_type_list) loading start.
+ERROR Failed to load 'assets/mcheli/tanks/yaml_wrong_type_list.yml' from addon 'mcheli' at line 3, key 'Seats[1]': expected a section of keys but got the number 0.0
+DEBUG Parse error details for 'assets/mcheli/tanks/yaml_wrong_type_list.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected a section of keys but got the number 0.0
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected a section of keys but got the number 0.0

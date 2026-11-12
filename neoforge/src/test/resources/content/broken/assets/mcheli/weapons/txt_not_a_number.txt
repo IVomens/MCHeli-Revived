@@ -1,0 +1,3 @@
+DisplayName = Not A Number
+Type = rocket
+Power = high

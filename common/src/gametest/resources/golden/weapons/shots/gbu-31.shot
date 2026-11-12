@@ -1,0 +1,29 @@
+# {"schema":1,"weapon":"gbu-31","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "GBU-31"
+mount: vehicle f-35b (PlaneEntity), pilot seat, weapon #2
+ready after 41 ticks
+before shot: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "GBU-31"
+t0 spawned #0 mcheli:as_missile at 3073.210000038147 102.98000001907349 3064.9299998283386 motion -2.0818997077904979E-16 0.0 1.7000000476837158 yaw 0.0 pitch 0.0
+after shot: ammo 1 reserve 0 heat 0 cooldown 35 reload 0 name "GBU-31"
+t1 #0 3073.210000038147 102.970000019297 3066.6299998760223
+t2 #0 3073.210000038147 102.95000001974404 3068.329999923706
+t3 #0 3073.210000038147 102.92000002041459 3070.0299999713898
+t4 #0 3073.210000038147 102.88000002130866 3071.7300000190735
+t5 #0 3073.210000038147 102.83000002242625 3073.430000066757
+t6 #0 3073.210000038147 102.77000002376735 3075.130000114441
+t7 #0 3073.210000038147 102.70000002533197 3076.8300001621246
+t8 #0 3073.210000038147 102.62000002712011 3078.5300002098083
+t9 #0 3073.210000038147 102.53000002913177 3080.230000257492
+t10 #0 3073.210000038147 102.43000003136694 3081.930000305176
+t11 #0 3073.210000038147 102.32000003382564 3083.6300003528595
+t12 #0 3073.210000038147 102.20000003650784 3085.330000400543
+t13 #0 3073.210000038147 102.07000003941357 3087.030000448227
+t14 #0 3073.210000038147 101.93000004254282 3088.7300004959106
+t15 #0 3073.210000038147 101.78000004589558 3090.4300005435944
+t16 #0 3073.210000038147 101.62000004947186 3092.130000591278
+t17 #0 3073.210000038147 101.45000005327165 3093.830000638962
+t18 #0 3073.210000038147 101.27000005729496 3095.5300006866455
+t19 #0 3073.210000038147 101.0800000615418 3097.230000734329
+t20 explosion by #0 at 3073.210000038147 101.0 3097.910001291707 size 6.0 block 3.0 damage 6.0 blockPower 3.0 radius 6.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t20 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "GBU-31"

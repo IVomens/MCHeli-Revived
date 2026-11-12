@@ -1,0 +1,18 @@
+# {"schema":1,"emitted from":"assets/mcheli/weapons/txt_gravity_after_bomb.txt","commit":"be2b1b8"}
+DisplayName: Gravity After Bomb
+Type: bomb
+Ballistics:
+  Acceleration: 1.0
+  AccelerationInWater: 1.0
+  Gravity: -0.2
+  GravityInWater: -0.1
+  VelocityInWater: 0.999
+Sound:
+  Locations:
+    Fire: mcheli:txt_gravity_after_bomb_snd
+Explosion:
+  Power: 4
+Render:
+  Smoke:
+    BulletColorInWater: '#FFFFFFFF'
+    BulletColor: '#FFFFFFFF'

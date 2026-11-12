@@ -1,0 +1,4 @@
+{
+  "pack": { "pack_format": 34, "description": "RU patch" },
+  "addon": { "domain": "ru_patch", "version": "2.1", "authors": ["Ivan"] }
+}

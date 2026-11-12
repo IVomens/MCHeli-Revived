@@ -1,0 +1,4 @@
+{
+  "pack": { "pack_format": 34, "description": "Stand-in for the bundled content" },
+  "addon": { "domain": "@builtin", "version": "1.0", "loader_version": "2", "authors": ["EMB4"] }
+}

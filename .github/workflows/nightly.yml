@@ -1,0 +1,112 @@
+name: Nightly build
+
+# Builds the mod every night from the default branch, runs the unit and architecture tests of every
+# module and the dedicated-server game tests on both loaders, and publishes the NeoForge and Fabric
+# jars as the "nightly" pre-release. Nights without new commits are skipped. Can also be started by
+# hand from the Actions tab.
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Publish even if nothing changed since the last nightly
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nightly
+  cancel-in-progress: true
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for changes since the last nightly
+        id: changes
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          if [ "$FORCE" = "true" ] || ! git rev-parse -q --verify refs/tags/nightly >/dev/null; then
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          elif [ "$(git rev-parse nightly^{commit})" = "$(git rev-parse HEAD)" ]; then
+            echo "Nothing new since the last nightly."
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Work out the version
+        if: steps.changes.outputs.build == 'true'
+        id: version
+        run: |
+          base=$(grep '^mod_version=' gradle.properties | cut -d= -f2)
+          stamp=$(date -u +%Y%m%d)
+          echo "version=${base}-nightly.${stamp}+$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v4
+        if: steps.changes.outputs.build == 'true'
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+        if: steps.changes.outputs.build == 'true'
+
+      - name: Build and unit test (all modules)
+        if: steps.changes.outputs.build == 'true'
+        run: ./gradlew build -Pmod_version=${{ steps.version.outputs.version }}
+
+      - name: Game tests (NeoForge dedicated server)
+        if: steps.changes.outputs.build == 'true'
+        run: ./gradlew :neoforge:runGameTestServer -Pmod_version=${{ steps.version.outputs.version }}
+
+      - name: Game tests (Fabric dedicated server)
+        if: steps.changes.outputs.build == 'true'
+        run: ./gradlew :fabric:runGameTestServer -Pmod_version=${{ steps.version.outputs.version }}
+
+      - name: Upload the jars
+        if: steps.changes.outputs.build == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mcheli-revived-${{ steps.version.outputs.version }}
+          path: |
+            neoforge/build/libs/*-neoforge.jar
+            fabric/build/libs/*-fabric.jar
+          retention-days: 30
+
+      - name: Publish the nightly pre-release
+        if: steps.changes.outputs.build == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          previous=$(git rev-parse -q --verify refs/tags/nightly || true)
+          {
+            echo "Automatic build of \`${GITHUB_SHA::7}\` from \`${GITHUB_REF_NAME}\`."
+            echo
+            echo "Two jars, one per loader: \`*-neoforge.jar\` for NeoForge 1.21.1, \`*-fabric.jar\` for Fabric 1.21.1 (needs Fabric API)."
+            echo
+            echo "Nightly builds are untested beyond the automated checks. Back up your world before trying one."
+            echo
+            if [ -n "$previous" ]; then
+              echo "### Changes since the previous nightly"
+              git log --no-merges --format='- %s (%h)' "$previous..HEAD" | head -50
+            fi
+          } > notes.md
+          gh release delete nightly --yes --cleanup-tag || true
+          git push origin :refs/tags/nightly || true
+          gh release create nightly neoforge/build/libs/*-neoforge.jar fabric/build/libs/*-fabric.jar \
+            --title "Nightly $VERSION" \
+            --notes-file notes.md \
+            --prerelease \
+            --target "$GITHUB_SHA"

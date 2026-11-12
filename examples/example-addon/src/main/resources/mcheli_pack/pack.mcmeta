@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "pack_format": 34,
+    "description": "MCHeli Example Addon content"
+  },
+  "addon": {
+    "domain": "mcheli_example",
+    "version": "1.0.0",
+    "loader_version": "2",
+    "authors": ["IVomens"],
+    "description": "One extra weapon, to show a content pack shipped inside a mod"
+  }
+}

@@ -1,0 +1,503 @@
+# {"schema":1,"hud":"bundled/plane.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [295.0,180.0 312.0,180.0]
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [345.0,180.0 328.0,180.0]
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [320.0,165.0 320.0,172.0]
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [320.0,195.0 320.0,188.0]
+lines LINE_STRIP #FF28D448 [290.0,170.0 290.0,160.0 310.0,160.0]
+lines LINE_STRIP #FF28D448 [350.0,170.0 350.0,160.0 330.0,160.0]
+lines LINE_STRIP #FF28D448 [290.0,190.0 290.0,200.0 310.0,200.0]
+lines LINE_STRIP #FF28D448 [350.0,190.0 350.0,200.0 330.0,200.0]
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FF28D448 (225, 70) "351"
+centered text #FF28D448 (255, 70) "354"
+centered text #FF28D448 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FF28D448 (345, 70) "3"
+centered text #FF28D448 (375, 70) "6"
+centered text #FF28D448 (405, 70) "9"
+lines LINES #FF28D448 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FF28D448 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FF28D448 (320, 99) "225"
+centered text #FF28D448 (460, 176) "13"
+lines LINE_STRIP #FF28D448 [440.0,180.0 445.0,175.0 470.0,175.0 470.0,185.0 445.0,185.0 440.0,180.0]
+push
+translate 320.0, 180.0, 0.0
+rotate -15.5 about 0.0, 0.0, 1.0
+translate -320.0, -180.0, 0.0
+lines LINES #FF28D448 [270.0,122.0 270.0,120.0 370.0,122.0 370.0,120.0]
+lines LINES #FF28D448 [270.0,120.0 290.0,120.0 370.0,120.0 350.0,120.0]
+centered text #FF28D448 (260, 116) "100"
+centered text #FF28D448 (380, 116) "100"
+lines LINES #FF28D448 [270.0,152.0 270.0,150.0 370.0,152.0 370.0,150.0]
+lines LINES #FF28D448 [270.0,150.0 290.0,150.0 370.0,150.0 350.0,150.0]
+centered text #FF28D448 (260, 146) "95"
+centered text #FF28D448 (380, 146) "95"
+lines LINES #FF28D448 [270.0,182.0 270.0,180.0 370.0,182.0 370.0,180.0]
+lines LINES #FF28D448 [270.0,180.0 290.0,180.0 370.0,180.0 350.0,180.0]
+centered text #FF28D448 (260, 176) "90"
+centered text #FF28D448 (380, 176) "90"
+lines LINES #FF28D448 [270.0,212.0 270.0,210.0 370.0,212.0 370.0,210.0]
+lines LINES #FF28D448 [270.0,210.0 290.0,210.0 370.0,210.0 350.0,210.0]
+centered text #FF28D448 (260, 206) "85"
+centered text #FF28D448 (380, 206) "85"
+lines LINES #FF28D448 [270.0,242.0 270.0,240.0 370.0,242.0 370.0,240.0]
+lines LINES #FF28D448 [270.0,240.0 290.0,240.0 370.0,240.0 350.0,240.0]
+centered text #FF28D448 (260, 236) "80"
+centered text #FF28D448 (380, 236) "80"
+pop
+centered text #FF28D448 (320, 220) "[  30 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[+0.30]"
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation -135.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (150.0, 263.0) size (32.0, 32.0) uv (128.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (165.0, 263.0) size (2.5, 32.0) uv (192.0, 0.0) uv size (5.0, 64.0) rotation 36.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (183.0, 259.0) size (16.0, 16.0) uv (128.0, 96.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+centered text #FF28D448 (260, 230) "[ FLARE ]"
+-- frame cruise #2 (colour at start #FF28D448)
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [295.0,180.0 312.0,180.0]
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [345.0,180.0 328.0,180.0]
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [320.0,165.0 320.0,172.0]
+stipple LINES #FF28D448 factor 2 pattern 0xCCCC [320.0,195.0 320.0,188.0]
+lines LINE_STRIP #FF28D448 [290.0,170.0 290.0,160.0 310.0,160.0]
+lines LINE_STRIP #FF28D448 [350.0,170.0 350.0,160.0 330.0,160.0]
+lines LINE_STRIP #FF28D448 [290.0,190.0 290.0,200.0 310.0,200.0]
+lines LINE_STRIP #FF28D448 [350.0,190.0 350.0,200.0 330.0,200.0]
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FF28D448 (225, 70) "351"
+centered text #FF28D448 (255, 70) "354"
+centered text #FF28D448 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FF28D448 (345, 70) "3"
+centered text #FF28D448 (375, 70) "6"
+centered text #FF28D448 (405, 70) "9"
+lines LINES #FF28D448 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FF28D448 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FF28D448 (320, 99) "225"
+centered text #FF28D448 (460, 176) "13"
+lines LINE_STRIP #FF28D448 [440.0,180.0 445.0,175.0 470.0,175.0 470.0,185.0 445.0,185.0 440.0,180.0]
+push
+translate 320.0, 180.0, 0.0
+rotate -15.5 about 0.0, 0.0, 1.0
+translate -320.0, -180.0, 0.0
+lines LINES #FF28D448 [270.0,122.0 270.0,120.0 370.0,122.0 370.0,120.0]
+lines LINES #FF28D448 [270.0,120.0 290.0,120.0 370.0,120.0 350.0,120.0]
+centered text #FF28D448 (260, 116) "100"
+centered text #FF28D448 (380, 116) "100"
+lines LINES #FF28D448 [270.0,152.0 270.0,150.0 370.0,152.0 370.0,150.0]
+lines LINES #FF28D448 [270.0,150.0 290.0,150.0 370.0,150.0 350.0,150.0]
+centered text #FF28D448 (260, 146) "95"
+centered text #FF28D448 (380, 146) "95"
+lines LINES #FF28D448 [270.0,182.0 270.0,180.0 370.0,182.0 370.0,180.0]
+lines LINES #FF28D448 [270.0,180.0 290.0,180.0 370.0,180.0 350.0,180.0]
+centered text #FF28D448 (260, 176) "90"
+centered text #FF28D448 (380, 176) "90"
+lines LINES #FF28D448 [270.0,212.0 270.0,210.0 370.0,212.0 370.0,210.0]
+lines LINES #FF28D448 [270.0,210.0 290.0,210.0 370.0,210.0 350.0,210.0]
+centered text #FF28D448 (260, 206) "85"
+centered text #FF28D448 (380, 206) "85"
+lines LINES #FF28D448 [270.0,242.0 270.0,240.0 370.0,242.0 370.0,240.0]
+lines LINES #FF28D448 [270.0,240.0 290.0,240.0 370.0,240.0 350.0,240.0]
+centered text #FF28D448 (260, 236) "80"
+centered text #FF28D448 (380, 236) "80"
+pop
+centered text #FF28D448 (320, 220) "[  30 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[+0.30]"
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation -135.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (150.0, 263.0) size (32.0, 32.0) uv (128.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (165.0, 263.0) size (2.5, 32.0) uv (192.0, 0.0) uv size (5.0, 64.0) rotation 36.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (183.0, 259.0) size (16.0, 16.0) uv (128.0, 96.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (113, 238) "300"
+text #FF28D448 (139, 238) "/"
+text #FF28D448 (148, 238) "900"
+text #FF28D448 (113, 249) "M230 30mm"
+centered text #FF28D448 (260, 230) "[ FLARE ]"
+-- frame damaged_gunner #1 (colour at start #FF000000)
+text #CFFFFFFF (215, 195) "x2.5"
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+rect #FF28D448 (330.0234192037471, 219.5) (290.0234192037471, 211.5)
+lines LINE_STRIP #FFDF0408 [290.0234192037471,165.0 290.0234192037471,150.0 305.0117096018735,150.0]
+lines LINE_STRIP #FFDF0408 [349.9765807962529,165.0 349.9765807962529,150.0 334.9882903981265,150.0]
+lines LINE_STRIP #FFDF0408 [290.0234192037471,195.0 290.0234192037471,210.0 305.0117096018735,210.0]
+lines LINE_STRIP #FFDF0408 [349.9765807962529,195.0 349.9765807962529,210.0 334.9882903981265,210.0]
+rect #FFDF0408 (306.5222482435597, 219.0) (291.5222482435597, 213.0)
+push
+translate 320.0, 30.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -30.0, 0.0
+centered text #FF28D448 (225, 20) "351"
+centered text #FF28D448 (255, 20) "354"
+centered text #FF28D448 (285, 20) "357"
+centered text #FFFF0000 (315, 20) "N"
+centered text #FF28D448 (345, 20) "3"
+centered text #FF28D448 (375, 20) "6"
+centered text #FF28D448 (405, 20) "9"
+lines LINES #FF28D448 [225.0,30.0 225.0,40.0 235.0,30.0 235.0,35.0 245.0,30.0 245.0,35.0 255.0,30.0 255.0,40.0 265.0,30.0 265.0,35.0 275.0,30.0 275.0,35.0 285.0,30.0 285.0,40.0 295.0,30.0 295.0,35.0 305.0,30.0 305.0,35.0 315.0,30.0 315.0,40.0 325.0,30.0 325.0,35.0 335.0,30.0 335.0,35.0 345.0,30.0 345.0,40.0 355.0,30.0 355.0,35.0 365.0,30.0 365.0,35.0 375.0,30.0 375.0,40.0 385.0,30.0 385.0,35.0 395.0,30.0 395.0,35.0 405.0,30.0 405.0,40.0]
+pop
+lines LINE_STRIP #FF28D448 [320.0,49.5 322.9976580796253,55.5 317.0023419203747,55.5 320.0,49.5]
+centered text #FF28D448 (320, 58) "225"
+centered text #FF28D448 (529, 174) "13"
+lines LINE_STRIP #FF28D448 [499.85948477751754,180.0 507.3536299765808,172.5 544.8243559718969,172.5 544.8243559718969,187.5 507.3536299765808,187.5 499.85948477751754,180.0]
+push
+translate 320.0, 180.0, 0.0
+rotate 30.0 about 0.0, 0.0, 1.0
+translate -320.0, -180.0, 0.0
+lines LINES #FF28D448 [270.0,122.0 270.0,120.0 370.0,122.0 370.0,120.0]
+lines LINES #FF28D448 [270.0,120.0 290.0,120.0 370.0,120.0 350.0,120.0]
+centered text #FF28D448 (260, 116) "100"
+centered text #FF28D448 (380, 116) "100"
+lines LINES #FF28D448 [270.0,152.0 270.0,150.0 370.0,152.0 370.0,150.0]
+lines LINES #FF28D448 [270.0,150.0 290.0,150.0 370.0,150.0 350.0,150.0]
+centered text #FF28D448 (260, 146) "95"
+centered text #FF28D448 (380, 146) "95"
+lines LINES #FF28D448 [270.0,182.0 270.0,180.0 370.0,182.0 370.0,180.0]
+lines LINES #FF28D448 [270.0,180.0 290.0,180.0 370.0,180.0 350.0,180.0]
+centered text #FF28D448 (260, 176) "90"
+centered text #FF28D448 (380, 176) "90"
+lines LINES #FF28D448 [270.0,212.0 270.0,210.0 370.0,212.0 370.0,210.0]
+lines LINES #FF28D448 [270.0,210.0 290.0,210.0 370.0,210.0 350.0,210.0]
+centered text #FF28D448 (260, 206) "85"
+centered text #FF28D448 (380, 206) "85"
+lines LINES #FF28D448 [270.0,242.0 270.0,240.0 370.0,242.0 370.0,240.0]
+lines LINES #FF28D448 [270.0,240.0 290.0,240.0 370.0,240.0 350.0,240.0]
+centered text #FF28D448 (260, 236) "80"
+centered text #FF28D448 (380, 236) "80"
+pop
+centered text #FFDF0408 (320, 240) "[   3 ]"
+text #FF28D448 (12, 210) "X: -1234.5"
+text #FF28D448 (12, 225) "Y: -60.0"
+text #FF28D448 (12, 240) "Z: -1234.5"
+text #FF28D448 (95, 210) "[-1.50]"
+text #FF28D448 (95, 225) "[-1.50]"
+text #FF28D448 (95, 240) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation -121.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (65.19906323185009, 304.5) size (32.0, 32.0) uv (128.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (87.68149882903978, 304.5) size (2.5, 32.0) uv (192.0, 0.0) uv size (5.0, 64.0) rotation -180.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (120.65573770491801, 304.5) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (114.66042154566742, 298.5) size (16.0, 16.0) uv (128.0, 96.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+text #FF28D448 (364, 255) "NIGHT VISION"
+-- frame damaged_gunner #2 (colour at start #FF28D448)
+text #CFFFFFFF (215, 195) "x2.5"
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+rect #FF28D448 (330.0234192037471, 219.5) (290.0234192037471, 211.5)
+lines LINE_STRIP #FFDF0408 [290.0234192037471,165.0 290.0234192037471,150.0 305.0117096018735,150.0]
+lines LINE_STRIP #FFDF0408 [349.9765807962529,165.0 349.9765807962529,150.0 334.9882903981265,150.0]
+lines LINE_STRIP #FFDF0408 [290.0234192037471,195.0 290.0234192037471,210.0 305.0117096018735,210.0]
+lines LINE_STRIP #FFDF0408 [349.9765807962529,195.0 349.9765807962529,210.0 334.9882903981265,210.0]
+rect #FFDF0408 (306.5222482435597, 219.0) (291.5222482435597, 213.0)
+push
+translate 320.0, 30.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -30.0, 0.0
+centered text #FF28D448 (225, 20) "351"
+centered text #FF28D448 (255, 20) "354"
+centered text #FF28D448 (285, 20) "357"
+centered text #FFFF0000 (315, 20) "N"
+centered text #FF28D448 (345, 20) "3"
+centered text #FF28D448 (375, 20) "6"
+centered text #FF28D448 (405, 20) "9"
+lines LINES #FF28D448 [225.0,30.0 225.0,40.0 235.0,30.0 235.0,35.0 245.0,30.0 245.0,35.0 255.0,30.0 255.0,40.0 265.0,30.0 265.0,35.0 275.0,30.0 275.0,35.0 285.0,30.0 285.0,40.0 295.0,30.0 295.0,35.0 305.0,30.0 305.0,35.0 315.0,30.0 315.0,40.0 325.0,30.0 325.0,35.0 335.0,30.0 335.0,35.0 345.0,30.0 345.0,40.0 355.0,30.0 355.0,35.0 365.0,30.0 365.0,35.0 375.0,30.0 375.0,40.0 385.0,30.0 385.0,35.0 395.0,30.0 395.0,35.0 405.0,30.0 405.0,40.0]
+pop
+lines LINE_STRIP #FF28D448 [320.0,49.5 322.9976580796253,55.5 317.0023419203747,55.5 320.0,49.5]
+centered text #FF28D448 (320, 58) "225"
+centered text #FF28D448 (529, 174) "13"
+lines LINE_STRIP #FF28D448 [499.85948477751754,180.0 507.3536299765808,172.5 544.8243559718969,172.5 544.8243559718969,187.5 507.3536299765808,187.5 499.85948477751754,180.0]
+push
+translate 320.0, 180.0, 0.0
+rotate 30.0 about 0.0, 0.0, 1.0
+translate -320.0, -180.0, 0.0
+lines LINES #FF28D448 [270.0,122.0 270.0,120.0 370.0,122.0 370.0,120.0]
+lines LINES #FF28D448 [270.0,120.0 290.0,120.0 370.0,120.0 350.0,120.0]
+centered text #FF28D448 (260, 116) "100"
+centered text #FF28D448 (380, 116) "100"
+lines LINES #FF28D448 [270.0,152.0 270.0,150.0 370.0,152.0 370.0,150.0]
+lines LINES #FF28D448 [270.0,150.0 290.0,150.0 370.0,150.0 350.0,150.0]
+centered text #FF28D448 (260, 146) "95"
+centered text #FF28D448 (380, 146) "95"
+lines LINES #FF28D448 [270.0,182.0 270.0,180.0 370.0,182.0 370.0,180.0]
+lines LINES #FF28D448 [270.0,180.0 290.0,180.0 370.0,180.0 350.0,180.0]
+centered text #FF28D448 (260, 176) "90"
+centered text #FF28D448 (380, 176) "90"
+lines LINES #FF28D448 [270.0,212.0 270.0,210.0 370.0,212.0 370.0,210.0]
+lines LINES #FF28D448 [270.0,210.0 290.0,210.0 370.0,210.0 350.0,210.0]
+centered text #FF28D448 (260, 206) "85"
+centered text #FF28D448 (380, 206) "85"
+lines LINES #FF28D448 [270.0,242.0 270.0,240.0 370.0,242.0 370.0,240.0]
+lines LINES #FF28D448 [270.0,240.0 290.0,240.0 370.0,240.0 350.0,240.0]
+centered text #FF28D448 (260, 236) "80"
+centered text #FF28D448 (380, 236) "80"
+pop
+centered text #FFDF0408 (320, 240) "[   3 ]"
+text #FF28D448 (12, 210) "X: -1234.5"
+text #FF28D448 (12, 225) "Y: -60.0"
+text #FF28D448 (12, 240) "Z: -1234.5"
+text #FF28D448 (95, 210) "[-1.50]"
+text #FF28D448 (95, 225) "[-1.50]"
+text #FF28D448 (95, 240) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation -121.5 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (65.19906323185009, 304.5) size (32.0, 32.0) uv (128.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (87.68149882903978, 304.5) size (2.5, 32.0) uv (192.0, 0.0) uv size (5.0, 64.0) rotation -180.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (120.65573770491801, 304.5) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (114.66042154566742, 298.5) size (16.0, 16.0) uv (128.0, 96.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 265.5) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (8.24355971896955, 282.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FFDF0408 (9, 267) "1"
+text #FFDF0408 (48, 267) "/"
+text #FFDF0408 (62, 267) "4"
+text #FFDF0408 (9, 283) "AIM-9 Sidewinder"
+rect #FF28D448 (145.66978922716626, 275.5) (102.66978922716626, 265.5)
+rect #FF188428 (145.1686182669789, 275.0) (104.16861826697891, 267.0)
+rect #FFDF0408 (124.16861826697891, 275.0) (104.16861826697891, 267.0)
+text #FF28D448 (364, 255) "NIGHT VISION"
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+text #FFDF0408 (420, 275) "[ --.-- ]"
+text #CFFFFFFF (250, 190) "x1.0"
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FF28D448 (225, 70) "351"
+centered text #FF28D448 (255, 70) "354"
+centered text #FF28D448 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FF28D448 (345, 70) "3"
+centered text #FF28D448 (375, 70) "6"
+centered text #FF28D448 (405, 70) "9"
+lines LINES #FF28D448 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FF28D448 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FF28D448 (320, 99) "225"
+centered text #FF28D448 (460, 176) "13"
+lines LINE_STRIP #FF28D448 [440.0,180.0 445.0,175.0 470.0,175.0 470.0,185.0 445.0,185.0 440.0,180.0]
+push
+translate 320.0, 180.0, 0.0
+rotate 170.0 about 0.0, 0.0, 1.0
+translate -320.0, -180.0, 0.0
+lines LINES #FF28D448 [270.0,122.0 270.0,120.0 370.0,122.0 370.0,120.0]
+lines LINES #FF28D448 [270.0,120.0 290.0,120.0 370.0,120.0 350.0,120.0]
+centered text #FF28D448 (260, 116) "100"
+centered text #FF28D448 (380, 116) "100"
+lines LINES #FF28D448 [270.0,152.0 270.0,150.0 370.0,152.0 370.0,150.0]
+lines LINES #FF28D448 [270.0,150.0 290.0,150.0 370.0,150.0 350.0,150.0]
+centered text #FF28D448 (260, 146) "95"
+centered text #FF28D448 (380, 146) "95"
+lines LINES #FF28D448 [270.0,182.0 270.0,180.0 370.0,182.0 370.0,180.0]
+lines LINES #FF28D448 [270.0,180.0 290.0,180.0 370.0,180.0 350.0,180.0]
+centered text #FF28D448 (260, 176) "90"
+centered text #FF28D448 (380, 176) "90"
+lines LINES #FF28D448 [270.0,212.0 270.0,210.0 370.0,212.0 370.0,210.0]
+lines LINES #FF28D448 [270.0,210.0 290.0,210.0 370.0,210.0 350.0,210.0]
+centered text #FF28D448 (260, 206) "85"
+centered text #FF28D448 (380, 206) "85"
+lines LINES #FF28D448 [270.0,242.0 270.0,240.0 370.0,242.0 370.0,240.0]
+lines LINES #FF28D448 [270.0,240.0 290.0,240.0 370.0,240.0 350.0,240.0]
+centered text #FF28D448 (260, 236) "80"
+centered text #FF28D448 (380, 236) "80"
+pop
+centered text #FF28D448 (320, 220) "[  57 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation -135.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (150.0, 263.0) size (32.0, 32.0) uv (128.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (165.0, 263.0) size (2.5, 32.0) uv (192.0, 0.0) uv size (5.0, 64.0) rotation -180.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (183.0, 259.0) size (16.0, 16.0) uv (128.0, 96.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (230, 100) "FREE LOOK"
+text #FF28D448 (350, 230) "THERMAL VISION"
+text #FF28D448 (370, 180) "Auto Pilot"
+text #FF28D448 (370, 190) "VTOL"
+-- frame uav_no_weapon #2 (colour at start #FF28D448)
+text #FFDF0408 (420, 275) "[ --.-- ]"
+text #CFFFFFFF (250, 190) "x1.0"
+push
+translate 320.0, 80.0, 0.0
+rotate 0.0 about 0.0, 0.0, 1.0
+translate -320.0, -80.0, 0.0
+centered text #FF28D448 (225, 70) "351"
+centered text #FF28D448 (255, 70) "354"
+centered text #FF28D448 (285, 70) "357"
+centered text #FFFF0000 (315, 70) "N"
+centered text #FF28D448 (345, 70) "3"
+centered text #FF28D448 (375, 70) "6"
+centered text #FF28D448 (405, 70) "9"
+lines LINES #FF28D448 [225.0,80.0 225.0,90.0 235.0,80.0 235.0,85.0 245.0,80.0 245.0,85.0 255.0,80.0 255.0,90.0 265.0,80.0 265.0,85.0 275.0,80.0 275.0,85.0 285.0,80.0 285.0,90.0 295.0,80.0 295.0,85.0 305.0,80.0 305.0,85.0 315.0,80.0 315.0,90.0 325.0,80.0 325.0,85.0 335.0,80.0 335.0,85.0 345.0,80.0 345.0,90.0 355.0,80.0 355.0,85.0 365.0,80.0 365.0,85.0 375.0,80.0 375.0,90.0 385.0,80.0 385.0,85.0 395.0,80.0 395.0,85.0 405.0,80.0 405.0,90.0]
+pop
+lines LINE_STRIP #FF28D448 [320.0,93.0 322.0,97.0 318.0,97.0 320.0,93.0]
+centered text #FF28D448 (320, 99) "225"
+centered text #FF28D448 (460, 176) "13"
+lines LINE_STRIP #FF28D448 [440.0,180.0 445.0,175.0 470.0,175.0 470.0,185.0 445.0,185.0 440.0,180.0]
+push
+translate 320.0, 180.0, 0.0
+rotate 170.0 about 0.0, 0.0, 1.0
+translate -320.0, -180.0, 0.0
+lines LINES #FF28D448 [270.0,122.0 270.0,120.0 370.0,122.0 370.0,120.0]
+lines LINES #FF28D448 [270.0,120.0 290.0,120.0 370.0,120.0 350.0,120.0]
+centered text #FF28D448 (260, 116) "100"
+centered text #FF28D448 (380, 116) "100"
+lines LINES #FF28D448 [270.0,152.0 270.0,150.0 370.0,152.0 370.0,150.0]
+lines LINES #FF28D448 [270.0,150.0 290.0,150.0 370.0,150.0 350.0,150.0]
+centered text #FF28D448 (260, 146) "95"
+centered text #FF28D448 (380, 146) "95"
+lines LINES #FF28D448 [270.0,182.0 270.0,180.0 370.0,182.0 370.0,180.0]
+lines LINES #FF28D448 [270.0,180.0 290.0,180.0 370.0,180.0 350.0,180.0]
+centered text #FF28D448 (260, 176) "90"
+centered text #FF28D448 (380, 176) "90"
+lines LINES #FF28D448 [270.0,212.0 270.0,210.0 370.0,212.0 370.0,210.0]
+lines LINES #FF28D448 [270.0,210.0 290.0,210.0 370.0,210.0 350.0,210.0]
+centered text #FF28D448 (260, 206) "85"
+centered text #FF28D448 (380, 206) "85"
+lines LINES #FF28D448 [270.0,242.0 270.0,240.0 370.0,242.0 370.0,240.0]
+lines LINES #FF28D448 [270.0,240.0 290.0,240.0 370.0,240.0 350.0,240.0]
+centered text #FF28D448 (260, 236) "80"
+centered text #FF28D448 (380, 236) "80"
+pop
+centered text #FF28D448 (320, 220) "[  57 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation -135.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (150.0, 263.0) size (32.0, 32.0) uv (128.0, 0.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (165.0, 263.0) size (2.5, 32.0) uv (192.0, 0.0) uv size (5.0, 64.0) rotation -180.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 64.0) uv size (64.0, 64.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (183.0, 259.0) size (16.0, 16.0) uv (128.0, 96.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 237.0) size (62.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+prepare texture
+texture mcheli:textures/gui/hud.png (112.0, 248.0) size (106.0, 10.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (230, 100) "FREE LOOK"
+text #FF28D448 (350, 230) "THERMAL VISION"
+text #FF28D448 (370, 180) "Auto Pilot"
+text #FF28D448 (370, 190) "VTOL"

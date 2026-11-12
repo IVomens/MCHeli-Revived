@@ -1,0 +1,17 @@
+# {"schema":1,"weapon":"81mm_mortar","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "81mm Mortar"
+mount: vehicle m1129 (TankEntity), pilot seat, weapon #0
+ready after 21 ticks
+before shot: ammo 57 reserve 0 heat 0 cooldown 0 reload 0 name "81mm Mortar"
+t0 spawned #0 mcheli:rocket at 3072.0 103.14999985694885 3069.329999923706 motion 0.04898032672851464 -0.013834564679172106 3.8996678746290314 yaw -0.72284764 pitch 0.2066339
+after shot: ammo 56 reserve 0 heat 0 cooldown 30 reload 0 name "81mm Mortar"
+t1 #0 3072.0489803267287 103.07616529361079 3073.229667798335
+t2 #0 3072.0979606534574 102.94233073161382 3077.129335672964
+t3 #0 3072.146940980186 102.74849617095796 3081.0290035475928
+t4 #0 3072.195921306915 102.49466161164321 3084.9286714222217
+t5 #0 3072.2449016336436 102.18082705366956 3088.8283392968506
+t6 #0 3072.2938819603723 101.80699249703702 3092.7280071714795
+t7 #0 3072.342862287101 101.37315794174557 3096.6276750461084
+t8 explosion by #0 at 3072.379873463743 101.0 3099.574394804674 size 4.0 block 2.0 damage 4.0 blockPower 2.0 radius 4.0 sound false flaming true destroyBlocks true setFire 0 damageFactor true inWater false
+t8 #0 removed: DISCARDED
+after 60 ticks: ammo 56 reserve 0 heat 0 cooldown 0 reload 0 name "81mm Mortar"

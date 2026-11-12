@@ -1,0 +1,37 @@
+# {"schema":1,"weapon":"hawk","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "MIM-23 HAWK"
+target: armor stand at 3072.0 140.0 3168.0
+mount: vehicle mim-23 (GroundVehicleEntity), pilot seat, weapon #0
+ready after 105 ticks
+before shot: ammo 3 reserve 0 heat 0 cooldown 0 reload 0 name "MIM-23 HAWK"
+t0 spawned #0 mcheli:aa_missile at 3073.0900000333786 103.75999999046326 3075.75 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 2 reserve 0 heat 0 cooldown 6 reload 0 name "MIM-23 HAWK"
+t1 #0 3073.0900000333786 103.75999999046326 3079.65
+t2 #0 3073.0900000333786 103.75999999046326 3083.55
+t3 #0 3073.0900000333786 103.75999999046326 3087.4500000000003
+t4 #0 3073.0900000333786 103.75999999046326 3091.3500000000004
+t5 #0 3073.0900000333786 103.75999999046326 3095.2500000000005
+t6 #0 3073.0900000333786 103.75999999046326 3099.1500000000005
+t7 #0 3073.0900000333786 103.75999999046326 3103.0500000000006
+t8 #0 3073.0900000333786 103.75999999046326 3106.9500000000007
+t9 #0 3073.0589575155404 104.79209247881177 3110.710827230489
+t10 #0 3073.012263425294 106.3445638358356 3114.2882078850403
+t11 #0 3072.9576243497436 108.16118772374828 3117.738844380136
+t12 #0 3072.898875869292 110.1144398952394 3121.1139524629402
+t13 #0 3072.8379668931657 112.13952359047222 3124.446417935219
+t14 #0 3072.775907698656 114.20284940768845 3127.755320355718
+t15 #0 3072.713229904317 116.28674224978289 3131.051297011698
+t16 #0 3072.6502163598143 118.38179801441967 3134.3401829380064
+t17 #0 3072.587018884121 120.48296906910419 3137.6251618234824
+t18 #0 3072.5237196042954 122.58752487757626 3140.907971298642
+t19 #0 3072.4603632884823 124.69397700175642 3144.189563202853
+t20 #0 3072.3969745353866 126.80150759115203 3147.470461963977
+t21 #0 3072.3335669754656 128.90966346433686 3150.7509586177935
+t22 #0 3072.270148225106 131.01819139393814 3154.0312159296814
+t23 #0 3072.2067225661403 133.12694901883089 3157.3113254499935
+t24 #0 3072.1432923930556 135.2358567278162 3160.591338390231
+t25 #0 3072.079858963776 137.34487269781658 3163.871281657779
+t26 #0 3072.016422613111 139.4539857971755 3167.151162412247
+t27 explosion by #0 at 3072.0 140.0 3168.0 size 5.0 block 5.0 damage 5.0 blockPower 5.0 radius 5.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t27 #0 removed: DISCARDED
+after 60 ticks: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "MIM-23 HAWK"

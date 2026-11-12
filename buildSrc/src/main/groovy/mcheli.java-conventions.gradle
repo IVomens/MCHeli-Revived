@@ -1,0 +1,45 @@
+// Every subproject: Java 21, UTF-8 sources, the mod's group and version, JUnit 5.
+plugins {
+    id 'java-library'
+    id 'idea'
+}
+
+group = project.mod_group_id
+version = project.mod_version
+
+base {
+    archivesName = "mcheli-revived-${project.name}"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    mavenCentral {
+        content {
+            // NeoForged's own tools come from their repository, which ModDevGradle adds.
+            excludeGroupByRegex 'net\\.neoforged(\\..*)?'
+        }
+    }
+    maven {
+        // Flywheel, the optional instancing backend for vehicle models
+        name = 'CreateMod'
+        url = 'https://maven.createmod.net'
+        content { includeGroup 'dev.engine-room.flywheel' }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-Xmaxerrs' << '100000'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

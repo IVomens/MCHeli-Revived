@@ -1,0 +1,5 @@
+// Seconds to ticks: AliveTime = 3 becomes 60 ticks when the file is validated. The conversion
+// happens once per parse, so a reload converts the freshly parsed values again from seconds.
+DisplayName = TXT Seconds
+AliveTime = 3
+DelayFuse = 0

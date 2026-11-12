@@ -1,0 +1,35 @@
+# HUD format 2: blocks nest and may have an Else, and a condition is only evaluated when it is reached.
+# In the cruise frame the vehicle is high and healthy, in damaged_gunner low and damaged, and the UAV
+# frame is high and at full health.
+- SchemaVersion: 2
+- DrawRectangle:
+    Position: ['0', '0']
+    Size: ['2', '2']
+- If: altitude > 10
+  Then:
+  - Color: '0xff00ff00'
+  - If: hp_rto < 0.5
+    Then:
+    - DrawRectangle:
+        Position: ['10', '0']
+        Size: ['2', '2']
+    Else:
+    - DrawRectangle:
+        Position: ['20', '0']
+        Size: ['2', '2']
+    - If: is_uav
+      Then:
+      - DrawRectangle:
+          Position: ['30', '0']
+          Size: ['2', '2']
+  Else:
+  - Color: '0xffff0000'
+  - If: gunner_mode
+    Then:
+    - Exit: ''
+  - DrawRectangle:
+      Position: ['40', '0']
+      Size: ['2', '2']
+- DrawRectangle:
+    Position: ['50', '0']
+    Size: ['2', '2']

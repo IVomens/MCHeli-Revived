@@ -1,0 +1,6 @@
+# {"schema":1,"source":"assets/mcheli/weapons/yaml_top_level_list.yml","commit":"32abae6"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_top_level_list) loading start.
+ERROR Failed to load 'assets/mcheli/weapons/yaml_top_level_list.yml' from addon 'mcheli' at line 1: the top level of the file must be a map of keys
+DEBUG Parse error details for 'assets/mcheli/weapons/yaml_top_level_list.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: the top level of the file must be a map of keys

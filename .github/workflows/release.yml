@@ -1,0 +1,238 @@
+name: Release
+
+# Runs when a version tag (v2.1.0, v2.1.0-beta.1, ...) is pushed, or by hand from the Actions tab
+# with the tag to release. It checks that the tag agrees with mod_version in gradle.properties and
+# that CHANGELOG.md has a section for the version, builds and tests everything (unit, architecture
+# and game tests on both loaders), and creates the GitHub release with that changelog section as the
+# notes and both jars attached. Versions with a suffix (2.1.0-beta.1) become pre-releases.
+#
+# The second job uploads the jars to Modrinth and CurseForge. Each site is skipped until its token
+# secret (MODRINTH_TOKEN, CURSEFORGE_TOKEN) and its project id variable (MODRINTH_ID, CURSEFORGE_ID)
+# are set in the repository settings. If an upload fails, "Re-run failed jobs" repeats only that job.
+# See docs/RELEASING.md.
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to release, for example v2.1.0 (it must already exist)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      version-type: ${{ steps.version.outputs.version-type }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag && format('refs/tags/{0}', inputs.tag) || github.ref }}
+
+      - name: Check the tag against gradle.properties
+        id: version
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          if ! [[ "$TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::Tag '$TAG' is not a version tag. Use v<major>.<minor>.<patch>, optionally with a suffix such as -beta.1."
+            exit 1
+          fi
+          version="${TAG#v}"
+          mod_version=$(grep '^mod_version=' gradle.properties | cut -d= -f2 | tr -d '\r')
+          if [ "$version" != "$mod_version" ]; then
+            echo "::error::Tag $TAG does not match mod_version=$mod_version in gradle.properties. Run tools/release/prepare-release.sh $version, commit, and tag that commit."
+            exit 1
+          fi
+          case "$version" in
+            *-alpha*) type=alpha; prerelease=true ;;
+            *-*)      type=beta;  prerelease=true ;;
+            *)        type=release; prerelease=false ;;
+          esac
+          {
+            echo "tag=$TAG"
+            echo "version=$version"
+            echo "version-type=$type"
+            echo "prerelease=$prerelease"
+          } >> "$GITHUB_OUTPUT"
+          echo "Releasing $version ($type)."
+
+      - name: Read the changelog section
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if ! tools/release/changelog-section.sh "$VERSION" > changelog.md; then
+            echo "::error::CHANGELOG.md has no '## [$VERSION]' section, or it is empty. Run tools/release/prepare-release.sh $VERSION before tagging."
+            exit 1
+          fi
+          cat changelog.md
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: true
+
+      - name: Build and unit test (all modules)
+        run: ./gradlew build
+
+      - name: Game tests (NeoForge dedicated server)
+        run: ./gradlew :neoforge:runGameTestServer
+
+      - name: Game tests (Fabric dedicated server)
+        run: ./gradlew :fabric:runGameTestServer
+
+      - name: Collect the jars
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          mkdir -p dist
+          cp "neoforge/build/libs/mcheli-revived-$VERSION-neoforge.jar" dist/
+          cp "fabric/build/libs/mcheli-revived-$VERSION-fabric.jar" dist/
+          # the API for addon authors, with its own version (docs/API.md); GitHub release only
+          API_VERSION=$(grep '^api_version=' gradle.properties | cut -d= -f2 | tr -d '\r')
+          cp "api/build/libs/mcheli-revived-api-$API_VERSION.jar" dist/
+          cp "api/build/libs/mcheli-revived-api-$API_VERSION-sources.jar" dist/
+          cp changelog.md dist/
+          ls -l dist
+
+      - name: Upload the jars
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ steps.version.outputs.version }}
+          path: dist/
+          retention-days: 30
+
+      - name: Upload the test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            */build/reports/
+            */build/test-results/
+            fabric/build/gametest/
+            run/logs/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          VERSION: ${{ steps.version.outputs.version }}
+          PRERELEASE: ${{ steps.version.outputs.prerelease }}
+        run: |
+          {
+            cat changelog.md
+            echo
+            echo "---"
+            echo
+            echo "Two jars, one per loader: \`*-neoforge.jar\` for NeoForge 1.21.1, \`*-fabric.jar\` for Fabric 1.21.1 (needs Fabric API)."
+            echo
+            echo "\`mcheli-revived-api-*.jar\` (with its sources) is the API addon mods compile against; players do not need it. See docs/API.md."
+          } > notes.md
+          flags=()
+          if [ "$PRERELEASE" = "true" ]; then
+            flags+=(--prerelease)
+          fi
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG exists already; updating its notes and jars."
+            gh release edit "$TAG" --title "MCHeli: Revived $VERSION" --notes-file notes.md "${flags[@]}"
+            gh release upload "$TAG" dist/*.jar --clobber
+          else
+            gh release create "$TAG" dist/*.jar \
+              --verify-tag \
+              --title "MCHeli: Revived $VERSION" \
+              --notes-file notes.md \
+              "${flags[@]}"
+          fi
+
+  publish:
+    needs: release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Download the jars
+        uses: actions/download-artifact@v4
+        with:
+          name: release-${{ needs.release.outputs.version }}
+          path: dist
+
+      - name: Work out where to publish
+        id: targets
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_ID: ${{ vars.MODRINTH_ID }}
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          CURSEFORGE_ID: ${{ vars.CURSEFORGE_ID }}
+        run: |
+          any=false
+          if [ -n "$MODRINTH_TOKEN" ] && [ -n "$MODRINTH_ID" ]; then
+            echo "modrinth=true" >> "$GITHUB_OUTPUT"
+            any=true
+          else
+            echo "::notice::Skipping Modrinth: the MODRINTH_TOKEN secret or the MODRINTH_ID variable is not set."
+          fi
+          if [ -n "$CURSEFORGE_TOKEN" ] && [ -n "$CURSEFORGE_ID" ]; then
+            echo "curseforge=true" >> "$GITHUB_OUTPUT"
+            any=true
+          else
+            echo "::notice::Skipping CurseForge: the CURSEFORGE_TOKEN secret or the CURSEFORGE_ID variable is not set."
+          fi
+          echo "any=$any" >> "$GITHUB_OUTPUT"
+
+      # mc-publish only uploads to the sites it gets a token for, so an empty token skips a site.
+      - name: Publish the NeoForge jar
+        if: steps.targets.outputs.any == 'true'
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: ${{ steps.targets.outputs.modrinth == 'true' && vars.MODRINTH_ID || '' }}
+          modrinth-token: ${{ steps.targets.outputs.modrinth == 'true' && secrets.MODRINTH_TOKEN || '' }}
+          curseforge-id: ${{ steps.targets.outputs.curseforge == 'true' && vars.CURSEFORGE_ID || '' }}
+          curseforge-token: ${{ steps.targets.outputs.curseforge == 'true' && secrets.CURSEFORGE_TOKEN || '' }}
+          files: dist/mcheli-revived-${{ needs.release.outputs.version }}-neoforge.jar
+          name: MCHeli Revived ${{ needs.release.outputs.version }} (NeoForge)
+          version: ${{ needs.release.outputs.version }}+neoforge
+          version-type: ${{ needs.release.outputs.version-type }}
+          changelog-file: dist/changelog.md
+          loaders: neoforge
+          game-versions: 1.21.1
+          java: 21
+          dependencies: |
+            flywheel(optional)
+
+      - name: Publish the Fabric jar
+        if: steps.targets.outputs.any == 'true'
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: ${{ steps.targets.outputs.modrinth == 'true' && vars.MODRINTH_ID || '' }}
+          modrinth-token: ${{ steps.targets.outputs.modrinth == 'true' && secrets.MODRINTH_TOKEN || '' }}
+          curseforge-id: ${{ steps.targets.outputs.curseforge == 'true' && vars.CURSEFORGE_ID || '' }}
+          curseforge-token: ${{ steps.targets.outputs.curseforge == 'true' && secrets.CURSEFORGE_TOKEN || '' }}
+          files: dist/mcheli-revived-${{ needs.release.outputs.version }}-fabric.jar
+          name: MCHeli Revived ${{ needs.release.outputs.version }} (Fabric)
+          version: ${{ needs.release.outputs.version }}+fabric
+          version-type: ${{ needs.release.outputs.version-type }}
+          changelog-file: dist/changelog.md
+          loaders: fabric
+          game-versions: 1.21.1
+          java: 21
+          dependencies: |
+            fabric-api(required)
+            flywheel(optional)

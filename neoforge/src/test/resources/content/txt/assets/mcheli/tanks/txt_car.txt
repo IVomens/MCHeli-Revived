@@ -1,0 +1,4 @@
+DisplayName = TXT Fixture Car
+WeightType = CAR
+WeightedCenterZ = -0.5
+AddSeat = 0, 1, 0

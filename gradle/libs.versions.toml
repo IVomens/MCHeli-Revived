@@ -1,0 +1,51 @@
+# Library and plugin versions for every module. Minecraft, NeoForge and the mod metadata stay in
+# gradle.properties, where the mod metadata template reads them.
+
+[versions]
+moddev = "2.0.148"
+# Loom 1.13 is the newest release that runs on this build's Gradle 8.14 (1.14 and later need Gradle 9).
+loom = "1.13.6"
+fabric-loader = "0.20.1"
+fabric-api = "0.116.17+1.21.1"
+# Optional on Fabric: energy items and blocks through Team Reborn Energy, when that mod is installed.
+team-reborn-energy = "4.1.0"
+# Optional on both loaders: vehicle models are instanced with Flywheel when it is installed.
+flywheel = "1.0.7"
+lombok = "1.18.42"
+snakeyaml = "2.5"
+aviator = "5.4.3"
+# The versions Minecraft 1.21.1 and NeoForge 21.1 ship; the game provides them at runtime.
+joml = "1.10.5"
+mixin = "0.16.4+mixin.0.8.7"
+mixinextras = "0.5.5"
+# javax.annotation.Nullable; NeoForm puts it on the classpath, Loom does not.
+jsr305 = "3.0.2"
+junit = "5.10.2"
+archunit = "1.5.1"
+javaparser = "3.27.1"
+# Checks the bundled content against the generated JSON Schema files (common unit tests only).
+json-schema-validator = "1.5.6"
+
+[libraries]
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+snakeyaml = { module = "org.yaml:snakeyaml", version.ref = "snakeyaml" }
+aviator = { module = "com.googlecode.aviator:aviator", version.ref = "aviator" }
+joml = { module = "org.joml:joml", version.ref = "joml" }
+mixin = { module = "net.fabricmc:sponge-mixin", version.ref = "mixin" }
+mixinextras-common = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixinextras" }
+jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "jsr305" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+archunit = { module = "com.tngtech.archunit:archunit-junit5", version.ref = "archunit" }
+javaparser = { module = "com.github.javaparser:javaparser-core", version.ref = "javaparser" }
+json-schema-validator = { module = "com.networknt:json-schema-validator", version.ref = "json-schema-validator" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+team-reborn-energy = { module = "teamreborn:energy", version.ref = "team-reborn-energy" }
+flywheel-api = { module = "dev.engine-room.flywheel:flywheel-common-mojmap-api-1.21.1", version.ref = "flywheel" }
+flywheel-neoforge = { module = "dev.engine-room.flywheel:flywheel-neoforge-1.21.1", version.ref = "flywheel" }
+flywheel-fabric = { module = "dev.engine-room.flywheel:flywheel-fabric-1.21.1", version.ref = "flywheel" }
+
+[plugins]
+moddev = { id = "net.neoforged.moddev", version.ref = "moddev" }
+loom = { id = "fabric-loom", version.ref = "loom" }

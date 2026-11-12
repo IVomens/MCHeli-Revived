@@ -1,0 +1,45 @@
+# {"schema":1,"hud":"hud/test_gates.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+rect #FF000000 (324.0, 184.0) (320.0, 180.0)
+rect #FF00FF00 (334.0, 184.0) (330.0, 180.0)
+lines LINE_STRIP #FF00FF00 [315.0,185.0 325.0,185.0]
+stipple LINES #FF00FF00 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+text #FF00FF00 (320, 160) "hp 120/120 M230 30mm"
+centered text #FF00FF00 (320, 150) "ammo 300"
+rect #FF00FF00 (354.0, 184.0) (350.0, 180.0)
+-- frame cruise #2 (colour at start #FFFFFFFF)
+rect #FFFFFFFF (324.0, 184.0) (320.0, 180.0)
+rect #FF00FF00 (334.0, 184.0) (330.0, 180.0)
+lines LINE_STRIP #FF00FF00 [315.0,185.0 325.0,185.0]
+stipple LINES #FF00FF00 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+text #FF00FF00 (320, 160) "hp 120/120 M230 30mm"
+centered text #FF00FF00 (320, 150) "ammo 300"
+rect #FF00FF00 (354.0, 184.0) (350.0, 180.0)
+-- frame damaged_gunner #1 (colour at start #FF000000)
+rect #FF000000 (324.0, 184.0) (320.0, 180.0)
+rect #FFFF0000 (353.9765807962529, 184.0) (349.9765807962529, 180.0)
+lines LINE_STRIP #FFFF0000 [315.0,185.0 325.0,185.0]
+text #FFFF0000 (320, 150) "hp 37/120 AIM-9 Sidewinder"
+centered text #FFFF0000 (320, 135) "ammo 1"
+-- frame damaged_gunner #2 (colour at start #FFFF0000)
+rect #FFFF0000 (324.0, 184.0) (320.0, 180.0)
+rect #FFFF0000 (353.9765807962529, 184.0) (349.9765807962529, 180.0)
+lines LINE_STRIP #FFFF0000 [315.0,185.0 325.0,185.0]
+text #FFFF0000 (320, 150) "hp 37/120 AIM-9 Sidewinder"
+centered text #FFFF0000 (320, 135) "ammo 1"
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+rect #FF000000 (324.0, 184.0) (320.0, 180.0)
+rect #FF00FF00 (334.0, 184.0) (330.0, 180.0)
+lines LINE_STRIP #FF00FF00 [315.0,185.0 325.0,185.0]
+stipple LINES #FF00FF00 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+lines LINE_STRIP #FF00FF00 [315.0,185.0 325.0,185.0]
+stipple LINES #FF00FF00 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+rect #FF00FF00 (354.0, 184.0) (350.0, 180.0)
+-- frame uav_no_weapon #2 (colour at start #FFFFFFFF)
+rect #FFFFFFFF (324.0, 184.0) (320.0, 180.0)
+rect #FF00FF00 (334.0, 184.0) (330.0, 180.0)
+lines LINE_STRIP #FF00FF00 [315.0,185.0 325.0,185.0]
+stipple LINES #FF00FF00 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+lines LINE_STRIP #FF00FF00 [315.0,185.0 325.0,185.0]
+stipple LINES #FF00FF00 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+rect #FF00FF00 (354.0, 184.0) (350.0, 180.0)

@@ -1,0 +1,38 @@
+# {"schema":1,"weapon":"aim9_l","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "AIM-9 Sidewinder"
+target: armor stand at 3072.0 140.0 3168.0
+mount: vehicle a-10 (PlaneEntity), pilot seat, weapon #2
+ready after 41 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "AIM-9 Sidewinder"
+t0 spawned #0 mcheli:aa_missile at 3065.75 102.75 3068.869999885559 motion 0.06842161916229357 0.0 3.899399759197717 yaw -1.0 pitch -0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 90 reload 0 name "AIM-9 Sidewinder"
+t1 #0 3065.818421619162 102.75 3072.769399644757
+t2 #0 3065.886843238324 102.75 3076.668799403955
+t3 #0 3065.9552648574863 102.75 3080.5681991631527
+t4 #0 3066.0236864766484 102.75 3084.4675989223506
+t5 #0 3066.0921080958105 102.75 3088.3669986815485
+t6 #0 3066.1605297149727 102.75 3092.2663984407463
+t7 #0 3066.2289513341348 102.75 3096.165798199944
+t8 #0 3066.297372953297 102.75 3100.065197959142
+t9 #0 3066.4805102521286 103.71550902938029 3103.8393538970918
+t10 #0 3066.7197900298747 105.1682438525834 3107.4507672937298
+t11 #0 3066.987065566211 106.8683593920446 3110.9505059897124
+t12 #0 3067.268642171535 108.69615628981927 3114.3841444558034
+t13 #0 3067.5576610924745 110.5907820788541 3117.7807399841026
+t14 #0 3067.8506041824844 112.52075630428122 3121.157037339965
+t15 #0 3068.145636585981 114.46958296479174 3124.5223056098316
+t16 #0 3068.441790351515 116.42853732949588 3127.8815898705284
+t17 #0 3068.738550520187 118.39297123521474 3131.23761919584
+t18 #0 3069.0356412031583 120.36039252779852 3134.591868826321
+t19 #0 3069.3329136241464 122.32945672335319 3137.945138171528
+t20 #0 3069.6302870180443 124.29943378457729 3141.297862353869
+t21 #0 3069.927717226516 126.26992451294839 3144.6502796251066
+t22 #0 3070.225179917227 128.24070892467353 3148.002521375061
+t23 #0 3070.522661570373 130.21166478503852 3151.354660641639
+t24 #0 3070.8201546136743 132.18272363026418 3154.706738343281
+t25 #0 3071.1176547879663 134.1538469511838 3158.0587774987835
+t26 #0 3071.4151597299083 136.12501337951616 3161.410790882011
+t27 #0 3071.7126682683092 138.09621232585044 3164.7627848234656
+t28 explosion by #0 at 3072.0 140.0 3168.0 size 5.0 block 5.0 damage 5.0 blockPower 5.0 radius 5.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t28 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 30 reload 0 name "AIM-9 Sidewinder"

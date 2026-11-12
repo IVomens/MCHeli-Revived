@@ -1,0 +1,14 @@
+.gradle/
+build/
+run/
+runs/
+out/
+*.iml
+.idea/
+.vscode/
+port_todo/
+port_manifest.txt
+perf.jfr
+cleanup_manifest.txt
+stress.jfr
+clientstress.jfr

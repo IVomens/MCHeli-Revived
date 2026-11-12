@@ -1,0 +1,43 @@
+# Gate semantics of scripted HUDs. An If/Do block becomes "if, commands, endif"; the gate only hides
+# commands, every If is still evaluated, and any endif reopens the gate.
+# The last Color of a frame is still current at the start of the next frame.
+- DrawRectangle:
+    Position: ['0', '0']
+    Size: ['4', '4']
+- If: altitude > 10
+  Do:
+  - Color: '0xff00ff00'
+  - DrawRectangle:
+      Position: ['10', '0']
+      Size: ['4', '4']
+- If: altitude <= 10
+  Do:
+  - Color: '0xffff0000'
+  - DrawRectangle:
+      Position: ['20', '0']
+      Size: ['4', '4']
+- If: is_uav
+  Do:
+  - Call: test_callee
+- Call: test_callee
+- Call: test_gates
+- Call: no_such_hud
+- DrawString:
+    Position: ['0', '-20']
+    Text:
+      Fmt: 'hp %d/%d %s'
+      Vars: [hp, max_hp, wpn_name]
+    Center: false
+- DrawString:
+    Position: ['0', '-30']
+    Text:
+      Fmt: 'ammo %s'
+      Vars: [wpn_ammo]
+    Center: true
+- If: hp_rto < 0.5
+  Do:
+  - Exit: ''
+- DrawRectangle:
+    Position: ['30', '0']
+    Size: ['4', '4']
+- Color: 'hp_rto > 0.2 ? 0xffffffff : 0xffdf0408'

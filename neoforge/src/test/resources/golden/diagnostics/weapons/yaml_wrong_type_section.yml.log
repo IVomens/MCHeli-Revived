@@ -1,0 +1,7 @@
+# {"schema":1,"source":"assets/mcheli/weapons/yaml_wrong_type_section.yml","commit":"be2b1b8"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_wrong_type_section) loading start.
+ERROR Failed to load 'assets/mcheli/weapons/yaml_wrong_type_section.yml' from addon 'mcheli' at line 4, key 'Ballistics': expected a section of keys but got the text "fast"
+DEBUG Parse error details for 'assets/mcheli/weapons/yaml_wrong_type_section.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected a section of keys but got the text "fast"
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected a section of keys but got the text "fast"

@@ -1,0 +1,22 @@
+# {"schema":1,"weapon":"90mm_gun_m3","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "90 mm Gun M3"
+mount: vehicle m26 (TankEntity), pilot seat, weapon #0
+ready after 65 ticks
+before shot: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "90 mm Gun M3"
+t0 spawned #0 mcheli:bullet at 3072.0185080934143 103.65876509145973 3074.7039051464008 motion 0.03701618682840376 -0.010469408907946317 3.8998102765890805 yaw -0.5421357 pitch 0.15497543
+after shot: ammo 0 reserve 1 heat 0 cooldown 80 reload 60 name "90 mm Gun M3"
+t1 #0 3072.074032373657 103.61306097876836 3080.5536205612843
+t2 #0 3072.1295566538993 103.53735686674754 3086.403335976168
+t3 #0 3072.1850809341418 103.43165275539728 3092.2530513910515
+t4 #0 3072.2406052143842 103.29594864471757 3098.102766805935
+t5 #0 3072.2961294946267 103.13024453470841 3103.9524822208186
+t6 #0 3072.351653774869 102.9345404253698 3109.802197635702
+t7 #0 3072.4071780551117 102.70883631670175 3115.651913050586
+t8 #0 3072.462702335354 102.45313220870425 3121.5016284654694
+t9 #0 3072.5182266155966 102.1674281013773 3127.351343880353
+t10 #0 3072.573750895839 101.8517239947209 3133.2010592952365
+t11 #0 3072.6292751760816 101.50601988873505 3139.05077471012
+t12 #0 3072.684799456324 101.13031578341976 3144.9004901250037
+t13 explosion by #0 at 3072.702634351253 101.0 3146.7794709840728 size 3.0 block 2.0 damage 3.0 blockPower 2.0 radius 3.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t13 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 20 reload 0 name "90 mm Gun M3"

@@ -1,0 +1,17 @@
+# {"schema":1,"weapon":"mk82_12","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "MK82 bomb"
+mount: vehicle tornado-gr4 (PlaneEntity), pilot seat, weapon #3
+ready after 41 ticks
+before shot: ammo 12 reserve 0 heat 0 cooldown 0 reload 0 name "MK82 bomb"
+t0 spawned #0 mcheli:bomb at 3071.5999999940395 101.9099999666214 3069.2599999904633 motion 0.0 -0.0 0.0 yaw 0.0 pitch 0.0
+after shot: ammo 11 reserve 0 heat 0 cooldown 4 reload 0 name "MK82 bomb"
+t1 #0 3071.5999999940395 101.87999996729195 3069.2599999904633
+t2 #0 3071.5999999940395 101.81999996863306 3069.2599999904633
+t3 #0 3071.5999999940395 101.72999997064471 3069.2599999904633
+t4 #0 3071.5999999940395 101.60999997332692 3069.2599999904633
+t5 #0 3071.5999999940395 101.45999997667968 3069.2599999904633
+t6 #0 3071.5999999940395 101.279999980703 3069.2599999904633
+t7 #0 3071.5999999940395 101.06999998539686 3069.2599999904633
+t8 explosion by #0 at 3071.5999999940395 101.0 3069.2599999904633 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t8 #0 removed: DISCARDED
+after 60 ticks: ammo 11 reserve 0 heat 0 cooldown 0 reload 0 name "MK82 bomb"

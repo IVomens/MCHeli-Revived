@@ -1,0 +1,36 @@
+# {"schema":1,"weapon":"lau-68_logir","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "LAU-68/LOGIR"
+target: armor stand at 3072.0 101.0 3168.0
+mount: vehicle emb314 (PlaneEntity), pilot seat, weapon #5
+ready after 41 ticks
+before shot: ammo 12 reserve 0 heat 0 cooldown 0 reload 0 name "LAU-68/LOGIR"
+t0 spawned #0 mcheli:at_missile at 3075.3099999427795 102.39999997615814 3068.119999885559 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 11 reserve 0 heat 0 cooldown 100 reload 0 name "LAU-68/LOGIR"
+t1 #0 3075.3099999427795 102.39999997615814 3072.019999885559
+t2 #0 3075.3099999427795 102.39999997615814 3075.9199998855593
+t3 #0 3075.3099999427795 102.39999997615814 3079.8199998855594
+t4 #0 3075.3099999427795 102.39999997615814 3083.7199998855594
+t5 #0 3075.3099999427795 102.39999997615814 3087.6199998855595
+t6 #0 3075.3099999427795 102.39999997615814 3091.5199998855596
+t7 #0 3075.3099999427795 102.39999997615814 3095.4199998855597
+t8 #0 3075.3099999427795 102.39999997615814 3099.31999988556
+t9 #0 3075.216116951424 102.36029115805177 3103.218667503311
+t10 #0 3075.0724928233153 102.29954379267295 3107.115548546841
+t11 #0 3074.902418089103 102.227608859755 3111.011174292496
+t12 #0 3074.718218068794 102.1496994855862 3114.906042773194
+t13 #0 3074.5264385857126 102.06858429634664 3118.8004799540895
+t14 #0 3074.33056978235 101.98573948523536 3122.6946771947464
+t15 #0 3074.1324806894404 101.90195557884728 3126.5887420334852
+t16 #0 3073.933177096444 101.81765798662178 3130.482733814905
+t17 #0 3073.7332032368067 101.7330768979316 3134.376685085131
+t18 #0 3073.5328554351945 101.6483376464726 3138.270613694858
+t19 #0 3073.3322961744266 101.56350895609573 3142.164529471581
+t20 #0 3073.131615248921 101.47862880631327 3146.058437858576
+t21 #0 3072.9308626954266 101.39371836070467 3149.9523418928957
+t22 #0 3072.7300666008764 101.30878949893953 3153.84624328056
+t23 #0 3072.5292427464346 101.2238488958305 3157.7401429805304
+t24 #0 3072.3283997442336 101.13890019397134 3161.6340415162554
+t25 #0 3072.1275413120557 101.05394496583803 3165.5279391137065
+t26 explosion by #0 at 3072.0 101.0 3168.0 size 2.0 block 2.0 damage 2.0 blockPower 2.0 radius 2.0 sound false flaming false destroyBlocks true setFire 0 damageFactor true inWater false
+t26 #0 removed: DISCARDED
+after 60 ticks: ammo 11 reserve 0 heat 0 cooldown 40 reload 0 name "LAU-68/LOGIR"

@@ -1,0 +1,6 @@
+# A boolean given as a number.
+DisplayName: Wrong Bool
+Type: rocket
+Explosion:
+  Power: 2
+  Flaming: 1

@@ -1,0 +1,51 @@
+# {"schema":1,"emitted from":"assets/mcheli/vehicles/txt_vehicle_full.txt","commit":"09ffef3"}
+DisplayName: TXT Fixture Gun
+RepairOtherVehicles:
+  Range: 0.0
+  Value: 10
+PhysicalProperties:
+  RotationLimits:
+    Pitch:
+      Min: -20.0
+      Max: 75.0
+Weapons:
+- Type: m2_rws
+  Position: [0.0, 1.5, 1.0]
+Seats:
+- Position: [0.0, 1.0, -1.0]
+  Hud: vehicle
+VehicleFeatures:
+  CanRotate: true
+Components:
+  Vpart:
+  - Position: [0.0, 1.0, 0.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: part0
+    DrawFP: true
+    CanYaw: false
+    CanPitch: true
+    Type: NORMAL
+  - Position: [0.0, 1.5, 0.5]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: part1
+    DrawFP: false
+    CanYaw: true
+    CanPitch: false
+    Type: RECOILS_WEAPON
+    RecoilBuff: 0.25
+    Children:
+    - Position: [0.0, 1.600000023841858, 1.0]
+      Rotation: [0.0, 0.0, 0.0]
+      PartName: part1_0
+      DrawFP: true
+      CanYaw: true
+      CanPitch: false
+      Type: ROTATES_WEAPON
+    - Position: [0.0, 1.7000000476837158, 1.2000000476837158]
+      Rotation: [0.0, 0.0, 0.0]
+      PartName: part1_1
+      DrawFP: false
+      CanYaw: false
+      CanPitch: true
+      Type: TYPE_3
+      RecoilBuff: 0.5

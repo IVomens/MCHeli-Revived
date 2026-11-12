@@ -1,0 +1,38 @@
+# {"schema":1,"weapon":"gbu57","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "GBU-57"
+mount: vehicle b-2a (PlaneEntity), pilot seat, weapon #5
+ready after 21 ticks
+before shot: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "GBU-57"
+t0 spawned #0 mcheli:as_missile at 3073.8400000333786 103.14999985694885 3065.869999885559 motion -2.4492937051703357E-16 0.0 2.0 yaw 0.0 pitch 0.0
+after shot: ammo 1 reserve 0 heat 0 cooldown 50 reload 0 name "GBU-57"
+t1 #0 3073.8400000333786 103.13999985717237 3067.869999885559
+t2 #0 3073.8400000333786 103.1199998576194 3069.869999885559
+t3 #0 3073.8400000333786 103.08999985828996 3071.869999885559
+t4 #0 3073.8400000333786 103.04999985918403 3073.869999885559
+t5 #0 3073.8400000333786 102.99999986030161 3075.869999885559
+t6 #0 3073.8400000333786 102.93999986164272 3077.869999885559
+t7 #0 3073.8400000333786 102.86999986320734 3079.869999885559
+t8 #0 3073.8400000333786 102.78999986499548 3081.869999885559
+t9 #0 3073.8400000333786 102.69999986700714 3083.869999885559
+t10 #0 3073.8400000333786 102.59999986924231 3085.869999885559
+t11 #0 3073.8400000333786 102.489999871701 3087.869999885559
+t12 #0 3073.8400000333786 102.36999987438321 3089.869999885559
+t13 #0 3073.8400000333786 102.23999987728894 3091.869999885559
+t14 #0 3073.8400000333786 102.09999988041818 3093.869999885559
+t15 #0 3073.8400000333786 101.94999988377094 3095.869999885559
+t16 #0 3073.8400000333786 101.78999988734722 3097.869999885559
+t17 #0 3073.8400000333786 101.61999989114702 3099.869999885559
+t18 #0 3073.8400000333786 101.43999989517033 3101.869999885559
+t19 #0 3073.8400000333786 101.24999989941716 3103.869999885559
+t20 #0 3073.8400000333786 101.04999990388751 3105.869999885559
+t21 explosion by #0 at 3073.8400000333786 101.0 3106.346189457036 size 1.0 block 1.0 damage 1.0 blockPower 1.0 radius 1.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t21 #0 3073.8400000333786 100.83999990858138 3107.869999885559
+t22 explosion by #0 at 3073.8400000333786 100.8397799085863 3107.871999885559 size 1.0 block 1.0 damage 1.0 blockPower 1.0 radius 1.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t22 #0 3073.8400000333786 100.61999991349876 3109.869999885559
+t23 explosion by #0 at 3073.8400000333786 100.6197699135039 3109.871999885559 size 1.0 block 1.0 damage 1.0 blockPower 1.0 radius 1.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t23 #0 3073.8400000333786 100.38999991863966 3111.869999885559
+t24 explosion by #0 at 3073.8400000333786 100.38975991864503 3111.871999885559 size 1.0 block 1.0 damage 1.0 blockPower 1.0 radius 1.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t24 #0 3073.8400000333786 100.14999992400408 3113.869999885559
+t25 explosion by #0 at 3073.8400000333786 100.14974992400967 3113.871999885559 size 15.0 block 15.0 damage 15.0 blockPower 15.0 radius 15.0 sound true flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t25 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "GBU-57"

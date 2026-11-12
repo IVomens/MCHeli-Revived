@@ -1,0 +1,70 @@
+// An example addon for MCHeli: Revived, built against the public API alone (docs/API.md). It is part of this
+// build so CI proves the API is enough for an addon; an addon in its own repository uses the same setup with
+// the API jar from the GitHub release or from mavenLocal() instead of project(':api'):
+//
+//     compileOnly 'com.ivomens.mcheli:mcheli-revived-api:1.0.0'
+//
+// The API is compileOnly: at run time its classes come from the MCHeli mod jar, which the addon declares as a
+// required dependency in its neoforge.mods.toml.
+//
+// The game tests (src/gametest, a small mod of their own, mcheli_example_test) run the built addon jar next to
+// the built MCHeli jar on a game test server, as separate mods: ./gradlew :example-addon:runGameTestServer
+plugins {
+    id 'mcheli.java-conventions'
+    id 'net.neoforged.moddev'
+}
+
+version = '1.0.0'
+base {
+    archivesName = 'mcheli-example-addon'
+}
+
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    mods {
+        mcheli_example_test {
+            sourceSet(sourceSets.gametest)
+        }
+    }
+
+    runs {
+        gameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            loadedMods = [mods.mcheli_example_test]
+            gameDirectory = file('run')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'mcheli_example'
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+
+    addModdingDependenciesTo(sourceSets.gametest)
+}
+
+// see the NeoForge game tests: a stale extracted copy of MCHeli's bundled content must not shadow the build
+tasks.matching { it.name == 'runGameTestServer' }.configureEach {
+    doFirst { delete file('run/mcheli_addons/default') }
+}
+
+dependencies {
+    compileOnly project(':api')
+
+    // The game tests drive MCHeli's internals (spawning, boarding and firing a helicopter), which an addon
+    // itself never needs. At run time MCHeli and the addon are their built jars, each found on the class
+    // path as a mod of its own, as in a mods folder.
+    gametestCompileOnly project(path: ':neoforge', configuration: 'modJar')
+    gametestRuntimeOnly project(path: ':neoforge', configuration: 'modJar')
+    gametestRuntimeOnly files(tasks.named('jar'))
+}

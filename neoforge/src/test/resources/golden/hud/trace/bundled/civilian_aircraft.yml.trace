@@ -1,0 +1,209 @@
+# {"schema":1,"hud":"bundled/civilian_aircraft.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (473.0, 210.0) size (46.0, 46.0) uv (128.0, 59.916666666666664) uv size (128.0, 128.0) rotation -15.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation -15.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (0.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+centered text #FF28D448 (320, 220) "[  30 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[+0.30]"
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (159.0, 263.0) size (14.0, 32.0) uv (97.0, 192.0) uv size (30.0, 64.0) rotation 36.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (183.0, 259.0) size (16.0, 16.0) uv (64.0, 192.0) uv size (32.0, 32.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+-- frame cruise #2 (colour at start #FF28D448)
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (473.0, 210.0) size (46.0, 46.0) uv (128.0, 59.916666666666664) uv size (128.0, 128.0) rotation -15.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation -15.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (0.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+text #CF1FFF1F (440, 100) "Inventory [ 9 ]"
+centered text #FF28D448 (320, 220) "[  30 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[+0.30]"
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (159.0, 263.0) size (14.0, 32.0) uv (97.0, 192.0) uv size (30.0, 64.0) rotation 36.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (183.0, 259.0) size (16.0, 16.0) uv (64.0, 192.0) uv size (32.0, 32.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+-- frame damaged_gunner #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (549.320843091335, 225.0) size (46.0, 46.0) uv (128.0, 71.77777777777777) uv size (128.0, 128.0) rotation 30.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (535.8313817330211, 211.5) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 30.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (535.8313817330211, 211.5) size (64.0, 64.0) uv (0.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+text #CFFFFFFF (215, 195) "x2.5"
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+centered text #FFDF0408 (320, 240) "[   3 ]"
+text #FF28D448 (12, 210) "X: -1234.5"
+text #FF28D448 (12, 225) "Y: -60.0"
+text #FF28D448 (12, 240) "Z: -1234.5"
+text #FF28D448 (95, 210) "[-1.50]"
+text #FF28D448 (95, 225) "[-1.50]"
+text #FF28D448 (95, 240) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (21.733021077283354, 304.5) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -121.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (65.19906323185009, 304.5) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (78.68852459016392, 304.5) size (14.0, 32.0) uv (97.0, 192.0) uv size (30.0, 64.0) rotation -180.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (120.65573770491801, 304.5) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (114.66042154566742, 298.5) size (16.0, 16.0) uv (64.0, 192.0) uv size (32.0, 32.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+text #FF28D448 (364, 255) "NIGHT VISION"
+-- frame damaged_gunner #2 (colour at start #FF28D448)
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (549.320843091335, 225.0) size (46.0, 46.0) uv (128.0, 71.77777777777777) uv size (128.0, 128.0) rotation 30.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (535.8313817330211, 211.5) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 30.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (535.8313817330211, 211.5) size (64.0, 64.0) uv (0.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+text #CFFFFFFF (215, 195) "x2.5"
+prepare texture
+texture mcheli:textures/gui/hud.png (379.95316159250586, 52.5) size (16.0, 16.0) uv (0.0, 0.0) uv size (32.0, 32.0) rotation 0.0 of 256x256
+text #FFDF0408 (403, 60) "R key"
+centered text #FFDF0408 (320, 240) "[   3 ]"
+text #FF28D448 (12, 210) "X: -1234.5"
+text #FF28D448 (12, 225) "Y: -60.0"
+text #FF28D448 (12, 240) "Z: -1234.5"
+text #FF28D448 (95, 210) "[-1.50]"
+text #FF28D448 (95, 225) "[-1.50]"
+text #FF28D448 (95, 240) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (9.74238875878217, 304.5) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (21.733021077283354, 304.5) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -121.5 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (65.19906323185009, 304.5) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (78.68852459016392, 304.5) size (14.0, 32.0) uv (97.0, 192.0) uv size (30.0, 64.0) rotation -180.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (120.65573770491801, 304.5) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (114.66042154566742, 298.5) size (16.0, 16.0) uv (64.0, 192.0) uv size (32.0, 32.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (535.8313817330211, 322.5) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (544, 325) " 31"
+text #FF28D448 (583, 325) "/ 100"
+rect #FF28D448 (556.8290398126464, 346.5) (538.8290398126464, 340.5)
+text #FF28D448 (364, 255) "NIGHT VISION"
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (473.0, 210.0) size (46.0, 46.0) uv (128.0, 17.333333333333336) uv size (128.0, 128.0) rotation 170.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 170.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (0.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+text #FFDF0408 (420, 275) "[ --.-- ]"
+text #CFFFFFFF (250, 190) "x1.0"
+centered text #FF28D448 (320, 220) "[  57 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (159.0, 263.0) size (14.0, 32.0) uv (97.0, 192.0) uv size (30.0, 64.0) rotation -180.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (183.0, 259.0) size (16.0, 16.0) uv (64.0, 192.0) uv size (32.0, 32.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+text #FF28D448 (230, 100) "FREE LOOK"
+text #FF28D448 (350, 230) "THERMAL VISION"
+text #FF28D448 (370, 180) "Auto Pilot"
+-- frame uav_no_weapon #2 (colour at start #FF28D448)
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (473.0, 210.0) size (46.0, 46.0) uv (128.0, 17.333333333333336) uv size (128.0, 128.0) rotation 170.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (256.0, 0.0) uv size (128.0, 128.0) rotation 170.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (464.0, 201.0) size (64.0, 64.0) uv (0.0, 0.0) uv size (128.0, 128.0) rotation 0.0 of 512x256
+text #FFDF0408 (420, 275) "[ --.-- ]"
+text #CFFFFFFF (250, 190) "x1.0"
+centered text #FF28D448 (320, 220) "[  57 ]"
+text #FF28D448 (115, 200) "X: -1234.5"
+text #FF28D448 (115, 210) "Y: -60.0"
+text #FF28D448 (115, 220) "Z: -1234.5"
+text #FF28D448 (170, 200) "[-1.50]"
+text #FF28D448 (170, 210) "[-1.50]"
+text #FF28D448 (170, 220) "[-1.50]"
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (113.0, 263.0) size (32.0, 32.0) uv (64.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (121.0, 263.0) size (16.0, 32.0) uv (96.0, 192.0) uv size (32.0, 64.0) rotation -135.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (150.0, 263.0) size (32.0, 32.0) uv (0.0, 192.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (159.0, 263.0) size (14.0, 32.0) uv (97.0, 192.0) uv size (30.0, 64.0) rotation -180.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (187.0, 263.0) size (32.0, 32.0) uv (0.0, 128.0) uv size (64.0, 64.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/civilian_aircraft.png (183.0, 259.0) size (16.0, 16.0) uv (64.0, 192.0) uv size (32.0, 32.0) rotation 0.0 of 512x256
+prepare texture
+texture mcheli:textures/gui/hud.png (464.0, 275.0) size (64.0, 20.0) uv (128.0, 64.0) uv size (128.0, 20.0) rotation 0.0 of 256x256
+text #FF28D448 (470, 277) "100"
+text #FF28D448 (496, 277) "/ 100"
+rect #FF28D448 (526.0, 293.0) (466.0, 287.0)
+text #FF28D448 (230, 100) "FREE LOOK"
+text #FF28D448 (350, 230) "THERMAL VISION"
+text #FF28D448 (370, 180) "Auto Pilot"

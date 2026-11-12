@@ -1,0 +1,2 @@
+# The community pack fixtures keep their bytes as written: CRLF line ends, BOMs and tabs are what they test.
+neoforge/src/test/resources/content/community/** -text

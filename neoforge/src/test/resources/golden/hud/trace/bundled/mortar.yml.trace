@@ -1,0 +1,9 @@
+# {"schema":1,"hud":"bundled/mortar.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+-- frame cruise #2 (colour at start #FF000000)
+-- frame damaged_gunner #1 (colour at start #FF000000)
+-- frame damaged_gunner #2 (colour at start #FF000000)
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+text #FF000000 (350, 210) "DIST = ----"
+-- frame uav_no_weapon #2 (colour at start #FF000000)
+text #FF000000 (350, 210) "DIST = ----"

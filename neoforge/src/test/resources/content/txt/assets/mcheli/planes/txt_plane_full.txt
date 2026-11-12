@@ -1,0 +1,26 @@
+// The plane keys, on top of a small aircraft.
+DisplayName = TXT Fixture Plane
+MaxHP = 120
+Speed = 2.5
+AddSeat = 0, 1, 2
+HUD = plane
+AddWeapon = m61a1, 0, 0, 4
+AddPartRotor = 0, 0, 5, 0, 0, 1
+AddPartRotor = 0, 0, 5, 0, 0, 1, 270
+AddBlade = 3, 120, 0, 0, 5, 0, 0, 1
+AddBlade = 3, 120, 0, 0, 5
+AddPartWing = 4, 0, 0, 0, 0, 1, 30
+AddPartPylon = 4, -0.5, 0, 0, 0, 1, 30
+AddPartPylon = 5, -0.5, 0, 0, 0, 1, 30
+AddPartWing = 4, 0, 0, 0, 0, 1
+AddPartNozzle = 0, 0, -6, 1, 0, 0
+AddPartNozzle = 0, 0, -6, 1, 0
+VariableSweepWing = true
+SweepWingSpeed = 9
+EnableVtol = true
+DefaultVtol = true
+VtolYaw = 0.5
+VtolPitch = 0
+EnableAutoPilot = true
+AddExhaustFlame = flame, flame_tex, 0, 0, -7, 0, 0, 1, 10, 3
+AddExhaustFlame = flame, flame_tex, 0, 0, -7

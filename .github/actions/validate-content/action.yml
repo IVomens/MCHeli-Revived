@@ -1,0 +1,43 @@
+name: Validate MCHeli content
+description: >-
+  Checks the YAML content files of an MCHeli: Revived addon pack (weapons, vehicles, throwables, HUDs) against
+  the JSON Schemas the mod publishes, and annotates every problem on the file and key it is about.
+author: IVomens
+
+inputs:
+  path:
+    description: >-
+      The folder to search for content files. Every assets/mcheli/<type folder>/**/*.yml below it is checked
+      against the schema of its type.
+    default: .
+  schemas:
+    description: >-
+      Where the schema files are: a URL ending in a slash, or a folder. Pin a release tag instead of main to
+      check against the version of the mod your pack targets.
+    default: https://raw.githubusercontent.com/IVomens/MCHeli-Revived/main/schemas/
+  check-jsonschema-version:
+    description: The version of check-jsonschema to install.
+    default: '0.39.0'
+  python-version:
+    description: The Python version to run check-jsonschema with.
+    default: '3.12'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install check-jsonschema
+      shell: bash
+      env:
+        VERSION: ${{ inputs.check-jsonschema-version }}
+      run: python -m pip install --disable-pip-version-check --quiet "check-jsonschema==${VERSION}"
+
+    - name: Check the content files
+      shell: bash
+      env:
+        CONTENT_PATH: ${{ inputs.path }}
+        SCHEMAS: ${{ inputs.schemas }}
+      run: python "${GITHUB_ACTION_PATH}/validate.py" "${CONTENT_PATH}" "${SCHEMAS}"

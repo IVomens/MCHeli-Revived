@@ -1,0 +1,38 @@
+# {"schema":1,"weapon":"sa-2","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "SA-2 Guidline"
+target: armor stand at 3072.0 140.0 3168.0
+mount: vehicle s-75 (GroundVehicleEntity), pilot seat, weapon #0
+ready after 21 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "SA-2 Guidline"
+t0 spawned #0 mcheli:aa_missile at 3072.0 104.02999997138977 3082.1400003433228 motion -4.2862639840480875E-16 0.0 3.5 yaw 0.0 pitch 0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 400 reload 0 name "SA-2 Guidline"
+t1 #0 3072.0 104.02999997138977 3085.6400003433228
+t2 #0 3072.0 104.02999997138977 3089.1400003433228
+t3 #0 3072.0 104.02999997138977 3092.6400003433228
+t4 #0 3072.0 104.02999997138977 3096.1400003433228
+t5 #0 3072.0 104.02999997138977 3099.6400003433228
+t6 #0 3072.0 104.02999997138977 3103.1400003433228
+t7 #0 3072.0 104.02999997138977 3106.6400003433228
+t8 #0 3072.0 104.02999997138977 3110.1400003433228
+t9 #0 3072.0 104.99085752286169 3113.50552448761
+t10 #0 3072.0 106.43260927118907 3116.6947801838805
+t11 #0 3072.0 108.11664659682451 3119.763007405888
+t12 #0 3072.0 109.92515127740826 3122.759557225315
+t13 #0 3072.0 111.79866940311003 3125.7158944578828
+t14 #0 3072.0 113.70656807333506 3128.6501614300846
+t15 #0 3072.0 115.63282131640314 3131.5724120085893
+t16 #0 3072.0 117.56895333267546 3134.488126812126
+t17 #0 3072.0 119.51044414377904 3137.400276092366
+t18 #0 3072.0 121.45486622463615 3140.3104690020327
+t19 #0 3072.0 123.40090701988046 3143.219579729256
+t20 #0 3072.0 125.34785188550302 3146.128085477957
+t21 #0 3072.0 127.29530879989785 3149.036248397495
+t22 #0 3072.0 129.2430609682031 3151.9442135779714
+t23 #0 3072.0 131.19098748953937 3154.85206196939
+t24 #0 3072.0 133.1390204632947 3157.7598390470152
+t25 #0 3072.0 135.08712177542318 3160.6675703409423
+t26 #0 3072.0 137.0352708058556 3163.5752696643294
+t27 #0 3072.0 138.98345937373267 3166.4829424973686
+t28 explosion by #0 at 3072.0 140.0 3168.0 size 9.0 block 9.0 damage 9.0 blockPower 9.0 radius 9.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t28 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 340 reload 0 name "SA-2 Guidline"

@@ -1,0 +1,34 @@
+# {"schema":1,"weapon":"9k121_ka50","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "9K121 Vikhr", "9K121 Vikhr [TA]"
+target: armor stand at 3072.0 101.0 3168.0
+mount: vehicle ka50n (HelicopterEntity), pilot seat, weapon #2
+ready after 21 ticks
+before shot: ammo 6 reserve 0 heat 0 cooldown 0 reload 0 name "9K121 Vikhr"
+t0 spawned #0 mcheli:at_missile at 3075.119999885559 101.69999998807907 3074.0 motion -0.06804776898006754 0.0 3.899406301110059 yaw 1.0 pitch -0.0
+after shot: ammo 5 reserve 0 heat 0 cooldown 80 reload 0 name "9K121 Vikhr"
+t1 #0 3075.051952116579 101.69999998807907 3077.89940630111
+t2 #0 3074.9839043475986 101.69999998807907 3081.79881260222
+t3 #0 3074.9158565786183 101.69999998807907 3085.69821890333
+t4 #0 3074.847808809638 101.69999998807907 3089.59762520444
+t5 #0 3074.779761040658 101.69999998807907 3093.4970315055502
+t6 #0 3074.7117132716776 101.69999998807907 3097.3964378066603
+t7 #0 3074.6436655026973 101.69999998807907 3101.2958441077703
+t8 #0 3074.575617733717 101.69999998807907 3105.1952504088804
+t9 #0 3074.4616869663946 101.67828372264266 3109.0935254356164
+t10 #0 3074.3233046843884 101.64499240860488 3112.9909273949265
+t11 #0 3074.171833373879 101.60550427037617 3116.887784735019
+t12 #0 3074.013319525336 101.56268175326461 3120.784326739393
+t13 #0 3073.8509940994627 101.51805454281336 3124.680691566793
+t14 #0 3073.686591556858 101.47244384993867 3128.5769579166054
+t15 #0 3073.5210478400645 101.42629282408573 3132.4731695844494
+t16 #0 3073.354870968619 101.37984200525753 3136.3693507364014
+t17 #0 3073.1883385273736 101.33322282690305 3140.2655146957622
+t18 #0 3073.021603326741 101.28650764341347 3144.1616688334348
+t19 #0 3072.8547501771477 101.23973661187614 3148.0578172516907
+t20 #0 3072.6878265312084 101.19293220077118 3151.9539622494453
+t21 #0 3072.520859078516 101.14610704744302 3155.8501051208964
+t22 #0 3072.353862698645 101.09926819727448 3159.746246587941
+t23 #0 3072.186845027734 101.05241926592828 3163.642387021144
+t24 explosion by #0 at 3072.0 101.0 3168.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming true destroyBlocks true setFire 0 damageFactor true inWater false
+t24 #0 removed: DISCARDED
+after 60 ticks: ammo 5 reserve 0 heat 0 cooldown 20 reload 0 name "9K121 Vikhr"

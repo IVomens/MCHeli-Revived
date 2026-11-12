@@ -1,0 +1,9 @@
+# Keys the parser does not know, at the top level and inside sections.
+DisplayName: Unknown Keys
+Type: rocket
+Colour: red
+Ballistics:
+  Acceleraton: 3.0
+Ammo:
+  MagSize: 4
+  Magazine: 8

@@ -1,0 +1,3 @@
+// A formula that cannot be read is reported when the HUD loads; the HUD stops if it reaches it.
+DrawRect = 0, 0, ((1, 1
+DrawString = 0, 0, "%d", no_such_arg

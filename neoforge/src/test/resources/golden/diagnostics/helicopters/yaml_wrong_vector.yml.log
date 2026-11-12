@@ -1,0 +1,7 @@
+# {"schema":1,"source":"assets/mcheli/helicopters/yaml_wrong_vector.yml","commit":"09ffef3"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_wrong_vector) loading start.
+ERROR Failed to load 'assets/mcheli/helicopters/yaml_wrong_vector.yml' from addon 'mcheli' at line 4, key 'Seats[1].Pos': expected a list [x, y, z] of three numbers but got 2 values
+DEBUG Parse error details for 'assets/mcheli/helicopters/yaml_wrong_vector.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected a list [x, y, z] of three numbers but got 2 values
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected a list [x, y, z] of three numbers but got 2 values

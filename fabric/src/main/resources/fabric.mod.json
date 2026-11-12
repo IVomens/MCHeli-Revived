@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}\n\n${mod_credits}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contributors": [
+    "Warfactory Team (McHeli CE)",
+    "Ragex (MCHeli-O-Extended)",
+    "EMB4 (the original MCHeli)"
+  ],
+  "contact": {
+    "sources": "https://github.com/IVomens/MCHeli-Revived",
+    "issues": "https://github.com/IVomens/MCHeli-Revived/issues"
+  },
+  "license": "${mod_license}",
+  "icon": "mcheli_logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.ivomens.mcheli.fabric.McheliFabric"
+    ],
+    "client": [
+      "com.ivomens.mcheli.fabric.client.McheliFabricClient"
+    ],
+    "server": [
+      "com.ivomens.mcheli.fabric.McheliFabricServer"
+    ]
+  },
+  "mixins": [
+    "mcheli.mixins.json",
+    "mcheli.fabric.mixins.json"
+  ],
+  "accessWidener": "mcheli.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "fabric-api": ">=${fabric_api}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=21"
+  },
+  "suggests": {
+    "team_reborn_energy": "*",
+    "flywheel": ">=1.0.7"
+  },
+  "breaks": {
+    "flywheel": "<1.0.0"
+  }
+}

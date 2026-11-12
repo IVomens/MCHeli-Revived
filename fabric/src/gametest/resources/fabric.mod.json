@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "mcheli_gametest",
+  "version": "1.0.0",
+  "name": "MCHeli: Revived game tests",
+  "description": "The game tests and client scenes of MCHeli: Revived, for development runs only.",
+  "license": "LGPL-3.0-only",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.ivomens.mcheli.gametest.fabric.FabricGameTests"
+    ],
+    "server": [
+      "com.ivomens.mcheli.gametest.fabric.FabricGameTests"
+    ],
+    "client": [
+      "com.ivomens.mcheli.gametest.fabric.client.FabricClientScenes"
+    ]
+  },
+  "mixins": [
+    "mcheli_gametest.mixins.json"
+  ],
+  "depends": {
+    "mcheli": "*",
+    "fabric-gametest-api-v1": "*"
+  }
+}

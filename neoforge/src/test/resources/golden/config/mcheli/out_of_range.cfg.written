@@ -1,0 +1,341 @@
+# {"schema":1,"sample":"config/mcheli/out_of_range.cfg","commit":"01f990b"}
+log: WARN mcheli.cfg line 3: HudScale = 9.5 is above the maximum, 2.00; using 2.00
+log: WARN mcheli.cfg line 4: PitchLimitMax = 200 is above the maximum, 80; using 80
+log: WARN mcheli.cfg line 5: PitchLimitMin = 50 is above the maximum, 0; using 0
+log: WARN mcheli.cfg line 6: RollLimit = -5 is below the minimum, 0; using 0
+log: WARN mcheli.cfg line 7: VehicleSoundRange = 1 is below the minimum, 16.00; using 16.00
+log: WARN mcheli.cfg line 8: LiveryMaxKilobytes = 1 is below the minimum, 64; using 64
+log: WARN mcheli.cfg line 9: DespawnCount = 0 is below the minimum, 1; using 1
+log: WARN mcheli.cfg line 10: AllHeliSpeed = -3 is below the minimum, 0.00; using 0.00
+log: WARN mcheli.cfg line 11: MobRenderDistanceWeight = 0 is below the minimum, 0.10; using 0.10
+log: WARN mcheli.cfg line 17: EnableCommand = yes is not true or false; keeping true
+log: INFO [time][mcheli][Server] loaded <config dir>/mcheli.cfg
+log: INFO [time][mcheli][Server] update <config dir>/mcheli.cfg
+-- written file --
+[General]
+MOD_Name = mcheli
+MOD_Version = <mod version>
+MOD_MC_Version = 1.21.1
+
+TestMode = false
+__TextureAlphaDebug = 1.00
+EnableCommand = true
+;ClientBenchmark = true allows /mcheli benchmark client in single player worlds (it spawns and removes vehicles around you). false = the command refuses to run.
+ClientBenchmark = true
+ExtractDefaultContentPack = false
+
+PlaceableOnSpongeOnly = false
+ItemDamage = true
+ItemFuel = true
+AutoRepairHP = 0.50
+Explosion_DestroyBlock = true
+Explosion_FlamingBlock = true
+BulletBreakableBlocks = glass_pane, stained_glass_pane, tallgrass, double_plant, yellow_flower, red_flower, vine, wheat, reeds, waterlily
+Collision_DestroyBlock = true
+Collision_Car_BreakableBlock = double_plant, glass_pane,stained_glass_pane
+Collision_Car_BreakableMaterial = cactus, cake, gourd, leaves, vine, plants
+Collision_Tank_BreakableBlock = nether_brick_fence
+Collision_Tank_BreakableMaterial = cactus, cake, carpet, circuits, glass, gourd, leaves, vine, wood, plants
+Collision_EntityDamage = true
+Collision_EntityTankDamage = false
+InfinityAmmo = false
+InfinityFuel = false
+;EnergySystem = FE | GT | HBM (external energy used by electric aircraft & the charger)
+EnergySystem = FE
+;EnergyRatioFEperEU = internal energy units gained per 1 GregTech EU (default 4)
+EnergyRatioFEperEU = 4.00
+;EnergyRatioFEperHE = internal energy units gained per 1 HBM HE (default 1)
+EnergyRatioFEperHE = 1.00
+ChargerRange = 6.00
+ChargerTransferRate = 256
+ChargerCapacity = 100000
+DismountAll = false
+MountMinecartHeli = true
+MountMinecartPlane = true
+MountMinecartVehicle = false
+MountMinecartTank = true
+PreventingBroken = false
+DropItemInCreativeMode = false
+BreakableOnlyPickaxe = false
+AllHeliSpeed = 0.00
+AllPlaneSpeed = 1.50
+AllShipSpeed = 1.00
+AllTankSpeed = 1.00
+HurtResistantTime = 0.00
+StingerLockRange = 320.00
+RangeFinderSpotDist = 400
+RangeFinderSpotTime = 15
+RangeFinderConsume = true
+EnablePutRackInFlying = true
+EnableDebugBoundingBox = true
+DespawnCount = 1
+HitBoxDelayTick = 0
+EnableRotationLimit = false
+PitchLimitMax = 80
+PitchLimitMin = 0
+RollLimit = 0
+RangeOfGunner_VsMonster_Horizontal = 80
+RangeOfGunner_VsMonster_Vertical = 160
+RangeOfGunner_VsPlayer_Horizontal = 200
+RangeOfGunner_VsPlayer_Vertical = 300
+FixVehicleAtPlacedPoint = true
+KillPassengersWhenDestroyed = false
+
+;InvertMouse = invert the up/down axis of the virtual stick in stick control mode.
+InvertMouse = false
+MouseSensitivity = 10.00
+MouseControlStickModeHeli = false
+MouseControlStickModePlane = false
+;MouseControlFlightSimMode = true ( Yaw:key, Roll=mouse )
+MouseControlFlightSimMode = false
+AutoThrottleDownHeli = true
+AutoThrottleDownPlane = false
+AutoThrottleDownTank = false
+SwitchWeaponWithMouseWheel = true
+LWeaponAutoFire = false
+;DisableItemRender = 0 ~ 3 (1 = Recommended)
+DisableItemRender = 1
+HideKeybind = false
+RenderDistanceWeight = 10.00
+MobRenderDistanceWeight = 0.10
+CreativeTabIconItem = fuel
+CreativeTabIconHeli = ah-64
+CreativeTabIconPlane = f22a
+CreativeTabIconShip = project1204
+CreativeTabIconTank = merkava_mk4
+CreativeTabIconVehicle = mk15
+DisableShader = false
+DefaultExplosionParticle = false
+AliveTimeOfCartridge = 200
+;HitMarkColor = Alpha, Red, Green, Blue
+HitMarkColor = 300, -1, 128, 64
+SmoothShading = true
+EnableModEntityRender = true
+DisableRenderLivingSpecials = true
+DisplayHUDThirdPerson = false
+;ExperimentalAutoScaleAircraftGui = true maps hardcoded aircraft HUD coordinates from the default 427x240 canvas to the current GUI resolution.
+ExperimentalAutoScaleAircraftGui = false
+ExperimentalQuaternionRotation = true
+;FixedStepAttitude = true turns the aircraft in fixed 1/60 s steps, so handling does not depend on the frame rate. false = the old per-frame turning.
+FixedStepAttitude = true
+;ServerTerrainFollow = true lets the server settle tanks nobody drives onto the slope below them. false (default) = they keep the attitude they were left at.
+ServerTerrainFollow = false
+;Experimental: remove client tracking restrictions - keeps MCHeli entities (e.g. UAVs) tracked, loaded and rendered far beyond the normal view distance by enabling the long-distance ASM patches. Read at startup by the coremod; CHANGING THIS REQUIRES A GAME RESTART.
+ExperimentalRemoveClientTrackingRestrictions = true
+;Experimental: parse vehicle models + upload their VBOs on demand (when first rendered) on a background thread, instead of parsing/uploading every model at startup. Rendering is skipped for a model until its buffer is ready (no main-thread stall). Models unused for ExperimentalOnDemandModelLifetimeSeconds are deleted to reclaim VRAM and reloaded on demand.
+ExperimentalAsyncOnDemandModelLoading = true
+;Seconds an on-demand model stays resident after it was last rendered before its VBO is deleted; -1 disables eviction (load once, keep). Only used when ExperimentalAsyncOnDemandModelLoading = true.
+ExperimentalOnDemandModelLifetimeSeconds = 720
+;Worker threads for on-demand model parsing. On a JDK with virtual threads (21+) this is ignored and one virtual thread is used per load. On Java 8 it sizes the fallback fixed thread pool; 0 = auto (CPU cores - 1, min 2).
+ExperimentalOnDemandModelLoaderThreads = 0
+DisableThirdPersonCameraDistChange = false
+EnableReplaceTextureManager = true
+DisplayEntityMarker = true
+EntityMarkerSize = 10.00
+BlockMarkerSize = 10.00
+ReplaceRenderViewEntity = true
+;MaxPairedUavPerStation = maximum number of UAVs that can be paired to a single UAV station
+MaxPairedUavPerStation = 5
+;UavTabletControlNormalUav = true lets the handheld UAV tablet bind and control full-size UAVs; false (default) restricts the tablet to small UAVs only.
+UavTabletControlNormalUav = false
+;ProjectileChunkLoad = force-load chunks along the flight path of EVERY projectile so bullets/rockets/missiles keep simulating and can hit targets in terrain no player is loading. false (default) = only weapons whose definition sets CanLoadChunks force chunks. Chunks are leased (see ProjectileChunkLeaseTicks) and shared between projectiles. Can increase server load when many projectiles are in flight.
+ProjectileChunkLoad = false
+;ProjectileChunkLeaseTicks = extra ticks a chunk stays force-loaded after the last projectile left it, bridging the gap between consecutive shots in a burst so the same chunks are not unloaded and reloaded repeatedly (20 ticks = 1 second).
+ProjectileChunkLeaseTicks = 40
+;FrozenProjectileLifetime = seconds of game time a projectile (bullet, rocket, missile, bomb, torpedo) may wait in a chunk that is loaded but ticks no entities (no player near) before it is removed without exploding. Shorter waits are unaffected: the projectile flies on when the chunk ticks again. 0 = never remove them. Laid mines are never removed. Projectiles other than mines are not saved with the world either.
+FrozenProjectileLifetime = 30
+;CollisionDamage = true lets vehicles take damage when they crash into blocks or other vehicles at speed; false disables collision damage completely.
+CollisionDamage = true
+;CollisionDamageFactor = multiplier applied to collision damage (1.0 = default, 0.5 = half, 2.0 = double). Only used when CollisionDamage = true.
+CollisionDamageFactor = 1.00
+;VehicleSoundRange = distance in blocks at which engine, rotor and turbine sounds and heavy weapon sounds can be heard (default 256).
+VehicleSoundRange = 16.00
+;HudStyle = modern or legacy. Client side. 'legacy' draws the scripted HUD files from content packs exactly as before.
+HudStyle = modern
+;HudColor = colour of the modern HUD as RRGGBB hex (default 7FFFD4, hologram green).
+HudColor = 7FFFD4
+;HudScale = size of the modern HUD, 0.5 to 2.0.
+HudScale = 2.00
+;ParticleStyle = modern or legacy. Client side. 'legacy' uses the original pixel smoke and vanilla particles.
+ParticleStyle = modern
+;InvertMousePitch = true flips the mouse up/down axis while flying, so moving the mouse down raises the nose (flight-sim style).
+InvertMousePitch = false
+;EnableLiveries = allow players to upload their own vehicle textures and apply them. Server side.
+EnableLiveries = true
+;LiveryUploadOperatorsOnly = only operators may upload liveries; everyone can still apply them.
+LiveryUploadOperatorsOnly = false
+;LiveryMaxKilobytes = largest accepted livery image in KB.
+LiveryMaxKilobytes = 64
+;LiveryMaxDimension = largest accepted livery width or height in pixels.
+LiveryMaxDimension = 2048
+;LiveriesPerPlayer = how many liveries one player may have uploaded at a time.
+LiveriesPerPlayer = 10
+;LiveryStorageMegabytes = total disk space all liveries on the server may use.
+LiveryStorageMegabytes = 256
+;EnableUavChunkLoading = true keeps the chunks around a UAV that is being remotely controlled loaded, so it keeps flying when it leaves the operator's view distance. false (default) = no chunk loading.
+EnableUavChunkLoading = false
+;UavChunkLoadRadius = radius in chunks loaded around a controlled UAV (0 = only the UAV's chunk, max 8). Only used when EnableUavChunkLoading = true.
+UavChunkLoadRadius = 2
+;RadarUpdateInterval = server ticks between radar contact updates sent to players (20 ticks = 1 second). Higher values reduce server load and network traffic.
+RadarUpdateInterval = 5
+;EntityTrackingRangeMultiplier = multiplier for the distance at which MCHeli vehicles and projectiles are sent to clients (always capped by the server view distance).
+EntityTrackingRangeMultiplier = 1.00
+;VehicleRenderer = immediate, auto or flywheel. Client side. 'immediate' always uses the built-in renderer; 'auto' instances vehicle models with Flywheel when it is installed and runs its indirect backend (OpenGL 4.6), and keeps the built-in renderer on its instancing backend (macOS, older drivers), where it was far slower; 'flywheel' uses Flywheel on any backend, for testing (experimental).
+VehicleRenderer = immediate
+;VehicleLocking = true lets the player who placed a vehicle lock it (/mcheli lock, or sneak + use with an empty hand). A locked vehicle can only be flown by its owner, their team (LockAllowsTeam) and operators, and only they may pick it up. false = vehicles are never locked.
+VehicleLocking = true
+;LockAllowsTeam = true lets players on the owner's scoreboard team board a locked vehicle.
+LockAllowsTeam = true
+;LockPassengerSeats = true locks the passenger and gunner seats as well; false (default) only locks the pilot seat.
+LockPassengerSeats = false
+;MaxVehiclesPerPlayer = most vehicles one player may own in loaded chunks (0 = unlimited)
+MaxVehiclesPerPlayer = 0
+;MaxVehiclesPerChunk = most vehicles in one chunk (0 = unlimited)
+MaxVehiclesPerChunk = 0
+;MaxVehiclesPerLevel = most loaded vehicles in one dimension (0 = unlimited)
+MaxVehiclesPerLevel = 0
+;MaxHelicoptersPerLevel = most loaded helicopters in one dimension (0 = unlimited)
+MaxHelicoptersPerLevel = 0
+;MaxPlanesPerLevel = most loaded planes in one dimension (0 = unlimited)
+MaxPlanesPerLevel = 0
+;MaxShipsPerLevel = most loaded ships in one dimension (0 = unlimited)
+MaxShipsPerLevel = 0
+;MaxTanksPerLevel = most loaded tanks in one dimension (0 = unlimited)
+MaxTanksPerLevel = 0
+;MaxGroundVehiclesPerLevel = most loaded vehicles of the 'vehicles' kind (cars, guns) in one dimension (0 = unlimited)
+MaxGroundVehiclesPerLevel = 0
+;OpsBypassLimits = true lets operators (see AdminCommandPermission) place vehicles beyond the limits above.
+OpsBypassLimits = true
+;RemoveDropsItem = true makes /mcheli vehicles remove drop the vehicle's item and cargo; false (default) removes vehicles without a trace.
+RemoveDropsItem = false
+;AdminCommandPermission = operator level needed for /mcheli perf, /mcheli vehicles, unlocking other players' vehicles and bypassing the limits (0-4, default 2). On NeoForge a permission mod can grant the node mcheli.admin instead.
+AdminCommandPermission = 2
+
+
+DamageVsEntity = 1.0
+DamageVsLiving = 1.0
+DamageVsPlayer = 1.0
+DamageVsMCHeliAircraft = 1.0
+DamageVsMCHeliTank = 1.0
+DamageVsMCHeliVehicle = 1.0
+DamageVsMCHeliOther = 1.0
+DamageMCHeliAircraftByExternal = 1.0
+DamageMCHeliTankByExternal = 1.0
+DamageMCHeliVehicleByExternal = 1.0
+DamageMCHeliOtherByExternal = 1.0
+DamageVsEntity = 3.0, flansmod
+DamageMCHeliAircraftByExternal = 0.5, flansmod
+DamageMCHeliVehicleByExternal = 0.5, flansmod
+
+IgnoreBulletHit = flansmod.common.guns.EntityBullet
+IgnoreBulletHit = flansmod.common.guns.EntityGrenade
+
+;CommandPermission = commandName(eg, modlist, status, fill...):playerName1, playerName2, playerName3...
+;CommandPermission = modlist :example1, example2
+;CommandPermission = status :  example2
+
+
+[Key config]
+https://minecraft.gamepedia.com/Key_codes
+
+KeyUp = 17
+KeyDown = 31
+KeyRight = 32
+KeyLeft = 30
+KeySwitchGunner = 35
+KeySwitchHovering = 57
+KeySwitchWeapon1 = -98
+KeySwitchWeapon2 = 34
+KeySwitchWeaponMode = 45
+KeyReloadWeapon = 19
+KeyZoom = 44
+KeyCameraMode = 46
+KeyUnmountMob = 21
+KeyFlare = 47
+KeyChaff = 47
+KeyAPS = 47
+KeyECMJammer = 47
+KeyAirburstDistReset = -99
+KeyRadarSwitch = 41
+KeyOpenGPSPanel = 37
+KeyExtra = 33
+KeyCameraDistanceUp = 201
+KeyCameraDistanceDown = 209
+KeyFreeLook = 29
+KeyGUI = 23
+KeyGearUpDown = 48
+KeyPutToRack = 36
+KeyDownFromRack = 22
+KeyScoreboard = 38
+KeyMultiplayManager = 50
+
+
+[Handling]
+;HandlingAssistedHeli = true: helicopters level pitch and roll by themselves while the stick is centred, and hold their altitude once the throttle keys are let go. false = as always.
+HandlingAssistedHeli = false
+;HandlingAutoRudderPlane = true: planes in the air yaw towards their bank (coordinated turns).
+HandlingAutoRudderPlane = false
+;HandlingAutoRudderGain = rudder at a 90 degree bank, as a share of full stick, 0 to 2.
+HandlingAutoRudderGain = 0.50
+;HandlingStickSmoothingHeli = seconds the helicopter stick takes to follow the mouse (time constant, 0 to 0.5). 0 = off.
+HandlingStickSmoothingHeli = 0.00
+;HandlingStickSmoothingPlane = the same for planes. 0 = off.
+HandlingStickSmoothingPlane = 0.00
+;HandlingStickCentringHeli = how fast the helicopter mouse stick returns to the centre when the mouse rests, per second (0 to 10). 0 = off.
+HandlingStickCentringHeli = 0.00
+;HandlingStickCentringPlane = the same for planes. 0 = off.
+HandlingStickCentringPlane = 0.00
+;HandlingKeyPitchRate, HandlingKeyRollRate, HandlingKeyYawRate = turn rate of the stick keys below, degrees per second at full ramp (limited by the vehicle's own rates).
+HandlingKeyPitchRate = 30.00
+HandlingKeyRollRate = 40.00
+HandlingKeyYawRate = 20.00
+;HandlingKeyRampTime = seconds a stick key takes to reach its full rate (0 to 2).
+HandlingKeyRampTime = 0.30
+;KeyStickPitchUp ... KeyStickYawRight = keys that move the stick like the mouse does. 0 = unbound (default).
+KeyStickPitchUp = 0
+KeyStickPitchDown = 0
+KeyStickRollLeft = 0
+KeyStickRollRight = 0
+KeyStickYawLeft = 0
+KeyStickYawRight = 0
+
+
+[Joystick]
+;JoystickEnabled = true reads a joystick or gamepad for flying. While it is connected it drives the axes it is bound to instead of the mouse. false (default) = no joystick is read.
+JoystickEnabled = false
+;JoystickDevice = empty for the first connected device, otherwise part of its name or its GUID.
+JoystickDevice = 
+;JoystickUseGamepadMapping = true reads known gamepads in the standard layout (axes: left x 0, left y 1, right x 2, right y 3, triggers 4 and 5).
+JoystickUseGamepadMapping = true
+;Joystick<Pitch|Roll|Yaw|Throttle>Axis = the axis number, -1 for none; Joystick<...>Invert = true flips it.
+JoystickPitchAxis = 1
+JoystickPitchInvert = false
+JoystickRollAxis = 0
+JoystickRollInvert = false
+JoystickYawAxis = 2
+JoystickYawInvert = false
+JoystickThrottleAxis = 3
+JoystickThrottleInvert = false
+;JoystickThrottleMode = incremental (a centring stick moves the throttle up and down) or absolute (a throttle lever; forward is full).
+JoystickThrottleMode = incremental
+;JoystickThrottleRate = throttle per second at full incremental deflection.
+JoystickThrottleRate = 0.50
+;JoystickDeadZone, JoystickExpo, JoystickSensitivity = the response of the stick axes: dead zone 0 to 0.9, expo 0 (linear) to 1 (cubic), sensitivity 0.1 to 3.
+JoystickDeadZone = 0.10
+JoystickExpo = 0.30
+JoystickSensitivity = 1.00
+;JoystickButton<Action> = the button that does what the action's key does, -1 for none. The defaults suit a gamepad.
+JoystickButtonFire = 5
+JoystickButtonNextWeapon = 3
+JoystickButtonWeaponMode = 14
+JoystickButtonReload = 11
+JoystickButtonFlare = 1
+JoystickButtonChaff = 12
+JoystickButtonGear = 2
+JoystickButtonCameraMode = 13
+JoystickButtonZoom = 10
+JoystickButtonFreeLook = 9
+JoystickButtonHover = 0
+JoystickButtonExtra = 4
+JoystickButtonThrottleUp = -1
+JoystickButtonThrottleDown = -1

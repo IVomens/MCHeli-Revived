@@ -1,0 +1,21 @@
+# {"schema":1,"weapon":"dispenser_water2","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "Water Dispenser 2"
+mount: soldier at the origin holding the weapon set (no bundled vehicle carries it)
+ready after 1 ticks
+before shot: ammo 200 reserve 0 heat 0 cooldown 0 reload 0 name "Water Dispenser 2"
+t0 spawned #0 mcheli:dispensed_item at 3072.0 102.62000000476837 3072.75 motion 0.0 0.0 1.5 yaw 0.0 pitch 0.0
+after shot: ammo 199 reserve 0 heat 0 cooldown 4 reload 0 name "Water Dispenser 2"
+t1 #0 3072.0 102.6000000052154 3074.25
+t2 #0 3072.0 102.56000000610948 3075.75
+t3 #0 3072.0 102.50000000745058 3077.25
+t4 #0 3072.0 102.42000000923872 3078.75
+t5 #0 3072.0 102.3200000114739 3080.25
+t6 #0 3072.0 102.2000000141561 3081.75
+t7 #0 3072.0 102.06000001728535 3083.25
+t8 #0 3072.0 101.90000002086163 3084.75
+t9 #0 3072.0 101.72000002488494 3086.25
+t10 #0 3072.0 101.52000002935529 3087.75
+t11 #0 3072.0 101.30000003427267 3089.25
+t12 #0 3072.0 101.06000003963709 3090.75
+t13 #0 removed: DISCARDED
+after 60 ticks: ammo 199 reserve 0 heat 0 cooldown 0 reload 0 name "Water Dispenser 2"

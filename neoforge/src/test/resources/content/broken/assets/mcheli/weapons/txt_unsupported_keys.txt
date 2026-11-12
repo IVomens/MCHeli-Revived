@@ -1,0 +1,5 @@
+DisplayName = Unsupported
+Type = rocket
+BallisticMissile = true
+EnableHMS = true
+NoSuchKey = 1

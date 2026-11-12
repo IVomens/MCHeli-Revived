@@ -1,0 +1,38 @@
+# {"schema":1,"source":"assets/mcheli/hud/yaml_empty_if.yml","commit":"671aa2e"}
+result: loaded as Hud
+DEBUG content file(mcheli:mcheli|yaml_empty_if) loading start.
+WARN assets/mcheli/hud/yaml_empty_if.yml:1 [1]: the If block has no commands
+
+loaded values:
+@class = com.ivomens.mcheli.hud.Hud
+author = ""
+broken = false
+exit = false
+fileName = "assets/mcheli/hud/yaml_empty_if.yml"
+filePath = "assets/mcheli/hud/yaml_empty_if.yml"
+ignoreAutoScale = false
+isDrawing = false
+isIfFalse = false
+isWaitEndif = false
+list.size = 2
+list[0].@class = com.ivomens.mcheli.hud.HudItemConditional
+list[0].condition.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].condition.compiled = null
+list[0].condition.source = "altitude>10"
+list[0].fileLine = 0
+list[0].isEndif = false
+list[0].parent = <cycle Hud>
+list[1].@class = com.ivomens.mcheli.hud.HudItemConditional
+list[1].condition.@class = com.ivomens.mcheli.hud.HudExpression
+list[1].condition.compiled = null
+list[1].condition.source = "0"
+list[1].fileLine = 0
+list[1].isEndif = true
+list[1].parent = <cycle Hud>
+location.@class = com.ivomens.mcheli.content.pack.AddonResourceLocation
+location.addonDomain = "mcheli"
+location.isEmpty = false
+location.namespace = "mcheli"
+location.path = "yaml_empty_if"
+name = "yaml_empty_if"
+parserIdentifier = "yml"

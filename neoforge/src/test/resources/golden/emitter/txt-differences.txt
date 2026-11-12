@@ -1,0 +1,48 @@
+# {"schema":1,"what":"dump lines changed by parse -> YamlEmitter -> parse","commit":"671aa2e"}
+assets/mcheli/hud/txt_hud_full.txt
+  list[10].condition.source: "" -> "0"
+  list[26].condition.source: "" -> "0"
+assets/mcheli/helicopters/txt_heli_full.txt
+  bbZ: -2.0 -> -0.25
+  bbZmax: -1.5 -> 2.0
+  landingGear[0].rot2: (0.0, 0.0, 0.0) -> null
+  landingGear[2].rot2: (0.0, 0.0, 0.0) -> null
+  landingGear[3].rot2: (0.0, 0.0, 0.0) -> null
+  landingGear[4].rot2: (0.0, 0.0, 0.0) -> null
+  landingGear[5].rot2: (0.0, 0.0, 0.0) -> null
+  lastWeaponPart: <absent> -> null
+  lastWeaponPart.@class: com.ivomens.mcheli.aircraft.AircraftInfo$PartWeapon -> <absent>
+  lastWeaponPart.child.size: 0 -> <absent>
+  lastWeaponPart.hideGM: true -> <absent>
+  lastWeaponPart.isMissile: true -> <absent>
+  lastWeaponPart.modelName: "weapon5" -> <absent>
+  lastWeaponPart.name.size: 1 -> <absent>
+  lastWeaponPart.name[0]: "agm114" -> <absent>
+  lastWeaponPart.pitch: false -> <absent>
+  lastWeaponPart.pos: (2.0, -1.0, 1.0) -> <absent>
+  lastWeaponPart.recoilBuf: 0.0 -> <absent>
+  lastWeaponPart.rot: (0.0, 0.0, 0.0) -> <absent>
+  lastWeaponPart.rotBarrel: false -> <absent>
+  lastWeaponPart.turret: false -> <absent>
+  lastWeaponPart.yaw: false -> <absent>
+  markerWidth: 2.0 -> 1.25
+  partCrawlerTrack[0].lp[1].r: 250.59949 -> 265.06708
+  partCrawlerTrack[0].lp[2].r: 205.59949 -> 220.0671
+  partCrawlerTrack[0].lp[2].y: 0.36986303 -> 0.08000004
+  partCrawlerTrack[0].lp[3].r: 151.81482 -> 168.58316
+  partCrawlerTrack[0].lp[3].y: 0.73972607 -> 0.62000006
+  partCrawlerTrack[0].lp[4].r: 106.81482 -> 123.58316
+  partCrawlerTrack[0].lp[4].x: 0.6086956 -> 0.8399999
+  partCrawlerTrack[0].lp[5].r: 58.812637 -> 70.67008
+  partCrawlerTrack[0].lp[5].x: 0.21739124 -> 0.2999999
+  partCrawlerTrack[0].lp[6].y: 0.58461535 -> 0.7599999
+  partCrawlerTrack[0].lp[7].y: 0.16923067 -> 0.21999985
+assets/mcheli/helicopters/txt_short_crawler_track.txt
+  <the emitted YAML did not parse>
+assets/mcheli/vehicles/txt_vehicle_full.txt
+  partList[0].child: null -> <absent>
+  partList[0].child.size: <absent> -> 0
+  partList[1].child[0].child: null -> <absent>
+  partList[1].child[0].child.size: <absent> -> 0
+  partList[1].child[1].child: null -> <absent>
+  partList[1].child[1].child.size: <absent> -> 0

@@ -1,0 +1,42 @@
+// Every HUD key. TXT If blocks cannot nest (a second If before Endif fails the file). Exit stops
+// this HUD for the frame; Call runs another HUD in place.
+Color = 0xFF00FF00
+Color = 255, 0, 128, 255
+Color = 1, 2
+DrawString = -50, -40, "ALT %4d", altitude
+DrawString = -50, -30, "THR %3.0f%%", throttle
+DrawString = -50, -20, no quotes, altitude
+DrawCenteredString = 0, -60, "%s", wpn_name
+DrawCenteredString = 0, -70, "%s / %s", wpn_ammo, wpn_rm_ammo
+DrawString = 0, -80, "%s", not_a_variable
+If = hp_rto < 0.5
+    Color = #FFFF0000
+    DrawRect = -20, 20, 40, 10
+Endif
+DrawRect = -20, 20, 40
+DrawLine = -10, 0, 10, 0
+DrawLine = -10, 0, 10, 0, 10, 10
+DrawLine = -10, 0, 10
+DrawLineStipple = 2, 0xAAAA, -10, 5, 10, 5
+DrawLineStipple = 2, 0xAAAA, -10, 5
+DrawTexture = sight, -16, -16, 32, 32, 0, 0, 256, 256
+DrawTexture = sight, -16, -16, 32, 32, 0, 0, 256, 256, yaw
+DrawTexture = sight, -16, -16, 32
+DrawEntityRadar = 0, -100, 60, 40, 40
+DrawEnemyRadar = 0, -100, 60, 40, 40
+DrawEnemyRadar = 0, -100, 60
+DrawGraduationYaw = yaw, 0, 0, -50
+DrawGraduationPitch1 = yaw, pitch, 0, 0
+DrawGraduationPitch2 = roll, pitch, 0, 0
+DrawGraduationPitch3 = roll, pitch, 0, 0
+DrawGraduationPitch3 = roll, pitch
+DrawCameraRot = 30, 40
+DrawCameraRot = 30
+Call = common_pilot
+Call = common_pilot, extra
+If = is_uav == 0
+    DrawRect = 0, 0, 1, 1
+Endif
+DrawRect = 1, 1, 1, 1
+Exit
+DrawRect = 2, 2, 2, 2

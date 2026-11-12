@@ -1,0 +1,6 @@
+Author: EMB4
+DisplayName: Smoke (Green)
+TimeFuse: 40
+Smoke:
+  Count: 6
+  Color: '#FF14C814'

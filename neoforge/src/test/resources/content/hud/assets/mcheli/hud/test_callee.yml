@@ -1,0 +1,17 @@
+# Called from test_gates. It is drawn at the design size even when the player auto-scales the HUD,
+# and its Exit only ends this HUD, not the caller.
+- IgnoreAutoScale: true
+- DrawLine:
+    Position:
+    - ['-5', '5']
+    - ['5', '5']
+- If: cam_mode == 1
+  Do:
+  - Exit: ''
+- DrawLine:
+    Position:
+    - ['-5', '6']
+    - ['5', '6']
+    Factor: '2'
+    Pattern: '0xAAAA'
+    Striped: true

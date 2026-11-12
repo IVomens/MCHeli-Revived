@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " B ",
+    "IDI",
+    "IRI"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:storage_blocks/iron"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "D": {
+      "tag": "c:gems/diamond"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "result": {
+    "id": "mcheli:gltd",
+    "count": 1
+  }
+}

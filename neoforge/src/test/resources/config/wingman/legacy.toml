@@ -1,0 +1,13 @@
+# The TOML file older versions wrote; read once when no .cfg exists.
+[uav]
+controllerRange = 1200
+maxDistance = 3000
+forceChunkload = true
+
+[tvmissile]
+chunkLoad = true
+maxRange = "750"
+
+[formation]
+formationSideDist = 25.0
+formationAltOffset = -10.0

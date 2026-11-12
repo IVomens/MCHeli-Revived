@@ -1,0 +1,6 @@
+// Gravity after Type = bomb is kept.
+DisplayName = Gravity After Bomb
+Type = Bomb
+Gravity = -0.2
+GravityInWater = -0.1
+Explosion = 4

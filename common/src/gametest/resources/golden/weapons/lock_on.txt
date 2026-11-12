@@ -1,0 +1,71 @@
+# {"schema":1,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"ace9644"}
+targets:
+  aircraft in the air: ah-64 at 0.0 40.43852976254982 40.0 onGround false inWater false
+  aircraft on the ground: ah-64 at 8.0 1.0 40.0 onGround true inWater false
+  ship in the water: cb90 at 0.0 0.4991765743749994 130.0 onGround false inWater true
+  stealthy plane in the air: penetrator at -8.0 40.43852976254982 40.0 onGround false inWater false
+  partly stealthy plane in the air: f22a at -24.0 40.34027246879981 40.0 onGround false inWater false
+  aircraft dropping flares: ah-1z at 12.0 40.43852976254982 40.0 onGround false inWater false
+  aircraft dropping chaff: ah-1z at -12.0 40.43852976254982 40.0 onGround false inWater false
+  pig on the ground: pig at 16.0 1.0 40.0 onGround false inWater false
+  pig in the air: pig at 16.0 41.0 40.0 onGround false inWater false
+aim9 (as loaded) (lock range 300.0, angle 10, air true, ground false, water false, min height 25)
+  can lock aircraft in the air: true
+  can lock aircraft on the ground: false
+  can lock ship in the water: false
+  can lock stealthy plane in the air: true
+  can lock partly stealthy plane in the air: true
+  can lock aircraft dropping flares: false
+  can lock aircraft dropping chaff: true
+  can lock pig on the ground: false
+  can lock pig in the air: true
+aim9 flagged as heat seeker (lock range 300.0, angle 10, air true, ground false, water false, min height 25)
+  can lock aircraft in the air: true
+  can lock aircraft on the ground: false
+  can lock ship in the water: false
+  can lock stealthy plane in the air: true
+  can lock partly stealthy plane in the air: true
+  can lock aircraft dropping flares: false
+  can lock aircraft dropping chaff: true
+  can lock pig on the ground: false
+  can lock pig in the air: true
+aim120 flagged as radar missile (lock range 300.0, angle 10, air true, ground false, water false, min height 25)
+  can lock aircraft in the air: true
+  can lock aircraft on the ground: false
+  can lock ship in the water: false
+  can lock stealthy plane in the air: true
+  can lock partly stealthy plane in the air: true
+  can lock aircraft dropping flares: true
+  can lock aircraft dropping chaff: true
+  can lock pig on the ground: false
+  can lock pig in the air: true
+9k114 (as loaded) (lock range 300.0, angle 10, air false, ground true, water true, min height 25)
+  can lock aircraft in the air: false
+  can lock aircraft on the ground: true
+  can lock ship in the water: true
+  can lock stealthy plane in the air: false
+  can lock partly stealthy plane in the air: false
+  can lock aircraft dropping flares: false
+  can lock aircraft dropping chaff: false
+  can lock pig on the ground: true
+  can lock pig in the air: false
+lock cone of 10.0 degrees around the aim at pig (yaw -21.801407, pitch -0.5984534); columns are yaw -24..24, rows pitch -24..24, step 4
+   -24 .............
+   -20 .............
+   -16 .............
+   -12 .............
+    -8 ....#####....
+    -4 ....#####....
+    +0 ....#####....
+    +4 ....#####....
+    +8 ....#####....
+   +12 .............
+   +16 .............
+   +20 .............
+   +24 .............
+lock count per tick, aim9 aimed at the aircraft in the air (max 10): 1 2 3 4 5 6 7 8 9 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10
+lock count per tick, aim9 aimed at the stealthy plane (max 10): 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0- 1 0-
+lock count per tick, aim9 aimed at the partly stealthy plane (max 13): 1 2 3 4 5 6 7 8 9 10 11 12 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13
+lock count per tick, aim9 looking away at tick 20 (max 10): 1 2 3 4 5 6 7 8 9 10 10 10 10 10 10 10 10 10 10 10 10 9 8 7 6 5 4 3 2 1 0 0- 0- 0- 0- 0- 0- 0- 0- 0-
+lock count per tick, aim9 aimed at the pig in the air (max 10): 1 2 3 4 5 6 7 8 9 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10
+lock count per tick, aim9 aimed at the aircraft dropping flares (max 10): 1? 2? 3? 4? 5? 6? 7? 8? 9? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10? 10?

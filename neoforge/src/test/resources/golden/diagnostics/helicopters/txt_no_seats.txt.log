@@ -1,0 +1,6 @@
+# {"schema":1,"source":"assets/mcheli/helicopters/txt_no_seats.txt","commit":"32abae6"}
+result: skipped
+DEBUG content file(mcheli:mcheli|txt_no_seats) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/helicopters/txt_no_seats.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+ERROR Failed to load 'assets/mcheli/helicopters/txt_no_seats.txt' from addon 'mcheli': At least one seat must be set.
+    caused by java.lang.Exception: At least one seat must be set.

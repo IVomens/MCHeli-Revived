@@ -1,0 +1,36 @@
+// Every throwable key. TXT gives TimeFuse, AliveTime and DelayFuse in seconds; they become ticks (x20)
+// when the file is validated, while YAML already stores ticks.
+DisplayName = TXT Fixture Grenade
+AddDisplayName = ja_JP, TXTグレネード
+AddDisplayName = only_one_value
+ItemID = 30000
+AddRecipe = "X", "Y", X, iron_ingot, Y, gunpowder
+AddShapelessRecipe = iron_ingot, gunpowder
+Power = 6
+Acceleration = 1.5
+AccelerationInWater = 0.4
+DispenseAcceleration = 2000
+Explosion = 80
+DelayFuse = 2
+Bound = 0.3
+TimeFuse = 4
+Flaming = true
+SoundVolume = 2
+SoundPitch = 1.5
+ProximityFuseDist = 30
+Accuracy = 2
+AliveTime = 30
+Bomblet = 3
+BombletDiff = 0.4
+SmokeSize = 6
+SmokeNum = 12
+SmokeVelocityVertical = 0.2
+SmokeVelocityHorizontal = 0.1
+Gravity = -0.06
+GravityInWater = -0.01
+DisableSmoke = false
+SmokeColor = 255, 128, 0
+SmokeColor = 1, 2
+StackSize = 99
+Particle = smoke
+HandFlare = true

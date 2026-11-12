@@ -1,0 +1,5 @@
+// A crawler track needs four points. With three, TxtParser stores a null track: the file still
+// loads, but converting it to YAML fails.
+DisplayName = TXT Short Crawler Track
+AddSeat = 0, 1, 0
+AddCrawlerTrack = true, 0.6, -1.2, 0/0, 1/0, 1/1

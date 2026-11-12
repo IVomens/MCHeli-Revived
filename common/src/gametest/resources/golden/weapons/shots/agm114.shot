@@ -1,0 +1,35 @@
+# {"schema":1,"weapon":"agm114","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "AGM-114 Hellfire", "AGM-114 Hellfire [TA]"
+target: armor stand at 3072.0 101.0 3168.0
+mount: vehicle ah-1z (HelicopterEntity), pilot seat, weapon #3
+ready after 41 ticks
+before shot: ammo 4 reserve 0 heat 0 cooldown 0 reload 0 name "AGM-114 Hellfire"
+t0 spawned #0 mcheli:at_missile at 3073.850000023842 102.38300001621246 3070.0900000333786 motion -0.06804776898006754 0.0 3.899406301110059 yaw 1.0 pitch -0.0
+after shot: ammo 3 reserve 0 heat 0 cooldown 100 reload 0 name "AGM-114 Hellfire"
+t1 #0 3073.7819522548616 102.38300001621246 3073.9894063344886
+t2 #0 3073.7139044858814 102.38300001621246 3077.8888126355987
+t3 #0 3073.645856716901 102.38300001621246 3081.7882189367087
+t4 #0 3073.577808947921 102.38300001621246 3085.687625237819
+t5 #0 3073.5097611789406 102.38300001621246 3089.587031538929
+t6 #0 3073.4417134099604 102.38300001621246 3093.486437840039
+t7 #0 3073.37366564098 102.38300001621246 3097.385844141149
+t8 #0 3073.305617872 102.38300001621246 3101.285250442259
+t9 #0 3073.2334437719655 102.34259064577002 3105.1843731618033
+t10 #0 3073.1590816224098 102.28072420678424 3109.083173338068
+t11 #0 3073.0835539859036 102.2074200983347 3112.9817528337057
+t12 #0 3073.007402585075 102.12799220460326 3116.880200239257
+t13 #0 3072.9309155970273 102.04526900542896 3120.7785725422805
+t14 #0 3072.854246986455 101.96076215902175 3124.676903020455
+t15 #0 3072.777479400096 101.87528324873499 3128.5752103574387
+t16 #0 3072.700657434585 101.78927025046447 3132.473504875525
+t17 #0 3072.623805296646 101.70296090648422 3136.3717922489795
+t18 #0 3072.546936213265 101.61648512708439 3140.2700755998403
+t19 #0 3072.4700574661288 101.52991443128244 3144.1683566534416
+t20 #0 3072.393173096759 101.44328851429356 3148.0666363694513
+t21 #0 3072.3162853665217 101.35662958704023 3151.9649152854945
+t22 #0 3072.239395547325 101.269950142107 3155.8631937041723
+t23 #0 3072.162504348168 101.18325714325023 3159.7614717942324
+t24 #0 3072.08561213255 101.09655416073358 3163.659749642206
+t25 explosion by #0 at 3072.0 101.0 3168.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming true destroyBlocks true setFire 0 damageFactor true inWater false
+t25 #0 removed: DISCARDED
+after 60 ticks: ammo 3 reserve 0 heat 0 cooldown 40 reload 0 name "AGM-114 Hellfire"

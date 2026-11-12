@@ -1,0 +1,11 @@
+Author: EMB4
+DisplayName: Scout
+Category: C
+MaxHP: 100
+PhysicalProperties:
+  Speed: 0.6
+Weapons:
+- Type: m2_cal50
+  Position: [0.0, 0.5, 1.0]
+Seats:
+- Position: [0.0, 1.0, 0.5]

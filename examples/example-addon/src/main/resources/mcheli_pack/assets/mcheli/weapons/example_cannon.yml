@@ -1,0 +1,48 @@
+# A 30 mm cannon that reuses the bundled 2A42's sound, muzzle flash and spent cases. A vehicle file names it
+# under its weapons as "example_cannon"; this pack loads after the bundled content, so a file named like a
+# bundled one (2a42.yml) would replace that weapon instead.
+DisplayName: Example 30mm cannon
+Type: machinegun2
+BaseDamage: 12
+Ballistics:
+  Acceleration: 7.0
+  AccelerationInWater: 1.0
+  Gravity: 0.0
+  GravityInWater: 0.0
+  VelocityInWater: 0.999
+Sound:
+  Volume: 3.0
+  Locations:
+    Fire: mcheli:gun_h3_snd
+Explosion:
+  Power: 1
+  DestructionPower: 0
+Camera:
+  Sight: movesight
+Ammo:
+  ReloadTime: 60
+  MagSize: 40
+  MaxAmmo: 800
+  ResupplyCount: 200
+  AmmoItems:
+  - Count: 2
+    Name: minecraft:iron_ingot
+    Meta: 0
+FireCooldown: 2
+Accuracy: 1.5
+Render:
+  MuzzleFlashes:
+  - Distance: 2.1
+    Size: 0.32
+    Range: 0.0
+    Age: 3
+    Count: 1
+    Color: '#96FE9F54'
+  SpentCasings:
+    Name: cartridge
+    Acceleration: 0.0
+    Yaw: 0.0
+    Pitch: 0.0
+    Scale: 3.5
+    Gravity: -0.04
+    Bound: 0.5

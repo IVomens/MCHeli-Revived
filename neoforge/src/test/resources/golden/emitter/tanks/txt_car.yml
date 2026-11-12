@@ -1,0 +1,11 @@
+# {"schema":1,"emitted from":"assets/mcheli/tanks/txt_car.txt","commit":"09ffef3"}
+DisplayName: TXT Fixture Car
+RepairOtherVehicles:
+  Range: 0.0
+  Value: 10
+Seats:
+- Position: [0.0, 1.0, 0.0]
+  Hud: tank
+TankFeatures:
+  WeightType: CAR
+  WeightedCenterZ: -0.5

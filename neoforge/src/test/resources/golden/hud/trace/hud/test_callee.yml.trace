@@ -1,0 +1,17 @@
+# {"schema":1,"hud":"hud/test_callee.yml","canvas":"640x360 at gui scale 2","locale":"ROOT","commit":"e274e5c"}
+-- frame cruise #1 (colour at start #FF000000)
+lines LINE_STRIP #FF000000 [315.0,185.0 325.0,185.0]
+stipple LINES #FF000000 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+-- frame cruise #2 (colour at start #FF000000)
+lines LINE_STRIP #FF000000 [315.0,185.0 325.0,185.0]
+stipple LINES #FF000000 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+-- frame damaged_gunner #1 (colour at start #FF000000)
+lines LINE_STRIP #FF000000 [315.0,185.0 325.0,185.0]
+-- frame damaged_gunner #2 (colour at start #FF000000)
+lines LINE_STRIP #FF000000 [315.0,185.0 325.0,185.0]
+-- frame uav_no_weapon #1 (colour at start #FF000000)
+lines LINE_STRIP #FF000000 [315.0,185.0 325.0,185.0]
+stipple LINES #FF000000 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]
+-- frame uav_no_weapon #2 (colour at start #FF000000)
+lines LINE_STRIP #FF000000 [315.0,185.0 325.0,185.0]
+stipple LINES #FF000000 factor 4 pattern 0xAAAA [315.0,186.0 325.0,186.0]

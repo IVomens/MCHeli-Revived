@@ -1,0 +1,23 @@
+# {"schema":1,"weapon":"type91torpedo","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "Type91 torpedo"
+mount: vehicle h8k (PlaneEntity), pilot seat, weapon #0
+ready after 105 ticks
+before shot: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "Type91 torpedo"
+t0 spawned #0 mcheli:torpedo at 3067.0700001716614 104.65999984741211 3062.430000305176 motion 0.0 0.0 0.0 yaw -0.0 pitch 0.0
+after shot: ammo 1 reserve 0 heat 0 cooldown 40 reload 0 name "Type91 torpedo"
+t1 #0 3067.0700001716614 104.61999984830618 3062.430000305176
+t2 #0 3067.0700001716614 104.53999985009432 3062.430000305176
+t3 #0 3067.0700001716614 104.41999985277653 3062.430000305176
+t4 #0 3067.0700001716614 104.2599998563528 3062.430000305176
+t5 #0 3067.0700001716614 104.05999986082315 3062.430000305176
+t6 #0 3067.0700001716614 103.81999986618757 3062.430000305176
+t7 #0 3067.0700001716614 103.53999987244606 3062.430000305176
+t8 #0 3067.0700001716614 103.21999987959862 3062.430000305176
+t9 #0 3067.0700001716614 102.85999988764524 3062.430000305176
+t10 #0 3067.0700001716614 102.45999989658594 3062.430000305176
+t11 #0 3067.0700001716614 102.01999990642071 3062.430000305176
+t12 #0 3067.0700001716614 101.53999991714954 3062.430000305176
+t13 #0 3067.0700001716614 101.01999992877245 3062.430000305176
+t14 explosion by #0 at 3067.0700001716614 101.0 3062.430000305176 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming false destroyBlocks true setFire 0 damageFactor false inWater false
+t14 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "Type91 torpedo"

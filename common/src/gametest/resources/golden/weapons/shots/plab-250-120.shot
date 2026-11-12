@@ -1,0 +1,20 @@
+# {"schema":1,"weapon":"plab-250-120","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "PLAB-250-120 DC"
+mount: vehicle ka-27 (HelicopterEntity), pilot seat, weapon #1
+ready after 21 ticks
+before shot: ammo 8 reserve 0 heat 0 cooldown 0 reload 0 name "PLAB-250-120 DC"
+t0 spawned #0 mcheli:bomb at 3070.75 102.70000004768372 3068.0 motion 0.0 -0.0 0.0 yaw 0.0 pitch 0.0
+after shot: ammo 7 reserve 0 heat 0 cooldown 90 reload 0 name "PLAB-250-120 DC"
+t1 #0 3070.75 102.67000004835427 3068.0
+t2 #0 3070.75 102.61000004969537 3068.0
+t3 #0 3070.75 102.52000005170703 3068.0
+t4 #0 3070.75 102.40000005438924 3068.0
+t5 #0 3070.75 102.250000057742 3068.0
+t6 #0 3070.75 102.07000006176531 3068.0
+t7 #0 3070.75 101.86000006645918 3068.0
+t8 #0 3070.75 101.6200000718236 3068.0
+t9 #0 3070.75 101.35000007785857 3068.0
+t10 #0 3070.75 101.05000008456409 3068.0
+t11 explosion by #0 at 3070.75 101.0 3068.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming true destroyBlocks true setFire 0 damageFactor false inWater false
+t11 #0 removed: DISCARDED
+after 60 ticks: ammo 7 reserve 0 heat 0 cooldown 30 reload 0 name "PLAB-250-120 DC"

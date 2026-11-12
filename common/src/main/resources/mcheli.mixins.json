@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.ivomens.mcheli.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MixinEntity",
+    "MixinLevel",
+    "MixinMinecraftServer",
+    "MixinServerEntity",
+    "MixinServerLevel"
+  ],
+  "client": [
+    "client.MixinClientLanguage"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

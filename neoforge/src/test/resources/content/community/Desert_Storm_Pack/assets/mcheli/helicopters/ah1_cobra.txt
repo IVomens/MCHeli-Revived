@@ -1,0 +1,10 @@
+DisplayName = AH-1 Cobra
+Category = A.H
+MaxHp = 220
+Speed = 0.8
+AddSeat = 0, 1.2, 1.5
+AddGunnerSeat = 0, 1.5, 0.2, 0, 1.2, 2.5
+AddWeapon = gau8, 0, 0.2, 2.5
+AddWeapon = hellfire, 1.1, 0.4, 0.3
+HUD = heli, heli_gnr
+HudType = 1

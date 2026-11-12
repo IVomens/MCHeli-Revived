@@ -1,0 +1,58 @@
+# {"schema":1,"source":"assets/mcheli/hud/txt_bad_formula.txt","commit":"57ceb86"}
+result: loaded as Hud
+DEBUG content file(mcheli:mcheli|txt_bad_formula) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/hud/txt_bad_formula.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+WARN assets/mcheli/hud/txt_bad_formula.txt:2 DrawRectangle: '((1': expected ')' but found the end of the formula at position 4
+WARN assets/mcheli/hud/txt_bad_formula.txt:3 DrawString: unknown HUD string variable 'no_such_arg', which shows as null
+
+loaded values:
+@class = com.ivomens.mcheli.hud.Hud
+author = ""
+broken = false
+exit = false
+fileName = "assets/mcheli/hud/txt_bad_formula.txt"
+filePath = "assets/mcheli/hud/txt_bad_formula.txt"
+ignoreAutoScale = false
+isDrawing = false
+isIfFalse = false
+isWaitEndif = false
+list.size = 2
+list[0].@class = com.ivomens.mcheli.hud.HudItemRect
+list[0].fileLine = 2
+list[0].height.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].height.compiled = null
+list[0].height.source = "1"
+list[0].left.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].left.compiled = null
+list[0].left.source = "0"
+list[0].parent = <cycle Hud>
+list[0].top.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].top.compiled = null
+list[0].top.source = "0"
+list[0].width.@class = com.ivomens.mcheli.hud.HudExpression
+list[0].width.compiled = null
+list[0].width.source = "((1"
+list[1].@class = com.ivomens.mcheli.hud.HudItemString
+list[1].args.size = 1
+list[1].args[0] = HudItemStringArgs.NONE
+list[1].fileLine = 3
+list[1].format = "%d"
+list[1].isCenteredString = false
+list[1].needsMagazine = false
+list[1].needsWeapon = false
+list[1].parent = <cycle Hud>
+list[1].posX.@class = com.ivomens.mcheli.hud.HudExpression
+list[1].posX.compiled = null
+list[1].posX.source = "0"
+list[1].posY.@class = com.ivomens.mcheli.hud.HudExpression
+list[1].posY.compiled = null
+list[1].posY.source = "0"
+list[1].values.size = 1
+list[1].values[0] = null
+location.@class = com.ivomens.mcheli.content.pack.AddonResourceLocation
+location.addonDomain = "mcheli"
+location.isEmpty = false
+location.namespace = "mcheli"
+location.path = "txt_bad_formula"
+name = "txt_bad_formula"
+parserIdentifier = "txt"

@@ -1,0 +1,6 @@
+// DrawString formats with String.format, so the conversion must fit the value's Java type.
+// Altitude is an int: %f cannot show it. The HUD reports that when it loads and skips that text;
+// the rest of the HUD still draws.
+DrawString = 0, 0, "ALT %d", altitude
+DrawString = 0, 10, "ALT %4.0f", altitude
+DrawString = 0, 20, "still drawn"

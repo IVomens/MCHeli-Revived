@@ -1,0 +1,49 @@
+{
+    AcCommand: "",
+    AcDamage: 0,
+    AcDespawnCount: 0,
+    AcDismounted: 0b,
+    AcERAState: "",
+    AcFuel: 0,
+    AcFuelType: "",
+    AcGunnerStatus: 1b,
+    AcLastRPitch: 0.0f,
+    AcLastRYaw: 0.0f,
+    AcRoll: 0.0f,
+    AcWeaponsAmmo: [I; 0],
+    Air: 300s,
+    AircraftUniqueId: "",
+    FallDistance: 0.0f,
+    Fire: -1s,
+    Invulnerable: 0b,
+    ItemsAC: {
+        Items: [],
+        Size: 10
+    },
+    Motion: [
+        0.0d,
+        0.0d,
+        0.0d
+    ],
+    OnGround: 0b,
+    PartStatus: 0,
+    PortalCooldown: 0,
+    Pos: [
+        0.5d,
+        100.0d,
+        0.5d
+    ],
+    Rotation: [
+        0.0f,
+        0.0f
+    ],
+    SearchLight: 0b,
+    TextureName: "growler",
+    TypeName: "growler",
+    UUID: [I; 2075538378, 319437985, -1386135012, -1450092469],
+    id: "mcheli:tank",
+    items: {
+        Items: [],
+        Size: 9
+    }
+}

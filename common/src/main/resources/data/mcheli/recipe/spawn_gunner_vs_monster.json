@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "EI"
+  ],
+  "key": {
+    "E": {
+      "tag": "c:eggs"
+    },
+    "I": {
+      "tag": "c:storage_blocks/iron"
+    }
+  },
+  "result": {
+    "id": "mcheli:spawn_gunner_vs_monster",
+    "count": 1
+  }
+}

@@ -1,0 +1,34 @@
+# {"schema":1,"weapon":"kba-3_ap","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "125mm KBA-3 [APFSDS]"
+mount: vehicle t84 (TankEntity), pilot seat, weapon #0
+ready after 21 ticks
+before shot: ammo 40 reserve 0 heat 0 cooldown 0 reload 0 name "125mm KBA-3 [APFSDS]"
+t0 spawned #0 mcheli:bullet at 3072.006169466714 103.42831724320557 3080.669989304673 motion 0.012338933427995904 -0.0033651702661051147 3.8999790289629686 yaw -0.18071191 pitch 0.051658474
+after shot: ammo 39 reserve 0 heat 0 cooldown 125 reload 0 name "125mm KBA-3 [APFSDS]"
+t1 #0 3072.0370168002837 103.3949043180991 3090.4199368770805
+t2 #0 3072.0678641338536 103.33649139355141 3100.169884449488
+t3 #0 3072.0987114674235 103.25307846956252 3109.9198320218957
+t4 #0 3072.1295588009934 103.14466554613243 3119.6697795943032
+t5 #0 3072.1604061345633 103.01125262326113 3129.419727166711
+t6 #0 3072.1912534681333 102.85283970094862 3139.1696747391184
+t7 #0 3072.222100801703 102.66942677919491 3148.919622311526
+t8 #0 3072.252948135273 102.46101385799999 3158.6695698839335
+t9 #0 3072.283795468843 102.22760093736386 3168.419517456341
+t10 #0 3072.314642802413 101.96918801728653 3178.1694650287486
+t11 #0 3072.345490135983 101.68577509776799 3187.919412601156
+t12 #0 3072.3763374695527 101.37736217880824 3197.6693601735637
+t13 #0 3072.4071848031226 101.04394926040729 3207.4193077459713
+t14 #0 3072.4380321366925 100.68553634256513 3217.169255318379
+t15 #0 3072.4688794702624 100.32712342472297 3226.9192028907864
+t16 #0 3072.4997268038323 99.96871050688081 3236.669150463194
+t17 #0 3072.5305741374023 99.61029758903865 3246.4190980356016
+t18 #0 3072.561421470972 99.25188467119649 3256.169045608009
+t19 #0 3072.592268804542 98.89347175335433 3265.9189931804167
+t20 #0 3072.623116138112 98.53505883551217 3275.6689407528243
+t21 #0 3072.653963471682 98.17664591767002 3285.418888325232
+t22 #0 3072.684810805252 97.81823299982786 3295.1688358976394
+t23 #0 3072.7156581388217 97.4598200819857 3304.918783470047
+t24 #0 3072.7465054723916 97.10140716414354 3314.6687310424545
+t25 explosion by #0 at 3072.755233228739 97.0 3317.4273217199852 size 1.0 block 0.0 damage 1.0 blockPower 0.0 radius 1.0 sound false flaming false destroyBlocks true setFire 0 damageFactor true inWater false
+t25 #0 removed: DISCARDED
+after 60 ticks: ammo 39 reserve 0 heat 0 cooldown 65 reload 0 name "125mm KBA-3 [APFSDS]"

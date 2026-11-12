@@ -1,0 +1,19 @@
+# {"schema":1,"weapon":"anm17allc","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "AN-M17All C"
+mount: vehicle b29 (PlaneEntity), pilot seat, weapon #4
+ready after 21 ticks
+before shot: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "AN-M17All C"
+t0 spawned #0 mcheli:bomb at 3072.550000011921 102.4300000667572 3066.0 motion 0.0 -0.0 0.0 yaw 0.0 pitch 0.0
+after shot: ammo 1 reserve 0 heat 0 cooldown 50 reload 0 name "AN-M17All C"
+t1 #0 3072.550000011921 102.40000006742775 3066.0
+t2 #0 3072.550000011921 102.34000006876886 3066.0
+t3 #0 3072.550000011921 102.25000007078052 3066.0
+t4 #0 3072.550000011921 102.13000007346272 3066.0
+t5 #0 3072.550000011921 101.98000007681549 3066.0
+t6 #0 3072.550000011921 101.8000000808388 3066.0
+t7 #0 3072.550000011921 101.59000008553267 3066.0
+t8 #0 3072.550000011921 101.35000009089708 3066.0
+t9 #0 3072.550000011921 101.08000009693205 3066.0
+t10 explosion by #0 at 3072.550000011921 101.08000009693205 3066.0 size 3.0 block 3.0 damage 3.0 blockPower 3.0 radius 3.0 sound true flaming true destroyBlocks false setFire 15 damageFactor false inWater false
+t10 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 0 reload 0 name "AN-M17All C"

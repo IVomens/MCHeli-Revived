@@ -1,0 +1,22 @@
+# {"schema":1,"weapon":"m134_l","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"3a0fa83"}
+modes: "M134 Minigun"
+mount: vehicle bell47gf (HelicopterEntity), pilot seat, weapon #0
+ready after 85 ticks
+before shot: ammo 50 reserve 0 heat 0 cooldown 0 reload 0 name "M134 Minigun"
+t0 spawned #0 mcheli:bullet at 3072.5623406782497 101.36597856329254 3075.939681388154 motion 0.06468141371972363 -0.028042863878162433 3.899362757234152 yaw -0.9456953 pitch 0.4132678
+after shot: ammo 49 reserve 0 heat 0 cooldown 1 reload 0 name "M134 Minigun"
+t1 #0 3072.6270220919696 101.33793569941439 3079.839044145388
+t2 #0 3072.6917035056895 101.30989283553623 3083.738406902622
+t3 #0 3072.7563849194094 101.28184997165808 3087.637769659856
+t4 #0 3072.8210663331292 101.25380710777992 3091.53713241709
+t5 #0 3072.885747746849 101.22576424390176 3095.436495174324
+t6 #0 3072.950429160569 101.19772138002361 3099.335857931558
+t7 #0 3073.015110574289 101.16967851614545 3103.235220688792
+t8 #0 3073.0797919880088 101.1416356522673 3107.134583446026
+t9 #0 3073.1444734017286 101.11359278838914 3111.0339462032603
+t10 #0 3073.2091548154485 101.08554992451099 3114.9333089604943
+t11 #0 3073.2738362291684 101.05750706063283 3118.8326717177283
+t12 #0 3073.3385176428883 101.02946419675467 3122.7320344749623
+t13 #0 3073.403199056608 101.00142133287652 3126.6313972321964
+t14 #0 removed: DISCARDED
+after 60 ticks: ammo 49 reserve 0 heat 0 cooldown 0 reload 0 name "M134 Minigun"

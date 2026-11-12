@@ -1,0 +1,37 @@
+# {"schema":1,"weapon":"grom","seed":20261106,"flightTicks":60,"range":{"origin":[3072,100,3072],"layout":"stone floor 33x100, then water 3 deep to z=520"},"pinned":{"AllHeliSpeed":1.0,"AllPlaneSpeed":1.0,"AllShipSpeed":1.0,"AllTankSpeed":1.0,"InfinityAmmo":false,"InfinityFuel":false,"ExperimentalQuaternionRotation":true,"EnableRotationLimit":false,"AutoThrottleDownHeli":true,"AutoThrottleDownPlane":false,"AutoThrottleDownTank":false,"DismountAll":false,"FixVehicleAtPlacedPoint":true,"Collision_DestroyBlock":true,"CollisionDamage":true,"CollisionDamageFactor":1.0,"Collision_EntityDamage":true,"Collision_EntityTankDamage":false,"Explosion_DestroyBlock":true,"Explosion_FlamingBlock":true,"HurtResistantTime":0.0,"AutoRepairHP":0.5,"DespawnCount":25,"KillPassengersWhenDestroyed":false,"PreventingBroken":false,"ItemFuel":true,"ItemDamage":true,"EnablePutRackInFlying":true,"TestMode":false,"MouseControlFlightSimMode":false,"FixedStepAttitude":false,"ServerTerrainFollow":false,"server.enableRotationLimit":false,"server.pitchLimitMin":-10.0,"server.pitchLimitMax":10.0,"server.rollLimit":35.0,"server.enablePVP":true,"server.stingerLockRange":120.0,"server.enableLiveries":true},"commit":"f1c2494"}
+modes: "GROM Anti-Air Missile"
+target: armor stand at 3072.0 140.0 3168.0
+mount: vehicle w3 (HelicopterEntity), pilot seat, weapon #3
+ready after 21 ticks
+before shot: ammo 2 reserve 0 heat 0 cooldown 0 reload 0 name "GROM Anti-Air Missile"
+t0 spawned #0 mcheli:aa_missile at 3069.3399999141693 102.74000000953674 3072.600000023842 motion -4.776122725082155E-16 0.0 3.9 yaw 0.0 pitch 0.0
+after shot: ammo 1 reserve 0 heat 0 cooldown 100 reload 0 name "GROM Anti-Air Missile"
+t1 #0 3069.3399999141693 102.74000000953674 3076.500000023842
+t2 #0 3069.3399999141693 102.74000000953674 3080.400000023842
+t3 #0 3069.3399999141693 102.74000000953674 3084.300000023842
+t4 #0 3069.3399999141693 102.74000000953674 3088.200000023842
+t5 #0 3069.3399999141693 102.74000000953674 3092.1000000238423
+t6 #0 3069.3399999141693 102.74000000953674 3096.0000000238424
+t7 #0 3069.3399999141693 102.74000000953674 3099.9000000238425
+t8 #0 3069.3399999141693 102.74000000953674 3103.8000000238426
+t9 #0 3069.412329629707 103.75315982656424 3107.5654051278666
+t10 #0 3069.5210977146207 105.2767307709529 3111.153845050886
+t11 #0 3069.6483424649223 107.05911394465109 3114.620387852531
+t12 #0 3069.7851257316756 108.97510806249728 3118.0145382437654
+t13 #0 3069.926909824941 110.96115134943406 3121.36797369615
+t14 #0 3070.071346590292 112.98435198925796 3124.6990091495536
+t15 #0 3070.2172035628755 115.02744620794982 3128.017817935413
+t16 #0 3070.363827158776 117.0812789168132 3131.3299581385336
+t17 #0 3070.510867961182 119.14095565345269 3134.638448843217
+t18 #0 3070.6581378329997 121.20384108407718 3137.9449296438524
+t19 #0 3070.80553477134 123.26850640134734 3141.2502936586366
+t20 #0 3070.953003071697 125.33417132337783 3144.5550298856724
+t21 #0 3071.100512075392 127.40040639816304 3147.859407846735
+t22 #0 3071.2480447673115 129.4669732861814 3151.163577243446
+t23 #0 3071.3955916268746 131.53373862773168 3154.4676218780114
+t24 #0 3071.5431472994837 133.6006274181834 3157.7715888953085
+t25 #0 3071.6907088018465 135.66759786901792 3161.0755045659025
+t26 #0 3071.838274609784 137.73462863027478 3164.3793823124824
+t27 explosion by #0 at 3072.0 140.0 3168.0 size 4.0 block 4.0 damage 4.0 blockPower 4.0 radius 4.0 sound false flaming false destroyBlocks true setFire 0 damageFactor true inWater false
+t27 #0 removed: DISCARDED
+after 60 ticks: ammo 1 reserve 0 heat 0 cooldown 40 reload 0 name "GROM Anti-Air Missile"

@@ -1,0 +1,6 @@
+# {"schema":1,"source":"assets/mcheli/hud/yaml_not_a_list.yml","commit":"671aa2e"}
+result: skipped
+DEBUG content file(mcheli:mcheli|yaml_not_a_list) loading start.
+ERROR Failed to load 'assets/mcheli/hud/yaml_not_a_list.yml' from addon 'mcheli': a HUD file is a list of commands, such as '- DrawRectangle: ...'
+DEBUG Parse error details for 'assets/mcheli/hud/yaml_not_a_list.yml'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: a HUD file is a list of commands, such as '- DrawRectangle: ...'

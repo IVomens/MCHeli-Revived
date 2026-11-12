@@ -1,0 +1,3 @@
+DisplayName = TXT Fixture Unknown Weight
+WeightType = hovercraft
+AddSeat = 0, 1, 0

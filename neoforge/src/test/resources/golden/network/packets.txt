@@ -1,0 +1,316 @@
+# {"schema":2,"messages":99,"what":"encoded size of a sample of each message, and the largest length each string, list and array field accepts","commit":"b050e1c"}
+aircraft/attitude_report (serverbound, AttitudeReportMessage)
+  bytes: 16
+aircraft/client_settings (serverbound, ClientSettingsMessage)
+  bytes: 5
+aircraft/command (serverbound, AircraftCommandMessage)
+  bytes: 9
+  command: at most 512 characters
+aircraft/ground_vehicle_control (serverbound, GroundVehicleControlMessage)
+  bytes: 65
+aircraft/helicopter_control (serverbound, HelicopterControlMessage)
+  bytes: 65
+aircraft/parachute (serverbound, ParachuteMessage)
+  bytes: 0
+aircraft/plane_control (serverbound, PlaneControlMessage)
+  bytes: 62
+aircraft/reload_vehicle_content (serverbound, ReloadVehicleContentMessage)
+  bytes: 0
+aircraft/reload_weapon_content (serverbound, ReloadWeaponContentMessage)
+  bytes: 0
+aircraft/resupply (serverbound, ResupplyMessage)
+  bytes: 4
+aircraft/seat_list (clientbound, SeatListMessage)
+  bytes: 7
+  seatIds: at most 256 elements
+aircraft/seat_list_request (serverbound, SeatListRequestMessage)
+  bytes: 2
+aircraft/ship_control (serverbound, ShipControlMessage)
+  bytes: 62
+aircraft/switch_seat (serverbound, SwitchSeatMessage)
+  bytes: 1
+aircraft/tank_control (serverbound, TankControlMessage)
+  bytes: 62
+aircraft/weapon_status (clientbound, WeaponStatusMessage)
+  bytes: 5
+  weaponIds: at most 256 elements
+aircraft/weapon_status_request (serverbound, WeaponStatusRequestMessage)
+  bytes: 2
+bench/start_client (clientbound, StartClientBenchmarkMessage)
+  bytes: 1
+block/drafting_table_craft (serverbound, DraftingTableCraftMessage)
+  bytes: 9
+  recipeId: at most 256 characters
+combat/airburst_distance (serverbound, AirburstDistanceMessage)
+  bytes: 4
+combat/all_ammo_counts (clientbound, AllAmmoCountsMessage)
+  bytes: 11
+  counts: at most 256 elements
+combat/ammo_count (clientbound, AmmoCountMessage)
+  bytes: 8
+combat/ammo_counts_request (serverbound, AmmoCountsRequestMessage)
+  bytes: 2
+combat/bvr_lock (serverbound, BvrLockMessage)
+  bytes: 2
+combat/chaff_use (clientbound, ChaffUseMessage)
+  bytes: 4
+combat/explosion_detail (serverbound, ExplosionDetailMessage)
+  bytes: 1
+combat/explosions (clientbound, ExplosionEffectsMessage)
+  bytes: 49
+  effects: at most 1024 elements
+  effects[].affectedBlocks: at most 4096 elements
+combat/gps_target (serverbound, GpsTargetMessage)
+  bytes: 25
+combat/hit_marker (clientbound, HitMarkerMessage)
+  bytes: 2
+combat/iron_curtain_use (clientbound, IronCurtainUseMessage)
+  bytes: 4
+combat/laser_beam (clientbound, LaserBeamMessage)
+  bytes: 68
+combat/lock_warning (clientbound, LockWarningMessage)
+  bytes: 0
+combat/missile_target (serverbound, MissileTargetMessage)
+  bytes: 4
+combat/radar_contacts (clientbound, RadarContactsMessage)
+  bytes: 91
+  introduced: at most 65536 elements
+  introduced[].level: at most 256 characters
+  introduced[].name: at most 256 characters
+  fixes: at most 65536 elements
+  unchanged: at most 65536 entries
+combat/reload_accepted (clientbound, ReloadAcceptedMessage)
+  bytes: 2
+combat/rwr_threats (clientbound, RwrThreatsMessage)
+  bytes: 62
+  threats: at most 64 elements
+  threats[].sourceName: at most 256 characters
+combat/sound (clientbound, SoundMessage)
+  bytes: 22
+  sound: at most 256 characters
+combat/tv_missile (clientbound, TvMissileMessage)
+  bytes: 4
+combat/weapon_state (clientbound, WeaponStateMessage)
+  bytes: 14
+gltd/camera_mode (serverbound, GltdCameraModeMessage)
+  bytes: 2
+gltd/dismount (serverbound, GltdDismountMessage)
+  bytes: 0
+gltd/fire (serverbound, GltdFireMessage)
+  bytes: 0
+gui/open_screen (serverbound, OpenScreenMessage)
+  bytes: 2
+inspector/open (clientbound, OpenInspectorMessage)
+  bytes: 2
+inspector/reply (clientbound, InspectorReplyMessage)
+  bytes: 216
+  snapshot.typeId: at most 128 characters
+  snapshot.sections: at most 160 elements
+  snapshot.sections[].title: at most 64 characters
+  snapshot.sections[].detail: at most 96 characters
+  snapshot.sections[].entries: at most 128 elements
+  snapshot.sections[].entries[].key: at most 64 characters
+  snapshot.sections[].entries[].value: at most 128 characters
+  snapshot.sections[].entries[].detail: at most 96 characters
+inspector/request (serverbound, InspectorRequestMessage)
+  bytes: 2
+livery/apply (serverbound, LiveryApplyMessage)
+  bytes: 11
+  liveryId: at most 64 characters
+livery/delete (serverbound, LiveryDeleteMessage)
+  bytes: 18
+  liveryId: at most 64 characters
+  vehicleType: at most 64 characters
+livery/image_chunk (clientbound, LiveryImageChunkMessage)
+  bytes: 16
+  liveryId: at most 64 characters
+  data: at most 30720 bytes
+livery/image_request (serverbound, LiveryImageRequestMessage)
+  bytes: 9
+  liveryId: at most 64 characters
+livery/list (clientbound, LiveryListMessage)
+  bytes: 125
+  vehicleType: at most 64 characters
+  message: at most 256 characters
+  entries: at most 512 elements
+  entries[].id: at most 64 characters
+  entries[].vehicleType: at most 64 characters
+  entries[].name: at most 64 characters
+  entries[].ownerName: at most 64 characters
+livery/list_request (serverbound, LiveryListRequestMessage)
+  bytes: 9
+  vehicleType: at most 64 characters
+livery/upload_begin (serverbound, LiveryUploadBeginMessage)
+  bytes: 20
+  vehicleType: at most 64 characters
+  name: at most 64 characters
+livery/upload_chunk (serverbound, LiveryUploadChunkMessage)
+  bytes: 5
+  data: at most 30720 bytes
+livery/upload_status (clientbound, LiveryUploadStatusMessage)
+  bytes: 14
+  message: at most 256 characters
+lweapon/fire (serverbound, LauncherFireMessage)
+  bytes: 28
+lweapon/night_vision (serverbound, NightVisionMessage)
+  bytes: 1
+lweapon/reload (serverbound, LauncherReloadMessage)
+  bytes: 0
+multiplay/destroy_all_aircraft (serverbound, DestroyAllAircraftMessage)
+  bytes: 0
+multiplay/jump_to_spawn_point (serverbound, JumpToSpawnPointMessage)
+  bytes: 0
+multiplay/mark_position (clientbound, MarkPositionMessage)
+  bytes: 8
+multiplay/mod_list (serverbound, ModListMessage)
+  bytes: 22
+  lines: at most 512 elements
+  lines[]: at most 4096 characters
+multiplay/mod_list_relay (clientbound, ModListRelayMessage)
+  bytes: 19
+  lines: at most 512 elements
+  lines[]: at most 4096 characters
+multiplay/mod_list_request (clientbound, ModListRequestMessage)
+  bytes: 2
+multiplay/run_command (serverbound, RunCommandMessage)
+  bytes: 9
+  command: at most 256 characters
+multiplay/screenshot_chunk (serverbound, ScreenshotChunkMessage)
+  bytes: 7
+  data: at most 32768 bytes
+multiplay/screenshot_request (clientbound, ScreenshotRequestMessage)
+  bytes: 0
+multiplay/server_settings (clientbound, ServerSettingsMessage)
+  bytes: 17
+multiplay/shuffle_teams (serverbound, ShuffleTeamsMessage)
+  bytes: 0
+multiplay/spot_enemy (clientbound, SpotEnemyMessage)
+  bytes: 7
+  entityIds: at most 300 elements
+multiplay/spot_request (serverbound, SpotRequestMessage)
+  bytes: 2
+multiplay/title (clientbound, TitleMessage)
+  bytes: 20
+multiplay/toggle_pvp (serverbound, TogglePvpMessage)
+  bytes: 0
+networking/entity_spawn_data (clientbound, EntitySpawnDataMessage)
+  bytes: 5
+  data: at most 32767 bytes
+uav/connect (serverbound, UavConnectMessage)
+  bytes: 18
+uav/drop (serverbound, UavDropMessage)
+  bytes: 18
+uav/spawn_offset (serverbound, UavSpawnOffsetMessage)
+  bytes: 3
+wingman/abort_all_missions (serverbound, AbortAllMissionsMessage)
+  bytes: 0
+wingman/abort_mission (serverbound, AbortMissionMessage)
+  bytes: 16
+wingman/assign_mission (serverbound, AssignMissionMessage)
+  bytes: 25
+  routeName: at most 256 characters
+wingman/attack_mode (serverbound, WingmanAttackModeMessage)
+  bytes: 17
+wingman/autopilot_visual (clientbound, AutopilotVisualMessage)
+  bytes: 10
+wingman/delete_mission_route (serverbound, DeleteMissionRouteMessage)
+  bytes: 9
+  name: at most 256 characters
+wingman/delete_taxi_route (serverbound, DeleteTaxiRouteMessage)
+  bytes: 9
+  routeId: at most 256 characters
+wingman/dispatch_order (serverbound, DispatchOrderMessage)
+  bytes: 119
+  departureRouteId: at most 256 characters
+  missionTypes: at most 6 elements
+  weapons: at most 64 elements
+  weapons[]: at most 64 characters
+  flight.baseId: at most 256 characters
+  flight.ferryDestBase: at most 256 characters
+  flight.arrivalRouteId: at most 256 characters
+wingman/follow (serverbound, WingmanFollowMessage)
+  bytes: 16
+wingman/formation_settings (serverbound, FormationSettingsMessage)
+  bytes: 44
+wingman/mission_planner (clientbound, MissionPlannerMessage)
+  bytes: 215
+  uavs: at most 4096 elements
+  uavs[].name: at most 256 characters
+  uavs[].state: at most 64 characters
+  routes: at most 4096 elements
+  routes[].name: at most 256 characters
+  routes[].nodes: at most 1024 elements
+  routes[].nodes[]: at most 256 characters
+  markers: at most 4096 elements
+  markers[].id: at most 256 characters
+wingman/open_base_screen (clientbound, OpenBaseScreenMessage)
+  bytes: 515
+  baseId: at most 256 characters
+  routes: at most 4096 elements
+  routes[].routeId: at most 256 characters
+  routes[].parkingId: at most 256 characters
+  routes[].runways.runwayId: at most 256 characters
+  routes[].runways.runwayBId: at most 256 characters
+  routes[].runways.arrivalRunwayId: at most 256 characters
+  routes[].waypointIds: at most 1024 elements
+  routes[].waypointIds[]: at most 256 characters
+  routes[].arrivalWaypointIds: at most 1024 elements
+  routes[].arrivalWaypointIds[]: at most 256 characters
+  markers.parking: at most 4096 elements
+  markers.parking[].id: at most 256 characters
+  markers.waypoints: at most 4096 elements
+  markers.waypoints[].id: at most 256 characters
+  markers.runwayA: at most 4096 elements
+  markers.runwayA[].id: at most 256 characters
+  markers.runwayB: at most 4096 elements
+  markers.runwayB[].id: at most 256 characters
+  markers.helipads: at most 4096 elements
+  markers.helipads[].id: at most 256 characters
+  markers.helipadB: at most 4096 elements
+  markers.helipadB[].id: at most 256 characters
+  nearbyAircraft: at most 4096 elements
+  nearbyAircraft[].name: at most 256 characters
+wingman/open_marker_screen (clientbound, OpenMarkerScreenMessage)
+  bytes: 33
+  settings.id: at most 256 characters
+  settings.baseId: at most 256 characters
+wingman/open_panel (serverbound, OpenWingmanPanelMessage)
+  bytes: 0
+wingman/panel (clientbound, WingmanPanelMessage)
+  bytes: 206
+  nearby: at most 4096 elements
+  nearby[].name: at most 256 characters
+  wingmen: at most 4096 elements
+  wingmen[].name: at most 256 characters
+  wingmen[].state: at most 64 characters
+  wingmen[].weaponType: at most 64 characters
+wingman/save_mission_route (serverbound, SaveMissionRouteMessage)
+  bytes: 28
+  name: at most 256 characters
+  nodes: at most 1024 elements
+  nodes[]: at most 256 characters
+wingman/save_taxi_route (serverbound, SaveTaxiRouteMessage)
+  bytes: 108
+  baseId: at most 256 characters
+  route.routeId: at most 256 characters
+  route.parkingId: at most 256 characters
+  route.runways.runwayId: at most 256 characters
+  route.runways.runwayBId: at most 256 characters
+  route.runways.arrivalRunwayId: at most 256 characters
+  route.waypointIds: at most 1024 elements
+  route.waypointIds[]: at most 256 characters
+  route.arrivalWaypointIds: at most 1024 elements
+  route.arrivalWaypointIds[]: at most 256 characters
+wingman/stop (serverbound, WingmanStopMessage)
+  bytes: 16
+wingman/stop_all (serverbound, WingmanStopAllMessage)
+  bytes: 0
+wingman/uav_preview (serverbound, UavPreviewMessage)
+  bytes: 17
+wingman/update_marker (serverbound, UpdateMarkerMessage)
+  bytes: 33
+  settings.id: at most 256 characters
+  settings.baseId: at most 256 characters
+wingman/weapon (serverbound, WingmanWeaponMessage)
+  bytes: 25
+  weaponType: at most 64 characters

@@ -1,0 +1,8 @@
+# {"schema":1,"source":"assets/mcheli/throwable/txt_fractional_seconds.txt","commit":"71d39d7"}
+result: skipped
+DEBUG content file(mcheli:mcheli|txt_fractional_seconds) loading start.
+WARN Loading legacy .txt content 'assets/mcheli/throwable/txt_fractional_seconds.txt': the TXT format is deprecated, please convert it to YAML (the YAML emitter can convert legacy and Reforged packs).
+ERROR Failed to load 'assets/mcheli/throwable/txt_fractional_seconds.txt' from addon 'mcheli' at line 3, key 'timefuse': expected a whole number but got "1.5"
+DEBUG Parse error details for 'assets/mcheli/throwable/txt_fractional_seconds.txt'
+    caused by com.ivomens.mcheli.content.source.ContentParseException: expected a whole number but got "1.5"
+    caused by com.ivomens.mcheli.core.content.schema.ContentValueException: expected a whole number but got "1.5"

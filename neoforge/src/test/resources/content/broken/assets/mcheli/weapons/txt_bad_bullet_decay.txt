@@ -1,0 +1,3 @@
+DisplayName = Bad Decay
+Type = machinegun1
+BulletDecay = Linear, 10, 0.5

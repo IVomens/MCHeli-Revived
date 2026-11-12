@@ -1,0 +1,80 @@
+// A loader module (:neoforge, :fabric). Following the MultiLoader template, it compiles the sources
+// of :core, :api and :common together with its own and packs their resources, so its classes, its jar and
+// its development runs each hold the whole mod as one unit. The shared modules are still built on
+// their own as well: that build is what proves them loader-free.
+//
+// The game tests work the same way: their shared code lives in :common's gametest source set and is
+// compiled into the loader's own gametest source set, next to the thin layer that registers the tests
+// and their tick hooks with that loader.
+plugins {
+    id 'mcheli.java-conventions'
+}
+
+configurations {
+    sharedJava {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    sharedResources {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    sharedGametestJava {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    sharedGametestResources {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+}
+
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    gametestCompileOnly.extendsFrom compileOnly
+    gametestAnnotationProcessor.extendsFrom annotationProcessor
+    gametestImplementation.extendsFrom implementation
+}
+
+dependencies {
+    // Lets IDEs resolve the shared code from this module's sources. The classes themselves come
+    // from compiling the shared sources here, so :common never reaches the runtime classpath twice.
+    compileOnly project(':common')
+
+    sharedJava project(path: ':core', configuration: 'sharedJava')
+    sharedJava project(path: ':api', configuration: 'sharedJava')
+    sharedJava project(path: ':common', configuration: 'sharedJava')
+    sharedResources project(path: ':core', configuration: 'sharedResources')
+    sharedResources project(path: ':common', configuration: 'sharedResources')
+    sharedGametestJava project(path: ':common', configuration: 'sharedGametestJava')
+    sharedGametestResources project(path: ':common', configuration: 'sharedGametestResources')
+}
+
+tasks.named('compileJava', JavaCompile) {
+    dependsOn configurations.sharedJava
+    source configurations.sharedJava
+}
+
+tasks.named('processResources', ProcessResources) {
+    dependsOn configurations.sharedResources
+    from configurations.sharedResources
+}
+
+tasks.named('compileGametestJava', JavaCompile) {
+    dependsOn configurations.sharedGametestJava
+    source configurations.sharedGametestJava
+}
+
+tasks.named('processGametestResources', ProcessResources) {
+    dependsOn configurations.sharedGametestResources
+    from configurations.sharedGametestResources
+}
+
+/** Where the game tests keep their golden files and save fixtures; recording from either loader writes here. */
+ext.sharedGametestResourcesDir = project(':common').file('src/gametest/resources')

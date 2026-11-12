@@ -1,0 +1,1613 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/IVomens/MCHeli-Revived/main/schemas/weapon.schema.json",
+  "title": "MCHeli weapon",
+  "description": "A YAML file in assets/mcheli/weapons/ of an MCHeli addon pack. Generated from the game's schema declarations; do not edit.",
+  "x-mcheli-schema-version": 1,
+  "type": "object",
+  "properties": {
+    "DisplayName": {
+      "type": "string",
+      "description": "The name shown in game; the file name when left out. Legacy TXT key: displayname."
+    },
+    "Type": {
+      "type": "string",
+      "default": "",
+      "description": "The weapon kind, such as 'machinegun1', 'aamissile' or 'bomb'. A TXT 'Type' line is read by type, which also changes the gravity of bombs and dispensers."
+    },
+    "Group": {
+      "type": "string",
+      "default": "",
+      "description": "Weapons of one group fire together. Legacy TXT key: group."
+    },
+    "BaseDamage": {
+      "type": "integer",
+      "default": 0,
+      "description": "Damage of a direct hit, before the damage factors. Legacy TXT key: power."
+    },
+    "Ballistics": {
+      "type": "object",
+      "description": "How the projectile flies.",
+      "properties": {
+        "Acceleration": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 1,
+          "description": "Speed added per tick, up to the projectile's speed. The game clamps a value outside 0 to 100 and says so. Legacy TXT key: acceleration."
+        },
+        "Accel": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 1,
+          "description": "Another spelling of 'Acceleration'."
+        },
+        "AccelerationInWater": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: accelerationinwater."
+        },
+        "Gravity": {
+          "type": "number",
+          "minimum": -50,
+          "maximum": 50,
+          "default": 0,
+          "description": "Downward pull per tick. A legacy TXT 'Type = bomb' or 'dispenser' line sets it, and the in-water one, to -0.03; see type. The game clamps a value outside -50 to 50 and says so. Legacy TXT key: gravity."
+        },
+        "GravityInWater": {
+          "type": "number",
+          "minimum": -50,
+          "maximum": 50,
+          "default": 0,
+          "description": "The game clamps a value outside -50 to 50 and says so. Legacy TXT key: gravityinwater."
+        },
+        "VelocityInWater": {
+          "type": "number",
+          "default": 0.999,
+          "description": "Speed kept per tick under water. Legacy TXT key: velocityinwater."
+        },
+        "SpeedFactor": {
+          "type": "number",
+          "default": 0,
+          "description": "Speed change per tick between the start and end tick; positive accelerates. Legacy TXT key: speedfactor."
+        },
+        "SpeedFactorStartTick": {
+          "type": "integer",
+          "default": 0,
+          "description": "Legacy TXT key: speedfactorstarttick."
+        },
+        "SpeedFactorEndTick": {
+          "type": "integer",
+          "default": 0,
+          "description": "Legacy TXT key: speedfactorendtick."
+        },
+        "SpeedDependsAircraft": {
+          "type": "boolean",
+          "default": false,
+          "description": "The projectile starts with the shooter's velocity added. Legacy TXT key: speeddependsaircraft."
+        },
+        "Piercing": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 0,
+          "description": "Blocks or entities the projectile passes through. The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: piercing."
+        },
+        "FlakSpread": {
+          "type": "number",
+          "default": 0.3,
+          "description": "Spread of the block-break particles on impact, 0.1 for a rifle to 0.6 for an anti-tank round. Legacy TXT key: flakparticlesdiff."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Sound": {
+      "type": "object",
+      "description": "The firing sound and how it plays.",
+      "properties": {
+        "Delay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0,
+          "description": "Ticks between the shot and its sound. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: sounddelay."
+        },
+        "Volume": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: soundvolume."
+        },
+        "Pitch": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 1 and says so. Legacy TXT key: soundpitch."
+        },
+        "PitchRandom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.1,
+          "description": "The game clamps a value outside 0 to 1 and says so. Legacy TXT key: soundpitchrandom."
+        },
+        "HitSoundRange": {
+          "type": "integer",
+          "default": 100,
+          "description": "Blocks within which players hear the hit sound. Legacy TXT key: hitsoundrange."
+        },
+        "Locations": {
+          "type": "object",
+          "properties": {
+            "Fire": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              ],
+              "description": "A sound id, or a YAML map that also defines the sound for the client (see 'SoundRegistry#parseSound(Map)'). Reading registers the sound; the emitter writes the id. A sound id such as 'mcheli:gun', or a map that also defines the sound for the client. Legacy TXT key: sound."
+            },
+            "Hit": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              ],
+              "description": "A sound id, or a YAML map that also defines the sound for the client (see 'SoundRegistry#parseSound(Map)'). Reading registers the sound; the emitter writes the id. A sound id such as 'mcheli:gun', or a map that also defines the sound for the client. Legacy TXT key: hitsound."
+            },
+            "Railgun": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              ],
+              "default": "mcheli:railgun",
+              "description": "A sound id, or a YAML map that also defines the sound for the client (see 'SoundRegistry#parseSound(Map)'). Reading registers the sound; the emitter writes the id. A sound id such as 'mcheli:gun', or a map that also defines the sound for the client. Legacy TXT key: railgunsound."
+            },
+            "HitMetal": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "WeaponSwitch": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            }
+          },
+          "additionalProperties": false
+        },
+        "Name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          ],
+          "description": "A sound id such as 'mcheli:gun', or a map that also defines the sound for the client. Another place for 'Sound.Locations.Fire'; converted files write it there."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Recoil": {
+      "type": "object",
+      "description": "How the shot kicks the vehicle and the view.",
+      "properties": {
+        "Power": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: recoil."
+        },
+        "Pitch": {
+          "type": "number",
+          "default": 0,
+          "description": "Vertical kick of the view. Legacy TXT key: recoilpitch."
+        },
+        "Yaw": {
+          "type": "number",
+          "default": 0,
+          "description": "Horizontal kick, always to the same side. Legacy TXT key: recoilyaw."
+        },
+        "PitchRange": {
+          "type": "number",
+          "default": 0,
+          "description": "Random extra vertical kick. Legacy TXT key: recoilpitchrange."
+        },
+        "YawRange": {
+          "type": "number",
+          "default": 0,
+          "description": "Random horizontal kick, to either side. Legacy TXT key: recoilyawrange."
+        },
+        "RecoverFactor": {
+          "type": "number",
+          "default": 0.8,
+          "description": "Legacy TXT key: recoilrecoverfactor."
+        },
+        "BufferCount": {
+          "type": "integer",
+          "default": 2
+        },
+        "BufferSpeed": {
+          "type": "integer",
+          "default": 3
+        }
+      },
+      "additionalProperties": false
+    },
+    "Explosion": {
+      "type": "object",
+      "description": "What happens on impact.",
+      "properties": {
+        "Power": {
+          "type": "integer",
+          "default": 0,
+          "description": "Explosion strength; 0 for none. TXT 'Explosion' is clamped to 0..200. Legacy TXT key: explosion."
+        },
+        "Radio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 0,
+          "description": "Explosion size; 0 means POWER. The game clamps a value outside 0 to 100 and says so."
+        },
+        "DamageRadio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 0,
+          "description": "Radius within which the explosion hurts; 0 means the explosion size. The game clamps a value outside 0 to 100 and says so."
+        },
+        "DestructionPower": {
+          "type": "integer",
+          "default": -1,
+          "description": "Strength against blocks; -1 means POWER. Legacy TXT key: explosionblock."
+        },
+        "PowerUnderwater": {
+          "type": "integer",
+          "default": 0,
+          "description": "Legacy TXT key: explosioninwater."
+        },
+        "ExplosionAltitude": {
+          "type": "integer",
+          "default": 0,
+          "description": "Height above ground at which the projectile explodes on its own. Legacy TXT key: explosionaltitude."
+        },
+        "FuseTime": {
+          "type": "integer",
+          "default": 0,
+          "description": "Ticks of flight before the projectile explodes; 0 for no time fuse. Legacy TXT key: timefuse."
+        },
+        "FuseDelay": {
+          "type": "integer",
+          "default": 0,
+          "description": "Ticks between the first impact and the explosion. Legacy TXT key: delayfuse."
+        },
+        "FuseRebound": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 0,
+          "description": "Bounciness while a delayed fuse burns; ignored without one. The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: bound."
+        },
+        "Flaming": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: flaming."
+        },
+        "CanAirburst": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: canairburst."
+        },
+        "ExplosionAirburst": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 50,
+          "default": 0,
+          "description": "Strength of an airburst; 0 means POWER. The game clamps a value outside 0 to 50 and says so. Legacy TXT key: explosionairburst."
+        },
+        "ThroughWall": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: explosionthroughwall."
+        },
+        "ThroughWallFactor": {
+          "type": "number",
+          "default": 1,
+          "description": "Share of the damage that passes a wall. TXT clamps it to 0..1. Legacy TXT key: explosionthroughwallfactor."
+        },
+        "NewBreak": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use the newer block breaking, which honours DESTRUCTION_POWER and the radii. Legacy TXT key: isnewexplosionbreak."
+        },
+        "ProximityFuseDist": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2000,
+          "default": 0,
+          "description": "Distance to a target at which the projectile explodes. The game clamps a value outside 0 to 2000 and says so. Legacy TXT key: proximityfusedist."
+        },
+        "FAE": {
+          "type": "boolean",
+          "default": false,
+          "description": "A fuel-air explosion: no underwater power, needs an explosion power. Legacy TXT key: fae."
+        },
+        "FuelAir": {
+          "type": "boolean",
+          "default": false,
+          "description": "Another spelling of 'FAE'."
+        },
+        "Type": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "CanDestroyBlocks": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Camera": {
+      "type": "object",
+      "description": "The gunner's view while this weapon is selected.",
+      "properties": {
+        "MortarRadarMaxDist": {
+          "type": "number",
+          "default": -1,
+          "description": "Legacy TXT key: mortarradarmaxdist."
+        },
+        "DisplayMortarDistance": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: displaymortardistance."
+        },
+        "FixPitch": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: fixcamerapitch."
+        },
+        "RotationSpeedPitch": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 1,
+          "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: camerarotationspeedpitch."
+        },
+        "CCIP": {
+          "type": "boolean",
+          "default": false,
+          "description": "Continuously computed impact point; only rockets and AT and TV missiles support it. Legacy TXT key: ccip."
+        },
+        "CCIPFactor": {
+          "type": "number",
+          "default": 1,
+          "description": "Scale of the CCIP marker. TXT clamps it to 0.1..10. Legacy TXT key: ccipfactor."
+        },
+        "LockEntity": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: lockentity."
+        },
+        "Sight": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "movesight",
+                "missilesight"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "'movesight' or 'missilesight', any case. Any case. Legacy TXT key: sight."
+        },
+        "Zoom": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 1
+            }
+          ],
+          "default": [
+            1
+          ],
+          "description": "Zoom steps: one number, or a list each clamped to 0..10. Legacy TXT writes 'Zoom = 1.25, 2, 4' and clamps each step to 0.1..10. One zoom step, or a list of them; each is kept within 0 to 10. Legacy TXT key: zoom."
+        },
+        "EnableMortarRadar": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "CCIPTexture": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "FollowLockEntity": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "FollowStrength": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Missile": {
+      "type": "object",
+      "description": "Guidance, with the 'LockOn', 'Radar' and 'Heat' seeker settings in their own sections.",
+      "properties": {
+        "LaserGuidance": {
+          "type": "boolean",
+          "default": false,
+          "description": "TV missiles steer by laser. Legacy TXT key: laserguidance."
+        },
+        "HasLaserGuidancePod": {
+          "type": "boolean",
+          "default": true,
+          "description": "Legacy TXT key: haslaserguidancepod."
+        },
+        "IsOffAxis": {
+          "type": "boolean",
+          "default": true,
+          "description": "Air-to-air missiles may be fired off boresight. Legacy TXT key: enableoffaxis."
+        },
+        "GuidedTorpedo": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: guidedtorpedo."
+        },
+        "PredictTargetPos": {
+          "type": "boolean",
+          "default": true,
+          "description": "Lead the target instead of chasing it. Legacy TXT key: predicttargetpos."
+        },
+        "EnableBVR": {
+          "type": "boolean",
+          "default": false,
+          "description": "Beyond-visual-range targeting. Legacy TXT key: enablebvr."
+        },
+        "MinRangeBVR": {
+          "type": "integer",
+          "default": 300,
+          "description": "Legacy TXT key: minrangebvr."
+        },
+        "ScanInterval": {
+          "type": "integer",
+          "default": 20,
+          "description": "Ticks between active radar scans. Legacy TXT key: scaninterval."
+        },
+        "NameOnRWR": {
+          "type": "string",
+          "default": "MSL",
+          "description": "Legacy TXT key: nameonrwr."
+        },
+        "IsGPSMissile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: isgpsmissile."
+        },
+        "TickEndHoming": {
+          "type": "integer",
+          "minimum": -1,
+          "maximum": 100000,
+          "default": -1,
+          "description": "Ticks a lost lock is kept; -1 keeps it for good. The game clamps a value outside -1 to 100000 and says so. Legacy TXT key: tickendhoming."
+        },
+        "PDHDNMaxDegree": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 90,
+          "default": 1000,
+          "description": "Largest look-down angle of a pulse-Doppler seeker; the default is outside the range on purpose (no limit). The game clamps a value outside -1 to 90 and says so. Legacy TXT key: pdhdnmaxdegree."
+        },
+        "PDHDNMaxDegreeLockOutCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200,
+          "default": 10,
+          "description": "Ticks past that angle before the lock breaks. The game clamps a value outside 0 to 200 and says so. Legacy TXT key: pdhdnmaxdegreelockoutcount."
+        },
+        "TurningFactor": {
+          "type": "number",
+          "default": 0.5,
+          "description": "Manoeuvrability: 1 is vanilla, 0.1 recommended. Legacy TXT key: turningfactor, laserstartdistance."
+        },
+        "MaxDegreeOfMissile": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000,
+          "default": 60,
+          "description": "Largest angle the seeker tracks. The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: maxdegreeofmissile."
+        },
+        "CanBeIntercepted": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: canbeintercepted."
+        },
+        "Ballistic": {
+          "type": "object",
+          "properties": {
+            "Canister": {
+              "type": "integer",
+              "default": -1,
+              "description": "Legacy TXT key: canister."
+            },
+            "DragInAir": {
+              "type": "number",
+              "default": 0,
+              "description": "Legacy TXT key: draginair."
+            },
+            "BallisticMissile": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "ArcFactor": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "ArcMinHeight": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "ArcMaxHeight": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "MinDistance": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "LateralSine": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "LateralAmplitude": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "LateralWaves": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "LateralPhaseDeg": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "LateralStartRatio": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "LateralEndRatio": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "TerminalNoWeaveDist": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "TerminalCylinderRadius": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "CanisterType": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            }
+          },
+          "additionalProperties": false
+        },
+        "ARM": {
+          "type": "object",
+          "properties": {
+            "AntiRadiationMissile": {
+              "type": "boolean",
+              "default": false,
+              "description": "Homes on radar emitters. Legacy TXT key: antiradiationmissile."
+            },
+            "EmitterLostGraceTick": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "MemoryTimeTick": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "CruiseEnable": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "CruiseStartDistance": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "CruiseTerminalRadius": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            },
+            "CruiseTerminalHeight": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            }
+          },
+          "additionalProperties": false
+        },
+        "LockOn": {
+          "type": "object",
+          "properties": {
+            "CanLockMissile": {
+              "type": "boolean",
+              "default": false,
+              "description": "Legacy TXT key: canlockmissile."
+            },
+            "Time": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000,
+              "default": 30,
+              "description": "Ticks to lock. TXT clamps it to 2..1000. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: locktime."
+            },
+            "Delay": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000,
+              "default": 7,
+              "description": "Ticks after launch before the seeker steers. The game clamps a value outside 0 to 1000000 and says so. Legacy TXT key: rigiditytime."
+            },
+            "MaxRange": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2000,
+              "default": 300,
+              "description": "The game clamps a value outside 0 to 2000 and says so. Legacy TXT key: maxlockonrange."
+            },
+            "MaxAngle": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 200,
+              "default": 10,
+              "description": "Largest angle off the aircraft's nose a lock can start at. The game clamps a value outside 0 to 200 and says so. Legacy TXT key: maxlockonangle."
+            },
+            "MinHeight": {
+              "type": "integer",
+              "minimum": -1,
+              "maximum": 100,
+              "default": 25,
+              "description": "Below this height the target hides in ground clutter; -1 for no limit. The game clamps a value outside -1 to 100 and says so. Legacy TXT key: lockminheight."
+            },
+            "PassiveRadarLockOutCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 200,
+              "default": 20,
+              "description": "Ticks a semi-active missile flies on after losing the launcher's guidance. The game clamps a value outside 0 to 200 and says so. Legacy TXT key: passiveradarlockoutcount."
+            },
+            "LockedChaffMax": {
+              "type": "integer",
+              "default": 2,
+              "description": "Chaff locks before the missile goes ballistic. Legacy TXT key: numlockedchaffmax."
+            },
+            "ProximityFuseTick": {
+              "type": "integer",
+              "default": -1,
+              "description": "Legacy TXT key: proximityfusetick."
+            },
+            "ProximityFuseDamage": {
+              "type": "number",
+              "default": 0,
+              "description": "Legacy TXT key: proximityfusedamage."
+            },
+            "ProximityFuseHeight": {
+              "type": "integer",
+              "default": 20,
+              "description": "Legacy TXT key: proximityfuseheight."
+            },
+            "LockInWater": {
+              "type": "boolean",
+              "default": false,
+              "description": "Targets sitting in water (ships, boats) may be locked. YAML only."
+            }
+          },
+          "additionalProperties": false
+        },
+        "Radar": {
+          "type": "object",
+          "properties": {
+            "IsRadarMissile": {
+              "type": "boolean",
+              "default": false,
+              "description": "Chaff fools it. Legacy TXT key: isradarmissile."
+            },
+            "ActiveRadar": {
+              "type": "boolean",
+              "default": false,
+              "description": "Tracks on its own after launch. Legacy TXT key: activeradar."
+            },
+            "PassiveRadar": {
+              "type": "boolean",
+              "default": false,
+              "description": "Semi-active: needs the launcher to keep the lock. Legacy TXT key: passiveradar."
+            },
+            "SemiActiveRadar": {
+              "deprecated": true,
+              "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+            }
+          },
+          "additionalProperties": false
+        },
+        "Heat": {
+          "type": "object",
+          "properties": {
+            "isHeatMissile": {
+              "type": "boolean",
+              "default": true,
+              "description": "Flares fool it. Legacy TXT key: isheatseekermissile."
+            },
+            "HeatCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0,
+              "description": "The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: heatcount."
+            },
+            "MaxHeatCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0,
+              "description": "The game clamps a value outside 0 to 100000 and says so. Legacy TXT key: maxheatcount."
+            },
+            "AntiFlareCount": {
+              "type": "integer",
+              "minimum": -1,
+              "maximum": 200,
+              "default": -1,
+              "description": "Ticks the seeker ignores flares; -1 for never. The game clamps a value outside -1 to 200 and says so. Legacy TXT key: antiflarecount."
+            }
+          },
+          "additionalProperties": false
+        },
+        "MarkerRocket": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "InitGuidance": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "Signature": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "EnableDataLink": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "OnlyDataLink": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "EnableHMS": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Ammo": {
+      "type": "object",
+      "description": "Magazine, reserve and reload.",
+      "properties": {
+        "ReloadTime": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 1000,
+          "default": 30,
+          "description": "Ticks to reload. The game clamps a value outside 3 to 1000 and says so. Legacy TXT key: reloadtime."
+        },
+        "MagSize": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30000,
+          "default": 0,
+          "description": "Rounds per magazine; 0 means the maximum ammo. The game clamps a value outside 1 to 30000 and says so. Legacy TXT key: round."
+        },
+        "MaxAmmo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 30000,
+          "default": 0,
+          "description": "Rounds carried in reserve, besides the loaded magazine. The game clamps a value outside 0 to 30000 and says so. Legacy TXT key: maxammo."
+        },
+        "ResupplyCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30000,
+          "default": 1,
+          "description": "Rounds a resupply gives. The game clamps a value outside 1 to 30000 and says so. Legacy TXT key: suppliednum."
+        },
+        "AmmoItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Count": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 64,
+                "description": "The game clamps a value outside 1 to 64 and says so."
+              },
+              "Num": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 64,
+                "description": "The game clamps a value outside 1 to 64 and says so."
+              },
+              "Name": {
+                "type": "string"
+              },
+              "Loc": {
+                "type": "string"
+              },
+              "Meta": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 32767,
+                "description": "The game clamps a value outside 0 to 32767 and says so."
+              },
+              "Damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 32767,
+                "description": "The game clamps a value outside 0 to 32767 and says so."
+              }
+            },
+            "additionalProperties": false
+          },
+          "default": [],
+          "description": "Items a reload uses up: Name (or Loc) is the item id, Count (or Num) how many."
+        }
+      },
+      "additionalProperties": false
+    },
+    "FireCooldown": {
+      "type": "integer",
+      "default": 10,
+      "description": "Ticks between shots. TXT clamps it to 0..100000. Legacy TXT key: delay."
+    },
+    "Target": {
+      "type": "string",
+      "default": "Others",
+      "description": "What the weapon may lock on to or hit. Words anywhere in the text: planes, helicopters, vehicles (or tanks), players, monsters, others; or block alone. Legacy TXT key: target."
+    },
+    "Mode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 0,
+      "description": "Fire modes the weapon cycles through. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: modenum."
+    },
+    "FixMode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10,
+      "default": 0,
+      "description": "The mode the weapon is fixed to, if below the mode count. The game clamps a value outside 0 to 10 and says so. Legacy TXT key: fixmode."
+    },
+    "RidableOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Only a seated gunner may fire it. Legacy TXT key: ridableonly."
+    },
+    "Accuracy": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "default": 0,
+      "description": "Random spread; 0 is perfectly accurate. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: accuracy."
+    },
+    "SelfDestruct": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fires once and destroys itself, as a demolition charge does. Legacy TXT key: destruct."
+    },
+    "CanLoadChunks": {
+      "type": "boolean",
+      "default": false,
+      "description": "The projectile keeps the chunks it flies through loaded. Legacy TXT key: enablechunkloader."
+    },
+    "Render": {
+      "type": "object",
+      "description": "How the shot looks.",
+      "properties": {
+        "MuzzleFlashes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Distance": {
+                "type": "number"
+              },
+              "Size": {
+                "type": "number"
+              },
+              "Range": {
+                "type": "number"
+              },
+              "Age": {
+                "type": "integer"
+              },
+              "Count": {
+                "type": "integer"
+              },
+              "Color": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^\\s*(#|0[xX])?[0-9A-Fa-f]+\\s*$"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                ],
+                "description": "A colour: hex '#AARRGGBB' or '#RRGGBB', or a list [a, r, g, b] of numbers from 0 to 1."
+              }
+            },
+            "required": [
+              "Distance",
+              "Size",
+              "Range",
+              "Age",
+              "Count",
+              "Color"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "MuzzleSmoke": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Distance": {
+                "type": "number"
+              },
+              "Size": {
+                "type": "number"
+              },
+              "Range": {
+                "type": "number"
+              },
+              "Age": {
+                "type": "integer"
+              },
+              "Count": {
+                "type": "integer"
+              },
+              "Color": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^\\s*(#|0[xX])?[0-9A-Fa-f]+\\s*$"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                ],
+                "description": "A colour: hex '#AARRGGBB' or '#RRGGBB', or a list [a, r, g, b] of numbers from 0 to 1."
+              }
+            },
+            "required": [
+              "Distance",
+              "Size",
+              "Range",
+              "Age",
+              "Count",
+              "Color"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "SpentCasings": {
+          "type": "object",
+          "properties": {
+            "Name": {
+              "type": "string"
+            },
+            "Acceleration": {
+              "type": "number"
+            },
+            "Accel": {
+              "type": "number"
+            },
+            "Yaw": {
+              "type": "number"
+            },
+            "Pitch": {
+              "type": "number"
+            },
+            "Bound": {
+              "type": "number"
+            },
+            "Gravity": {
+              "type": "number"
+            },
+            "Scale": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "BulletModel": {
+          "type": "string",
+          "default": "",
+          "description": "Bullet model name; empty for the weapon type's default model. Legacy TXT key: modelbullet."
+        },
+        "BombletModel": {
+          "type": "string",
+          "default": "",
+          "description": "Legacy TXT key: modelbomblet."
+        },
+        "TrajectoryParticle": {
+          "type": "string",
+          "default": "explode",
+          "description": "A particle name; 'none' turns the trail off. Legacy TXT key: trajectoryparticle."
+        },
+        "TrajectoryParticleStartTick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 10000 and says so. Legacy TXT key: trajectoryparticlestarttick."
+        },
+        "FlakParticlesCrack": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 300,
+          "default": 10,
+          "description": "Block-break particles on impact. The game clamps a value outside 0 to 300 and says so. Legacy TXT key: flakparticlescrack."
+        },
+        "ParticlesFlak": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 3,
+          "description": "White smoke particles on impact. The game clamps a value outside 0 to 100 and says so. Legacy TXT key: particlesflak."
+        },
+        "Smoke": {
+          "type": "object",
+          "properties": {
+            "DisableSmoke": {
+              "type": "boolean",
+              "default": false,
+              "description": "Legacy TXT key: disablesmoke."
+            },
+            "SmokeSize": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 2,
+              "description": "The game clamps a value outside 0 to 100 and says so. Legacy TXT key: smokesize."
+            },
+            "SmokeNum": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 1,
+              "description": "The game clamps a value outside 1 to 100 and says so. Legacy TXT key: smokenum."
+            },
+            "SmokeMaxAge": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 1000,
+              "default": 100,
+              "description": "Ticks a smoke particle lives. The game clamps a value outside 2 to 1000 and says so. Legacy TXT key: smokemaxage."
+            },
+            "BulletColorInWater": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^\\s*(#|0[xX])?[0-9A-Fa-f]+\\s*$"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 4,
+                  "maxItems": 4
+                }
+              ],
+              "default": "#FFFFFFFF",
+              "description": "A colour: hex '#AARRGGBB' or '#RRGGBB', or a list [a, r, g, b] of numbers from 0 to 1."
+            },
+            "BulletColor": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^\\s*(#|0[xX])?[0-9A-Fa-f]+\\s*$"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 4,
+                  "maxItems": 4
+                }
+              ],
+              "default": "#FFFFFFFF",
+              "description": "Also tints the smoke trail. A colour: hex '#AARRGGBB' or '#RRGGBB', or a list [a, r, g, b] of numbers from 0 to 1."
+            }
+          },
+          "additionalProperties": false
+        },
+        "TrajectoryParticleEndTick": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "EnableExhaustFlare": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        },
+        "BulletModelEnd": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Submunition": {
+      "type": "object",
+      "description": "YAML 'Submunition' (older files say 'Bomblet'): bomblets a cluster weapon releases, and projectiles a carrier spawns in flight.",
+      "properties": {
+        "Count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bomblet."
+        },
+        "DeployTime": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 10,
+          "description": "Ticks of flight before the bomblets deploy. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bombletstime."
+        },
+        "Spread": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0.3,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bombletdiff."
+        },
+        "SpawnInAir": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: spawnbulletinair."
+        },
+        "SpawnMaxNum": {
+          "type": "integer",
+          "default": 1,
+          "description": "Legacy TXT key: spawnbulletmaxnum."
+        },
+        "SpawnIntervalTick": {
+          "type": "integer",
+          "default": 20,
+          "description": "Legacy TXT key: spawnbulletintervaltick."
+        },
+        "SpawnPerNum": {
+          "type": "integer",
+          "default": 1,
+          "description": "Legacy TXT key: spawnbulletpernum."
+        },
+        "SpawnInheritSpeed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: spawnbulletinheritspeed."
+        },
+        "DestructAfterSpawn": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: destructafterspawnbullet."
+        },
+        "Ahead": {
+          "type": "boolean",
+          "default": false,
+          "description": "An AHEAD round: bursts ahead of the target. Legacy TXT key: ahead."
+        },
+        "AheadSolveIntervalTick": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Bomblet": {
+      "type": "object",
+      "properties": {
+        "Count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bomblet."
+        },
+        "DeployTime": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 10,
+          "description": "Ticks of flight before the bomblets deploy. The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bombletstime."
+        },
+        "Spread": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 0.3,
+          "description": "The game clamps a value outside 0 to 1000 and says so. Legacy TXT key: bombletdiff."
+        },
+        "SpawnInAir": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: spawnbulletinair."
+        },
+        "SpawnMaxNum": {
+          "type": "integer",
+          "default": 1,
+          "description": "Legacy TXT key: spawnbulletmaxnum."
+        },
+        "SpawnIntervalTick": {
+          "type": "integer",
+          "default": 20,
+          "description": "Legacy TXT key: spawnbulletintervaltick."
+        },
+        "SpawnPerNum": {
+          "type": "integer",
+          "default": 1,
+          "description": "Legacy TXT key: spawnbulletpernum."
+        },
+        "SpawnInheritSpeed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: spawnbulletinheritspeed."
+        },
+        "DestructAfterSpawn": {
+          "type": "boolean",
+          "default": false,
+          "description": "Legacy TXT key: destructafterspawnbullet."
+        },
+        "Ahead": {
+          "type": "boolean",
+          "default": false,
+          "description": "An AHEAD round: bursts ahead of the target. Legacy TXT key: ahead."
+        },
+        "AheadSolveIntervalTick": {
+          "deprecated": true,
+          "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Another spelling of 'Submunition'."
+    },
+    "Effects": {
+      "type": "object",
+      "description": "What a hit does beyond damage.",
+      "properties": {
+        "PotionEffects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Potion": {
+                "type": "string"
+              },
+              "Name": {
+                "type": "string"
+              },
+              "Duration": {
+                "type": "integer"
+              },
+              "Amplifier": {
+                "type": "integer"
+              },
+              "StartDist": {
+                "type": "integer"
+              },
+              "EndDist": {
+                "type": "integer"
+              }
+            },
+            "additionalProperties": false
+          },
+          "default": [],
+          "description": "Potion (or Name) is an effect id such as minecraft:poison; Duration is in ticks."
+        },
+        "BulletDecay": {
+          "type": "object",
+          "properties": {
+            "Type": {
+              "type": "string"
+            },
+            "Segments": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2
+              }
+            }
+          },
+          "additionalProperties": false,
+          "description": "The curves of a weapon; YAML adds one, the emitter writes the first. Type Segmented; each segment is [start distance, damage factor]."
+        }
+      },
+      "additionalProperties": false
+    },
+    "DispenseItem": {
+      "type": "object",
+      "properties": {
+        "Location": {
+          "type": "string",
+          "description": "The item a dispenser places or uses, such as 'water_bucket'."
+        },
+        "Loc": {
+          "type": "string",
+          "description": "Another spelling of 'Location'."
+        },
+        "Name": {
+          "type": "string",
+          "description": "Another spelling of 'Location'."
+        },
+        "Meta": {
+          "type": "integer",
+          "default": 0
+        },
+        "Damage": {
+          "type": "integer",
+          "default": 0,
+          "description": "Another spelling of 'Meta'."
+        },
+        "DispenseRange": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 1,
+          "description": "Blocks around the impact the dispenser covers. The game clamps a value outside 1 to 100 and says so. Legacy TXT key: dispenserange."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "Location"
+              ]
+            },
+            {
+              "required": [
+                "Loc"
+              ]
+            },
+            {
+              "required": [
+                "Name"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "Length": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 300,
+      "default": 0,
+      "description": "Length of a beam or cone weapon. The game clamps a value outside 1 to 300 and says so. Legacy TXT key: length."
+    },
+    "Radius": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000,
+      "default": 0,
+      "description": "Radius of a beam or cone weapon. The game clamps a value outside 1 to 1000 and says so. Legacy TXT key: radius."
+    },
+    "MarkTime": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30000,
+      "default": -1,
+      "description": "Ticks a spotted target stays marked; the game keeps it one tick longer than written. The game clamps a value outside 1 to 30000 and says so. Legacy TXT key: marktime."
+    },
+    "DamageFactor": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      },
+      "default": {},
+      "description": "Factors are read as written; the YAML reader used to drop the fraction, which made a converted 'DamageFactor = player, 0.5' line come back as 0. Target to damage multiplier: Player, Helicopter (or Heli), Plane, Ship, Tank, Vehicle, or an entity class name."
+    },
+    "Buckshot": {
+      "type": "object",
+      "properties": {
+        "Count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000,
+          "default": 6,
+          "description": "The game clamps a value outside 1 to 1000 and says so."
+        },
+        "PayloadType": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "Bullet",
+                "Rocket"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "BULLET",
+          "description": "'Rocket', any case; anything else fires bullets. Any case."
+        },
+        "Payload": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "Bullet",
+                "Rocket"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "BULLET",
+          "description": "Another spelling of 'PayloadType'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Mine": {
+      "type": "object",
+      "properties": {
+        "Fuze": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "ProximityPlayer",
+                "ProximityVehicle"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "NONE",
+          "description": "'ProximityPlayer' or 'ProximityVehicle', any case; any other name is not a mine. Any case."
+        },
+        "Type": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "ProximityPlayer",
+                "ProximityVehicle"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "NONE",
+          "description": "Another spelling of 'Fuze'."
+        },
+        "MineType": {
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "ProximityPlayer",
+                "ProximityVehicle"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "NONE",
+          "description": "Another spelling of 'Fuze'."
+        },
+        "Range": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 256,
+          "default": 4,
+          "description": "Blocks within which the trigger sets the mine off. The game clamps a value outside 0 to 256 and says so."
+        },
+        "ArmDelay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000,
+          "default": 40,
+          "description": "Ticks after landing before the mine can go off. The game clamps a value outside 0 to 1000000 and says so."
+        }
+      },
+      "additionalProperties": false
+    },
+    "NTM": {
+      "type": "object",
+      "additionalProperties": {},
+      "description": "Hammer's Nuclear Tech explosion settings, used only with that mod installed."
+    },
+    "SwitchCooldown": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "CrossType": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "Damage": {
+      "deprecated": true,
+      "description": "No longer supported: the game ignores this key and says so once per load. You can delete it."
+    },
+    "SchemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1,
+      "description": "The content schema version the file is written for. Optional; a file without it is version 1. This game reads version 1."
+    }
+  },
+  "additionalProperties": false
+}

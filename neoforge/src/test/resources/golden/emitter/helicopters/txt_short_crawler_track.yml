@@ -1,0 +1,22 @@
+# {"schema":1,"emitted from":"assets/mcheli/helicopters/txt_short_crawler_track.txt","commit":"09ffef3"}
+DisplayName: TXT Short Crawler Track
+RepairOtherVehicles:
+  Range: 0.0
+  Value: 10
+Seats:
+- Position: [0.0, 1.0, 0.0]
+  Hud: heli
+HeliFeatures:
+  IsFoldableBlade: false
+Components:
+  CrawlerTrack:
+  - Position: [0.0, 0.0, 0.0]
+    Rotation: [0.0, 0.0, 0.0]
+    PartName: crawler_track0
+    IsReverse: true
+    SegmentLength: 0.6
+    ZOffset: -1.2
+    TrackList:
+    - [0.0, 0.0]
+    - [1.0, 0.0]
+    - [1.0, 1.0]

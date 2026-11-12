@@ -1,0 +1,92 @@
+// The public API other mods build against: interfaces, records and enums only, no implementation. It has
+// its own version (api_version in gradle.properties, semantic versioning, independent of mod_version) and
+// is published as mcheli-revived-api (docs/API.md). Like :common it compiles against vanilla Minecraft
+// from NeoForm with Mojang names and no loader, so an addon on any loader can use it. The loader modules
+// compile its sources into the mod jar, which is what implements it at run time.
+//
+// api.txt is the committed list of its public signatures. ApiSignaturesTest fails the build while it is out
+// of date; ./gradlew :api:updateApiDump rewrites it, and refuses when a signature was removed or changed
+// without a major version bump, or one was added without at least a minor one.
+plugins {
+    id 'mcheli.shared-conventions'
+    id 'net.neoforged.moddev'
+    id 'maven-publish'
+}
+
+version = project.api_version
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+neoForge {
+    neoFormVersion = project.neo_form_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    // The signature dump reflects over the compiled classes, which needs Minecraft on the classpath.
+    addModdingDependenciesTo(sourceSets.test)
+}
+
+dependencies {
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly libs.junit.platform.launcher
+}
+
+tasks.named('jar', Jar) {
+    manifest.attributes(
+            'Specification-Title': 'MCHeli: Revived API',
+            'Specification-Version': project.api_version,
+            'Implementation-Title': 'mcheli-revived-api',
+            'Implementation-Version': project.api_version)
+}
+
+tasks.named('javadoc', Javadoc) {
+    options.encoding = 'UTF-8'
+    // Minecraft has no javadoc to link to; missing comments are caught in review, not here.
+    (options as StandardJavadocDocletOptions).addStringOption('Xdoclint:all,-missing', '-quiet')
+}
+
+var apiDump = file('api.txt')
+var mainClassesDirs = sourceSets.main.output.classesDirs
+test {
+    inputs.file(apiDump).withPropertyName('apiDump')
+    systemProperty 'mcheli.apiDump', apiDump.absolutePath
+    systemProperty 'mcheli.apiVersion', project.api_version
+    systemProperty 'mcheli.apiClasses', mainClassesDirs.asPath
+}
+
+tasks.register('updateApiDump', JavaExec) {
+    group = 'mcheli'
+    description = 'Rewrites api.txt from the compiled API, checking that api_version was bumped as the change needs.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.ivomens.mcheli.api.dump.ApiSignatures'
+    args apiDump.absolutePath, project.api_version, mainClassesDirs.asPath
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'mcheli-revived-api'
+            // Only the API's own jars: Minecraft comes from the addon's loader setup, so the POM lists no
+            // dependencies.
+            artifact tasks.named('jar')
+            artifact tasks.named('sourcesJar')
+            artifact tasks.named('javadocJar')
+            pom {
+                name = 'MCHeli: Revived API'
+                description = 'The public API of MCHeli: Revived for addon mods: vehicles, content and events.'
+                licenses {
+                    license {
+                        name = 'LGPL-3.0-only'
+                        url = 'https://www.gnu.org/licenses/lgpl-3.0.txt'
+                    }
+                }
+            }
+        }
+    }
+}
