@@ -11,6 +11,22 @@ The first release of MCHeli: Revived, a port of McHeli CE (Minecraft 1.12.2) to 
 Existing content packs (YAML, TXT, HUD scripts, `.obj` and `.mqo` models) load as they did on
 McHeli CE.
 
+### API 1.1
+
+- Vehicle actions (`McheliApi.vehicleActions()`): spawn a vehicle of a content type at a position and
+  rotation, with an owner and riders, optionally held to the server's vehicle limits
+  (`VehicleSpawner`, `SpawnResult`); and through a `VehicleControl`, repair, damage (through the
+  vehicle's own damage handling), destroy, refuel, rearm or set a weapon's ammunition, board, eject
+  and dismount crew, and read or change the owner and the lock. Actions return an `ActionResult`
+  that says why one was not done.
+- Addon data on vehicles: addons declare typed keys (`VehicleDataKey.of`, with a `Codec` and an
+  optional `StreamCodec`), read them with `Vehicle.data()` and change them with
+  `VehicleControl.data()`. Values are saved with the vehicle under `McheliAddonData`, values of
+  removed addons are kept, and synced keys reach the players who see the vehicle, batched once per
+  tick. A vehicle without addon data saves exactly as before.
+- Network protocol 14 (one new message, `vehicledata/values`): clients and servers must update
+  together.
+
 ### Added
 
 - NeoForge 1.21.1 and Fabric 1.21.1 jars built from one codebase, with the same content and

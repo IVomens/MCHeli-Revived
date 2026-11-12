@@ -15,7 +15,8 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * An addon built against the MCHeli: Revived API alone. It ships a content pack ({@link ExamplePacks}),
  * counts every shot fired on the server, and stops shots fired by players inside the server's spawn
- * protection when the server config says so ({@link ExampleConfig}).
+ * protection when the server config says so ({@link ExampleConfig}). It also keeps a sortie count on every
+ * vehicle with the API's vehicle data ({@link ExampleSorties}).
  */
 @Mod(ExampleAddon.MOD_ID)
 public final class ExampleAddon {
@@ -33,6 +34,7 @@ public final class ExampleAddon {
         McheliApi api = McheliApi.get();
         LOGGER.info("MCHeli API {} found", api.apiVersion());
         api.events().register(WeaponFired.class, ExampleAddon::onWeaponFired);
+        ExampleSorties.register(api);
     }
 
     /** The shots fired since the game started that were not cancelled. */
